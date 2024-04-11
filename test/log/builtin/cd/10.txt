@@ -1,0 +1,31 @@
+					### CD ###
+
+	-- Test[10] --
+
+INPUT=cd _
+
+	-- RETURN VALUE --
+bash: cd: _: No such file or directory
+---->[OK]
+
+	-- EXIT STATUS --
+MINISHELL=1
+BASH=1
+---->[OK]
+
+	-- VALGRIND --
+==352664== Memcheck, a memory error detector
+==352664== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==352664== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==352664== Command: ./minishell cd\ _
+==352664== Parent PID: 352318
+==352664== 
+==352664== 
+==352664== HEAP SUMMARY:
+==352664==     in use at exit: 0 bytes in 0 blocks
+==352664==   total heap usage: 398 allocs, 398 frees, 13,159 bytes allocated
+==352664== 
+==352664== All heap blocks were freed -- no leaks are possible
+==352664== 
+==352664== For lists of detected and suppressed errors, rerun with: -s
+==352664== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

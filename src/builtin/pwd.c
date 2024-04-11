@@ -1,0 +1,107 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   pwd.c                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: agadea <agadea@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/08 16:20:26 by agadea            #+#    #+#             */
+/*   Updated: 2024/04/03 09:26:49 by agadea           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../../include/minishell.h"
+
+/*
+	pwd [-LP]
+        	Print the absolute pathname of the current working
+        	directory.  The pathname printed contains no symbolic
+        	links if the -P option is supplied or the -o physical
+        	option to the set builtin command is enabled.  If the -L
+        	option is used, the pathname printed may contain symbolic
+        	links.  The return status is 0 unless an error occurs
+        	while reading the name of the current directory or an
+        	invalid option is supplied.
+*/
+
+void	get_oldpwd_attr(t_env **oldpwd, t_env **pwd)
+{
+	if (!(*oldpwd)->name)
+	{
+		(*oldpwd)->name = malloc(7);
+		if (!(*oldpwd)->name)
+		{
+			perror("malloc");
+			return ;
+		}
+		ft_strlcpy((*oldpwd)->name, "OLDPWD", 7);
+	}
+	if ((*oldpwd)->value)
+		free((*oldpwd)->value);
+	(*oldpwd)->value = (*pwd)->value;
+}
+
+t_env	*get_oldpwd(t_env **env, t_env *pwd)
+{
+	t_env	*oldpwd;
+	t_env	*index;
+
+	oldpwd = NULL;
+	index = (*env);
+	while (index)
+	{
+		if (ft_strncmp(index->name, "OLDPWD", 6) == 0)
+			oldpwd = index;
+		index = index->next;
+	}
+	if (!oldpwd)
+	{
+		oldpwd = malloc(sizeof(t_env));
+		if (!oldpwd)
+			return (perror("malloc"), NULL);
+		init_env_var_attr(&oldpwd);
+	}
+	get_oldpwd_attr(&oldpwd, &pwd);
+	return (oldpwd);
+}
+
+t_env	*get_env_pwd(t_env **env)
+{
+	t_env	*index;
+
+	index = (*env);
+	while (index && errno == 0)
+	{
+		if (ft_strncmp(index->name, "PWD", 3) == 0)
+			return (index);
+		index = index->next;
+	}
+	return (NULL);
+}
+
+void	pwd(t_minishell *minishell, t_cmd *cmd)
+{
+	int		fd;
+	char	*cwd;
+	t_env	*pwd;
+	t_env	*oldpwd;
+
+	if (cmd->pipe && cmd->pipe->write)
+		fd = cmd->pipe->write[1];
+	else
+		fd = 1;
+	cwd = getcwd(NULL, PATH_MAX);
+	pwd = get_env_pwd(&minishell->env);
+	if (pwd)
+	{
+		oldpwd = get_oldpwd(&minishell->env, pwd);
+		if (ft_strncmp(pwd->name, oldpwd->name, ft_strlen(pwd->name)) == 0)
+			free(cwd);
+		else
+			pwd->value = cwd;
+	}
+	if (cmd->pipe && cmd->pipe->write)
+		fd = cmd->pipe->write[1];
+	write(fd, cwd, ft_strlen(cwd));
+	write(fd, "\n", 1);
+}

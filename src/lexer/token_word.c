@@ -1,0 +1,84 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   token_word.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: agadea <agadea@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/12 15:02:26 by agadea            #+#    #+#             */
+/*   Updated: 2024/03/31 12:44:05 by agadea           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../../include/minishell.h"
+
+int	get_word_length(char *input)
+{
+	int	i;
+
+	i = 0;
+	while (input[i] && errno == 0
+		&& is_metacharacter(input[i]) == false)
+	{
+		if (is_quote(input[i]))
+			i += add_quote(&input[i]);
+		if (i == NO_CLOSING_QUOTE)
+			return (NO_CLOSING_QUOTE);
+		i++;
+	}
+	return (i);
+}
+
+char	*get_word_lexeme(char *input, int length, int quote_nbr)
+{
+	int		i;
+	int		j;
+	char	quote;
+	char	*lexeme;
+	int		second_quote;
+
+	lexeme = malloc(length - quote_nbr + 1);
+	if (!lexeme)
+		return (perror("malloc"), NULL);
+	i = 0;
+	j = 0;
+	quote = '\0';
+	second_quote = 0;
+	while (i < length - quote_nbr)
+	{
+		if (is_quote(input[i]))
+			i += remove_quote(input[i], &quote, &second_quote);
+		if (!(second_quote == 0 && is_quote(input[i])))
+		{
+			lexeme[j] = input[i];
+			j++;
+			i++;
+		}
+	}
+	lexeme[j] = '\0';
+	return (lexeme);
+}
+
+bool	is_empty_within_two_quote(int length, int quote_nbr)
+{
+	if (length - quote_nbr * 2 == 0)
+		return (true);
+	return (false);
+}
+
+void	get_word_token(char *input, t_token **new)
+{
+	(*new)->quote_nbr = get_token_quote_nbr(input);
+	if (errno == 0 && (*new)->quote_nbr != NO_CLOSING_QUOTE)
+	{
+		(*new)->length = get_word_length(input);
+		if (is_empty_within_two_quote((*new)->length, (*new)->quote_nbr))
+			(*new)->lexeme = NULL;
+		else
+		{
+			(*new)->lexeme = get_word_lexeme(input,
+					(*new)->length, (*new)->quote_nbr);
+			(*new)->expansion = get_token_expansion(input, (*new)->length);
+		}
+	}
+}

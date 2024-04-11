@@ -1,0 +1,19 @@
+echo $HOME
+
+echo $USER
+
+echo $PATH
+
+echo $SHELL
+
+echo $PWD
+
+cd / && echo $OLDPWD
+
+pwd && echo $?
+
+jfosdjflskd && echo $?
+
+ls / && echo $?
+
+cd /kposad && echo $?

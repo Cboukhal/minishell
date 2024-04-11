@@ -1,0 +1,19 @@
+(echo "Hello, world!")
+
+(pwd; ls)
+
+(echo "Bonjour" > greetings.txt)
+
+(cd /; pwd)
+
+(echo $(pwd))
+
+(echo $(echo "Bonjour, monde!"))
+
+(echo $(expr 10 + 5))
+
+(ls $(pwd))
+
+(echo "Bonjour, $USER!")
+
+(echo "Votre répertoire de travail actuel est: $(pwd)")

@@ -1,0 +1,31 @@
+					### PWD ###
+
+	-- Test[6] --
+
+INPUT=pwd wrong_opt
+
+	-- RETURN VALUE --
+/mnt/nfs/homes/cboukhal/42/minishell
+---->[OK]
+
+	-- EXIT STATUS --
+MINISHELL=0
+BASH=0
+---->[OK]
+
+	-- VALGRIND --
+==353917== Memcheck, a memory error detector
+==353917== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==353917== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==353917== Command: ./minishell pwd\ wrong_opt
+==353917== Parent PID: 352318
+==353917== 
+==353917== 
+==353917== HEAP SUMMARY:
+==353917==     in use at exit: 0 bytes in 0 blocks
+==353917==   total heap usage: 398 allocs, 398 frees, 17,282 bytes allocated
+==353917== 
+==353917== All heap blocks were freed -- no leaks are possible
+==353917== 
+==353917== For lists of detected and suppressed errors, rerun with: -s
+==353917== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

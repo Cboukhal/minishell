@@ -1,0 +1,21 @@
+echo 'Hello, world!'
+
+echo "Hello, world!"
+
+name="Alice"
+echo 'Hello, $name!'
+
+name="Alice"
+echo "Hello, $name!"
+
+echo 'Hello,     world!'
+
+echo "Hello,     world!"
+
+echo 'Bonjour, \'monde\'!'
+
+echo "Bonjour, \"monde\"!"
+
+echo "La date d'aujourd'hui est: `date`"
+
+echo 'La date d\'aujourd\'hui est: `date`'

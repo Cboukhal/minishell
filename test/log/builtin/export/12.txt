@@ -1,0 +1,76 @@
+					### EXPORT ###
+
+	-- Test[12] --
+
+INPUT=export wrong_name wrong_name
+
+	-- RETURN VALUE --
+0a1,2
+> bash: export: `wrong_name': not a valid identifier
+> bash: export: `wrong_name': not a valid identifier
+---->[KO]
+
+	-- EXIT STATUS --
+MINISHELL=1
+BASH=0
+---->[KO]
+
+	-- VALGRIND --
+==353831== Memcheck, a memory error detector
+==353831== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==353831== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==353831== Command: ./minishell export\ wrong_name\ wrong_name
+==353831== Parent PID: 352318
+==353831== 
+==353831== Invalid read of size 1
+==353831==    at 0x409D80: ft_strlen (ft_strlen.c:22)
+==353831==    by 0x402C08: get_variable_value (env_variable.c:53)
+==353831==    by 0x402945: get_env_variable (env_setup.c:41)
+==353831==    by 0x401EDC: parse_export_arg (export.c:70)
+==353831==    by 0x401FEB: export (export.c:100)
+==353831==    by 0x40323D: exec_builtin (exec_builtin.c:28)
+==353831==    by 0x403A3E: exec_command (exec.c:29)
+==353831==    by 0x403CEF: execution (exec.c:74)
+==353831==    by 0x408F9B: test_mode (main.c:86)
+==353831==    by 0x40902D: main (main.c:103)
+==353831==  Address 0x4b2b46b is 0 bytes after a block of size 11 alloc'd
+==353831==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==353831==    by 0x40678D: extract_argument (command_arg.c:39)
+==353831==    by 0x406888: get_command_arg_array (command_arg.c:65)
+==353831==    by 0x406E23: extract_command (command_create.c:69)
+==353831==    by 0x406F34: get_command (command_create.c:91)
+==353831==    by 0x4080EB: get_simple_command (syntax_tree.c:36)
+==353831==    by 0x4082C9: parsing (syntax_tree.c:81)
+==353831==    by 0x408F92: test_mode (main.c:85)
+==353831==    by 0x40902D: main (main.c:103)
+==353831== 
+==353831== Invalid read of size 1
+==353831==    at 0x402C28: get_variable_value (env_variable.c:55)
+==353831==    by 0x402945: get_env_variable (env_setup.c:41)
+==353831==    by 0x401EDC: parse_export_arg (export.c:70)
+==353831==    by 0x401FEB: export (export.c:100)
+==353831==    by 0x40323D: exec_builtin (exec_builtin.c:28)
+==353831==    by 0x403A3E: exec_command (exec.c:29)
+==353831==    by 0x403CEF: execution (exec.c:74)
+==353831==    by 0x408F9B: test_mode (main.c:86)
+==353831==    by 0x40902D: main (main.c:103)
+==353831==  Address 0x4b2b46b is 0 bytes after a block of size 11 alloc'd
+==353831==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==353831==    by 0x40678D: extract_argument (command_arg.c:39)
+==353831==    by 0x406888: get_command_arg_array (command_arg.c:65)
+==353831==    by 0x406E23: extract_command (command_create.c:69)
+==353831==    by 0x406F34: get_command (command_create.c:91)
+==353831==    by 0x4080EB: get_simple_command (syntax_tree.c:36)
+==353831==    by 0x4082C9: parsing (syntax_tree.c:81)
+==353831==    by 0x408F92: test_mode (main.c:85)
+==353831==    by 0x40902D: main (main.c:103)
+==353831== 
+==353831== 
+==353831== HEAP SUMMARY:
+==353831==     in use at exit: 0 bytes in 0 blocks
+==353831==   total heap usage: 408 allocs, 408 frees, 13,378 bytes allocated
+==353831== 
+==353831== All heap blocks were freed -- no leaks are possible
+==353831== 
+==353831== For lists of detected and suppressed errors, rerun with: -s
+==353831== ERROR SUMMARY: 4 errors from 2 contexts (suppressed: 0 from 0)

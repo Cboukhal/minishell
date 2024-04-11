@@ -1,0 +1,19 @@
+ls && echo "Commande réussie"
+
+ls && asdasdasd
+
+asdasdasd && echo "Commande réussie"
+
+echo "Première commande" && echo "Deuxième commande"
+
+echo "Commande 1" && echo "Commande 2" && echo "Commande 3"
+
+zsgsdfzdszg && echo "Commande suivante"
+
+echo "Commande valide" || asdfasdas
+
+ls || echo "L'une des commandes a échoué"
+
+echo "Commande 1" && sdfsfhgdfg || echo "Commande 2"
+
+pwd && cd dfgdgdf || echo "Impossible de changer de répertoire"

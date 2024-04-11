@@ -1,0 +1,170 @@
+					### EXPORT ###
+
+	-- Test[1] --
+
+INPUT=export
+
+	-- RETURN VALUE --
+1,67c1,71
+< declare -x CHROME_DESKTOP="code-url-handler.desktop"
+< declare -x COLORTERM="truecolor"
+< declare -x DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/101581/bus,guid=995975ee654b7e519c97f8e4661786b8"
+< declare -x DBUS_STARTER_ADDRESS="unix:path=/run/user/101581/bus,guid=995975ee654b7e519c97f8e4661786b8"
+< declare -x DBUS_STARTER_BUS_TYPE="session"
+< declare -x DESKTOP_SESSION="ubuntu"
+< declare -x DISPLAY=":0"
+< declare -x DOCKER_HOST="unix:///run/user/101581/docker.sock"
+< declare -x GDK_BACKEND="x11"
+< declare -x GDMSESSION="ubuntu"
+< declare -x GIO_LAUNCHED_DESKTOP_FILE="/usr/share/applications/code.desktop"
+< declare -x GIO_LAUNCHED_DESKTOP_FILE_PID="333570"
+< declare -x GIT_ASKPASS="/usr/share/code/resources/app/extensions/git/dist/askpass.sh"
+< declare -x GNOME_DESKTOP_SESSION_ID="this-is-deprecated"
+< declare -x GPG_AGENT_INFO="/run/user/101581/gnupg/S.gpg-agent:0:1"
+< declare -x GTK_IM_MODULE="ibus"
+< declare -x GTK_MODULES="gail:atk-bridge"
+< declare -x HOME="/mnt/nfs/homes/cboukhal"
+< declare -x INVOCATION_ID="fefd6dfd0be74f5097ae3c4a7457a4c6"
+< declare -x JOURNAL_STREAM="8:948873"
+< declare -x KRB5CCNAME="FILE:/tmp/krb5cc_101581_b6qodB"
+< declare -x LANG="en_US.UTF-8"
+< declare -x LESS="-R"
+< declare -x LIBVIRT_DEFAULT_URI="qemu:///system"
+< declare -x LOGNAME="cboukhal"
+< declare -x LSCOLORS="Gxfxcxdxbxegedabagacad"
+< declare -x LS_COLORS="rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:"
+< declare -x MANAGERPID="330844"
+< declare -x OLDPWD="/mnt/nfs/homes/cboukhal/42/minishell/test/script"
+< declare -x ORIGINAL_XDG_CURRENT_DESKTOP="ubuntu:GNOME"
+< declare -x PAGER="less"
+< declare -x PATH="/mnt/nfs/homes/cboukhal/bin:/mnt/nfs/homes/cboukhal/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
+< declare -x PWD="/mnt/nfs/homes/cboukhal/42/minishell"
+< declare -x QT_ACCESSIBILITY="1"
+< declare -x QT_IM_MODULE="ibus"
+< declare -x SESSION_MANAGER="local/bess-f2r4s2.clusters.42paris.fr:@/tmp/.ICE-unix/331453,unix/bess-f2r4s2.clusters.42paris.fr:/tmp/.ICE-unix/331453"
+< declare -x SHELL="/bin/zsh"
+< declare -x SHLVL="3"
+< declare -x SSH_AGENT_LAUNCHER="gnome-keyring"
+< declare -x SSH_AUTH_SOCK="/run/user/101581/keyring/ssh"
+< declare -x SYSTEMD_EXEC_PID="331453"
+< declare -x TERM="xterm-256color"
+< declare -x TERM_PROGRAM="vscode"
+< declare -x TERM_PROGRAM_VERSION="1.87.2"
+< declare -x USER="cboukhal"
+< declare -x USER_ZDOTDIR="/mnt/nfs/homes/cboukhal"
+< declare -x VSCODE_GIT_ASKPASS_EXTRA_ARGS=""
+< declare -x VSCODE_GIT_ASKPASS_MAIN="/usr/share/code/resources/app/extensions/git/dist/askpass-main.js"
+< declare -x VSCODE_GIT_ASKPASS_NODE="/usr/share/code/code"
+< declare -x VSCODE_GIT_IPC_HANDLE="/run/user/101581/vscode-git-693e8a8bbc.sock"
+< declare -x VSCODE_INJECTION="1"
+< declare -x XAUTHORITY="/mnt/nfs/homes/cboukhal/.Xauthority"
+< declare -x XDG_CONFIG_DIRS="/etc/xdg/xdg-ubuntu:/etc/xdg"
+< declare -x XDG_CURRENT_DESKTOP="Unity"
+< declare -x XDG_DATA_DIRS="/usr/share/ubuntu:/usr/share/gnome:/mnt/nfs/homes/cboukhal/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share:/var/lib/snapd/desktop"
+< declare -x XDG_GREETER_DATA_DIR="/var/lib/lightdm-data/cboukhal"
+< declare -x XDG_MENU_PREFIX="gnome-"
+< declare -x XDG_RUNTIME_DIR="/run/user/101581"
+< declare -x XDG_SEAT_PATH="/org/freedesktop/DisplayManager/Seat0"
+< declare -x XDG_SESSION_CLASS="user"
+< declare -x XDG_SESSION_DESKTOP="ubuntu"
+< declare -x XDG_SESSION_PATH="/org/freedesktop/DisplayManager/Session3"
+< declare -x XDG_SESSION_TYPE="x11"
+< declare -x XMODIFIERS="@im=ibus"
+< declare -x ZDOTDIR="/mnt/nfs/homes/cboukhal"
+< declare -x ZSH="/mnt/nfs/homes/cboukhal/.oh-my-zsh"
+< declare -x _="/usr/bin/bash"
+---
+> declare -x USERcboukhal
+> declare -x XDG_SESSION_TYPEx11
+> declare -x GIT_ASKPASS/usr/share/code/resources/app/extensions/git/dist/askpass.sh
+> declare -x SHLVL2
+> declare -x LD_LIBRARY_PATH/usr/lib/debug
+> declare -x LESS-R
+> declare -x HOME/mnt/nfs/homes/cboukhal
+> declare -x CHROME_DESKTOPcode-url-handler.desktop
+> declare -x OLDPWD/mnt/nfs/homes/cboukhal/42/minishell/test/script
+> declare -x TERM_PROGRAM_VERSION1.87.2
+> declare -x DESKTOP_SESSIONubuntu
+> declare -x LSCOLORSGxfxcxdxbxegedabagacad
+> declare -x ZSH/mnt/nfs/homes/cboukhal/.oh-my-zsh
+> declare -x GIO_LAUNCHED_DESKTOP_FILE/usr/share/applications/code.desktop
+> declare -x GTK_MODULESgail:atk-bridge
+> declare -x XDG_SEAT_PATH/org/freedesktop/DisplayManager/Seat0
+> declare -x PAGERless
+> declare -x VSCODE_GIT_ASKPASS_MAIN/usr/share/code/resources/app/extensions/git/dist/askpass-main.js
+> declare -x VSCODE_GIT_ASKPASS_NODE/usr/share/code/code
+> declare -x MANAGERPID330844
+> declare -x DBUS_STARTER_BUS_TYPEsession
+> declare -x SYSTEMD_EXEC_PID331453
+> declare -x DBUS_SESSION_BUS_ADDRESSunix:path=/run/user/101581/bus,guid=995975ee654b7e519c97f8e4661786b8
+> declare -x COLORTERMtruecolor
+> declare -x LIBVIRT_DEFAULT_URIqemu:///system
+> declare -x GIO_LAUNCHED_DESKTOP_FILE_PID333570
+> declare -x GTK_IM_MODULEibus
+> declare -x LOGNAMEcboukhal
+> declare -x JOURNAL_STREAM8:948873
+> declare -x _/usr/bin/valgrind
+> declare -x USER_ZDOTDIR/mnt/nfs/homes/cboukhal
+> declare -x XDG_SESSION_CLASSuser
+> declare -x TERMxterm-256color
+> declare -x GNOME_DESKTOP_SESSION_IDthis-is-deprecated
+> declare -x PATH/mnt/nfs/homes/cboukhal/bin:/mnt/nfs/homes/cboukhal/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+> declare -x SESSION_MANAGERlocal/bess-f2r4s2.clusters.42paris.fr:@/tmp/.ICE-unix/331453,unix/bess-f2r4s2.clusters.42paris.fr:/tmp/.ICE-unix/331453
+> declare -x INVOCATION_IDfefd6dfd0be74f5097ae3c4a7457a4c6
+> declare -x XDG_SESSION_PATH/org/freedesktop/DisplayManager/Session3
+> declare -x XDG_MENU_PREFIXgnome-
+> declare -x XDG_RUNTIME_DIR/run/user/101581
+> declare -x GDK_BACKENDx11
+> declare -x GLIBCPP_FORCE_NEW1
+> declare -x DISPLAY:0
+> declare -x VSCODE_INJECTION1
+> declare -x LANGen_US.UTF-8
+> declare -x XDG_CURRENT_DESKTOPUnity
+> declare -x XMODIFIERS@im=ibus
+> declare -x XDG_SESSION_DESKTOPubuntu
+> declare -x XAUTHORITY/mnt/nfs/homes/cboukhal/.Xauthority
+> declare -x LS_COLORSrs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+> declare -x VSCODE_GIT_IPC_HANDLE/run/user/101581/vscode-git-693e8a8bbc.sock
+> declare -x TERM_PROGRAMvscode
+> declare -x SSH_AGENT_LAUNCHERgnome-keyring
+> declare -x SSH_AUTH_SOCK/run/user/101581/keyring/ssh
+> declare -x XDG_GREETER_DATA_DIR/var/lib/lightdm-data/cboukhal
+> declare -x ORIGINAL_XDG_CURRENT_DESKTOPubuntu:GNOME
+> declare -x SHELL/bin/zsh
+> declare -x KRB5CCNAMEFILE:/tmp/krb5cc_101581_b6qodB
+> declare -x QT_ACCESSIBILITY1
+> declare -x GDMSESSIONubuntu
+> declare -x DOCKER_HOSTunix:///run/user/101581/docker.sock
+> declare -x GPG_AGENT_INFO/run/user/101581/gnupg/S.gpg-agent:0:1
+> declare -x VSCODE_GIT_ASKPASS_EXTRA_ARGS
+> declare -x QT_IM_MODULEibus
+> declare -x PWD/mnt/nfs/homes/cboukhal/42/minishell
+> declare -x XDG_CONFIG_DIRS/etc/xdg/xdg-ubuntu:/etc/xdg
+> declare -x ZDOTDIR/mnt/nfs/homes/cboukhal
+> declare -x DBUS_STARTER_ADDRESSunix:path=/run/user/101581/bus,guid=995975ee654b7e519c97f8e4661786b8
+> declare -x XDG_DATA_DIRS/usr/share/ubuntu:/usr/share/gnome:/mnt/nfs/homes/cboukhal/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share:/var/lib/snapd/desktop
+> declare -x GLIBCXX_FORCE_NEW1
+> declare -x LD_PRELOAD/usr/libexec/valgrind/vgpreload_core-amd64-linux.so:/usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so
+---->[KO]
+
+	-- EXIT STATUS --
+MINISHELL=0
+BASH=0
+---->[OK]
+
+	-- VALGRIND --
+==353684== Memcheck, a memory error detector
+==353684== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==353684== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==353684== Command: ./minishell export
+==353684== Parent PID: 352318
+==353684== 
+==353684== 
+==353684== HEAP SUMMARY:
+==353684==     in use at exit: 0 bytes in 0 blocks
+==353684==   total heap usage: 392 allocs, 392 frees, 13,096 bytes allocated
+==353684== 
+==353684== All heap blocks were freed -- no leaks are possible
+==353684== 
+==353684== For lists of detected and suppressed errors, rerun with: -s
+==353684== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

@@ -1,0 +1,11 @@
+ls && cd ..
+
+ls && ildusjhfzksjdhf
+
+sfnsdz, && pwd
+
+unser HOME && cd ~
+
+pwd && env && echo export HELLO=132
+
+env && rsgfsdfsdf

@@ -1,0 +1,32 @@
+					### EXIT ###
+
+	-- Test[33] --
+
+INPUT=exit -4294967295
+
+	-- RETURN VALUE --
+0a1
+> exit
+---->[KO]
+
+	-- EXIT STATUS --
+MINISHELL=1
+BASH=1
+---->[OK]
+
+	-- VALGRIND --
+==353590== Memcheck, a memory error detector
+==353590== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==353590== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==353590== Command: ./minishell exit\ -4294967295
+==353590== Parent PID: 352318
+==353590== 
+==353590== 
+==353590== HEAP SUMMARY:
+==353590==     in use at exit: 0 bytes in 0 blocks
+==353590==   total heap usage: 397 allocs, 397 frees, 13,196 bytes allocated
+==353590== 
+==353590== All heap blocks were freed -- no leaks are possible
+==353590== 
+==353590== For lists of detected and suppressed errors, rerun with: -s
+==353590== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
