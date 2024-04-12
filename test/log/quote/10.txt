@@ -1,0 +1,31 @@
+					### QUOTE ###
+
+	-- Test[10] --
+
+INPUT="ls | ls | ls '|' ls"
+
+	-- RETURN VALUE --
+ls | ls | ls '|' ls: command not found
+---->[OK]
+
+	-- EXIT STATUS --
+MINISHELL=127
+BASH=127
+---->[OK]
+
+	-- VALGRIND --
+==95173== Memcheck, a memory error detector
+==95173== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==95173== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==95173== Command: ./minishell "ls\ |\ ls\ |\ ls\ '|'\ ls"
+==95173== Parent PID: 93913
+==95173== 
+==95173== 
+==95173== HEAP SUMMARY:
+==95173==     in use at exit: 0 bytes in 0 blocks
+==95173==   total heap usage: 404 allocs, 404 frees, 13,498 bytes allocated
+==95173== 
+==95173== All heap blocks were freed -- no leaks are possible
+==95173== 
+==95173== For lists of detected and suppressed errors, rerun with: -s
+==95173== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

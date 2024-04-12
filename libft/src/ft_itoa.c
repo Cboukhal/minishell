@@ -6,7 +6,7 @@
 /*   By: agadea <agadea@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 14:10:58 by agadea            #+#    #+#             */
-/*   Updated: 2024/03/30 13:17:57 by agadea           ###   ########.fr       */
+/*   Updated: 2023/05/23 09:44:55 by agadea           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ static char	*ft_put_positive_nbr(int n)
 }
 
 char	*ft_itoa(int n)
-{
+{	
 	int		i;
 	char	*s;
 

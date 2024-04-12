@@ -6,7 +6,7 @@
 /*   By: agadea <agadea@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 14:42:25 by agadea            #+#    #+#             */
-/*   Updated: 2024/03/30 13:15:34 by agadea           ###   ########.fr       */
+/*   Updated: 2023/06/26 12:02:33 by agadea           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,7 @@
 # include <stdlib.h>
 # include <limits.h>
 
-enum e_error
-{
-	no_error,
-	error
-};
+enum e_error {no_error, error};
 
 /* ft_printf */
 int		ft_printf(const char *format, ...);

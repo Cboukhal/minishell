@@ -6,7 +6,7 @@
 /*   By: agadea <agadea@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 13:09:29 by agadea            #+#    #+#             */
-/*   Updated: 2024/04/01 21:55:27 by agadea           ###   ########.fr       */
+/*   Updated: 2024/03/18 17:52:41 by agadea           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ bool	got_filename(char *lexeme, int type)
 			return (true);
 		i++;
 	}
+	errno = error_file;
 	return (false);
 }
 

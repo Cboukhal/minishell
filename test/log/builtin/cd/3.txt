@@ -2,7 +2,7 @@
 
 	-- Test[3] --
 
-INPUT=cd ""
+INPUT=cd ..
 
 	-- RETURN VALUE --
 ---->[OK]
@@ -13,18 +13,18 @@ BASH=0
 ---->[OK]
 
 	-- VALGRIND --
-==352546== Memcheck, a memory error detector
-==352546== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==352546== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==352546== Command: ./minishell cd\ ""
-==352546== Parent PID: 352318
-==352546== 
-==352546== 
-==352546== HEAP SUMMARY:
-==352546==     in use at exit: 0 bytes in 0 blocks
-==352546==   total heap usage: 393 allocs, 393 frees, 13,128 bytes allocated
-==352546== 
-==352546== All heap blocks were freed -- no leaks are possible
-==352546== 
-==352546== For lists of detected and suppressed errors, rerun with: -s
-==352546== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==95779== Memcheck, a memory error detector
+==95779== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==95779== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==95779== Command: ./minishell cd\ ..
+==95779== Parent PID: 93913
+==95779== 
+==95779== 
+==95779== HEAP SUMMARY:
+==95779==     in use at exit: 0 bytes in 0 blocks
+==95779==   total heap usage: 397 allocs, 397 frees, 13,139 bytes allocated
+==95779== 
+==95779== All heap blocks were freed -- no leaks are possible
+==95779== 
+==95779== For lists of detected and suppressed errors, rerun with: -s
+==95779== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

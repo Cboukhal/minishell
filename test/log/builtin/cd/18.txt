@@ -1,0 +1,30 @@
+					### CD ###
+
+	-- Test[18] --
+
+INPUT=cd //////
+
+	-- RETURN VALUE --
+---->[OK]
+
+	-- EXIT STATUS --
+MINISHELL=0
+BASH=0
+---->[OK]
+
+	-- VALGRIND --
+==96012== Memcheck, a memory error detector
+==96012== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==96012== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==96012== Command: ./minishell cd\ //////
+==96012== Parent PID: 93913
+==96012== 
+==96012== 
+==96012== HEAP SUMMARY:
+==96012==     in use at exit: 0 bytes in 0 blocks
+==96012==   total heap usage: 397 allocs, 397 frees, 13,151 bytes allocated
+==96012== 
+==96012== All heap blocks were freed -- no leaks are possible
+==96012== 
+==96012== For lists of detected and suppressed errors, rerun with: -s
+==96012== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

@@ -6,7 +6,7 @@
 /*   By: agadea <agadea@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 00:28:19 by agadea            #+#    #+#             */
-/*   Updated: 2024/04/01 18:48:56 by agadea           ###   ########.fr       */
+/*   Updated: 2024/03/28 15:31:13 by agadea           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,10 +75,6 @@ void	test_mode(t_minishell *minishell, int argc, char *input)
 {
 	int	exit_status;
 
-	// if (isatty(0))
-	// {
-	// 	printf("Isatty\n");
-	// }
 	if (argc == 2)
 	{
 		lexical_analysis(minishell, input);

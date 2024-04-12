@@ -6,7 +6,7 @@
 /*   By: agadea <agadea@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 11:49:30 by cboukhal          #+#    #+#             */
-/*   Updated: 2024/04/01 12:16:20 by agadea           ###   ########.fr       */
+/*   Updated: 2024/03/28 18:07:16 by agadea           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,17 +37,23 @@ bool	is_numeric_string(const char *str)
 
 void	ft_exit(t_minishell *minishell, t_cmd *cmd)
 {
-	ft_printf("exit\n");
 	if (cmd_arg_nbr(cmd->arg_array) >= 2)
 	{
 		if (!is_numeric_string(cmd->arg_array[1])
 			|| ft_strlen(cmd->arg_array[1]) == 0)
-			error_exit(1, cmd->arg_array[1], &minishell->exit_status);
+		{
+			ft_printf("bash: exit: %s: numeric argument required\n",
+				cmd->arg_array[1]);
+			minishell->exit_status = 2;
+		}
 		else if (cmd_arg_nbr(cmd->arg_array) > 2)
-			error_exit(2, NULL, &minishell->exit_status);
+		{
+			ft_printf("bash: exit: too many arguments\n");
+			minishell->exit_status = 1;
+		}
 		else
 			minishell->exit_status = ft_atoi(cmd->arg_array[1]);
 	}
 	minishell->state = stop;
-	// ft_printf("exit\n");
+	ft_printf("exit\n");
 }

@@ -6,7 +6,7 @@
 /*   By: agadea <agadea@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 18:34:47 by agadea            #+#    #+#             */
-/*   Updated: 2024/04/01 21:37:26 by agadea           ###   ########.fr       */
+/*   Updated: 2024/03/28 17:04:54 by agadea           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,6 @@ t_ast_node	*get_syntax_tree_node(t_minishell *minishell,
 		}
 		(*token) = (*token)->next;
 	}
+	printf("here\n");
 	return (node);
 }

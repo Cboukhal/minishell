@@ -5,7 +5,7 @@
 	.type	is_quote,@function
 is_quote:                               # @is_quote
 .Lfunc_begin0:
-	.file	1 "/mnt/nfs/homes/cboukhal/42/minishell" "src/lexer/boolean_word.c"
+	.file	1 "/mnt/nfs/homes/cboukhal/minishell" "src/lexer/boolean_word.c"
 	.loc	1 16 0                          # src/lexer/boolean_word.c:16:0
 	.cfi_startproc
 # %bb.0:
@@ -425,23 +425,23 @@ is_builtin:                             # @is_builtin
 .Linfo_string1:
 	.asciz	"src/lexer/boolean_word.c"      # string offset=38
 .Linfo_string2:
-	.asciz	"/mnt/nfs/homes/cboukhal/42/minishell" # string offset=63
+	.asciz	"/mnt/nfs/homes/cboukhal/minishell" # string offset=63
 .Linfo_string3:
-	.asciz	"is_quote"                      # string offset=100
+	.asciz	"is_quote"                      # string offset=97
 .Linfo_string4:
-	.asciz	"_Bool"                         # string offset=109
+	.asciz	"_Bool"                         # string offset=106
 .Linfo_string5:
-	.asciz	"is_builtin"                    # string offset=115
+	.asciz	"is_builtin"                    # string offset=112
 .Linfo_string6:
-	.asciz	"c"                             # string offset=126
+	.asciz	"c"                             # string offset=123
 .Linfo_string7:
-	.asciz	"char"                          # string offset=128
+	.asciz	"char"                          # string offset=125
 .Linfo_string8:
-	.asciz	"input"                         # string offset=133
+	.asciz	"input"                         # string offset=130
 .Linfo_string9:
-	.asciz	"length"                        # string offset=139
+	.asciz	"length"                        # string offset=136
 .Linfo_string10:
-	.asciz	"int"                           # string offset=146
+	.asciz	"int"                           # string offset=143
 	.ident	"Ubuntu clang version 12.0.1-19ubuntu3"
 	.section	".note.GNU-stack","",@progbits
 	.addrsig

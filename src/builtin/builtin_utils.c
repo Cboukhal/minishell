@@ -6,7 +6,7 @@
 /*   By: agadea <agadea@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 18:39:33 by agadea            #+#    #+#             */
-/*   Updated: 2024/04/02 21:40:14 by agadea           ###   ########.fr       */
+/*   Updated: 2024/03/28 18:47:57 by agadea           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,18 +32,18 @@ int	cmd_arg_nbr(char **arg_array)
 	return (i);
 }
 
-bool	is_valid_variable(char *arg)
+void	add_new_var_to_env(t_env **new_var, t_env **env)
 {
-	int	i;
+	t_env	*index;
 
-	if (!ft_isalpha(arg[0]) && arg[0] != '_')
-		return (false);
-	i = 0;
-	while (arg[i] && (ft_isalnum(arg[i]) || arg[i] == '_'))
+	index = (*env);
+	while (index)
 	{
-		i++;
-		if ((arg[i] == '+' && arg[i + 1] == '=') || arg[i] == '=')
-			return (true);
+		if (index->next == NULL)
+		{
+			index->next = (*new_var);
+			return ;
+		}
+		index = index->next;
 	}
-	return (false);
 }

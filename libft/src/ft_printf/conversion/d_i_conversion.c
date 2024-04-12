@@ -6,7 +6,7 @@
 /*   By: agadea <agadea@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 14:51:35 by agadea            #+#    #+#             */
-/*   Updated: 2024/03/30 13:18:11 by agadea           ###   ########.fr       */
+/*   Updated: 2023/06/25 12:33:35 by agadea           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ static int	field_width_only(int argument, const char *format,
 		return (count);
 	}
 	if (argument < 0 && find_specific_flag(format, '.') == 1)
-		precision++;
+			precision++;
 	count += put_field_width(field_width,
 			global_length(precision, d_i_length(argument)));
 	count += put_plus_or_space(argument, format);

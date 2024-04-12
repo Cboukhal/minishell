@@ -6,7 +6,7 @@
 /*   By: agadea <agadea@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 00:27:45 by agadea            #+#    #+#             */
-/*   Updated: 2024/04/02 21:40:32 by agadea           ###   ########.fr       */
+/*   Updated: 2024/03/29 10:13:38 by agadea           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -217,7 +217,7 @@ typedef struct s_minishell
 	char				**path;
 	char				*prompt;
 	int					operator_nbr;
-	unsigned char		exit_status;
+	int					exit_status;
 	char				**env_array;
 	t_env				*env;
 	t_var				*local;
@@ -229,21 +229,18 @@ typedef struct s_minishell
 }	t_minishell;
 
 /*		INIT		*/
-void		function_tester(void);
 char		**get_path(t_env *env);
 void		init_minishell(t_minishell *minishell, char **envp);
 
 /*		BUILTIN		*/
 void		cd(t_minishell *minishell, t_cmd *cmd);
 void		pwd(t_minishell *minishell, t_cmd *cmd);
-// void		echo(t_minishell *minishell, t_cmd *cmd);
-void	echo( t_cmd *cmd);
+void		echo(t_minishell *minishell, t_cmd *cmd);
 void		ft_exit(t_minishell *minishell, t_cmd *cmd);
 void		env(t_minishell *minishell, t_env *env, t_cmd *cmd);
 void		unset(t_minishell *minishell, t_env *env, t_cmd *cmd);
 void		export(t_minishell *minishell, t_env **env, t_cmd *cmd);
 int			ft_strcmp(const char *str1, const char *str2);
-bool		is_valid_variable(char *arg);
 
 /*		PROMPT		*/
 char		*get_dir_path(void);
@@ -275,10 +272,8 @@ bool		is_exit_status(char *expan_name);
 void		lexical_analysis(t_minishell *minishell, char *input);
 
 int			add_quote(char *input);
-void		get_eof_token(t_token **token);
 int			get_token_quote_nbr(char *input);
 int			skip_quote(char *lexeme, char quote);
-t_token		*create_token(char *input, int *operator_nbr);
 t_expan		*get_token_expansion(char *lexeme, int length);
 int			remove_quote(char lexeme, char *quote, int *second_quote);
 void		check_lexical_error(t_minishell *minishell,
@@ -308,18 +303,11 @@ char		**get_command_arg_array(t_arg *arg);
 void		init_ast_node_attr(t_ast_node **node);
 t_ast		*get_syntax_tree(t_minishell *minishell);
 char		*get_redir_filename(char *lexeme, int type);
-char		*get_expansion_value(t_env *env, char *name);
 char		*get_command_path(char **path, char *cmd_name);
 void		get_command_assign(t_token *token, t_var **table);
 void		assign_variable(t_minishell **minishell, t_cmd *cmd);
 t_cmd		*get_command(t_minishell *minishell, t_token **token, int id);
 int			get_redir_filename_length(char *lexeme, int type, int *start);
-void		extract_command_outfile(t_token *token, t_outfile **outfile);
-bool		is_expansion_name(char *lexeme, char *name, int j);
-void		replace_expansion_name_by_value(char *lexeme,
-				char **lexeme_expanded, char *value, char *name);
-void		extract_command_infile(t_minishell *minishell,
-				t_token *token, t_infile **infile);
 void		get_command_redir(t_minishell *minishell,
 				t_token *token, t_redir **redir);
 void		get_command_arg(t_minishell *minishell, t_token *token,
@@ -331,8 +319,8 @@ t_ast_node	*get_syntax_tree_node(t_minishell *minishell,
 bool		is_expansion_stored_in_env(char *value);
 
 /*	   EXECUTION	*/
-void		manage_child_pipe(t_cmd *cmd);
 void		manage_parent_pipe(t_ast **ast);
+void		manage_child_pipe(t_pipe *pipe);
 void		manage_builtin_pipe(t_pipe *pipe);
 void		execution(t_minishell *minishell);
 void		open_command_redirection(t_cmd *cmd);
@@ -343,7 +331,7 @@ bool		is_next_node_pipeline(t_ast *ast);
 // void		exec_builtin(t_minishell *minishell,
 // 				t_ast_node *node, t_cmd *cmd);
 void		exec_command(t_minishell **minishell, t_cmd **cmd);
-void		exec_pipeline(t_minishell **minishell, t_ast **ast, int i);
+void		exec_pipe(t_minishell **minishell, t_ast **ast, int i);
 void		child_job(t_minishell **minishell, t_cmd *cmd, char **envp);
 
 void		setup_pipe(t_ast **ast);
@@ -351,10 +339,6 @@ void		setup_pipe(t_ast **ast);
 /*		ERROR		*/
 void		get_command_error(t_minishell **minishell);
 void		get_token_error(t_token *token, t_token *stream);
-void		error_cd(int errnum, char *arg, unsigned char *exit_status);
-void		error_exit(int errnum, char *arg, unsigned char *exit_status);
-void		error_unset(int errnum, char *arg, unsigned char *exit_status);
-void		error_export(int errnum, char *arg, unsigned char *exit_status);
 
 /*		MEMORY		*/
 void		free_cmd(t_cmd *cmd);

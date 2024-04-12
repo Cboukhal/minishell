@@ -2,14 +2,11 @@
 
 	-- Test[11] --
 
-INPUT=cd minishell
+INPUT=cd ../libft
 
 	-- RETURN VALUE --
-1c1
-< bash: line 1: cd: minishell: Not a directory
----
-> bash: cd: minishell: Not a directory
----->[KO]
+bash: cd: ../libft: No such file or directory
+---->[OK]
 
 	-- EXIT STATUS --
 MINISHELL=1
@@ -17,18 +14,18 @@ BASH=1
 ---->[OK]
 
 	-- VALGRIND --
-==352680== Memcheck, a memory error detector
-==352680== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==352680== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==352680== Command: ./minishell cd\ minishell
-==352680== Parent PID: 352318
-==352680== 
-==352680== 
-==352680== HEAP SUMMARY:
-==352680==     in use at exit: 0 bytes in 0 blocks
-==352680==   total heap usage: 398 allocs, 398 frees, 13,183 bytes allocated
-==352680== 
-==352680== All heap blocks were freed -- no leaks are possible
-==352680== 
-==352680== For lists of detected and suppressed errors, rerun with: -s
-==352680== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==95911== Memcheck, a memory error detector
+==95911== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==95911== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==95911== Command: ./minishell cd\ ../libft
+==95911== Parent PID: 93913
+==95911== 
+==95911== 
+==95911== HEAP SUMMARY:
+==95911==     in use at exit: 0 bytes in 0 blocks
+==95911==   total heap usage: 398 allocs, 398 frees, 13,158 bytes allocated
+==95911== 
+==95911== All heap blocks were freed -- no leaks are possible
+==95911== 
+==95911== For lists of detected and suppressed errors, rerun with: -s
+==95911== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

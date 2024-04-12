@@ -6,7 +6,7 @@
 /*   By: agadea <agadea@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 16:20:24 by agadea            #+#    #+#             */
-/*   Updated: 2024/04/03 09:18:45 by agadea           ###   ########.fr       */
+/*   Updated: 2024/03/28 18:46:50 by agadea           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,33 @@ void	print_export(t_env *env, int fd)
 		write(fd, "declare -x ", 11);
 		write(fd, env->name, ft_strlen(env->name));
 		write(fd, env->value, ft_strlen(env->value));
-		write(fd, "\n", 1);
 		env = env->next;
 	}
+}
+
+bool	is_valid_variable(t_minishell *minishell, char *arg)
+{
+	int	i;
+
+	if (!ft_isalpha(arg[0]) && arg[0] != '_')
+	{
+		ft_printf("bash: export: `%s': not a valid identifier\n", arg);
+		minishell->exit_status = 1;
+		return (false);
+	}
+	i = 0;
+	while (arg[i] && (ft_isalnum(arg[i]) || arg[i] == '_'))
+	{
+		i++;
+		if ((arg[i] == '+' && arg[i + 1] == '=') || arg[i] == '=')
+			return (true);
+	}
+	if (arg[i] != '\0' && arg[i] != '=')
+	{
+		ft_printf("bash: export: `%s': not a valid identifier\n", arg);
+		minishell->exit_status = 1;
+	}
+	return (false);
 }
 
 t_env	*parse_export_arg(t_minishell *minishell, char **arg_array)
@@ -65,8 +89,8 @@ t_env	*parse_export_arg(t_minishell *minishell, char **arg_array)
 	export_arg = NULL;
 	while (arg_array[i] && errno == 0)
 	{
-		if (!is_valid_variable(arg_array[i]))
-			error_export(1, arg_array[i], &minishell->exit_status);
+		if (!is_valid_variable(minishell, arg_array[i]))
+			break ;
 		new = get_env_variable(arg_array[i]);
 		if (!export_arg)
 			export_arg = new;
@@ -86,6 +110,7 @@ void	export(t_minishell *minishell, t_env **env, t_cmd *cmd)
 	t_env	*new_var;
 
 	i = 0;
+	(void)minishell;
 	if (!cmd->arg_array)
 		return ;
 	if (cmd->pipe && cmd->pipe->write)

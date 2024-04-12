@@ -5,7 +5,7 @@
 	.type	ft_strcmp,@function
 ft_strcmp:                              # @ft_strcmp
 .Lfunc_begin0:
-	.file	1 "/mnt/nfs/homes/cboukhal/42/minishell" "src/builtin/builtin_utils.c"
+	.file	1 "/mnt/nfs/homes/cboukhal/minishell" "src/builtin/builtin_utils.c"
 	.loc	1 16 0                          # src/builtin/builtin_utils.c:16:0
 	.cfi_startproc
 # %bb.0:
@@ -135,10 +135,10 @@ cmd_arg_nbr:                            # @cmd_arg_nbr
 	.size	cmd_arg_nbr, .Lfunc_end1-cmd_arg_nbr
 	.cfi_endproc
                                         # -- End function
-	.globl	is_valid_variable               # -- Begin function is_valid_variable
+	.globl	add_new_var_to_env              # -- Begin function add_new_var_to_env
 	.p2align	4, 0x90
-	.type	is_valid_variable,@function
-is_valid_variable:                      # @is_valid_variable
+	.type	add_new_var_to_env,@function
+add_new_var_to_env:                     # @add_new_var_to_env
 .Lfunc_begin2:
 	.loc	1 36 0 is_stmt 1                # src/builtin/builtin_utils.c:36:0
 	.cfi_startproc
@@ -148,143 +148,62 @@ is_valid_variable:                      # @is_valid_variable
 	.cfi_offset %rbp, -16
 	movq	%rsp, %rbp
 	.cfi_def_cfa_register %rbp
-	subq	$32, %rsp
-	movq	%rdi, -16(%rbp)
+	movq	%rdi, -8(%rbp)
+	movq	%rsi, -16(%rbp)
 .Ltmp6:
-	.loc	1 39 18 prologue_end            # src/builtin/builtin_utils.c:39:18
+	.loc	1 39 12 prologue_end            # src/builtin/builtin_utils.c:39:12
 	movq	-16(%rbp), %rax
-	movsbl	(%rax), %edi
-	.loc	1 39 7 is_stmt 0                # src/builtin/builtin_utils.c:39:7
-	callq	ft_isalpha
-	cmpl	$0, %eax
-	.loc	1 39 26                         # src/builtin/builtin_utils.c:39:26
-	jne	.LBB2_3
-# %bb.1:
-	.loc	1 39 29                         # src/builtin/builtin_utils.c:39:29
-	movq	-16(%rbp), %rax
-	movsbl	(%rax), %eax
-	.loc	1 39 36                         # src/builtin/builtin_utils.c:39:36
-	cmpl	$95, %eax
+	.loc	1 39 11 is_stmt 0               # src/builtin/builtin_utils.c:39:11
+	movq	(%rax), %rax
+	.loc	1 39 8                          # src/builtin/builtin_utils.c:39:8
+	movq	%rax, -24(%rbp)
+.LBB2_1:                                # =>This Inner Loop Header: Depth=1
+	.loc	1 40 2 is_stmt 1                # src/builtin/builtin_utils.c:40:2
+	cmpq	$0, -24(%rbp)
+	je	.LBB2_5
+# %bb.2:                                #   in Loop: Header=BB2_1 Depth=1
 .Ltmp7:
-	.loc	1 39 6                          # src/builtin/builtin_utils.c:39:6
-	je	.LBB2_3
-# %bb.2:
+	.loc	1 42 7                          # src/builtin/builtin_utils.c:42:7
+	movq	-24(%rbp), %rax
+	.loc	1 42 19 is_stmt 0               # src/builtin/builtin_utils.c:42:19
+	cmpq	$0, 16(%rax)
 .Ltmp8:
-	.loc	1 40 3 is_stmt 1                # src/builtin/builtin_utils.c:40:3
-	movb	$0, -1(%rbp)
-	jmp	.LBB2_15
+	.loc	1 42 7                          # src/builtin/builtin_utils.c:42:7
+	jne	.LBB2_4
+# %bb.3:
 .Ltmp9:
-.LBB2_3:
-	.loc	1 41 4                          # src/builtin/builtin_utils.c:41:4
-	movl	$0, -20(%rbp)
-.LBB2_4:                                # =>This Inner Loop Header: Depth=1
-	.loc	1 42 9                          # src/builtin/builtin_utils.c:42:9
-	movq	-16(%rbp), %rax
-	movslq	-20(%rbp), %rcx
-	movsbl	(%rax,%rcx), %ecx
-	xorl	%eax, %eax
-                                        # kill: def $al killed $al killed $eax
-	cmpl	$0, %ecx
-	movb	%al, -21(%rbp)                  # 1-byte Spill
-	.loc	1 42 16 is_stmt 0               # src/builtin/builtin_utils.c:42:16
-	je	.LBB2_8
-# %bb.5:                                #   in Loop: Header=BB2_4 Depth=1
-	.loc	1 42 31                         # src/builtin/builtin_utils.c:42:31
-	movq	-16(%rbp), %rax
-	movslq	-20(%rbp), %rcx
-	movsbl	(%rax,%rcx), %edi
-	.loc	1 42 20                         # src/builtin/builtin_utils.c:42:20
-	callq	ft_isalnum
-	movl	%eax, %ecx
-	movb	$1, %al
-	cmpl	$0, %ecx
-	movb	%al, -22(%rbp)                  # 1-byte Spill
-	.loc	1 42 39                         # src/builtin/builtin_utils.c:42:39
-	jne	.LBB2_7
-# %bb.6:                                #   in Loop: Header=BB2_4 Depth=1
-	.loc	1 42 42                         # src/builtin/builtin_utils.c:42:42
-	movq	-16(%rbp), %rax
-	movslq	-20(%rbp), %rcx
-	movsbl	(%rax,%rcx), %eax
-	.loc	1 42 49                         # src/builtin/builtin_utils.c:42:49
-	cmpl	$95, %eax
-	sete	%al
-	movb	%al, -22(%rbp)                  # 1-byte Spill
-.LBB2_7:                                #   in Loop: Header=BB2_4 Depth=1
-	.loc	1 0 49                          # src/builtin/builtin_utils.c:0:49
-	movb	-22(%rbp), %al                  # 1-byte Reload
-	movb	%al, -21(%rbp)                  # 1-byte Spill
-.LBB2_8:                                #   in Loop: Header=BB2_4 Depth=1
-	movb	-21(%rbp), %al                  # 1-byte Reload
-	.loc	1 42 2                          # src/builtin/builtin_utils.c:42:2
-	testb	$1, %al
-	jne	.LBB2_9
-	jmp	.LBB2_14
-.LBB2_9:                                #   in Loop: Header=BB2_4 Depth=1
+	.loc	1 44 20 is_stmt 1               # src/builtin/builtin_utils.c:44:20
+	movq	-8(%rbp), %rax
+	.loc	1 44 19 is_stmt 0               # src/builtin/builtin_utils.c:44:19
+	movq	(%rax), %rcx
+	.loc	1 44 4                          # src/builtin/builtin_utils.c:44:4
+	movq	-24(%rbp), %rax
+	.loc	1 44 16                         # src/builtin/builtin_utils.c:44:16
+	movq	%rcx, 16(%rax)
+	.loc	1 45 4 is_stmt 1                # src/builtin/builtin_utils.c:45:4
+	jmp	.LBB2_5
 .Ltmp10:
-	.loc	1 44 4 is_stmt 1                # src/builtin/builtin_utils.c:44:4
-	movl	-20(%rbp), %eax
-	addl	$1, %eax
-	movl	%eax, -20(%rbp)
+.LBB2_4:                                #   in Loop: Header=BB2_1 Depth=1
+	.loc	1 47 11                         # src/builtin/builtin_utils.c:47:11
+	movq	-24(%rbp), %rax
+	.loc	1 47 18 is_stmt 0               # src/builtin/builtin_utils.c:47:18
+	movq	16(%rax), %rax
+	.loc	1 47 9                          # src/builtin/builtin_utils.c:47:9
+	movq	%rax, -24(%rbp)
 .Ltmp11:
-	.loc	1 45 8                          # src/builtin/builtin_utils.c:45:8
-	movq	-16(%rbp), %rax
-	movslq	-20(%rbp), %rcx
-	movsbl	(%rax,%rcx), %eax
-	.loc	1 45 15 is_stmt 0               # src/builtin/builtin_utils.c:45:15
-	cmpl	$43, %eax
-	.loc	1 45 22                         # src/builtin/builtin_utils.c:45:22
-	jne	.LBB2_11
-# %bb.10:                               #   in Loop: Header=BB2_4 Depth=1
-	.loc	1 45 25                         # src/builtin/builtin_utils.c:45:25
-	movq	-16(%rbp), %rax
-	.loc	1 45 29                         # src/builtin/builtin_utils.c:45:29
-	movl	-20(%rbp), %ecx
-	.loc	1 45 31                         # src/builtin/builtin_utils.c:45:31
-	addl	$1, %ecx
-	.loc	1 45 25                         # src/builtin/builtin_utils.c:45:25
-	movslq	%ecx, %rcx
-	movsbl	(%rax,%rcx), %eax
-	.loc	1 45 36                         # src/builtin/builtin_utils.c:45:36
-	cmpl	$61, %eax
-	.loc	1 45 44                         # src/builtin/builtin_utils.c:45:44
-	je	.LBB2_12
-.LBB2_11:                               #   in Loop: Header=BB2_4 Depth=1
-	.loc	1 45 47                         # src/builtin/builtin_utils.c:45:47
-	movq	-16(%rbp), %rax
-	movslq	-20(%rbp), %rcx
-	movsbl	(%rax,%rcx), %eax
-	.loc	1 45 54                         # src/builtin/builtin_utils.c:45:54
-	cmpl	$61, %eax
-.Ltmp12:
-	.loc	1 45 7                          # src/builtin/builtin_utils.c:45:7
-	jne	.LBB2_13
-.LBB2_12:
-.Ltmp13:
-	.loc	1 46 4 is_stmt 1                # src/builtin/builtin_utils.c:46:4
-	movb	$1, -1(%rbp)
-	jmp	.LBB2_15
-.Ltmp14:
-.LBB2_13:                               #   in Loop: Header=BB2_4 Depth=1
-	.loc	1 42 2                          # src/builtin/builtin_utils.c:42:2
-	jmp	.LBB2_4
-.LBB2_14:
-	.loc	1 48 2                          # src/builtin/builtin_utils.c:48:2
-	movb	$0, -1(%rbp)
-.LBB2_15:
+	.loc	1 40 2 is_stmt 1                # src/builtin/builtin_utils.c:40:2
+	jmp	.LBB2_1
+.LBB2_5:
 	.loc	1 49 1                          # src/builtin/builtin_utils.c:49:1
-	movb	-1(%rbp), %al
-	andb	$1, %al
-	movzbl	%al, %eax
-	addq	$32, %rsp
 	popq	%rbp
 	.cfi_def_cfa %rsp, 8
 	retq
-.Ltmp15:
+.Ltmp12:
 .Lfunc_end2:
-	.size	is_valid_variable, .Lfunc_end2-is_valid_variable
+	.size	add_new_var_to_env, .Lfunc_end2-add_new_var_to_env
 	.cfi_endproc
                                         # -- End function
+	.file	2 "/mnt/nfs/homes/cboukhal/minishell" "src/builtin/../../include/minishell.h"
 	.section	.debug_abbrev,"",@progbits
 	.byte	1                               # Abbreviation Code
 	.byte	17                              # DW_TAG_compile_unit
@@ -306,6 +225,11 @@ is_valid_variable:                      # @is_valid_variable
 	.byte	0                               # EOM(1)
 	.byte	0                               # EOM(2)
 	.byte	2                               # Abbreviation Code
+	.byte	15                              # DW_TAG_pointer_type
+	.byte	0                               # DW_CHILDREN_no
+	.byte	0                               # EOM(1)
+	.byte	0                               # EOM(2)
+	.byte	3                               # Abbreviation Code
 	.byte	46                              # DW_TAG_subprogram
 	.byte	1                               # DW_CHILDREN_yes
 	.byte	17                              # DW_AT_low_pc
@@ -328,7 +252,7 @@ is_valid_variable:                      # @is_valid_variable
 	.byte	25                              # DW_FORM_flag_present
 	.byte	0                               # EOM(1)
 	.byte	0                               # EOM(2)
-	.byte	3                               # Abbreviation Code
+	.byte	4                               # Abbreviation Code
 	.byte	5                               # DW_TAG_formal_parameter
 	.byte	0                               # DW_CHILDREN_no
 	.byte	2                               # DW_AT_location
@@ -343,7 +267,7 @@ is_valid_variable:                      # @is_valid_variable
 	.byte	19                              # DW_FORM_ref4
 	.byte	0                               # EOM(1)
 	.byte	0                               # EOM(2)
-	.byte	4                               # Abbreviation Code
+	.byte	5                               # Abbreviation Code
 	.byte	52                              # DW_TAG_variable
 	.byte	0                               # DW_CHILDREN_no
 	.byte	2                               # DW_AT_location
@@ -358,7 +282,28 @@ is_valid_variable:                      # @is_valid_variable
 	.byte	19                              # DW_FORM_ref4
 	.byte	0                               # EOM(1)
 	.byte	0                               # EOM(2)
-	.byte	5                               # Abbreviation Code
+	.byte	6                               # Abbreviation Code
+	.byte	46                              # DW_TAG_subprogram
+	.byte	1                               # DW_CHILDREN_yes
+	.byte	17                              # DW_AT_low_pc
+	.byte	1                               # DW_FORM_addr
+	.byte	18                              # DW_AT_high_pc
+	.byte	6                               # DW_FORM_data4
+	.byte	64                              # DW_AT_frame_base
+	.byte	24                              # DW_FORM_exprloc
+	.byte	3                               # DW_AT_name
+	.byte	14                              # DW_FORM_strp
+	.byte	58                              # DW_AT_decl_file
+	.byte	11                              # DW_FORM_data1
+	.byte	59                              # DW_AT_decl_line
+	.byte	11                              # DW_FORM_data1
+	.byte	39                              # DW_AT_prototyped
+	.byte	25                              # DW_FORM_flag_present
+	.byte	63                              # DW_AT_external
+	.byte	25                              # DW_FORM_flag_present
+	.byte	0                               # EOM(1)
+	.byte	0                               # EOM(2)
+	.byte	7                               # Abbreviation Code
 	.byte	36                              # DW_TAG_base_type
 	.byte	0                               # DW_CHILDREN_no
 	.byte	3                               # DW_AT_name
@@ -369,18 +314,59 @@ is_valid_variable:                      # @is_valid_variable
 	.byte	11                              # DW_FORM_data1
 	.byte	0                               # EOM(1)
 	.byte	0                               # EOM(2)
-	.byte	6                               # Abbreviation Code
+	.byte	8                               # Abbreviation Code
 	.byte	15                              # DW_TAG_pointer_type
 	.byte	0                               # DW_CHILDREN_no
 	.byte	73                              # DW_AT_type
 	.byte	19                              # DW_FORM_ref4
 	.byte	0                               # EOM(1)
 	.byte	0                               # EOM(2)
-	.byte	7                               # Abbreviation Code
+	.byte	9                               # Abbreviation Code
 	.byte	38                              # DW_TAG_const_type
 	.byte	0                               # DW_CHILDREN_no
 	.byte	73                              # DW_AT_type
 	.byte	19                              # DW_FORM_ref4
+	.byte	0                               # EOM(1)
+	.byte	0                               # EOM(2)
+	.byte	10                              # Abbreviation Code
+	.byte	22                              # DW_TAG_typedef
+	.byte	0                               # DW_CHILDREN_no
+	.byte	73                              # DW_AT_type
+	.byte	19                              # DW_FORM_ref4
+	.byte	3                               # DW_AT_name
+	.byte	14                              # DW_FORM_strp
+	.byte	58                              # DW_AT_decl_file
+	.byte	11                              # DW_FORM_data1
+	.byte	59                              # DW_AT_decl_line
+	.byte	11                              # DW_FORM_data1
+	.byte	0                               # EOM(1)
+	.byte	0                               # EOM(2)
+	.byte	11                              # Abbreviation Code
+	.byte	19                              # DW_TAG_structure_type
+	.byte	1                               # DW_CHILDREN_yes
+	.byte	3                               # DW_AT_name
+	.byte	14                              # DW_FORM_strp
+	.byte	11                              # DW_AT_byte_size
+	.byte	11                              # DW_FORM_data1
+	.byte	58                              # DW_AT_decl_file
+	.byte	11                              # DW_FORM_data1
+	.byte	59                              # DW_AT_decl_line
+	.byte	11                              # DW_FORM_data1
+	.byte	0                               # EOM(1)
+	.byte	0                               # EOM(2)
+	.byte	12                              # Abbreviation Code
+	.byte	13                              # DW_TAG_member
+	.byte	0                               # DW_CHILDREN_no
+	.byte	3                               # DW_AT_name
+	.byte	14                              # DW_FORM_strp
+	.byte	73                              # DW_AT_type
+	.byte	19                              # DW_FORM_ref4
+	.byte	58                              # DW_AT_decl_file
+	.byte	11                              # DW_FORM_data1
+	.byte	59                              # DW_AT_decl_line
+	.byte	11                              # DW_FORM_data1
+	.byte	56                              # DW_AT_data_member_location
+	.byte	11                              # DW_FORM_data1
 	.byte	0                               # EOM(1)
 	.byte	0                               # EOM(2)
 	.byte	0                               # EOM(3)
@@ -391,7 +377,7 @@ is_valid_variable:                      # @is_valid_variable
 	.short	4                               # DWARF version number
 	.long	.debug_abbrev                   # Offset Into Abbrev. Section
 	.byte	8                               # Address Size (in bytes)
-	.byte	1                               # Abbrev [1] 0xb:0xeb DW_TAG_compile_unit
+	.byte	1                               # Abbrev [1] 0xb:0x136 DW_TAG_compile_unit
 	.long	.Linfo_string0                  # DW_AT_producer
 	.short	12                              # DW_AT_language
 	.long	.Linfo_string1                  # DW_AT_name
@@ -399,7 +385,8 @@ is_valid_variable:                      # @is_valid_variable
 	.long	.Linfo_string2                  # DW_AT_comp_dir
 	.quad	.Lfunc_begin0                   # DW_AT_low_pc
 	.long	.Lfunc_end2-.Lfunc_begin0       # DW_AT_high_pc
-	.byte	2                               # Abbrev [2] 0x2a:0x36 DW_TAG_subprogram
+	.byte	2                               # Abbrev [2] 0x2a:0x1 DW_TAG_pointer_type
+	.byte	3                               # Abbrev [3] 0x2b:0x36 DW_TAG_subprogram
 	.quad	.Lfunc_begin0                   # DW_AT_low_pc
 	.long	.Lfunc_end0-.Lfunc_begin0       # DW_AT_high_pc
 	.byte	1                               # DW_AT_frame_base
@@ -408,26 +395,26 @@ is_valid_variable:                      # @is_valid_variable
 	.byte	1                               # DW_AT_decl_file
 	.byte	15                              # DW_AT_decl_line
                                         # DW_AT_prototyped
-	.long	204                             # DW_AT_type
+	.long	215                             # DW_AT_type
                                         # DW_AT_external
-	.byte	3                               # Abbrev [3] 0x43:0xe DW_TAG_formal_parameter
+	.byte	4                               # Abbrev [4] 0x44:0xe DW_TAG_formal_parameter
 	.byte	2                               # DW_AT_location
 	.byte	145
 	.byte	120
-	.long	.Linfo_string8                  # DW_AT_name
+	.long	.Linfo_string7                  # DW_AT_name
 	.byte	1                               # DW_AT_decl_file
 	.byte	15                              # DW_AT_decl_line
-	.long	218                             # DW_AT_type
-	.byte	3                               # Abbrev [3] 0x51:0xe DW_TAG_formal_parameter
+	.long	222                             # DW_AT_type
+	.byte	4                               # Abbrev [4] 0x52:0xe DW_TAG_formal_parameter
 	.byte	2                               # DW_AT_location
 	.byte	145
 	.byte	112
-	.long	.Linfo_string10                 # DW_AT_name
+	.long	.Linfo_string9                  # DW_AT_name
 	.byte	1                               # DW_AT_decl_file
 	.byte	15                              # DW_AT_decl_line
-	.long	218                             # DW_AT_type
+	.long	222                             # DW_AT_type
 	.byte	0                               # End Of Children Mark
-	.byte	2                               # Abbrev [2] 0x60:0x36 DW_TAG_subprogram
+	.byte	3                               # Abbrev [3] 0x61:0x36 DW_TAG_subprogram
 	.quad	.Lfunc_begin1                   # DW_AT_low_pc
 	.long	.Lfunc_end1-.Lfunc_begin1       # DW_AT_high_pc
 	.byte	1                               # DW_AT_frame_base
@@ -436,26 +423,26 @@ is_valid_variable:                      # @is_valid_variable
 	.byte	1                               # DW_AT_decl_file
 	.byte	25                              # DW_AT_decl_line
                                         # DW_AT_prototyped
-	.long	204                             # DW_AT_type
+	.long	215                             # DW_AT_type
                                         # DW_AT_external
-	.byte	3                               # Abbrev [3] 0x79:0xe DW_TAG_formal_parameter
+	.byte	4                               # Abbrev [4] 0x7a:0xe DW_TAG_formal_parameter
 	.byte	2                               # DW_AT_location
 	.byte	145
 	.byte	120
-	.long	.Linfo_string11                 # DW_AT_name
+	.long	.Linfo_string10                 # DW_AT_name
 	.byte	1                               # DW_AT_decl_file
 	.byte	25                              # DW_AT_decl_line
-	.long	235                             # DW_AT_type
-	.byte	4                               # Abbrev [4] 0x87:0xe DW_TAG_variable
+	.long	239                             # DW_AT_type
+	.byte	5                               # Abbrev [5] 0x88:0xe DW_TAG_variable
 	.byte	2                               # DW_AT_location
 	.byte	145
 	.byte	116
-	.long	.Linfo_string12                 # DW_AT_name
+	.long	.Linfo_string11                 # DW_AT_name
 	.byte	1                               # DW_AT_decl_file
 	.byte	27                              # DW_AT_decl_line
-	.long	204                             # DW_AT_type
+	.long	215                             # DW_AT_type
 	.byte	0                               # End Of Children Mark
-	.byte	2                               # Abbrev [2] 0x96:0x36 DW_TAG_subprogram
+	.byte	6                               # Abbrev [6] 0x97:0x40 DW_TAG_subprogram
 	.quad	.Lfunc_begin2                   # DW_AT_low_pc
 	.long	.Lfunc_end2-.Lfunc_begin2       # DW_AT_high_pc
 	.byte	1                               # DW_AT_frame_base
@@ -464,45 +451,83 @@ is_valid_variable:                      # @is_valid_variable
 	.byte	1                               # DW_AT_decl_file
 	.byte	35                              # DW_AT_decl_line
                                         # DW_AT_prototyped
-	.long	211                             # DW_AT_type
                                         # DW_AT_external
-	.byte	3                               # Abbrev [3] 0xaf:0xe DW_TAG_formal_parameter
+	.byte	4                               # Abbrev [4] 0xac:0xe DW_TAG_formal_parameter
+	.byte	2                               # DW_AT_location
+	.byte	145
+	.byte	120
+	.long	.Linfo_string12                 # DW_AT_name
+	.byte	1                               # DW_AT_decl_file
+	.byte	35                              # DW_AT_decl_line
+	.long	249                             # DW_AT_type
+	.byte	4                               # Abbrev [4] 0xba:0xe DW_TAG_formal_parameter
 	.byte	2                               # DW_AT_location
 	.byte	145
 	.byte	112
-	.long	.Linfo_string13                 # DW_AT_name
+	.long	.Linfo_string18                 # DW_AT_name
 	.byte	1                               # DW_AT_decl_file
 	.byte	35                              # DW_AT_decl_line
-	.long	240                             # DW_AT_type
-	.byte	4                               # Abbrev [4] 0xbd:0xe DW_TAG_variable
+	.long	249                             # DW_AT_type
+	.byte	5                               # Abbrev [5] 0xc8:0xe DW_TAG_variable
 	.byte	2                               # DW_AT_location
 	.byte	145
-	.byte	108
-	.long	.Linfo_string12                 # DW_AT_name
+	.byte	104
+	.long	.Linfo_string19                 # DW_AT_name
 	.byte	1                               # DW_AT_decl_file
 	.byte	37                              # DW_AT_decl_line
-	.long	204                             # DW_AT_type
+	.long	254                             # DW_AT_type
 	.byte	0                               # End Of Children Mark
-	.byte	5                               # Abbrev [5] 0xcc:0x7 DW_TAG_base_type
+	.byte	7                               # Abbrev [7] 0xd7:0x7 DW_TAG_base_type
 	.long	.Linfo_string4                  # DW_AT_name
 	.byte	5                               # DW_AT_encoding
 	.byte	4                               # DW_AT_byte_size
-	.byte	5                               # Abbrev [5] 0xd3:0x7 DW_TAG_base_type
-	.long	.Linfo_string7                  # DW_AT_name
-	.byte	2                               # DW_AT_encoding
-	.byte	1                               # DW_AT_byte_size
-	.byte	6                               # Abbrev [6] 0xda:0x5 DW_TAG_pointer_type
-	.long	223                             # DW_AT_type
-	.byte	7                               # Abbrev [7] 0xdf:0x5 DW_TAG_const_type
-	.long	228                             # DW_AT_type
-	.byte	5                               # Abbrev [5] 0xe4:0x7 DW_TAG_base_type
-	.long	.Linfo_string9                  # DW_AT_name
+	.byte	8                               # Abbrev [8] 0xde:0x5 DW_TAG_pointer_type
+	.long	227                             # DW_AT_type
+	.byte	9                               # Abbrev [9] 0xe3:0x5 DW_TAG_const_type
+	.long	232                             # DW_AT_type
+	.byte	7                               # Abbrev [7] 0xe8:0x7 DW_TAG_base_type
+	.long	.Linfo_string8                  # DW_AT_name
 	.byte	6                               # DW_AT_encoding
 	.byte	1                               # DW_AT_byte_size
-	.byte	6                               # Abbrev [6] 0xeb:0x5 DW_TAG_pointer_type
-	.long	240                             # DW_AT_type
-	.byte	6                               # Abbrev [6] 0xf0:0x5 DW_TAG_pointer_type
-	.long	228                             # DW_AT_type
+	.byte	8                               # Abbrev [8] 0xef:0x5 DW_TAG_pointer_type
+	.long	244                             # DW_AT_type
+	.byte	8                               # Abbrev [8] 0xf4:0x5 DW_TAG_pointer_type
+	.long	232                             # DW_AT_type
+	.byte	8                               # Abbrev [8] 0xf9:0x5 DW_TAG_pointer_type
+	.long	254                             # DW_AT_type
+	.byte	8                               # Abbrev [8] 0xfe:0x5 DW_TAG_pointer_type
+	.long	259                             # DW_AT_type
+	.byte	10                              # Abbrev [10] 0x103:0xb DW_TAG_typedef
+	.long	270                             # DW_AT_type
+	.long	.Linfo_string17                 # DW_AT_name
+	.byte	2                               # DW_AT_decl_file
+	.byte	129                             # DW_AT_decl_line
+	.byte	11                              # Abbrev [11] 0x10e:0x2d DW_TAG_structure_type
+	.long	.Linfo_string16                 # DW_AT_name
+	.byte	24                              # DW_AT_byte_size
+	.byte	2                               # DW_AT_decl_file
+	.byte	124                             # DW_AT_decl_line
+	.byte	12                              # Abbrev [12] 0x116:0xc DW_TAG_member
+	.long	.Linfo_string13                 # DW_AT_name
+	.long	244                             # DW_AT_type
+	.byte	2                               # DW_AT_decl_file
+	.byte	126                             # DW_AT_decl_line
+	.byte	0                               # DW_AT_data_member_location
+	.byte	12                              # Abbrev [12] 0x122:0xc DW_TAG_member
+	.long	.Linfo_string14                 # DW_AT_name
+	.long	244                             # DW_AT_type
+	.byte	2                               # DW_AT_decl_file
+	.byte	127                             # DW_AT_decl_line
+	.byte	8                               # DW_AT_data_member_location
+	.byte	12                              # Abbrev [12] 0x12e:0xc DW_TAG_member
+	.long	.Linfo_string15                 # DW_AT_name
+	.long	315                             # DW_AT_type
+	.byte	2                               # DW_AT_decl_file
+	.byte	128                             # DW_AT_decl_line
+	.byte	16                              # DW_AT_data_member_location
+	.byte	0                               # End Of Children Mark
+	.byte	8                               # Abbrev [8] 0x13b:0x5 DW_TAG_pointer_type
+	.long	270                             # DW_AT_type
 	.byte	0                               # End Of Children Mark
 .Ldebug_info_end0:
 	.section	.debug_str,"MS",@progbits,1
@@ -511,33 +536,43 @@ is_valid_variable:                      # @is_valid_variable
 .Linfo_string1:
 	.asciz	"src/builtin/builtin_utils.c"   # string offset=38
 .Linfo_string2:
-	.asciz	"/mnt/nfs/homes/cboukhal/42/minishell" # string offset=66
+	.asciz	"/mnt/nfs/homes/cboukhal/minishell" # string offset=66
 .Linfo_string3:
-	.asciz	"ft_strcmp"                     # string offset=103
+	.asciz	"ft_strcmp"                     # string offset=100
 .Linfo_string4:
-	.asciz	"int"                           # string offset=113
+	.asciz	"int"                           # string offset=110
 .Linfo_string5:
-	.asciz	"cmd_arg_nbr"                   # string offset=117
+	.asciz	"cmd_arg_nbr"                   # string offset=114
 .Linfo_string6:
-	.asciz	"is_valid_variable"             # string offset=129
+	.asciz	"add_new_var_to_env"            # string offset=126
 .Linfo_string7:
-	.asciz	"_Bool"                         # string offset=147
+	.asciz	"str1"                          # string offset=145
 .Linfo_string8:
-	.asciz	"str1"                          # string offset=153
+	.asciz	"char"                          # string offset=150
 .Linfo_string9:
-	.asciz	"char"                          # string offset=158
+	.asciz	"str2"                          # string offset=155
 .Linfo_string10:
-	.asciz	"str2"                          # string offset=163
+	.asciz	"arg_array"                     # string offset=160
 .Linfo_string11:
-	.asciz	"arg_array"                     # string offset=168
+	.asciz	"i"                             # string offset=170
 .Linfo_string12:
-	.asciz	"i"                             # string offset=178
+	.asciz	"new_var"                       # string offset=172
 .Linfo_string13:
-	.asciz	"arg"                           # string offset=180
+	.asciz	"name"                          # string offset=180
+.Linfo_string14:
+	.asciz	"value"                         # string offset=185
+.Linfo_string15:
+	.asciz	"next"                          # string offset=191
+.Linfo_string16:
+	.asciz	"s_env"                         # string offset=196
+.Linfo_string17:
+	.asciz	"t_env"                         # string offset=202
+.Linfo_string18:
+	.asciz	"env"                           # string offset=208
+.Linfo_string19:
+	.asciz	"index"                         # string offset=212
 	.ident	"Ubuntu clang version 12.0.1-19ubuntu3"
 	.section	".note.GNU-stack","",@progbits
 	.addrsig
-	.addrsig_sym ft_isalpha
-	.addrsig_sym ft_isalnum
 	.section	.debug_line,"",@progbits
 .Lline_table_start0:

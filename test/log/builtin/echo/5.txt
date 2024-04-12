@@ -2,9 +2,10 @@
 
 	-- Test[5] --
 
-INPUT=echo -n
+INPUT=echo $
 
 	-- RETURN VALUE --
+$
 ---->[OK]
 
 	-- EXIT STATUS --
@@ -13,18 +14,18 @@ BASH=0
 ---->[OK]
 
 	-- VALGRIND --
-==352793== Memcheck, a memory error detector
-==352793== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==352793== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==352793== Command: ./minishell echo\ -n
-==352793== Parent PID: 352318
-==352793== 
-==352793== 
-==352793== HEAP SUMMARY:
-==352793==     in use at exit: 0 bytes in 0 blocks
-==352793==   total heap usage: 397 allocs, 397 frees, 13,169 bytes allocated
-==352793== 
-==352793== All heap blocks were freed -- no leaks are possible
-==352793== 
-==352793== For lists of detected and suppressed errors, rerun with: -s
-==352793== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==96261== Memcheck, a memory error detector
+==96261== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==96261== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==96261== Command: ./minishell echo\ $
+==96261== Parent PID: 93913
+==96261== 
+==96261== 
+==96261== HEAP SUMMARY:
+==96261==     in use at exit: 0 bytes in 0 blocks
+==96261==   total heap usage: 397 allocs, 397 frees, 13,144 bytes allocated
+==96261== 
+==96261== All heap blocks were freed -- no leaks are possible
+==96261== 
+==96261== For lists of detected and suppressed errors, rerun with: -s
+==96261== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

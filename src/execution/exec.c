@@ -6,7 +6,7 @@
 /*   By: agadea <agadea@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 10:20:24 by agadea            #+#    #+#             */
-/*   Updated: 2024/04/01 21:58:41 by agadea           ###   ########.fr       */
+/*   Updated: 2024/03/28 16:54:05 by agadea           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,12 +68,13 @@ void	execution(t_minishell *minishell)
 	i = 0;
 	ast = minishell->syntax_tree;
 	minishell->env_array = get_env_array(minishell->env);
+	g_signal = run;
 	while (ast && errno == 0 && g_signal == 0)
 	{
 		if (ast->node->type == simple_command)
 			exec_command(&minishell, &ast->node->left);
 		else if (ast->node->type == pipe_op)
-			exec_pipeline(&minishell, &ast, i);
+			exec_pipe(&minishell, &ast, i);
 		else if (ast->node->type == and_if || ast->node->type == or_if)
 			exec_list(&minishell, &ast);
 		wait_command_ending(&minishell, &ast->node, ast, i);

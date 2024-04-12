@@ -5,7 +5,7 @@
 	.type	get_expansion_value,@function
 get_expansion_value:                    # @get_expansion_value
 .Lfunc_begin0:
-	.file	1 "/mnt/nfs/homes/cboukhal/42/minishell" "src/parsing/command_expan_value.c"
+	.file	1 "/mnt/nfs/homes/cboukhal/github/minishell" "src/parsing/command_expan_value.c"
 	.loc	1 16 0                          # src/parsing/command_expan_value.c:16:0
 	.cfi_startproc
 # %bb.0:
@@ -168,14 +168,8 @@ replace_expansion_name_by_value:        # @replace_expansion_name_by_value
 	movq	$0, -48(%rbp)
 	.loc	1 50 4                          # src/parsing/command_expan_value.c:50:4
 	movl	$0, -36(%rbp)
-	.loc	1 51 17                         # src/parsing/command_expan_value.c:51:17
-	movq	-8(%rbp), %rsi
-	.loc	1 51 2 is_stmt 0                # src/parsing/command_expan_value.c:51:2
-	movabsq	$.L.str, %rdi
-	movb	$0, %al
-	callq	printf
 .LBB2_1:                                # =>This Inner Loop Header: Depth=1
-	.loc	1 52 9 is_stmt 1                # src/parsing/command_expan_value.c:52:9
+	.loc	1 52 9                          # src/parsing/command_expan_value.c:52:9
 	movq	-8(%rbp), %rax
 	movslq	-36(%rbp), %rcx
 	.loc	1 52 2 is_stmt 0                # src/parsing/command_expan_value.c:52:2
@@ -210,14 +204,6 @@ replace_expansion_name_by_value:        # @replace_expansion_name_by_value
 	cltq
 	.loc	1 56 6                          # src/parsing/command_expan_value.c:56:6
 	movq	%rax, -48(%rbp)
-	.loc	1 57 21 is_stmt 1               # src/parsing/command_expan_value.c:57:21
-	movq	-16(%rbp), %rax
-	.loc	1 57 20 is_stmt 0               # src/parsing/command_expan_value.c:57:20
-	movq	(%rax), %rsi
-	.loc	1 57 4                          # src/parsing/command_expan_value.c:57:4
-	movabsq	$.L.str, %rdi
-	movb	$0, %al
-	callq	printf
 	.loc	1 58 4 is_stmt 1                # src/parsing/command_expan_value.c:58:4
 	jmp	.LBB2_5
 .Ltmp15:
@@ -308,14 +294,6 @@ replace_expansion_name_by_value:        # @replace_expansion_name_by_value
 	movq	-48(%rbp), %rcx
 	.loc	1 71 24                         # src/parsing/command_expan_value.c:71:24
 	movb	$0, (%rax,%rcx)
-	.loc	1 72 19 is_stmt 1               # src/parsing/command_expan_value.c:72:19
-	movq	-16(%rbp), %rax
-	.loc	1 72 18 is_stmt 0               # src/parsing/command_expan_value.c:72:18
-	movq	(%rax), %rsi
-	.loc	1 72 2                          # src/parsing/command_expan_value.c:72:2
-	movabsq	$.L.str, %rdi
-	movb	$0, %al
-	callq	printf
 	.loc	1 73 1 is_stmt 1                # src/parsing/command_expan_value.c:73:1
 	addq	$64, %rsp
 	popq	%rbp
@@ -326,13 +304,7 @@ replace_expansion_name_by_value:        # @replace_expansion_name_by_value
 	.size	replace_expansion_name_by_value, .Lfunc_end2-replace_expansion_name_by_value
 	.cfi_endproc
                                         # -- End function
-	.type	.L.str,@object                  # @.str
-	.section	.rodata.str1.1,"aMS",@progbits,1
-.L.str:
-	.asciz	"%s\n"
-	.size	.L.str, 4
-
-	.file	2 "/mnt/nfs/homes/cboukhal/42/minishell" "src/parsing/../../include/minishell.h"
+	.file	2 "/mnt/nfs/homes/cboukhal/github/minishell" "src/parsing/../../include/minishell.h"
 	.file	3 "/usr/lib/llvm-12/lib/clang/12.0.1/include" "stddef.h"
 	.section	.debug_abbrev,"",@progbits
 	.byte	1                               # Abbreviation Code
@@ -704,41 +676,41 @@ replace_expansion_name_by_value:        # @replace_expansion_name_by_value
 .Linfo_string1:
 	.asciz	"src/parsing/command_expan_value.c" # string offset=38
 .Linfo_string2:
-	.asciz	"/mnt/nfs/homes/cboukhal/42/minishell" # string offset=72
+	.asciz	"/mnt/nfs/homes/cboukhal/github/minishell" # string offset=72
 .Linfo_string3:
-	.asciz	"get_expansion_value"           # string offset=109
+	.asciz	"get_expansion_value"           # string offset=113
 .Linfo_string4:
-	.asciz	"char"                          # string offset=129
+	.asciz	"char"                          # string offset=133
 .Linfo_string5:
-	.asciz	"put_expansion_value"           # string offset=134
+	.asciz	"put_expansion_value"           # string offset=138
 .Linfo_string6:
-	.asciz	"int"                           # string offset=154
+	.asciz	"int"                           # string offset=158
 .Linfo_string7:
-	.asciz	"replace_expansion_name_by_value" # string offset=158
+	.asciz	"replace_expansion_name_by_value" # string offset=162
 .Linfo_string8:
-	.asciz	"env"                           # string offset=190
+	.asciz	"env"                           # string offset=194
 .Linfo_string9:
-	.asciz	"name"                          # string offset=194
+	.asciz	"name"                          # string offset=198
 .Linfo_string10:
-	.asciz	"value"                         # string offset=199
+	.asciz	"value"                         # string offset=203
 .Linfo_string11:
-	.asciz	"next"                          # string offset=205
+	.asciz	"next"                          # string offset=209
 .Linfo_string12:
-	.asciz	"s_env"                         # string offset=210
+	.asciz	"s_env"                         # string offset=214
 .Linfo_string13:
-	.asciz	"t_env"                         # string offset=216
+	.asciz	"t_env"                         # string offset=220
 .Linfo_string14:
-	.asciz	"lexeme_expanded"               # string offset=222
+	.asciz	"lexeme_expanded"               # string offset=226
 .Linfo_string15:
-	.asciz	"i"                             # string offset=238
+	.asciz	"i"                             # string offset=242
 .Linfo_string16:
-	.asciz	"j"                             # string offset=240
+	.asciz	"j"                             # string offset=244
 .Linfo_string17:
-	.asciz	"lexeme"                        # string offset=242
+	.asciz	"lexeme"                        # string offset=246
 .Linfo_string18:
-	.asciz	"long unsigned int"             # string offset=249
+	.asciz	"long unsigned int"             # string offset=253
 .Linfo_string19:
-	.asciz	"size_t"                        # string offset=267
+	.asciz	"size_t"                        # string offset=271
 	.ident	"Ubuntu clang version 12.0.1-19ubuntu3"
 	.section	".note.GNU-stack","",@progbits
 	.addrsig
@@ -746,7 +718,6 @@ replace_expansion_name_by_value:        # @replace_expansion_name_by_value
 	.addrsig_sym ft_strlen
 	.addrsig_sym ft_strdup
 	.addrsig_sym put_expansion_value
-	.addrsig_sym printf
 	.addrsig_sym is_expansion_name
 	.addrsig_sym is_exit_status
 	.section	.debug_line,"",@progbits

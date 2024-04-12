@@ -48,13 +48,13 @@ void	replace_expansion_name_by_value(char *lexeme,
 
 	i = 0;
 	j = 0;
-	printf("%s\n", lexeme);
+	//printf("%s\n", lexeme);
 	while (lexeme[j])
 	{
 		if (is_expansion_name(lexeme, name, j))
 		{
 			i = put_expansion_value(&(*lexeme_expanded), value, i);
-			printf("%s\n", (*lexeme_expanded));
+			//printf("%s\n", (*lexeme_expanded));
 			break ;
 		}
 		(*lexeme_expanded)[i] = lexeme[j];
@@ -69,5 +69,5 @@ void	replace_expansion_name_by_value(char *lexeme,
 		i++;
 	}
 	(*lexeme_expanded)[i] = '\0';
-	printf("%s\n", (*lexeme_expanded));
+	//printf("%s\n", (*lexeme_expanded));
 }

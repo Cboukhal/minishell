@@ -6,7 +6,7 @@
 #    By: agadea <agadea@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/15 10:52:20 by agadea            #+#    #+#              #
-#    Updated: 2024/04/01 19:21:32 by agadea           ###   ########.fr        #
+#    Updated: 2024/03/29 10:34:02 by agadea           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,9 +43,7 @@ SRC					:= builtin/cd.c \
 						environment/env_array.c \
 						environment/env_default.c \
 						environment/env_setup.c \
-						environment/env_utils.c \
 						environment/env_variable.c \
-						error/error_builtin.c \
 						error/error.c \
 						execution/boolean_exec.c \
 						execution/exec_assign.c \
@@ -66,7 +64,6 @@ SRC					:= builtin/cd.c \
 						lexer/token_quote.c \
 						lexer/token_redirection.c \
 						lexer/token_word.c \
-						lexer/token.c \
 						lexer/type_operator.c \
 						lexer/type_word.c \
 						memory/free_functions.c \
@@ -74,16 +71,14 @@ SRC					:= builtin/cd.c \
 						memory/free_utils.c \
 						parsing/ast_node.c \
 						parsing/boolean_parsing.c \
-						parsing/command_arg.c \
+						parsing/command_arguments.c \
 						parsing/command_assign.c \
-						parsing/command_create.c \
-						parsing/command_expan_value.c \
-						parsing/command_expan.c \
+						parsing/command_expansion.c \
+						parsing/command_generation.c \
 						parsing/command_path.c \
-						parsing/command_redir_infile.c \
+						parsing/command_redir_extract.c \
 						parsing/command_redir_open.c \
-						parsing/command_redir_outfile.c \
-						parsing/command_redir.c \
+						parsing/command_redir_utils.c \
 						parsing/syntax_tree.c \
 						prompt/dir_path.c \
 						prompt/log_info.c \

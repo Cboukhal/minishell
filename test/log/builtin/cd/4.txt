@@ -2,29 +2,48 @@
 
 	-- Test[4] --
 
-INPUT=cd /
+INPUT=cd $PATH
 
 	-- RETURN VALUE --
+bash: cd: /mnt/nfs/homes/cboukhal/bin:/mnt/nfs/homes/cboukhal/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin: No such file or directory
 ---->[OK]
 
 	-- EXIT STATUS --
-MINISHELL=0
-BASH=0
+MINISHELL=1
+BASH=1
 ---->[OK]
 
 	-- VALGRIND --
-==352556== Memcheck, a memory error detector
-==352556== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==352556== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==352556== Command: ./minishell cd\ /
-==352556== Parent PID: 352318
-==352556== 
-==352556== 
-==352556== HEAP SUMMARY:
-==352556==     in use at exit: 0 bytes in 0 blocks
-==352556==   total heap usage: 397 allocs, 397 frees, 13,158 bytes allocated
-==352556== 
-==352556== All heap blocks were freed -- no leaks are possible
-==352556== 
-==352556== For lists of detected and suppressed errors, rerun with: -s
-==352556== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==95791== Memcheck, a memory error detector
+==95791== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==95791== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==95791== Command: ./minishell cd\ $PATH
+==95791== Parent PID: 93913
+==95791== 
+==95791== 
+==95791== HEAP SUMMARY:
+==95791==     in use at exit: 155 bytes in 1 blocks
+==95791==   total heap usage: 402 allocs, 401 frees, 13,779 bytes allocated
+==95791== 
+==95791== 155 bytes in 1 blocks are definitely lost in loss record 1 of 1
+==95791==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==95791==    by 0x409554: ft_strdup (ft_strdup.c:20)
+==95791==    by 0x406774: get_expansion_value (command_expansion.c:23)
+==95791==    by 0x406BF5: manage_expansion (command_expansion.c:126)
+==95791==    by 0x406528: get_command_arg (command_arguments.c:79)
+==95791==    by 0x406F96: extract_command (command_generation.c:61)
+==95791==    by 0x407134: get_command (command_generation.c:91)
+==95791==    by 0x407BFB: get_simple_command (syntax_tree.c:36)
+==95791==    by 0x407DD9: parsing (syntax_tree.c:81)
+==95791==    by 0x408A12: test_mode (main.c:81)
+==95791==    by 0x408AAD: main (main.c:99)
+==95791== 
+==95791== LEAK SUMMARY:
+==95791==    definitely lost: 155 bytes in 1 blocks
+==95791==    indirectly lost: 0 bytes in 0 blocks
+==95791==      possibly lost: 0 bytes in 0 blocks
+==95791==    still reachable: 0 bytes in 0 blocks
+==95791==         suppressed: 0 bytes in 0 blocks
+==95791== 
+==95791== For lists of detected and suppressed errors, rerun with: -s
+==95791== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)

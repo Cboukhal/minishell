@@ -5,7 +5,7 @@
 	.type	set_log_info_colors,@function
 set_log_info_colors:                    # @set_log_info_colors
 .Lfunc_begin0:
-	.file	1 "/mnt/nfs/homes/cboukhal/42/minishell" "src/prompt/log_info.c"
+	.file	1 "/mnt/nfs/homes/cboukhal/minishell" "src/prompt/log_info.c"
 	.loc	1 16 0                          # src/prompt/log_info.c:16:0
 	.cfi_startproc
 # %bb.0:
@@ -632,31 +632,31 @@ get_log_info:                           # @get_log_info
 .Linfo_string1:
 	.asciz	"src/prompt/log_info.c"         # string offset=38
 .Linfo_string2:
-	.asciz	"/mnt/nfs/homes/cboukhal/42/minishell" # string offset=60
+	.asciz	"/mnt/nfs/homes/cboukhal/minishell" # string offset=60
 .Linfo_string3:
-	.asciz	"set_log_info_colors"           # string offset=97
+	.asciz	"set_log_info_colors"           # string offset=94
 .Linfo_string4:
-	.asciz	"char"                          # string offset=117
+	.asciz	"char"                          # string offset=114
 .Linfo_string5:
-	.asciz	"get_hostname_length"           # string offset=122
+	.asciz	"get_hostname_length"           # string offset=119
 .Linfo_string6:
-	.asciz	"int"                           # string offset=142
+	.asciz	"int"                           # string offset=139
 .Linfo_string7:
-	.asciz	"get_hostname"                  # string offset=146
+	.asciz	"get_hostname"                  # string offset=143
 .Linfo_string8:
-	.asciz	"get_log_info"                  # string offset=159
+	.asciz	"get_log_info"                  # string offset=156
 .Linfo_string9:
-	.asciz	"log_info"                      # string offset=172
+	.asciz	"log_info"                      # string offset=169
 .Linfo_string10:
-	.asciz	"tmp"                           # string offset=181
+	.asciz	"tmp"                           # string offset=178
 .Linfo_string11:
-	.asciz	"log_info_colorized"            # string offset=185
+	.asciz	"log_info_colorized"            # string offset=182
 .Linfo_string12:
-	.asciz	"hostname"                      # string offset=204
+	.asciz	"hostname"                      # string offset=201
 .Linfo_string13:
-	.asciz	"i"                             # string offset=213
+	.asciz	"i"                             # string offset=210
 .Linfo_string14:
-	.asciz	"username"                      # string offset=215
+	.asciz	"username"                      # string offset=212
 	.ident	"Ubuntu clang version 12.0.1-19ubuntu3"
 	.section	".note.GNU-stack","",@progbits
 	.addrsig

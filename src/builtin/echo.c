@@ -6,7 +6,7 @@
 /*   By: agadea <agadea@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 16:20:16 by agadea            #+#    #+#             */
-/*   Updated: 2024/04/02 19:21:13 by agadea           ###   ########.fr       */
+/*   Updated: 2024/03/28 18:50:33 by agadea           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ void	handle_special_arguments(t_minishell *minishell, char *arg, int fd)
 		write(fd, exit_status, ft_strlen(exit_status));
 		free(exit_status);
 	}
-	if ((ft_strcmp(arg, "$") == 0) && ft_strlen(arg) != 1)
+	if ((ft_strcmp(arg, "$") == 0) && strlen(arg) != 1)
 	{
 		env_value = getenv(arg + 1);
 		if (env_value != NULL)
@@ -111,8 +111,7 @@ void	handle_special_arguments(t_minishell *minishell, char *arg, int fd)
 		write(fd, arg, ft_strlen(arg));
 }
 
-// void	echo(t_minishell *minishell, t_cmd *cmd)
-void	echo( t_cmd *cmd)
+void	echo(t_minishell *minishell, t_cmd *cmd)
 {
 	int		i;
 	int		fd;
@@ -131,7 +130,7 @@ void	echo( t_cmd *cmd)
 	handle_option_n(cmd, &i, &new_line);
 	while (cmd->arg_array[i] != NULL)
 	{
-		// handle_special_arguments(minishell, cmd->arg_array[i], fd);
+		handle_special_arguments(minishell, cmd->arg_array[i], fd);
 		i++;
 		if (cmd->arg_array[i] != NULL)
 			write(fd, " ", 1);

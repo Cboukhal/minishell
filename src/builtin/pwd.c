@@ -6,7 +6,7 @@
 /*   By: agadea <agadea@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 16:20:26 by agadea            #+#    #+#             */
-/*   Updated: 2024/04/03 09:26:49 by agadea           ###   ########.fr       */
+/*   Updated: 2024/03/28 17:59:51 by agadea           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,10 +86,8 @@ void	pwd(t_minishell *minishell, t_cmd *cmd)
 	t_env	*pwd;
 	t_env	*oldpwd;
 
-	if (cmd->pipe && cmd->pipe->write)
-		fd = cmd->pipe->write[1];
-	else
-		fd = 1;
+	(void)cmd;
+	fd = 1;
 	cwd = getcwd(NULL, PATH_MAX);
 	pwd = get_env_pwd(&minishell->env);
 	if (pwd)

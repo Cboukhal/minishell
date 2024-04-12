@@ -6,7 +6,7 @@
 /*   By: agadea <agadea@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 09:13:47 by agadea            #+#    #+#             */
-/*   Updated: 2024/03/30 13:16:08 by agadea           ###   ########.fr       */
+/*   Updated: 2023/06/25 12:32:56 by agadea           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,9 +84,9 @@ int	ft_printf(const char *format, ...)
 	{
 		if (*format == '%' && (check_format_error(format + 1) == no_error))
 		{
-			format++;
-			count += start_conversion(ap, format, count);
-			format += format_length(format);
+				format++;
+				count += start_conversion(ap, format, count);
+				format += format_length(format);
 		}
 		else
 			count += write(1, format, 1);

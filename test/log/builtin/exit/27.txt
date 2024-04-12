@@ -2,31 +2,34 @@
 
 	-- Test[27] --
 
-INPUT=exit -2147483647
+INPUT=exit ----000
 
 	-- RETURN VALUE --
-0a1
+1c1,2
+< bash: line 1: exit: ----000: numeric argument required
+---
+> bash: exit: ----000: numeric argument required
 > exit
 ---->[KO]
 
 	-- EXIT STATUS --
-MINISHELL=1
-BASH=1
+MINISHELL=2
+BASH=2
 ---->[OK]
 
 	-- VALGRIND --
-==353512== Memcheck, a memory error detector
-==353512== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==353512== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==353512== Command: ./minishell exit\ -2147483647
-==353512== Parent PID: 352318
-==353512== 
-==353512== 
-==353512== HEAP SUMMARY:
-==353512==     in use at exit: 0 bytes in 0 blocks
-==353512==   total heap usage: 397 allocs, 397 frees, 13,196 bytes allocated
-==353512== 
-==353512== All heap blocks were freed -- no leaks are possible
-==353512== 
-==353512== For lists of detected and suppressed errors, rerun with: -s
-==353512== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==97008== Memcheck, a memory error detector
+==97008== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==97008== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==97008== Command: ./minishell exit\ ----000
+==97008== Parent PID: 93913
+==97008== 
+==97008== 
+==97008== HEAP SUMMARY:
+==97008==     in use at exit: 0 bytes in 0 blocks
+==97008==   total heap usage: 398 allocs, 398 frees, 13,163 bytes allocated
+==97008== 
+==97008== All heap blocks were freed -- no leaks are possible
+==97008== 
+==97008== For lists of detected and suppressed errors, rerun with: -s
+==97008== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

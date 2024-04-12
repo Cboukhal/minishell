@@ -5,7 +5,7 @@
 	.type	is_next_char_valid,@function
 is_next_char_valid:                     # @is_next_char_valid
 .Lfunc_begin0:
-	.file	1 "/mnt/nfs/homes/cboukhal/42/minishell" "src/lexer/token_expansion.c"
+	.file	1 "/mnt/nfs/homes/cboukhal/minishell" "src/lexer/token_expansion.c"
 	.loc	1 16 0                          # src/lexer/token_expansion.c:16:0
 	.cfi_startproc
 # %bb.0:
@@ -500,7 +500,7 @@ get_token_expansion:                    # @get_token_expansion
 	.asciz	"malloc"
 	.size	.L.str, 7
 
-	.file	2 "/mnt/nfs/homes/cboukhal/42/minishell" "src/lexer/../../include/minishell.h"
+	.file	2 "/mnt/nfs/homes/cboukhal/minishell" "src/lexer/../../include/minishell.h"
 	.section	.debug_abbrev,"",@progbits
 	.byte	1                               # Abbreviation Code
 	.byte	17                              # DW_TAG_compile_unit
@@ -884,45 +884,45 @@ get_token_expansion:                    # @get_token_expansion
 .Linfo_string1:
 	.asciz	"src/lexer/token_expansion.c"   # string offset=38
 .Linfo_string2:
-	.asciz	"/mnt/nfs/homes/cboukhal/42/minishell" # string offset=66
+	.asciz	"/mnt/nfs/homes/cboukhal/minishell" # string offset=66
 .Linfo_string3:
-	.asciz	"is_next_char_valid"            # string offset=103
+	.asciz	"is_next_char_valid"            # string offset=100
 .Linfo_string4:
-	.asciz	"_Bool"                         # string offset=122
+	.asciz	"_Bool"                         # string offset=119
 .Linfo_string5:
-	.asciz	"get_expansion_name_length"     # string offset=128
+	.asciz	"get_expansion_name_length"     # string offset=125
 .Linfo_string6:
-	.asciz	"int"                           # string offset=154
+	.asciz	"int"                           # string offset=151
 .Linfo_string7:
-	.asciz	"extract_expansion_name"        # string offset=158
+	.asciz	"extract_expansion_name"        # string offset=155
 .Linfo_string8:
-	.asciz	"char"                          # string offset=181
+	.asciz	"char"                          # string offset=178
 .Linfo_string9:
-	.asciz	"extract_expansion"             # string offset=186
+	.asciz	"extract_expansion"             # string offset=183
 .Linfo_string10:
-	.asciz	"name"                          # string offset=204
+	.asciz	"name"                          # string offset=201
 .Linfo_string11:
-	.asciz	"next"                          # string offset=209
+	.asciz	"next"                          # string offset=206
 .Linfo_string12:
-	.asciz	"s_expan"                       # string offset=214
+	.asciz	"s_expan"                       # string offset=211
 .Linfo_string13:
-	.asciz	"t_expan"                       # string offset=222
+	.asciz	"t_expan"                       # string offset=219
 .Linfo_string14:
-	.asciz	"get_token_expansion"           # string offset=230
+	.asciz	"get_token_expansion"           # string offset=227
 .Linfo_string15:
-	.asciz	"c"                             # string offset=250
+	.asciz	"c"                             # string offset=247
 .Linfo_string16:
-	.asciz	"lexeme"                        # string offset=252
+	.asciz	"lexeme"                        # string offset=249
 .Linfo_string17:
-	.asciz	"i"                             # string offset=259
+	.asciz	"i"                             # string offset=256
 .Linfo_string18:
-	.asciz	"length"                        # string offset=261
+	.asciz	"length"                        # string offset=258
 .Linfo_string19:
-	.asciz	"expan_new"                     # string offset=268
+	.asciz	"expan_new"                     # string offset=265
 .Linfo_string20:
-	.asciz	"expan_list"                    # string offset=278
+	.asciz	"expan_list"                    # string offset=275
 .Linfo_string21:
-	.asciz	"expan_index"                   # string offset=289
+	.asciz	"expan_index"                   # string offset=286
 	.ident	"Ubuntu clang version 12.0.1-19ubuntu3"
 	.section	".note.GNU-stack","",@progbits
 	.addrsig

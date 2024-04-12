@@ -2,16 +2,11 @@
 
 	-- Test[7] --
 
-INPUT=echo -n \n
+INPUT=echo '/mnt/nfs/homes/cboukhal/minishell'
 
 	-- RETURN VALUE --
-1c1
-< n
-\ No newline at end of file
----
-> \n
-\ No newline at end of file
----->[KO]
+/mnt/nfs/homes/cboukhal/minishell
+---->[OK]
 
 	-- EXIT STATUS --
 MINISHELL=0
@@ -19,18 +14,18 @@ BASH=0
 ---->[OK]
 
 	-- VALGRIND --
-==352815== Memcheck, a memory error detector
-==352815== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==352815== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==352815== Command: ./minishell echo\ -n\ \\n
-==352815== Parent PID: 352318
-==352815== 
-==352815== 
-==352815== HEAP SUMMARY:
-==352815==     in use at exit: 0 bytes in 0 blocks
-==352815==   total heap usage: 402 allocs, 402 frees, 13,250 bytes allocated
-==352815== 
-==352815== All heap blocks were freed -- no leaks are possible
-==352815== 
-==352815== For lists of detected and suppressed errors, rerun with: -s
-==352815== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==96290== Memcheck, a memory error detector
+==96290== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==96290== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==96290== Command: ./minishell echo\ '/mnt/nfs/homes/cboukhal/minishell'
+==96290== Parent PID: 93913
+==96290== 
+==96290== 
+==96290== HEAP SUMMARY:
+==96290==     in use at exit: 0 bytes in 0 blocks
+==96290==   total heap usage: 397 allocs, 397 frees, 13,241 bytes allocated
+==96290== 
+==96290== All heap blocks were freed -- no leaks are possible
+==96290== 
+==96290== For lists of detected and suppressed errors, rerun with: -s
+==96290== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

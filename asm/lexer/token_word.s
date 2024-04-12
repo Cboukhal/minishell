@@ -5,7 +5,7 @@
 	.type	get_word_length,@function
 get_word_length:                        # @get_word_length
 .Lfunc_begin0:
-	.file	1 "/mnt/nfs/homes/cboukhal/42/minishell" "src/lexer/token_word.c"
+	.file	1 "/mnt/nfs/homes/cboukhal/minishell" "src/lexer/token_word.c"
 	.loc	1 16 0                          # src/lexer/token_word.c:16:0
 	.cfi_startproc
 # %bb.0:
@@ -166,7 +166,7 @@ get_word_lexeme:                        # @get_word_lexeme
 	callq	perror
 	.loc	1 42 3 is_stmt 0                # src/lexer/token_word.c:42:3
 	movq	$0, -8(%rbp)
-	jmp	.LBB1_11
+	jmp	.LBB1_12
 .Ltmp14:
 .LBB1_2:
 	.loc	1 43 4 is_stmt 1                # src/lexer/token_word.c:43:4
@@ -187,7 +187,7 @@ get_word_lexeme:                        # @get_word_lexeme
 	.loc	1 47 11                         # src/lexer/token_word.c:47:11
 	cmpl	%ecx, %eax
 	.loc	1 47 2                          # src/lexer/token_word.c:47:2
-	jge	.LBB1_10
+	jge	.LBB1_11
 # %bb.4:                                #   in Loop: Header=BB1_3 Depth=1
 .Ltmp15:
 	.loc	1 49 16 is_stmt 1               # src/lexer/token_word.c:49:16
@@ -216,62 +216,67 @@ get_word_lexeme:                        # @get_word_lexeme
 	movl	%eax, -28(%rbp)
 .Ltmp18:
 .LBB1_6:                                #   in Loop: Header=BB1_3 Depth=1
-	.loc	1 51 22 is_stmt 1               # src/lexer/token_word.c:51:22
+	.loc	1 51 20 is_stmt 1               # src/lexer/token_word.c:51:20
 	cmpl	$0, -52(%rbp)
-	.loc	1 51 27 is_stmt 0               # src/lexer/token_word.c:51:27
-	jne	.LBB1_8
+	.loc	1 51 25 is_stmt 0               # src/lexer/token_word.c:51:25
+	jne	.LBB1_9
 # %bb.7:                                #   in Loop: Header=BB1_3 Depth=1
-	.loc	1 51 39                         # src/lexer/token_word.c:51:39
+	.loc	1 51 37                         # src/lexer/token_word.c:51:37
 	movq	-16(%rbp), %rax
 	movslq	-28(%rbp), %rcx
-	.loc	1 51 30                         # src/lexer/token_word.c:51:30
+	.loc	1 51 28                         # src/lexer/token_word.c:51:28
 	movsbl	(%rax,%rcx), %edi
 	callq	is_quote
 .Ltmp19:
 	.loc	1 51 7                          # src/lexer/token_word.c:51:7
 	testb	$1, %al
-	jne	.LBB1_9
+	jne	.LBB1_8
+	jmp	.LBB1_9
 .LBB1_8:                                #   in Loop: Header=BB1_3 Depth=1
 .Ltmp20:
-	.loc	1 53 16 is_stmt 1               # src/lexer/token_word.c:53:16
+	.loc	1 52 4 is_stmt 1                # src/lexer/token_word.c:52:4
+	jmp	.LBB1_3
+.LBB1_9:                                #   in Loop: Header=BB1_3 Depth=1
+.Ltmp21:
+	.loc	1 55 16                         # src/lexer/token_word.c:55:16
 	movq	-16(%rbp), %rax
 	movslq	-28(%rbp), %rcx
 	movb	(%rax,%rcx), %dl
-	.loc	1 53 4 is_stmt 0                # src/lexer/token_word.c:53:4
+	.loc	1 55 4 is_stmt 0                # src/lexer/token_word.c:55:4
 	movq	-48(%rbp), %rax
 	movslq	-32(%rbp), %rcx
-	.loc	1 53 14                         # src/lexer/token_word.c:53:14
+	.loc	1 55 14                         # src/lexer/token_word.c:55:14
 	movb	%dl, (%rax,%rcx)
-	.loc	1 54 5 is_stmt 1                # src/lexer/token_word.c:54:5
+	.loc	1 56 5 is_stmt 1                # src/lexer/token_word.c:56:5
 	movl	-32(%rbp), %eax
 	addl	$1, %eax
 	movl	%eax, -32(%rbp)
-	.loc	1 55 5                          # src/lexer/token_word.c:55:5
+	.loc	1 57 5                          # src/lexer/token_word.c:57:5
 	movl	-28(%rbp), %eax
 	addl	$1, %eax
 	movl	%eax, -28(%rbp)
-.Ltmp21:
-.LBB1_9:                                #   in Loop: Header=BB1_3 Depth=1
+.Ltmp22:
+# %bb.10:                               #   in Loop: Header=BB1_3 Depth=1
 	.loc	1 47 2                          # src/lexer/token_word.c:47:2
 	jmp	.LBB1_3
-.LBB1_10:
-	.loc	1 58 2                          # src/lexer/token_word.c:58:2
+.LBB1_11:
+	.loc	1 60 2                          # src/lexer/token_word.c:60:2
 	movq	-48(%rbp), %rax
 	movslq	-32(%rbp), %rcx
-	.loc	1 58 12 is_stmt 0               # src/lexer/token_word.c:58:12
+	.loc	1 60 12 is_stmt 0               # src/lexer/token_word.c:60:12
 	movb	$0, (%rax,%rcx)
-	.loc	1 59 10 is_stmt 1               # src/lexer/token_word.c:59:10
+	.loc	1 61 10 is_stmt 1               # src/lexer/token_word.c:61:10
 	movq	-48(%rbp), %rax
-	.loc	1 59 2 is_stmt 0                # src/lexer/token_word.c:59:2
+	.loc	1 61 2 is_stmt 0                # src/lexer/token_word.c:61:2
 	movq	%rax, -8(%rbp)
-.LBB1_11:
-	.loc	1 60 1 is_stmt 1                # src/lexer/token_word.c:60:1
+.LBB1_12:
+	.loc	1 62 1 is_stmt 1                # src/lexer/token_word.c:62:1
 	movq	-8(%rbp), %rax
 	addq	$64, %rsp
 	popq	%rbp
 	.cfi_def_cfa %rsp, 8
 	retq
-.Ltmp22:
+.Ltmp23:
 .Lfunc_end1:
 	.size	get_word_lexeme, .Lfunc_end1-get_word_lexeme
 	.cfi_endproc
@@ -281,7 +286,7 @@ get_word_lexeme:                        # @get_word_lexeme
 	.type	is_empty_within_two_quote,@function
 is_empty_within_two_quote:              # @is_empty_within_two_quote
 .Lfunc_begin2:
-	.loc	1 63 0                          # src/lexer/token_word.c:63:0
+	.loc	1 65 0                          # src/lexer/token_word.c:65:0
 	.cfi_startproc
 # %bb.0:
 	pushq	%rbp
@@ -291,38 +296,38 @@ is_empty_within_two_quote:              # @is_empty_within_two_quote
 	.cfi_def_cfa_register %rbp
 	movl	%edi, -8(%rbp)
 	movl	%esi, -12(%rbp)
-.Ltmp23:
-	.loc	1 64 6 prologue_end             # src/lexer/token_word.c:64:6
-	movl	-8(%rbp), %eax
-	.loc	1 64 15 is_stmt 0               # src/lexer/token_word.c:64:15
-	movl	-12(%rbp), %ecx
-	.loc	1 64 25                         # src/lexer/token_word.c:64:25
-	shll	$1, %ecx
-	.loc	1 64 13                         # src/lexer/token_word.c:64:13
-	subl	%ecx, %eax
-	.loc	1 64 29                         # src/lexer/token_word.c:64:29
-	cmpl	$0, %eax
 .Ltmp24:
-	.loc	1 64 6                          # src/lexer/token_word.c:64:6
+	.loc	1 66 6 prologue_end             # src/lexer/token_word.c:66:6
+	movl	-8(%rbp), %eax
+	.loc	1 66 15 is_stmt 0               # src/lexer/token_word.c:66:15
+	movl	-12(%rbp), %ecx
+	.loc	1 66 25                         # src/lexer/token_word.c:66:25
+	shll	$1, %ecx
+	.loc	1 66 13                         # src/lexer/token_word.c:66:13
+	subl	%ecx, %eax
+	.loc	1 66 29                         # src/lexer/token_word.c:66:29
+	cmpl	$0, %eax
+.Ltmp25:
+	.loc	1 66 6                          # src/lexer/token_word.c:66:6
 	jne	.LBB2_2
 # %bb.1:
-.Ltmp25:
-	.loc	1 65 3 is_stmt 1                # src/lexer/token_word.c:65:3
+.Ltmp26:
+	.loc	1 67 3 is_stmt 1                # src/lexer/token_word.c:67:3
 	movb	$1, -1(%rbp)
 	jmp	.LBB2_3
-.Ltmp26:
+.Ltmp27:
 .LBB2_2:
-	.loc	1 66 2                          # src/lexer/token_word.c:66:2
+	.loc	1 68 2                          # src/lexer/token_word.c:68:2
 	movb	$0, -1(%rbp)
 .LBB2_3:
-	.loc	1 67 1                          # src/lexer/token_word.c:67:1
+	.loc	1 69 1                          # src/lexer/token_word.c:69:1
 	movb	-1(%rbp), %al
 	andb	$1, %al
 	movzbl	%al, %eax
 	popq	%rbp
 	.cfi_def_cfa %rsp, 8
 	retq
-.Ltmp27:
+.Ltmp28:
 .Lfunc_end2:
 	.size	is_empty_within_two_quote, .Lfunc_end2-is_empty_within_two_quote
 	.cfi_endproc
@@ -332,7 +337,7 @@ is_empty_within_two_quote:              # @is_empty_within_two_quote
 	.type	get_word_token,@function
 get_word_token:                         # @get_word_token
 .Lfunc_begin3:
-	.loc	1 70 0                          # src/lexer/token_word.c:70:0
+	.loc	1 72 0                          # src/lexer/token_word.c:72:0
 	.cfi_startproc
 # %bb.0:
 	pushq	%rbp
@@ -343,132 +348,132 @@ get_word_token:                         # @get_word_token
 	subq	$16, %rsp
 	movq	%rdi, -8(%rbp)
 	movq	%rsi, -16(%rbp)
-.Ltmp28:
-	.loc	1 71 42 prologue_end            # src/lexer/token_word.c:71:42
+.Ltmp29:
+	.loc	1 73 42 prologue_end            # src/lexer/token_word.c:73:42
 	movq	-8(%rbp), %rdi
-	.loc	1 71 22 is_stmt 0               # src/lexer/token_word.c:71:22
+	.loc	1 73 22 is_stmt 0               # src/lexer/token_word.c:73:22
 	callq	get_token_quote_nbr
 	movl	%eax, %ecx
-	.loc	1 71 4                          # src/lexer/token_word.c:71:4
+	.loc	1 73 4                          # src/lexer/token_word.c:73:4
 	movq	-16(%rbp), %rax
-	.loc	1 71 3                          # src/lexer/token_word.c:71:3
+	.loc	1 73 3                          # src/lexer/token_word.c:73:3
 	movq	(%rax), %rax
-	.loc	1 71 20                         # src/lexer/token_word.c:71:20
+	.loc	1 73 20                         # src/lexer/token_word.c:73:20
 	movl	%ecx, 4(%rax)
-.Ltmp29:
-	.loc	1 72 6 is_stmt 1                # src/lexer/token_word.c:72:6
+.Ltmp30:
+	.loc	1 74 6 is_stmt 1                # src/lexer/token_word.c:74:6
 	callq	__errno_location
-	.loc	1 72 12 is_stmt 0               # src/lexer/token_word.c:72:12
+	.loc	1 74 12 is_stmt 0               # src/lexer/token_word.c:74:12
 	cmpl	$0, (%rax)
-	.loc	1 72 17                         # src/lexer/token_word.c:72:17
+	.loc	1 74 17                         # src/lexer/token_word.c:74:17
 	jne	.LBB3_6
 # %bb.1:
-	.loc	1 72 22                         # src/lexer/token_word.c:72:22
+	.loc	1 74 22                         # src/lexer/token_word.c:74:22
 	movq	-16(%rbp), %rax
-	.loc	1 72 21                         # src/lexer/token_word.c:72:21
+	.loc	1 74 21                         # src/lexer/token_word.c:74:21
 	movq	(%rax), %rax
-	.loc	1 72 38                         # src/lexer/token_word.c:72:38
+	.loc	1 74 38                         # src/lexer/token_word.c:74:38
 	cmpl	$-1, 4(%rax)
-.Ltmp30:
-	.loc	1 72 6                          # src/lexer/token_word.c:72:6
+.Ltmp31:
+	.loc	1 74 6                          # src/lexer/token_word.c:74:6
 	je	.LBB3_6
 # %bb.2:
-.Ltmp31:
-	.loc	1 74 36 is_stmt 1               # src/lexer/token_word.c:74:36
+.Ltmp32:
+	.loc	1 76 36 is_stmt 1               # src/lexer/token_word.c:76:36
 	movq	-8(%rbp), %rdi
-	.loc	1 74 20 is_stmt 0               # src/lexer/token_word.c:74:20
+	.loc	1 76 20 is_stmt 0               # src/lexer/token_word.c:76:20
 	callq	get_word_length
 	movl	%eax, %ecx
-	.loc	1 74 5                          # src/lexer/token_word.c:74:5
+	.loc	1 76 5                          # src/lexer/token_word.c:76:5
 	movq	-16(%rbp), %rax
-	.loc	1 74 4                          # src/lexer/token_word.c:74:4
+	.loc	1 76 4                          # src/lexer/token_word.c:76:4
 	movq	(%rax), %rax
-	.loc	1 74 18                         # src/lexer/token_word.c:74:18
+	.loc	1 76 18                         # src/lexer/token_word.c:76:18
 	movl	%ecx, 8(%rax)
-.Ltmp32:
-	.loc	1 75 35 is_stmt 1               # src/lexer/token_word.c:75:35
-	movq	-16(%rbp), %rax
-	.loc	1 75 34 is_stmt 0               # src/lexer/token_word.c:75:34
-	movq	(%rax), %rax
-	.loc	1 75 41                         # src/lexer/token_word.c:75:41
-	movl	8(%rax), %edi
-	.loc	1 75 51                         # src/lexer/token_word.c:75:51
-	movq	-16(%rbp), %rax
-	.loc	1 75 50                         # src/lexer/token_word.c:75:50
-	movq	(%rax), %rax
-	.loc	1 75 57                         # src/lexer/token_word.c:75:57
-	movl	4(%rax), %esi
-	.loc	1 75 7                          # src/lexer/token_word.c:75:7
-	callq	is_empty_within_two_quote
 .Ltmp33:
-	.loc	1 75 7                          # src/lexer/token_word.c:75:7
+	.loc	1 77 35 is_stmt 1               # src/lexer/token_word.c:77:35
+	movq	-16(%rbp), %rax
+	.loc	1 77 34 is_stmt 0               # src/lexer/token_word.c:77:34
+	movq	(%rax), %rax
+	.loc	1 77 41                         # src/lexer/token_word.c:77:41
+	movl	8(%rax), %edi
+	.loc	1 77 51                         # src/lexer/token_word.c:77:51
+	movq	-16(%rbp), %rax
+	.loc	1 77 50                         # src/lexer/token_word.c:77:50
+	movq	(%rax), %rax
+	.loc	1 77 57                         # src/lexer/token_word.c:77:57
+	movl	4(%rax), %esi
+	.loc	1 77 7                          # src/lexer/token_word.c:77:7
+	callq	is_empty_within_two_quote
+.Ltmp34:
+	.loc	1 77 7                          # src/lexer/token_word.c:77:7
 	testb	$1, %al
 	jne	.LBB3_3
 	jmp	.LBB3_4
 .LBB3_3:
-.Ltmp34:
-	.loc	1 76 6 is_stmt 1                # src/lexer/token_word.c:76:6
+.Ltmp35:
+	.loc	1 78 6 is_stmt 1                # src/lexer/token_word.c:78:6
 	movq	-16(%rbp), %rax
-	.loc	1 76 5 is_stmt 0                # src/lexer/token_word.c:76:5
+	.loc	1 78 5 is_stmt 0                # src/lexer/token_word.c:78:5
 	movq	(%rax), %rax
-	.loc	1 76 19                         # src/lexer/token_word.c:76:19
+	.loc	1 78 19                         # src/lexer/token_word.c:78:19
 	movq	$0, 16(%rax)
-	.loc	1 76 4                          # src/lexer/token_word.c:76:4
+	.loc	1 78 4                          # src/lexer/token_word.c:78:4
 	jmp	.LBB3_5
 .LBB3_4:
-.Ltmp35:
-	.loc	1 79 37 is_stmt 1               # src/lexer/token_word.c:79:37
+.Ltmp36:
+	.loc	1 81 37 is_stmt 1               # src/lexer/token_word.c:81:37
 	movq	-8(%rbp), %rdi
-	.loc	1 80 8                          # src/lexer/token_word.c:80:8
+	.loc	1 82 8                          # src/lexer/token_word.c:82:8
 	movq	-16(%rbp), %rax
-	.loc	1 80 7 is_stmt 0                # src/lexer/token_word.c:80:7
+	.loc	1 82 7 is_stmt 0                # src/lexer/token_word.c:82:7
 	movq	(%rax), %rax
-	.loc	1 80 14                         # src/lexer/token_word.c:80:14
+	.loc	1 82 14                         # src/lexer/token_word.c:82:14
 	movl	8(%rax), %esi
-	.loc	1 80 24                         # src/lexer/token_word.c:80:24
+	.loc	1 82 24                         # src/lexer/token_word.c:82:24
 	movq	-16(%rbp), %rax
-	.loc	1 80 23                         # src/lexer/token_word.c:80:23
+	.loc	1 82 23                         # src/lexer/token_word.c:82:23
 	movq	(%rax), %rax
-	.loc	1 80 30                         # src/lexer/token_word.c:80:30
+	.loc	1 82 30                         # src/lexer/token_word.c:82:30
 	movl	4(%rax), %edx
-	.loc	1 79 21 is_stmt 1               # src/lexer/token_word.c:79:21
+	.loc	1 81 21 is_stmt 1               # src/lexer/token_word.c:81:21
 	callq	get_word_lexeme
 	movq	%rax, %rcx
-	.loc	1 79 6 is_stmt 0                # src/lexer/token_word.c:79:6
-	movq	-16(%rbp), %rax
-	.loc	1 79 5                          # src/lexer/token_word.c:79:5
-	movq	(%rax), %rax
-	.loc	1 79 19                         # src/lexer/token_word.c:79:19
-	movq	%rcx, 16(%rax)
-	.loc	1 81 44 is_stmt 1               # src/lexer/token_word.c:81:44
-	movq	-8(%rbp), %rdi
-	.loc	1 81 53 is_stmt 0               # src/lexer/token_word.c:81:53
-	movq	-16(%rbp), %rax
-	.loc	1 81 52                         # src/lexer/token_word.c:81:52
-	movq	(%rax), %rax
-	.loc	1 81 59                         # src/lexer/token_word.c:81:59
-	movl	8(%rax), %esi
-	.loc	1 81 24                         # src/lexer/token_word.c:81:24
-	callq	get_token_expansion
-	movq	%rax, %rcx
-	.loc	1 81 6                          # src/lexer/token_word.c:81:6
+	.loc	1 81 6 is_stmt 0                # src/lexer/token_word.c:81:6
 	movq	-16(%rbp), %rax
 	.loc	1 81 5                          # src/lexer/token_word.c:81:5
 	movq	(%rax), %rax
-	.loc	1 81 22                         # src/lexer/token_word.c:81:22
+	.loc	1 81 19                         # src/lexer/token_word.c:81:19
+	movq	%rcx, 16(%rax)
+	.loc	1 83 44 is_stmt 1               # src/lexer/token_word.c:83:44
+	movq	-8(%rbp), %rdi
+	.loc	1 83 53 is_stmt 0               # src/lexer/token_word.c:83:53
+	movq	-16(%rbp), %rax
+	.loc	1 83 52                         # src/lexer/token_word.c:83:52
+	movq	(%rax), %rax
+	.loc	1 83 59                         # src/lexer/token_word.c:83:59
+	movl	8(%rax), %esi
+	.loc	1 83 24                         # src/lexer/token_word.c:83:24
+	callq	get_token_expansion
+	movq	%rax, %rcx
+	.loc	1 83 6                          # src/lexer/token_word.c:83:6
+	movq	-16(%rbp), %rax
+	.loc	1 83 5                          # src/lexer/token_word.c:83:5
+	movq	(%rax), %rax
+	.loc	1 83 22                         # src/lexer/token_word.c:83:22
 	movq	%rcx, 24(%rax)
-.Ltmp36:
-.LBB3_5:
-	.loc	1 83 2 is_stmt 1                # src/lexer/token_word.c:83:2
-	jmp	.LBB3_6
 .Ltmp37:
+.LBB3_5:
+	.loc	1 85 2 is_stmt 1                # src/lexer/token_word.c:85:2
+	jmp	.LBB3_6
+.Ltmp38:
 .LBB3_6:
-	.loc	1 84 1                          # src/lexer/token_word.c:84:1
+	.loc	1 86 1                          # src/lexer/token_word.c:86:1
 	addq	$16, %rsp
 	popq	%rbp
 	.cfi_def_cfa %rsp, 8
 	retq
-.Ltmp38:
+.Ltmp39:
 .Lfunc_end3:
 	.size	get_word_token, .Lfunc_end3-get_word_token
 	.cfi_endproc
@@ -479,7 +484,7 @@ get_word_token:                         # @get_word_token
 	.asciz	"malloc"
 	.size	.L.str, 7
 
-	.file	2 "/mnt/nfs/homes/cboukhal/42/minishell" "src/lexer/../../include/minishell.h"
+	.file	2 "/mnt/nfs/homes/cboukhal/minishell" "src/lexer/../../include/minishell.h"
 	.section	.debug_abbrev,"",@progbits
 	.byte	1                               # Abbreviation Code
 	.byte	17                              # DW_TAG_compile_unit
@@ -766,7 +771,7 @@ get_word_token:                         # @get_word_token
 	.byte	86
 	.long	.Linfo_string7                  # DW_AT_name
 	.byte	1                               # DW_AT_decl_file
-	.byte	62                              # DW_AT_decl_line
+	.byte	64                              # DW_AT_decl_line
                                         # DW_AT_prototyped
 	.long	358                             # DW_AT_type
                                         # DW_AT_external
@@ -776,7 +781,7 @@ get_word_token:                         # @get_word_token
 	.byte	120
 	.long	.Linfo_string12                 # DW_AT_name
 	.byte	1                               # DW_AT_decl_file
-	.byte	62                              # DW_AT_decl_line
+	.byte	64                              # DW_AT_decl_line
 	.long	339                             # DW_AT_type
 	.byte	4                               # Abbrev [4] 0x112:0xe DW_TAG_formal_parameter
 	.byte	2                               # DW_AT_location
@@ -784,7 +789,7 @@ get_word_token:                         # @get_word_token
 	.byte	116
 	.long	.Linfo_string13                 # DW_AT_name
 	.byte	1                               # DW_AT_decl_file
-	.byte	62                              # DW_AT_decl_line
+	.byte	64                              # DW_AT_decl_line
 	.long	339                             # DW_AT_type
 	.byte	0                               # End Of Children Mark
 	.byte	6                               # Abbrev [6] 0x121:0x32 DW_TAG_subprogram
@@ -794,7 +799,7 @@ get_word_token:                         # @get_word_token
 	.byte	86
 	.long	.Linfo_string9                  # DW_AT_name
 	.byte	1                               # DW_AT_decl_file
-	.byte	69                              # DW_AT_decl_line
+	.byte	71                              # DW_AT_decl_line
                                         # DW_AT_prototyped
                                         # DW_AT_external
 	.byte	4                               # Abbrev [4] 0x136:0xe DW_TAG_formal_parameter
@@ -803,7 +808,7 @@ get_word_token:                         # @get_word_token
 	.byte	120
 	.long	.Linfo_string10                 # DW_AT_name
 	.byte	1                               # DW_AT_decl_file
-	.byte	69                              # DW_AT_decl_line
+	.byte	71                              # DW_AT_decl_line
 	.long	346                             # DW_AT_type
 	.byte	4                               # Abbrev [4] 0x144:0xe DW_TAG_formal_parameter
 	.byte	2                               # DW_AT_location
@@ -811,7 +816,7 @@ get_word_token:                         # @get_word_token
 	.byte	112
 	.long	.Linfo_string18                 # DW_AT_name
 	.byte	1                               # DW_AT_decl_file
-	.byte	69                              # DW_AT_decl_line
+	.byte	71                              # DW_AT_decl_line
 	.long	365                             # DW_AT_type
 	.byte	0                               # End Of Children Mark
 	.byte	7                               # Abbrev [7] 0x153:0x7 DW_TAG_base_type
@@ -922,57 +927,57 @@ get_word_token:                         # @get_word_token
 .Linfo_string1:
 	.asciz	"src/lexer/token_word.c"        # string offset=38
 .Linfo_string2:
-	.asciz	"/mnt/nfs/homes/cboukhal/42/minishell" # string offset=61
+	.asciz	"/mnt/nfs/homes/cboukhal/minishell" # string offset=61
 .Linfo_string3:
-	.asciz	"get_word_length"               # string offset=98
+	.asciz	"get_word_length"               # string offset=95
 .Linfo_string4:
-	.asciz	"int"                           # string offset=114
+	.asciz	"int"                           # string offset=111
 .Linfo_string5:
-	.asciz	"get_word_lexeme"               # string offset=118
+	.asciz	"get_word_lexeme"               # string offset=115
 .Linfo_string6:
-	.asciz	"char"                          # string offset=134
+	.asciz	"char"                          # string offset=131
 .Linfo_string7:
-	.asciz	"is_empty_within_two_quote"     # string offset=139
+	.asciz	"is_empty_within_two_quote"     # string offset=136
 .Linfo_string8:
-	.asciz	"_Bool"                         # string offset=165
+	.asciz	"_Bool"                         # string offset=162
 .Linfo_string9:
-	.asciz	"get_word_token"                # string offset=171
+	.asciz	"get_word_token"                # string offset=168
 .Linfo_string10:
-	.asciz	"input"                         # string offset=186
+	.asciz	"input"                         # string offset=183
 .Linfo_string11:
-	.asciz	"i"                             # string offset=192
+	.asciz	"i"                             # string offset=189
 .Linfo_string12:
-	.asciz	"length"                        # string offset=194
+	.asciz	"length"                        # string offset=191
 .Linfo_string13:
-	.asciz	"quote_nbr"                     # string offset=201
+	.asciz	"quote_nbr"                     # string offset=198
 .Linfo_string14:
-	.asciz	"j"                             # string offset=211
+	.asciz	"j"                             # string offset=208
 .Linfo_string15:
-	.asciz	"quote"                         # string offset=213
+	.asciz	"quote"                         # string offset=210
 .Linfo_string16:
-	.asciz	"lexeme"                        # string offset=219
+	.asciz	"lexeme"                        # string offset=216
 .Linfo_string17:
-	.asciz	"second_quote"                  # string offset=226
+	.asciz	"second_quote"                  # string offset=223
 .Linfo_string18:
-	.asciz	"new"                           # string offset=239
+	.asciz	"new"                           # string offset=236
 .Linfo_string19:
-	.asciz	"type"                          # string offset=243
+	.asciz	"type"                          # string offset=240
 .Linfo_string20:
-	.asciz	"expansion"                     # string offset=248
+	.asciz	"expansion"                     # string offset=245
 .Linfo_string21:
-	.asciz	"name"                          # string offset=258
+	.asciz	"name"                          # string offset=255
 .Linfo_string22:
-	.asciz	"next"                          # string offset=263
+	.asciz	"next"                          # string offset=260
 .Linfo_string23:
-	.asciz	"s_expan"                       # string offset=268
+	.asciz	"s_expan"                       # string offset=265
 .Linfo_string24:
-	.asciz	"t_expan"                       # string offset=276
+	.asciz	"t_expan"                       # string offset=273
 .Linfo_string25:
-	.asciz	"prev"                          # string offset=284
+	.asciz	"prev"                          # string offset=281
 .Linfo_string26:
-	.asciz	"s_token"                       # string offset=289
+	.asciz	"s_token"                       # string offset=286
 .Linfo_string27:
-	.asciz	"t_token"                       # string offset=297
+	.asciz	"t_token"                       # string offset=294
 	.ident	"Ubuntu clang version 12.0.1-19ubuntu3"
 	.section	".note.GNU-stack","",@progbits
 	.addrsig

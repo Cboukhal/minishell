@@ -1,30 +1,34 @@
-					### UNSET ###
+					### WILDCARD ###
 
 	-- Test[1] --
 
-INPUT=unset
+INPUT=*
 
 	-- RETURN VALUE --
----->[OK]
+1c1
+< asm: command not found
+---
+> *: command not found
+---->[KO]
 
 	-- EXIT STATUS --
-MINISHELL=0
-BASH=0
+MINISHELL=127
+BASH=127
 ---->[OK]
 
 	-- VALGRIND --
-==353932== Memcheck, a memory error detector
-==353932== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==353932== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==353932== Command: ./minishell unset
-==353932== Parent PID: 352318
-==353932== 
-==353932== 
-==353932== HEAP SUMMARY:
-==353932==     in use at exit: 0 bytes in 0 blocks
-==353932==   total heap usage: 392 allocs, 392 frees, 13,092 bytes allocated
-==353932== 
-==353932== All heap blocks were freed -- no leaks are possible
-==353932== 
-==353932== For lists of detected and suppressed errors, rerun with: -s
-==353932== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==97607== Memcheck, a memory error detector
+==97607== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==97607== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==97607== Command: ./minishell *
+==97607== Parent PID: 93913
+==97607== 
+==97607== 
+==97607== HEAP SUMMARY:
+==97607==     in use at exit: 0 bytes in 0 blocks
+==97607==   total heap usage: 404 allocs, 404 frees, 13,227 bytes allocated
+==97607== 
+==97607== All heap blocks were freed -- no leaks are possible
+==97607== 
+==97607== For lists of detected and suppressed errors, rerun with: -s
+==97607== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

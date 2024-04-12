@@ -1,0 +1,31 @@
+					### REDIRECTION ###
+
+	-- Test[17] --
+
+INPUT=cat < wrong_file1 < wrong_file2
+
+	-- RETURN VALUE --
+bash: wrong_file1: No such file or directory
+---->[OK]
+
+	-- EXIT STATUS --
+MINISHELL=1
+BASH=1
+---->[OK]
+
+	-- VALGRIND --
+==94598== Memcheck, a memory error detector
+==94598== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==94598== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==94598== Command: ./minishell cat\ \<\ wrong_file1\ \<\ wrong_file2
+==94598== Parent PID: 93913
+==94598== 
+==94598== 
+==94598== HEAP SUMMARY:
+==94598==     in use at exit: 0 bytes in 0 blocks
+==94598==   total heap usage: 399 allocs, 399 frees, 13,228 bytes allocated
+==94598== 
+==94598== All heap blocks were freed -- no leaks are possible
+==94598== 
+==94598== For lists of detected and suppressed errors, rerun with: -s
+==94598== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

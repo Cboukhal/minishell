@@ -1,12 +1,12 @@
 	.text
 	.file	"type_word.c"
-	.file	1 "/mnt/nfs/homes/cboukhal/42/minishell" "src/lexer/../../include/minishell.h"
+	.file	1 "/mnt/nfs/homes/cboukhal/minishell" "src/lexer/../../include/minishell.h"
 	.globl	get_word_type                   # -- Begin function get_word_type
 	.p2align	4, 0x90
 	.type	get_word_type,@function
 get_word_type:                          # @get_word_type
 .Lfunc_begin0:
-	.file	2 "/mnt/nfs/homes/cboukhal/42/minishell" "src/lexer/type_word.c"
+	.file	2 "/mnt/nfs/homes/cboukhal/minishell" "src/lexer/type_word.c"
 	.loc	2 16 0                          # src/lexer/type_word.c:16:0
 	.cfi_startproc
 # %bb.0:
@@ -376,59 +376,59 @@ get_quote_type:                         # @get_quote_type
 .Linfo_string1:
 	.asciz	"src/lexer/type_word.c"         # string offset=38
 .Linfo_string2:
-	.asciz	"/mnt/nfs/homes/cboukhal/42/minishell" # string offset=60
+	.asciz	"/mnt/nfs/homes/cboukhal/minishell" # string offset=60
 .Linfo_string3:
-	.asciz	"unsigned int"                  # string offset=97
+	.asciz	"unsigned int"                  # string offset=94
 .Linfo_string4:
-	.asciz	"l_parentheses"                 # string offset=110
+	.asciz	"l_parentheses"                 # string offset=107
 .Linfo_string5:
-	.asciz	"r_parentheses"                 # string offset=124
+	.asciz	"r_parentheses"                 # string offset=121
 .Linfo_string6:
-	.asciz	"simple_quote"                  # string offset=138
+	.asciz	"simple_quote"                  # string offset=135
 .Linfo_string7:
-	.asciz	"double_quote"                  # string offset=151
+	.asciz	"double_quote"                  # string offset=148
 .Linfo_string8:
-	.asciz	"exit_status"                   # string offset=164
+	.asciz	"exit_status"                   # string offset=161
 .Linfo_string9:
-	.asciz	"expansion"                     # string offset=176
+	.asciz	"expansion"                     # string offset=173
 .Linfo_string10:
-	.asciz	"operator"                      # string offset=186
+	.asciz	"operator"                      # string offset=183
 .Linfo_string11:
-	.asciz	"wildcard"                      # string offset=195
+	.asciz	"wildcard"                      # string offset=192
 .Linfo_string12:
-	.asciz	"pipe_op"                       # string offset=204
+	.asciz	"pipe_op"                       # string offset=201
 .Linfo_string13:
-	.asciz	"heredoc"                       # string offset=212
+	.asciz	"heredoc"                       # string offset=209
 .Linfo_string14:
-	.asciz	"outfile"                       # string offset=220
+	.asciz	"outfile"                       # string offset=217
 .Linfo_string15:
-	.asciz	"append"                        # string offset=228
+	.asciz	"append"                        # string offset=225
 .Linfo_string16:
-	.asciz	"infile"                        # string offset=235
+	.asciz	"infile"                        # string offset=232
 .Linfo_string17:
-	.asciz	"and_if"                        # string offset=242
+	.asciz	"and_if"                        # string offset=239
 .Linfo_string18:
-	.asciz	"or_if"                         # string offset=249
+	.asciz	"or_if"                         # string offset=246
 .Linfo_string19:
-	.asciz	"word"                          # string offset=255
+	.asciz	"word"                          # string offset=252
 .Linfo_string20:
-	.asciz	"name"                          # string offset=260
+	.asciz	"name"                          # string offset=257
 .Linfo_string21:
-	.asciz	"assignment_word"               # string offset=265
+	.asciz	"assignment_word"               # string offset=262
 .Linfo_string22:
-	.asciz	"eof_token"                     # string offset=281
+	.asciz	"eof_token"                     # string offset=278
 .Linfo_string23:
-	.asciz	"e_token"                       # string offset=291
+	.asciz	"e_token"                       # string offset=288
 .Linfo_string24:
-	.asciz	"get_word_type"                 # string offset=299
+	.asciz	"get_word_type"                 # string offset=296
 .Linfo_string25:
-	.asciz	"int"                           # string offset=313
+	.asciz	"int"                           # string offset=310
 .Linfo_string26:
-	.asciz	"get_quote_type"                # string offset=317
+	.asciz	"get_quote_type"                # string offset=314
 .Linfo_string27:
-	.asciz	"input"                         # string offset=332
+	.asciz	"input"                         # string offset=329
 .Linfo_string28:
-	.asciz	"char"                          # string offset=338
+	.asciz	"char"                          # string offset=335
 	.ident	"Ubuntu clang version 12.0.1-19ubuntu3"
 	.section	".note.GNU-stack","",@progbits
 	.addrsig

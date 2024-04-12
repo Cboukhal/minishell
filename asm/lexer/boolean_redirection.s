@@ -1,12 +1,12 @@
 	.text
 	.file	"boolean_redirection.c"
-	.file	1 "/mnt/nfs/homes/cboukhal/42/minishell" "src/lexer/../../include/minishell.h"
+	.file	1 "/mnt/nfs/homes/cboukhal/minishell" "src/lexer/../../include/minishell.h"
 	.globl	got_filename                    # -- Begin function got_filename
 	.p2align	4, 0x90
 	.type	got_filename,@function
 got_filename:                           # @got_filename
 .Lfunc_begin0:
-	.file	2 "/mnt/nfs/homes/cboukhal/42/minishell" "src/lexer/boolean_redirection.c"
+	.file	2 "/mnt/nfs/homes/cboukhal/minishell" "src/lexer/boolean_redirection.c"
 	.loc	2 16 0                          # src/lexer/boolean_redirection.c:16:0
 	.cfi_startproc
 # %bb.0:
@@ -80,9 +80,13 @@ got_filename:                           # @got_filename
 	jmp	.LBB0_5
 .LBB0_9:
 	.loc	2 29 2                          # src/lexer/boolean_redirection.c:29:2
+	callq	__errno_location
+	.loc	2 29 8 is_stmt 0                # src/lexer/boolean_redirection.c:29:8
+	movl	$4, (%rax)
+	.loc	2 30 2 is_stmt 1                # src/lexer/boolean_redirection.c:30:2
 	movb	$0, -1(%rbp)
 .LBB0_10:
-	.loc	2 30 1                          # src/lexer/boolean_redirection.c:30:1
+	.loc	2 31 1                          # src/lexer/boolean_redirection.c:31:1
 	movb	-1(%rbp), %al
 	andb	$1, %al
 	movzbl	%al, %eax
@@ -100,7 +104,7 @@ got_filename:                           # @got_filename
 	.type	is_redirection,@function
 is_redirection:                         # @is_redirection
 .Lfunc_begin1:
-	.loc	2 33 0                          # src/lexer/boolean_redirection.c:33:0
+	.loc	2 34 0                          # src/lexer/boolean_redirection.c:34:0
 	.cfi_startproc
 # %bb.0:
 	pushq	%rbp
@@ -110,37 +114,37 @@ is_redirection:                         # @is_redirection
 	.cfi_def_cfa_register %rbp
 	movl	%edi, -8(%rbp)
 .Ltmp10:
-	.loc	2 34 11 prologue_end            # src/lexer/boolean_redirection.c:34:11
+	.loc	2 35 11 prologue_end            # src/lexer/boolean_redirection.c:35:11
 	cmpl	$12, -8(%rbp)
-	.loc	2 34 21 is_stmt 0               # src/lexer/boolean_redirection.c:34:21
+	.loc	2 35 21 is_stmt 0               # src/lexer/boolean_redirection.c:35:21
 	je	.LBB1_4
 # %bb.1:
-	.loc	2 34 29                         # src/lexer/boolean_redirection.c:34:29
+	.loc	2 35 29                         # src/lexer/boolean_redirection.c:35:29
 	cmpl	$10, -8(%rbp)
-	.loc	2 35 3 is_stmt 1                # src/lexer/boolean_redirection.c:35:3
+	.loc	2 36 3 is_stmt 1                # src/lexer/boolean_redirection.c:36:3
 	je	.LBB1_4
 # %bb.2:
-	.loc	2 35 11 is_stmt 0               # src/lexer/boolean_redirection.c:35:11
+	.loc	2 36 11 is_stmt 0               # src/lexer/boolean_redirection.c:36:11
 	cmpl	$11, -8(%rbp)
-	.loc	2 35 21                         # src/lexer/boolean_redirection.c:35:21
+	.loc	2 36 21                         # src/lexer/boolean_redirection.c:36:21
 	je	.LBB1_4
 # %bb.3:
-	.loc	2 35 29                         # src/lexer/boolean_redirection.c:35:29
+	.loc	2 36 29                         # src/lexer/boolean_redirection.c:36:29
 	cmpl	$9, -8(%rbp)
 .Ltmp11:
-	.loc	2 34 6 is_stmt 1                # src/lexer/boolean_redirection.c:34:6
+	.loc	2 35 6 is_stmt 1                # src/lexer/boolean_redirection.c:35:6
 	jne	.LBB1_5
 .LBB1_4:
 .Ltmp12:
-	.loc	2 36 3                          # src/lexer/boolean_redirection.c:36:3
+	.loc	2 37 3                          # src/lexer/boolean_redirection.c:37:3
 	movb	$1, -1(%rbp)
 	jmp	.LBB1_6
 .Ltmp13:
 .LBB1_5:
-	.loc	2 37 2                          # src/lexer/boolean_redirection.c:37:2
+	.loc	2 38 2                          # src/lexer/boolean_redirection.c:38:2
 	movb	$0, -1(%rbp)
 .LBB1_6:
-	.loc	2 38 1                          # src/lexer/boolean_redirection.c:38:1
+	.loc	2 39 1                          # src/lexer/boolean_redirection.c:39:1
 	movb	-1(%rbp), %al
 	andb	$1, %al
 	movzbl	%al, %eax
@@ -208,6 +212,19 @@ is_redirection:                         # @is_redirection
 	.byte	0                               # EOM(1)
 	.byte	0                               # EOM(2)
 	.byte	5                               # Abbreviation Code
+	.byte	4                               # DW_TAG_enumeration_type
+	.byte	1                               # DW_CHILDREN_yes
+	.byte	73                              # DW_AT_type
+	.byte	19                              # DW_FORM_ref4
+	.byte	11                              # DW_AT_byte_size
+	.byte	11                              # DW_FORM_data1
+	.byte	58                              # DW_AT_decl_file
+	.byte	11                              # DW_FORM_data1
+	.byte	59                              # DW_AT_decl_line
+	.byte	11                              # DW_FORM_data1
+	.byte	0                               # EOM(1)
+	.byte	0                               # EOM(2)
+	.byte	6                               # Abbreviation Code
 	.byte	46                              # DW_TAG_subprogram
 	.byte	1                               # DW_CHILDREN_yes
 	.byte	17                              # DW_AT_low_pc
@@ -230,7 +247,7 @@ is_redirection:                         # @is_redirection
 	.byte	25                              # DW_FORM_flag_present
 	.byte	0                               # EOM(1)
 	.byte	0                               # EOM(2)
-	.byte	6                               # Abbreviation Code
+	.byte	7                               # Abbreviation Code
 	.byte	5                               # DW_TAG_formal_parameter
 	.byte	0                               # DW_CHILDREN_no
 	.byte	2                               # DW_AT_location
@@ -245,7 +262,7 @@ is_redirection:                         # @is_redirection
 	.byte	19                              # DW_FORM_ref4
 	.byte	0                               # EOM(1)
 	.byte	0                               # EOM(2)
-	.byte	7                               # Abbreviation Code
+	.byte	8                               # Abbreviation Code
 	.byte	52                              # DW_TAG_variable
 	.byte	0                               # DW_CHILDREN_no
 	.byte	2                               # DW_AT_location
@@ -260,7 +277,7 @@ is_redirection:                         # @is_redirection
 	.byte	19                              # DW_FORM_ref4
 	.byte	0                               # EOM(1)
 	.byte	0                               # EOM(2)
-	.byte	8                               # Abbreviation Code
+	.byte	9                               # Abbreviation Code
 	.byte	15                              # DW_TAG_pointer_type
 	.byte	0                               # DW_CHILDREN_no
 	.byte	73                              # DW_AT_type
@@ -275,7 +292,7 @@ is_redirection:                         # @is_redirection
 	.short	4                               # DWARF version number
 	.long	.debug_abbrev                   # Offset Into Abbrev. Section
 	.byte	8                               # Address Size (in bytes)
-	.byte	1                               # Abbrev [1] 0xb:0x12c DW_TAG_compile_unit
+	.byte	1                               # Abbrev [1] 0xb:0x15f DW_TAG_compile_unit
 	.long	.Linfo_string0                  # DW_AT_producer
 	.short	12                              # DW_AT_language
 	.long	.Linfo_string1                  # DW_AT_name
@@ -351,74 +368,101 @@ is_redirection:                         # @is_redirection
 	.long	.Linfo_string3                  # DW_AT_name
 	.byte	7                               # DW_AT_encoding
 	.byte	4                               # DW_AT_byte_size
-	.byte	5                               # Abbrev [5] 0xb0:0x44 DW_TAG_subprogram
+	.byte	5                               # Abbrev [5] 0xb0:0x33 DW_TAG_enumeration_type
+	.long	169                             # DW_AT_type
+	.byte	4                               # DW_AT_byte_size
+	.byte	1                               # DW_AT_decl_file
+	.byte	71                              # DW_AT_decl_line
+	.byte	3                               # Abbrev [3] 0xb8:0x6 DW_TAG_enumerator
+	.long	.Linfo_string24                 # DW_AT_name
+	.byte	1                               # DW_AT_const_value
+	.byte	3                               # Abbrev [3] 0xbe:0x6 DW_TAG_enumerator
+	.long	.Linfo_string25                 # DW_AT_name
+	.byte	2                               # DW_AT_const_value
+	.byte	3                               # Abbrev [3] 0xc4:0x6 DW_TAG_enumerator
+	.long	.Linfo_string26                 # DW_AT_name
+	.byte	3                               # DW_AT_const_value
+	.byte	3                               # Abbrev [3] 0xca:0x6 DW_TAG_enumerator
+	.long	.Linfo_string27                 # DW_AT_name
+	.byte	4                               # DW_AT_const_value
+	.byte	3                               # Abbrev [3] 0xd0:0x6 DW_TAG_enumerator
+	.long	.Linfo_string28                 # DW_AT_name
+	.byte	5                               # DW_AT_const_value
+	.byte	3                               # Abbrev [3] 0xd6:0x6 DW_TAG_enumerator
+	.long	.Linfo_string29                 # DW_AT_name
+	.byte	6                               # DW_AT_const_value
+	.byte	3                               # Abbrev [3] 0xdc:0x6 DW_TAG_enumerator
+	.long	.Linfo_string30                 # DW_AT_name
+	.byte	7                               # DW_AT_const_value
+	.byte	0                               # End Of Children Mark
+	.byte	6                               # Abbrev [6] 0xe3:0x44 DW_TAG_subprogram
 	.quad	.Lfunc_begin0                   # DW_AT_low_pc
 	.long	.Lfunc_end0-.Lfunc_begin0       # DW_AT_high_pc
 	.byte	1                               # DW_AT_frame_base
 	.byte	86
-	.long	.Linfo_string24                 # DW_AT_name
+	.long	.Linfo_string31                 # DW_AT_name
 	.byte	2                               # DW_AT_decl_file
 	.byte	15                              # DW_AT_decl_line
                                         # DW_AT_prototyped
-	.long	284                             # DW_AT_type
+	.long	335                             # DW_AT_type
                                         # DW_AT_external
-	.byte	6                               # Abbrev [6] 0xc9:0xe DW_TAG_formal_parameter
+	.byte	7                               # Abbrev [7] 0xfc:0xe DW_TAG_formal_parameter
 	.byte	2                               # DW_AT_location
 	.byte	145
 	.byte	112
-	.long	.Linfo_string27                 # DW_AT_name
+	.long	.Linfo_string34                 # DW_AT_name
 	.byte	2                               # DW_AT_decl_file
 	.byte	15                              # DW_AT_decl_line
-	.long	291                             # DW_AT_type
-	.byte	6                               # Abbrev [6] 0xd7:0xe DW_TAG_formal_parameter
+	.long	342                             # DW_AT_type
+	.byte	7                               # Abbrev [7] 0x10a:0xe DW_TAG_formal_parameter
 	.byte	2                               # DW_AT_location
 	.byte	145
 	.byte	108
-	.long	.Linfo_string29                 # DW_AT_name
+	.long	.Linfo_string36                 # DW_AT_name
 	.byte	2                               # DW_AT_decl_file
 	.byte	15                              # DW_AT_decl_line
-	.long	303                             # DW_AT_type
-	.byte	7                               # Abbrev [7] 0xe5:0xe DW_TAG_variable
+	.long	354                             # DW_AT_type
+	.byte	8                               # Abbrev [8] 0x118:0xe DW_TAG_variable
 	.byte	2                               # DW_AT_location
 	.byte	145
 	.byte	104
-	.long	.Linfo_string31                 # DW_AT_name
+	.long	.Linfo_string38                 # DW_AT_name
 	.byte	2                               # DW_AT_decl_file
 	.byte	17                              # DW_AT_decl_line
-	.long	303                             # DW_AT_type
+	.long	354                             # DW_AT_type
 	.byte	0                               # End Of Children Mark
-	.byte	5                               # Abbrev [5] 0xf4:0x28 DW_TAG_subprogram
+	.byte	6                               # Abbrev [6] 0x127:0x28 DW_TAG_subprogram
 	.quad	.Lfunc_begin1                   # DW_AT_low_pc
 	.long	.Lfunc_end1-.Lfunc_begin1       # DW_AT_high_pc
 	.byte	1                               # DW_AT_frame_base
 	.byte	86
-	.long	.Linfo_string26                 # DW_AT_name
+	.long	.Linfo_string33                 # DW_AT_name
 	.byte	2                               # DW_AT_decl_file
-	.byte	32                              # DW_AT_decl_line
+	.byte	33                              # DW_AT_decl_line
                                         # DW_AT_prototyped
-	.long	284                             # DW_AT_type
+	.long	335                             # DW_AT_type
                                         # DW_AT_external
-	.byte	6                               # Abbrev [6] 0x10d:0xe DW_TAG_formal_parameter
+	.byte	7                               # Abbrev [7] 0x140:0xe DW_TAG_formal_parameter
 	.byte	2                               # DW_AT_location
 	.byte	145
 	.byte	120
-	.long	.Linfo_string29                 # DW_AT_name
+	.long	.Linfo_string36                 # DW_AT_name
 	.byte	2                               # DW_AT_decl_file
-	.byte	32                              # DW_AT_decl_line
-	.long	303                             # DW_AT_type
+	.byte	33                              # DW_AT_decl_line
+	.long	354                             # DW_AT_type
 	.byte	0                               # End Of Children Mark
-	.byte	4                               # Abbrev [4] 0x11c:0x7 DW_TAG_base_type
-	.long	.Linfo_string25                 # DW_AT_name
+	.byte	4                               # Abbrev [4] 0x14f:0x7 DW_TAG_base_type
+	.long	.Linfo_string32                 # DW_AT_name
 	.byte	2                               # DW_AT_encoding
 	.byte	1                               # DW_AT_byte_size
-	.byte	8                               # Abbrev [8] 0x123:0x5 DW_TAG_pointer_type
-	.long	296                             # DW_AT_type
-	.byte	4                               # Abbrev [4] 0x128:0x7 DW_TAG_base_type
-	.long	.Linfo_string28                 # DW_AT_name
+	.byte	9                               # Abbrev [9] 0x156:0x5 DW_TAG_pointer_type
+	.long	347                             # DW_AT_type
+	.byte	4                               # Abbrev [4] 0x15b:0x7 DW_TAG_base_type
+	.long	.Linfo_string35                 # DW_AT_name
 	.byte	6                               # DW_AT_encoding
 	.byte	1                               # DW_AT_byte_size
-	.byte	4                               # Abbrev [4] 0x12f:0x7 DW_TAG_base_type
-	.long	.Linfo_string30                 # DW_AT_name
+	.byte	4                               # Abbrev [4] 0x162:0x7 DW_TAG_base_type
+	.long	.Linfo_string37                 # DW_AT_name
 	.byte	5                               # DW_AT_encoding
 	.byte	4                               # DW_AT_byte_size
 	.byte	0                               # End Of Children Mark
@@ -429,68 +473,83 @@ is_redirection:                         # @is_redirection
 .Linfo_string1:
 	.asciz	"src/lexer/boolean_redirection.c" # string offset=38
 .Linfo_string2:
-	.asciz	"/mnt/nfs/homes/cboukhal/42/minishell" # string offset=70
+	.asciz	"/mnt/nfs/homes/cboukhal/minishell" # string offset=70
 .Linfo_string3:
-	.asciz	"unsigned int"                  # string offset=107
+	.asciz	"unsigned int"                  # string offset=104
 .Linfo_string4:
-	.asciz	"l_parentheses"                 # string offset=120
+	.asciz	"l_parentheses"                 # string offset=117
 .Linfo_string5:
-	.asciz	"r_parentheses"                 # string offset=134
+	.asciz	"r_parentheses"                 # string offset=131
 .Linfo_string6:
-	.asciz	"simple_quote"                  # string offset=148
+	.asciz	"simple_quote"                  # string offset=145
 .Linfo_string7:
-	.asciz	"double_quote"                  # string offset=161
+	.asciz	"double_quote"                  # string offset=158
 .Linfo_string8:
-	.asciz	"exit_status"                   # string offset=174
+	.asciz	"exit_status"                   # string offset=171
 .Linfo_string9:
-	.asciz	"expansion"                     # string offset=186
+	.asciz	"expansion"                     # string offset=183
 .Linfo_string10:
-	.asciz	"operator"                      # string offset=196
+	.asciz	"operator"                      # string offset=193
 .Linfo_string11:
-	.asciz	"wildcard"                      # string offset=205
+	.asciz	"wildcard"                      # string offset=202
 .Linfo_string12:
-	.asciz	"pipe_op"                       # string offset=214
+	.asciz	"pipe_op"                       # string offset=211
 .Linfo_string13:
-	.asciz	"heredoc"                       # string offset=222
+	.asciz	"heredoc"                       # string offset=219
 .Linfo_string14:
-	.asciz	"outfile"                       # string offset=230
+	.asciz	"outfile"                       # string offset=227
 .Linfo_string15:
-	.asciz	"append"                        # string offset=238
+	.asciz	"append"                        # string offset=235
 .Linfo_string16:
-	.asciz	"infile"                        # string offset=245
+	.asciz	"infile"                        # string offset=242
 .Linfo_string17:
-	.asciz	"and_if"                        # string offset=252
+	.asciz	"and_if"                        # string offset=249
 .Linfo_string18:
-	.asciz	"or_if"                         # string offset=259
+	.asciz	"or_if"                         # string offset=256
 .Linfo_string19:
-	.asciz	"word"                          # string offset=265
+	.asciz	"word"                          # string offset=262
 .Linfo_string20:
-	.asciz	"name"                          # string offset=270
+	.asciz	"name"                          # string offset=267
 .Linfo_string21:
-	.asciz	"assignment_word"               # string offset=275
+	.asciz	"assignment_word"               # string offset=272
 .Linfo_string22:
-	.asciz	"eof_token"                     # string offset=291
+	.asciz	"eof_token"                     # string offset=288
 .Linfo_string23:
-	.asciz	"e_token"                       # string offset=301
+	.asciz	"e_token"                       # string offset=298
 .Linfo_string24:
-	.asciz	"got_filename"                  # string offset=309
+	.asciz	"error_syntax"                  # string offset=306
 .Linfo_string25:
-	.asciz	"_Bool"                         # string offset=322
+	.asciz	"error_token"                   # string offset=319
 .Linfo_string26:
-	.asciz	"is_redirection"                # string offset=328
+	.asciz	"error_and"                     # string offset=331
 .Linfo_string27:
-	.asciz	"lexeme"                        # string offset=343
+	.asciz	"error_file"                    # string offset=341
 .Linfo_string28:
-	.asciz	"char"                          # string offset=350
+	.asciz	"error_builtin"                 # string offset=352
 .Linfo_string29:
-	.asciz	"type"                          # string offset=355
+	.asciz	"error_malloc"                  # string offset=366
 .Linfo_string30:
-	.asciz	"int"                           # string offset=360
+	.asciz	"error_command"                 # string offset=379
 .Linfo_string31:
-	.asciz	"i"                             # string offset=364
+	.asciz	"got_filename"                  # string offset=393
+.Linfo_string32:
+	.asciz	"_Bool"                         # string offset=406
+.Linfo_string33:
+	.asciz	"is_redirection"                # string offset=412
+.Linfo_string34:
+	.asciz	"lexeme"                        # string offset=427
+.Linfo_string35:
+	.asciz	"char"                          # string offset=434
+.Linfo_string36:
+	.asciz	"type"                          # string offset=439
+.Linfo_string37:
+	.asciz	"int"                           # string offset=444
+.Linfo_string38:
+	.asciz	"i"                             # string offset=448
 	.ident	"Ubuntu clang version 12.0.1-19ubuntu3"
 	.section	".note.GNU-stack","",@progbits
 	.addrsig
 	.addrsig_sym is_blank
+	.addrsig_sym __errno_location
 	.section	.debug_line,"",@progbits
 .Lline_table_start0:

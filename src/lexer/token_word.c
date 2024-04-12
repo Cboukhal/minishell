@@ -6,7 +6,7 @@
 /*   By: agadea <agadea@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 15:02:26 by agadea            #+#    #+#             */
-/*   Updated: 2024/03/31 12:44:05 by agadea           ###   ########.fr       */
+/*   Updated: 2024/03/28 16:27:50 by agadea           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,9 @@ char	*get_word_lexeme(char *input, int length, int quote_nbr)
 	{
 		if (is_quote(input[i]))
 			i += remove_quote(input[i], &quote, &second_quote);
-		if (!(second_quote == 0 && is_quote(input[i])))
+		if (second_quote == 0 && is_quote(input[i]))
+			continue ;
+		else
 		{
 			lexeme[j] = input[i];
 			j++;

@@ -6,7 +6,7 @@
 /*   By: agadea <agadea@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 16:20:30 by agadea            #+#    #+#             */
-/*   Updated: 2024/04/03 09:12:16 by agadea           ###   ########.fr       */
+/*   Updated: 2024/03/28 04:48:07 by agadea           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,10 +69,7 @@ void	unset(t_minishell *minishell, t_env *env, t_cmd *cmd)
 		i = 1;
 		while (cmd->arg_array[i])
 		{
-			// if (!is_valid_variable(cmd->arg_array[i]))
-			// 	error_unset(1, cmd->arg_array[i], &minishell->exit_status);
-			// else
-				unset_variable(&env, cmd->arg_array[i]);
+			unset_variable(&env, cmd->arg_array[i]);
 			i++;
 		}
 	}

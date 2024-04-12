@@ -5,7 +5,7 @@
 	.type	print_local_var,@function
 print_local_var:                        # @print_local_var
 .Lfunc_begin0:
-	.file	1 "/mnt/nfs/homes/cboukhal/42/minishell" "src/utils/print.c"
+	.file	1 "/mnt/nfs/homes/cboukhal/minishell" "src/utils/print.c"
 	.loc	1 16 0                          # src/utils/print.c:16:0
 	.cfi_startproc
 # %bb.0:
@@ -231,7 +231,7 @@ print_token_with_expansion:             # @print_token_with_expansion
 	.asciz	"token type=%d\n"
 	.size	.L.str.4, 15
 
-	.file	2 "/mnt/nfs/homes/cboukhal/42/minishell" "src/utils/../../include/minishell.h"
+	.file	2 "/mnt/nfs/homes/cboukhal/minishell" "src/utils/../../include/minishell.h"
 	.section	.debug_abbrev,"",@progbits
 	.byte	1                               # Abbreviation Code
 	.byte	17                              # DW_TAG_compile_unit
@@ -578,53 +578,53 @@ print_token_with_expansion:             # @print_token_with_expansion
 .Linfo_string1:
 	.asciz	"src/utils/print.c"             # string offset=38
 .Linfo_string2:
-	.asciz	"/mnt/nfs/homes/cboukhal/42/minishell" # string offset=56
+	.asciz	"/mnt/nfs/homes/cboukhal/minishell" # string offset=56
 .Linfo_string3:
-	.asciz	"print_local_var"               # string offset=93
+	.asciz	"print_local_var"               # string offset=90
 .Linfo_string4:
-	.asciz	"print_expansion"               # string offset=109
+	.asciz	"print_expansion"               # string offset=106
 .Linfo_string5:
-	.asciz	"print_token_with_expansion"    # string offset=125
+	.asciz	"print_token_with_expansion"    # string offset=122
 .Linfo_string6:
-	.asciz	"local"                         # string offset=152
+	.asciz	"local"                         # string offset=149
 .Linfo_string7:
-	.asciz	"name"                          # string offset=158
+	.asciz	"name"                          # string offset=155
 .Linfo_string8:
-	.asciz	"char"                          # string offset=163
+	.asciz	"char"                          # string offset=160
 .Linfo_string9:
-	.asciz	"value"                         # string offset=168
+	.asciz	"value"                         # string offset=165
 .Linfo_string10:
-	.asciz	"next"                          # string offset=174
+	.asciz	"next"                          # string offset=171
 .Linfo_string11:
-	.asciz	"s_var"                         # string offset=179
+	.asciz	"s_var"                         # string offset=176
 .Linfo_string12:
-	.asciz	"t_var"                         # string offset=185
+	.asciz	"t_var"                         # string offset=182
 .Linfo_string13:
-	.asciz	"expansion"                     # string offset=191
+	.asciz	"expansion"                     # string offset=188
 .Linfo_string14:
-	.asciz	"s_expan"                       # string offset=201
+	.asciz	"s_expan"                       # string offset=198
 .Linfo_string15:
-	.asciz	"t_expan"                       # string offset=209
+	.asciz	"t_expan"                       # string offset=206
 .Linfo_string16:
-	.asciz	"token"                         # string offset=217
+	.asciz	"token"                         # string offset=214
 .Linfo_string17:
-	.asciz	"type"                          # string offset=223
+	.asciz	"type"                          # string offset=220
 .Linfo_string18:
-	.asciz	"int"                           # string offset=228
+	.asciz	"int"                           # string offset=225
 .Linfo_string19:
-	.asciz	"quote_nbr"                     # string offset=232
+	.asciz	"quote_nbr"                     # string offset=229
 .Linfo_string20:
-	.asciz	"length"                        # string offset=242
+	.asciz	"length"                        # string offset=239
 .Linfo_string21:
-	.asciz	"lexeme"                        # string offset=249
+	.asciz	"lexeme"                        # string offset=246
 .Linfo_string22:
-	.asciz	"prev"                          # string offset=256
+	.asciz	"prev"                          # string offset=253
 .Linfo_string23:
-	.asciz	"s_token"                       # string offset=261
+	.asciz	"s_token"                       # string offset=258
 .Linfo_string24:
-	.asciz	"t_token"                       # string offset=269
+	.asciz	"t_token"                       # string offset=266
 .Linfo_string25:
-	.asciz	"i"                             # string offset=277
+	.asciz	"i"                             # string offset=274
 	.ident	"Ubuntu clang version 12.0.1-19ubuntu3"
 	.section	".note.GNU-stack","",@progbits
 	.addrsig

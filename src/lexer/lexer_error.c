@@ -6,7 +6,7 @@
 /*   By: agadea <agadea@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 16:40:52 by agadea            #+#    #+#             */
-/*   Updated: 2024/04/01 21:52:13 by agadea           ###   ########.fr       */
+/*   Updated: 2024/03/28 18:44:34 by agadea           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,12 @@ void	when_only_one_token(t_minishell *minishell, t_token **token)
 	{
 		if (got_filename((*token)->lexeme, (*token)->type))
 			return ;
-		write(2, "bash: syntax error near ", 24);
-		write(2, "unexpected token `newline'\n", 27);
+		ft_printf("bash: syntax error near ");
+		ft_printf("unexpected token `newline'\n");
 	}
 	else
-	{
-		write(2, "bash: syntax error near unexpected token `", 42);
-		write(2, (*token)->lexeme, ft_strlen((*token)->lexeme));
-		write(2, "'\n", 2);
-	}
+		ft_printf("bash: syntax error near unexpected token `%s'\n",
+			(*token)->lexeme);
 	errno = error_syntax;
 	minishell->exit_status = 2;
 }

@@ -53,6 +53,8 @@ main()
 				test_pipeline
 			elif [ "$1" = "signal" ]; then
 				test_signal
+			elif [ "$1" = "environment" ]; then
+				test_environment
 			elif [ "$1" = "list" ]; then
 				test_list
 			elif [ "$1" = "wildcard" ]; then
@@ -71,6 +73,7 @@ main()
 		test_pipeline
 		test_builtin
 		test_signal
+		test_environment
 		test_list
 		test_wildcard
 	fi
@@ -136,12 +139,13 @@ test_simple_command()
 	TEST=(
 		""
 		"   "
+		"	"
 		"ls"
 		"dir"
-		"ls -l"
-		"dir -a"
 		"/bin/ls"
 		"/bin/dir"
+		"ls -l"
+		"dir -a"
 		"/bin/ls -l"
 		"/bin/dir -a"
 		# "ls wrong_opt"
@@ -187,7 +191,6 @@ test_redirection()
 		"cat < wrong_file"
 		"cat < wrong_file1 < wrong_file2"
 		"cat < ${FILE_INFILE1} -n"
-		"cat<${FILE_INFILE1}-n"
 		# "cat < ${FILE_INFILE1} wrong_opt"
 		"cat < ${FILE_INFILE1} < ${FILE_INFILE2}"
 		# "< ${FILE_INFILE1} cat < ${FILE_INFILE2} wrong_opt"
@@ -225,6 +228,9 @@ test_pipeline()
 		"ls | wc | ls | wrong_cmd | ls"
 		"ls | wrong_cmd | ls | wrong_cmd | ls"
 		"ls | sleep 2 | cat"
+		"sleep 1 | sleep 1 | ls | sleep 1 | ls | wc"
+		"env | sort | grep -v SHLVL | grep -v ^_"
+		"export GHOST=123 | env | grep GHOST"
 		"cat < ${FILE_INFILE1} | cat < ${FILE_INFILE2}"
 		"cat < ${FILE_INFILE1} > ${FILE_OUTFILE1} | cat < ${FILE_INFILE2} > ${FILE_OUTFILE1}"
 	)
@@ -244,16 +250,9 @@ test_builtin()
 	mkdir test/log/builtin/pipeline
 	LOG_FILE="test/log/builtin/pipeline/"
 	TEST=(
-		"cd | cd"
-		"echo | echo"
-		"env | env"
-		"env | wc -l"
-		"env | grep HOME"
-		"env | echo"
-		"exit | exit"
-		"export | export"
-		"pwd | pwd"
-		"unset |unset"
+		"env | wc"
+		"echo a | echo b"
+		"echo a | sleep 1 | echo b"
 	)
 	launch_test "${TEST[@]}"
 
@@ -262,19 +261,34 @@ test_builtin()
 	LOG_FILE="test/log/builtin/cd/"
 	TEST=(
 		"cd"
-		"cd ''"
-		"cd \"\""
-		"cd /"
 		"cd ."
 		"cd .."
+		'cd $PATH'
+		"cd $PWD"
+		"cd $PWD hi"
+		"cd 123123"
+		"cd woof"
+		"cd bark bark"
+		"cd ?"
+		"cd ../libft"
+		"cd $OLDPWD"
+		"cd ".""
+		"cd /Users"
+		"cd "$PWD/file_tests""
+		"cd '/var' "
 		"cd ~"
-		"cd @"
-		"cd -"
+		"cd //////"
+		"cd ./././"
+		"cd '/////'"
+		"cd '/////' 2>/dev/null"
+		"cd '/etc'"
+		"cd ?"
+		"cd +"
 		"cd _"
-		"cd minishell"
-		"cd wrong_dir"
-		"cd /dev/tty"
-		"cd /dev/null"
+		"cd "doesntexist""
+		"cd ../../"
+		"cd echo echo"
+		"cd includes/ djhwbdhwbd wgdyuhgw jdwjdh wuiydjwh"
 	)
 	launch_test "${TEST[@]}"
 
@@ -283,33 +297,32 @@ test_builtin()
 	LOG_FILE="test/log/builtin/echo/"
 	TEST=(
 		"echo"
-		"echo ''"
-		"echo \"\""
-		"echo -"
-		"echo -n"
-		"echo \n"
-		"echo -n \n"
+		"echo cd ~"
+		"echo hello world"
+		"echo hello'world'"
+		"echo $"
+		"echo "$PWD""
+		"echo '$PWD'"
+		"echo 'aspas ->'"
+		"echo \"aspas ->\""
+		"echo \"aspas ->  \""
+		"cd $OLDPWD"
+		# "echo "exit_code ->$? user ->$USER home -> $HOME""
+		"echo 'exit_code ->$? user ->$USER home -> $HOME'"
+		"echo "$""
+		"echo $?HELLO"
+		"echo -n -nnnnnnn -n -nnn -nnnnn -n feel my pain"
+		"echo -n -n -n-n"
+		"echo ~42"
 		"echo --"
-		"echo -- \n"
-		"echo -nn"
-		"echo --n"
-		"echo --nn"
-		"echo -n-n"
-		"echo -n-n \n"
-		"echo -n-n test\n"
-		"echo -n -n"
-		"echo -n -n \n"
-		"echo -n -n test\n"
-		"echo -n -n -n"
-		"echo -n -n -n \n"
-		"echo -n -n -n test\n"
-		"echo -a"
-		'echo $HOME'
-		'echo $USER'
-		'echo $wrong_expan'
-		'echo $HOME $USER'
-		'echo $HOME$USER'
-		'echo $HOME$wrong_expan$USER'
+		"echo test1 -n"
+		"echo -n test1		test2"
+		# "echo $USER$TESTNOTFOUND$HOME$WTF$PWD"
+		# "echo <123 <456 hi | echo 42"
+		"echo ''"
+		"echo '$'"
+		# "echo "cat lol.c '|' cat > lol.c""
+		"echo cat lol.c | cat > lol.c"
 	)
 	launch_test "${TEST[@]}"
 
@@ -319,8 +332,11 @@ test_builtin()
 	TEST=(
 		"env"
 		"env wrong_opt"
-		'env HOME'
-		'env $HOME'
+		"env | wc -l"
+		"env what"
+		# "env | grep DOESNT_EXIST"
+		# "env | grep HOME"
+		# "env | grep USER"
 	)
 	launch_test "${TEST[@]}"
 
@@ -329,45 +345,35 @@ test_builtin()
 	LOG_FILE="test/log/builtin/exit/"
 	TEST=(
 		"exit"
-		"exit \"\""
-		"exit ''"
-		"exit -"
-		"exit --"
-		"exit ++"
-		"exit 0"
-		"exit -0"
-		"exit +0"
-		"exit 0a"
-		"exit a0"
-		"exit 1"
-		"exit -1"
-		"exit +1"
-		"exit 256"
-		"exit -256"
-		"exit +256"
-		"exit 2a56"
-		"exit 256a"
-		"exit non_numeric"
-		"exit @"
-		"exit 1 1"
-		"exit a 1"
-		"exit 1 1 1 1 1 1"
-		"exit 1 1 a 1 a 1"
-		"exit 2147483647"
-		"exit -2147483647"
-		"exit +2147483647"
-		"exit 2147483648"
-		"exit -2147483648"
-		"exit +2147483648"
-		"exit 4294967295"
-		"exit -4294967295"
-		"exit +4294967295"
-		"exit 4294967296"
-		"exit -4294967296"
-		"exit +4294967296"
+		"exit 123"
+		"exit 42 world"
 		"exit 9223372036854775807"
-		"exit +9223372036854775807"
-		"exit -9223372036854775807"
+		"exit something somethingv2"
+		"exit 0 0"
+		# "exit \"\""
+		"exit "+100""
+		"exit "-100""
+		"exit -9223372036854775805"
+		"exit 0"
+		"exit 10"
+		"exit 42"
+		"exit 1"
+		"exit +++++"
+		"exit +1"
+		"exit ++1"
+		"exit -1"
+		"exit --1"
+		"exit 0001"
+		"exit "something""
+		"exit echo"
+		"exit cd .."
+		"exit 42 42 42 42 42"
+		"exit exit"
+		"exit x"
+		"exit ++++000"
+		"exit ----000"
+		"exit "A""
+		"exit "+++""
 	)
 	launch_test "${TEST[@]}"
 
@@ -376,17 +382,24 @@ test_builtin()
 	LOG_FILE="test/log/builtin/export/"
 	TEST=(
 		"export"
-		"export \"\""
-		"export ''"
+		"export hello"
+		"export HELLO=123"
 		"export ="
-		"export @"
-		"export ."
-		"export .."
-		"export /"
-		"export 0"
-		"export 0 1 2"
-		"export wrong_name"
-		"export wrong_name wrong_name"
+		"export A-"
+		"export HELLO=123 A"
+		"export hello world"
+		"export 123"
+		"export ==========123"
+		"export =42"
+		"export export"
+		"export $?"
+		"export ____TEST=132"
+		"export 1TEST="
+		"export ++++++123"
+		"export TEST+=100"
+		"export "="="=""
+		"export TE+S=T="
+		"export HELLO="123 A""
 	)
 	launch_test "${TEST[@]}"
 
@@ -395,11 +408,9 @@ test_builtin()
 	LOG_FILE="test/log/builtin/pwd/"
 	TEST=(
 		"pwd"
-		"pwd -"
-		'pwd $'
-		'pwd $HOME'
+		"pwd test42"
 		"pwd pwd"
-		"pwd wrong_opt"
+		"pwd 42 42 42"
 	)
 	launch_test "${TEST[@]}"
 
@@ -408,12 +419,16 @@ test_builtin()
 	LOG_FILE="test/log/builtin/unset/"
 	TEST=(
 		"unset"
-		"unset -"
-		"unset _"
-		"unset 1"
-		"unset @"
-		"unset wrong_opt"
-		'unset wrong_opt $wrong_expan'
+		"unset HELLO"
+		"unset PATH"
+		"unset """
+		"unset ="
+		"unset "=""
+		"unset ?"
+		"unset doesntexist"
+		"unset ======"
+		"unset export"
+		"unset HOME"
 	)
 	launch_test "${TEST[@]}"
 	BUILTIN=false
@@ -440,11 +455,11 @@ test_quote()
 	LOG_FILE="test/log/quote/"
 
 	TEST=(
-		"\"\""
-		"''"
+		# "\"\""
+		# "''"
 		"'\"\"'"
-		"\"''\"\"''\""
-		"\"'\"\"\"\"'\""
+		# "\"''\"\"''\""
+		# "\"'\"\"\"\"'\""
 		"\"'\"\"'\""
 		"'\"''\"'"
 		"\"ls\""
@@ -482,6 +497,8 @@ test_expansion()
 	launch_test "${TEST[@]}"
 }
 
+
+
 test_signal()
 {
 	local -a TEST
@@ -495,6 +512,14 @@ test_signal()
 	# echo $!
 	# kill $!
 	# echo $?
+	launch_test "${TEST[@]}"
+}
+
+test_environment()
+{
+	local -a TEST
+	PART="ENVIRONMENT"
+
 	launch_test "${TEST[@]}"
 }
 
@@ -587,7 +612,7 @@ launch_test()
 
 			if grep -q "No such file or directory" ${OUTFILE_BASH}; then
 				if grep -q "line 0" ${OUTFILE_BASH}; then
-					sed -i 's/line 0: //g' ${OUTFILE_BASH}
+					sed -i 's/line 0://g' ${OUTFILE_BASH}
 				elif grep -q "line 1" ${OUTFILE_BASH}; then
 					sed -i 's/line 1: //g' ${OUTFILE_BASH}
 				fi

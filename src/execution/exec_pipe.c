@@ -6,7 +6,7 @@
 /*   By: agadea <agadea@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 17:40:41 by agadea            #+#    #+#             */
-/*   Updated: 2024/04/01 19:14:06 by agadea           ###   ########.fr       */
+/*   Updated: 2024/03/28 19:48:02 by agadea           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void	setup_pipe(t_ast **ast)
 	setup_ast_next(ast);
 }
 
-void	exec_pipeline(t_minishell **minishell, t_ast **ast, int i)
+void	exec_pipe(t_minishell **minishell, t_ast **ast, int i)
 {
 	setup_pipe(ast);
 	if (i == 0)

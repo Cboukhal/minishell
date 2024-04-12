@@ -2,16 +2,11 @@
 
 	-- Test[21] --
 
-INPUT=echo -n -n -n test\n
+INPUT=echo ''
 
 	-- RETURN VALUE --
-1c1
-< testn
-\ No newline at end of file
----
-> test\n
-\ No newline at end of file
----->[KO]
+
+---->[OK]
 
 	-- EXIT STATUS --
 MINISHELL=0
@@ -19,18 +14,18 @@ BASH=0
 ---->[OK]
 
 	-- VALGRIND --
-==353008== Memcheck, a memory error detector
-==353008== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==353008== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==353008== Command: ./minishell echo\ -n\ -n\ -n\ test\\n
-==353008== Parent PID: 352318
-==353008== 
-==353008== 
-==353008== HEAP SUMMARY:
-==353008==     in use at exit: 0 bytes in 0 blocks
-==353008==   total heap usage: 412 allocs, 412 frees, 13,424 bytes allocated
-==353008== 
-==353008== All heap blocks were freed -- no leaks are possible
-==353008== 
-==353008== For lists of detected and suppressed errors, rerun with: -s
-==353008== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==96457== Memcheck, a memory error detector
+==96457== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==96457== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==96457== Command: ./minishell echo\ ''
+==96457== Parent PID: 93913
+==96457== 
+==96457== 
+==96457== HEAP SUMMARY:
+==96457==     in use at exit: 0 bytes in 0 blocks
+==96457==   total heap usage: 393 allocs, 393 frees, 13,114 bytes allocated
+==96457== 
+==96457== All heap blocks were freed -- no leaks are possible
+==96457== 
+==96457== For lists of detected and suppressed errors, rerun with: -s
+==96457== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

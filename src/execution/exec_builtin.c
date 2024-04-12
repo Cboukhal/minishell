@@ -19,8 +19,7 @@ void	exec_builtin(t_minishell *minishell, t_cmd *cmd)
 	if (ft_strncmp(cmd->name, "cd", 2) == 0)
 		cd(minishell, cmd);
 	else if (ft_strncmp(cmd->name, "echo", 4) == 0)
-		// echo(minishell, cmd);
-		echo(cmd);
+		echo(minishell, cmd);
 	else if (ft_strncmp(cmd->name, "env", 3) == 0)
 		env(minishell, minishell->env, cmd);
 	else if (ft_strncmp(cmd->name, "exit", 4) == 0)

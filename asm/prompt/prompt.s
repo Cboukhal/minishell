@@ -5,7 +5,7 @@
 	.type	get_prompt,@function
 get_prompt:                             # @get_prompt
 .Lfunc_begin0:
-	.file	1 "/mnt/nfs/homes/cboukhal/42/minishell" "src/prompt/prompt.c"
+	.file	1 "/mnt/nfs/homes/cboukhal/minishell" "src/prompt/prompt.c"
 	.loc	1 16 0                          # src/prompt/prompt.c:16:0
 	.cfi_startproc
 # %bb.0:
@@ -297,19 +297,19 @@ get_prompt:                             # @get_prompt
 .Linfo_string1:
 	.asciz	"src/prompt/prompt.c"           # string offset=38
 .Linfo_string2:
-	.asciz	"/mnt/nfs/homes/cboukhal/42/minishell" # string offset=58
+	.asciz	"/mnt/nfs/homes/cboukhal/minishell" # string offset=58
 .Linfo_string3:
-	.asciz	"get_prompt"                    # string offset=95
+	.asciz	"get_prompt"                    # string offset=92
 .Linfo_string4:
-	.asciz	"prompt"                        # string offset=106
+	.asciz	"prompt"                        # string offset=103
 .Linfo_string5:
-	.asciz	"char"                          # string offset=113
+	.asciz	"char"                          # string offset=110
 .Linfo_string6:
-	.asciz	"tmp"                           # string offset=118
+	.asciz	"tmp"                           # string offset=115
 .Linfo_string7:
-	.asciz	"dir_path"                      # string offset=122
+	.asciz	"dir_path"                      # string offset=119
 .Linfo_string8:
-	.asciz	"log_info"                      # string offset=131
+	.asciz	"log_info"                      # string offset=128
 	.ident	"Ubuntu clang version 12.0.1-19ubuntu3"
 	.section	".note.GNU-stack","",@progbits
 	.addrsig

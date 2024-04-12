@@ -3092,11 +3092,7 @@ extern int getloadavg (double __loadavg[], int __nelem)
 # 22 "/usr/lib/llvm-12/lib/clang/12.0.1/include/limits.h" 2 3
 # 22 "src/builtin/../../include/../libft/include/ft_printf.h" 2
 
-enum e_error
-{
- no_error,
- error
-};
+enum e_error {no_error, error};
 
 
 int ft_printf(const char *format, ...);
@@ -6529,7 +6525,7 @@ typedef struct s_minishell
  char **path;
  char *prompt;
  int operator_nbr;
- unsigned char exit_status;
+ int exit_status;
  char **env_array;
  t_env *env;
  t_var *local;
@@ -6541,7 +6537,6 @@ typedef struct s_minishell
 } t_minishell;
 
 
-void function_tester(void);
 char **get_path(t_env *env);
 void init_minishell(t_minishell *minishell, char **envp);
 
@@ -6554,7 +6549,6 @@ void env(t_minishell *minishell, t_env *env, t_cmd *cmd);
 void unset(t_minishell *minishell, t_env *env, t_cmd *cmd);
 void export(t_minishell *minishell, t_env **env, t_cmd *cmd);
 int ft_strcmp(const char *str1, const char *str2);
-_Bool is_valid_variable(char *arg);
 
 
 char *get_dir_path(void);
@@ -6586,10 +6580,8 @@ _Bool is_exit_status(char *expan_name);
 void lexical_analysis(t_minishell *minishell, char *input);
 
 int add_quote(char *input);
-void get_eof_token(t_token **token);
 int get_token_quote_nbr(char *input);
 int skip_quote(char *lexeme, char quote);
-t_token *create_token(char *input, int *operator_nbr);
 t_expan *get_token_expansion(char *lexeme, int length);
 int remove_quote(char lexeme, char *quote, int *second_quote);
 void check_lexical_error(t_minishell *minishell,
@@ -6619,18 +6611,11 @@ char **get_command_arg_array(t_arg *arg);
 void init_ast_node_attr(t_ast_node **node);
 t_ast *get_syntax_tree(t_minishell *minishell);
 char *get_redir_filename(char *lexeme, int type);
-char *get_expansion_value(t_env *env, char *name);
 char *get_command_path(char **path, char *cmd_name);
 void get_command_assign(t_token *token, t_var **table);
 void assign_variable(t_minishell **minishell, t_cmd *cmd);
 t_cmd *get_command(t_minishell *minishell, t_token **token, int id);
 int get_redir_filename_length(char *lexeme, int type, int *start);
-void extract_command_outfile(t_token *token, t_outfile **outfile);
-_Bool is_expansion_name(char *lexeme, char *name, int j);
-void replace_expansion_name_by_value(char *lexeme,
-    char **lexeme_expanded, char *value, char *name);
-void extract_command_infile(t_minishell *minishell,
-    t_token *token, t_infile **infile);
 void get_command_redir(t_minishell *minishell,
     t_token *token, t_redir **redir);
 void get_command_arg(t_minishell *minishell, t_token *token,
@@ -6642,30 +6627,26 @@ t_ast_node *get_syntax_tree_node(t_minishell *minishell,
 _Bool is_expansion_stored_in_env(char *value);
 
 
-void manage_child_pipe(t_cmd *cmd);
 void manage_parent_pipe(t_ast **ast);
+void manage_child_pipe(t_pipe *pipe);
 void manage_builtin_pipe(t_pipe *pipe);
 void execution(t_minishell *minishell);
 void open_command_redirection(t_cmd *cmd);
 void interrupt_all_execution(t_minishell *minishell);
 void exec_list(t_minishell **minishell, t_ast **ast);
 void exec_builtin(t_minishell *minishell, t_cmd *cmd);
-_Bool is_next_node_pipeline(t_ast *ast);
 
 
 void exec_command(t_minishell **minishell, t_cmd **cmd);
-void exec_pipeline(t_minishell **minishell, t_ast **ast, int i);
+void exec_pipe(t_minishell **minishell, t_ast **ast, int i);
 void child_job(t_minishell **minishell, t_cmd *cmd, char **envp);
 
 void setup_pipe(t_ast **ast);
+_Bool is_next_node_pipeline(t_ast *ast);
 
 
 void get_command_error(t_minishell **minishell);
 void get_token_error(t_token *token, t_token *stream);
-void error_cd(int errnum, char *arg, unsigned char *exit_status);
-void error_exit(int errnum, char *arg, unsigned char *exit_status);
-void error_unset(int errnum, char *arg, unsigned char *exit_status);
-void error_export(int errnum, char *arg, unsigned char *exit_status);
 
 
 void free_cmd(t_cmd *cmd);
@@ -6701,17 +6682,23 @@ _Bool is_numeric_string(const char *str)
 
 void ft_exit(t_minishell *minishell, t_cmd *cmd)
 {
- ft_printf("exit\n");
  if (cmd_arg_nbr(cmd->arg_array) >= 2)
  {
   if (!is_numeric_string(cmd->arg_array[1])
    || ft_strlen(cmd->arg_array[1]) == 0)
-   error_exit(1, cmd->arg_array[1], &minishell->exit_status);
+  {
+   ft_printf("bash: exit: %s: numeric argument required\n",
+    cmd->arg_array[1]);
+   minishell->exit_status = 2;
+  }
   else if (cmd_arg_nbr(cmd->arg_array) > 2)
-   error_exit(2, ((void*)0), &minishell->exit_status);
+  {
+   ft_printf("bash: exit: too many arguments\n");
+   minishell->exit_status = 1;
+  }
   else
    minishell->exit_status = ft_atoi(cmd->arg_array[1]);
  }
  minishell->state = stop;
-
+ ft_printf("exit\n");
 }

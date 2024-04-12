@@ -6,7 +6,7 @@
 /*   By: agadea <agadea@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 16:20:13 by agadea            #+#    #+#             */
-/*   Updated: 2024/04/03 09:25:48 by agadea           ###   ########.fr       */
+/*   Updated: 2024/03/28 18:24:36 by agadea           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,15 +82,22 @@ void	cd_home(t_minishell *minishell)
 
 	home = get_home_path(minishell->env);
 	if (!home)
-		error_cd(1, NULL, &minishell->exit_status);
-	else if (chdir(home) != 0)
-		perror("chdir");
+	{
+		ft_printf("bash: cd: HOME not set\n");
+		minishell->exit_status = 1;
+		return ;
+	}
+	if (chdir(home) != 0)
+		perror(NULL);
 }
 
 void	cd(t_minishell *minishell, t_cmd *cmd)
 {
 	if (got_too_much_arg(cmd->arg_array))
-		error_cd(2, NULL, &minishell->exit_status);
+	{
+		ft_printf("bash: cd: too many arguments\n");
+		minishell->exit_status = 1;
+	}
 	else if (cmd_arg_nbr(cmd->arg_array) == 1
 		|| (cmd_arg_nbr(cmd->arg_array) == 2
 			&& ft_strncmp("~", cmd->arg_array[1], 1) == 0))
@@ -101,5 +108,4 @@ void	cd(t_minishell *minishell, t_cmd *cmd)
 		minishell->exit_status = 1;
 		perror(NULL);
 	}
-	//update_pwd_var();
 }

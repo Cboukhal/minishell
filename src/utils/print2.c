@@ -6,7 +6,7 @@
 /*   By: agadea <agadea@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 22:00:02 by agadea            #+#    #+#             */
-/*   Updated: 2024/04/01 21:35:31 by agadea           ###   ########.fr       */
+/*   Updated: 2024/03/28 16:25:18 by agadea           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ void	print_syntax_tree(t_ast *root)
 	while (root)
 	{
 		ft_printf("_");
+		ft_printf("%d\n", root->node->type);
 		if (root->node)
 		{
 			if (root->node->left)
