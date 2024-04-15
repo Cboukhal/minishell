@@ -6635,6 +6635,7 @@ void open_command_redirection(t_cmd *cmd);
 void interrupt_all_execution(t_minishell *minishell);
 void exec_list(t_minishell **minishell, t_ast **ast);
 void exec_builtin(t_minishell *minishell, t_cmd *cmd);
+_Bool is_next_node_pipeline(t_ast *ast);
 
 
 void exec_command(t_minishell **minishell, t_cmd **cmd);
@@ -6642,7 +6643,6 @@ void exec_pipe(t_minishell **minishell, t_ast **ast, int i);
 void child_job(t_minishell **minishell, t_cmd *cmd, char **envp);
 
 void setup_pipe(t_ast **ast);
-_Bool is_next_node_pipeline(t_ast *ast);
 
 
 void get_command_error(t_minishell **minishell);
@@ -6682,17 +6682,14 @@ int get_word_length(char *input)
  return (i);
 }
 
-char *get_word_lexeme(char *input, int length, int quote_nbr)
+void extract_lexeme_from_input(const char *input, char *lexeme,
+ int length, int quote_nbr)
 {
  int i;
  int j;
  char quote;
- char *lexeme;
  int second_quote;
 
- lexeme = malloc(length - quote_nbr + 1);
- if (!lexeme)
-  return (perror("malloc"), ((void*)0));
  i = 0;
  j = 0;
  quote = '\0';
@@ -6702,15 +6699,29 @@ char *get_word_lexeme(char *input, int length, int quote_nbr)
   if (is_quote(input[i]))
    i += remove_quote(input[i], &quote, &second_quote);
   if (second_quote == 0 && is_quote(input[i]))
-   continue ;
-  else
   {
-   lexeme[j] = input[i];
-   j++;
    i++;
+   continue ;
   }
+  else
+   lexeme[j++] = input[i++];
  }
  lexeme[j] = '\0';
+}
+
+char *get_word_lexeme(char *input, int length, int quote_nbr)
+{
+
+
+
+
+ char *lexeme;
+
+ lexeme = malloc(length - quote_nbr + 1);
+ if (!lexeme)
+  return (perror("malloc"), ((void*)0));
+# 88 "src/lexer/token_word.c"
+ extract_lexeme_from_input(input, lexeme, length, quote_nbr);
  return (lexeme);
 }
 

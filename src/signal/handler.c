@@ -91,16 +91,10 @@ int	g_signal;
 
 void	display_newline_prompt(void)
 {
-	g_signal = SIGINT;
-	if (g_signal == 0)
-	{
-		write(STDOUT_FILENO, "\n", 1);
-		rl_on_new_line();
-		rl_replace_line("", 0);
-		rl_redisplay();
-	}
-	else
-		write(STDOUT_FILENO, "\n", 1);
+	write(STDOUT_FILENO, "\n", 1);
+	rl_on_new_line();
+	rl_replace_line("", 0);
+	rl_redisplay();
 }
 
 void	handle_sigint(int sig)

@@ -6635,6 +6635,7 @@ void open_command_redirection(t_cmd *cmd);
 void interrupt_all_execution(t_minishell *minishell);
 void exec_list(t_minishell **minishell, t_ast **ast);
 void exec_builtin(t_minishell *minishell, t_cmd *cmd);
+_Bool is_next_node_pipeline(t_ast *ast);
 
 
 void exec_command(t_minishell **minishell, t_cmd **cmd);
@@ -6642,7 +6643,6 @@ void exec_pipe(t_minishell **minishell, t_ast **ast, int i);
 void child_job(t_minishell **minishell, t_cmd *cmd, char **envp);
 
 void setup_pipe(t_ast **ast);
-_Bool is_next_node_pipeline(t_ast *ast);
 
 
 void get_command_error(t_minishell **minishell);
@@ -6720,6 +6720,19 @@ t_token *create_token(char *input, int *operator_nbr)
   *operator_nbr += 1;
  return (new);
 }
+# 102 "src/lexer/lexer.c"
+void append_token_to_stream(t_minishell *minishell,
+ t_token *new, t_token **index)
+{
+ if (!minishell->token_stream)
+  minishell->token_stream = new;
+ else
+ {
+  new->prev = *index;
+  (*index)->next = new;
+ }
+ *index = new;
+}
 
 void lexical_analysis(t_minishell *minishell, char *input)
 {
@@ -6728,7 +6741,6 @@ void lexical_analysis(t_minishell *minishell, char *input)
  t_token *new;
 
  i = 0;
- new = ((void*)0);
  index = ((void*)0);
  while (input[i] && (*__errno_location ()) == 0)
  {
@@ -6737,14 +6749,7 @@ void lexical_analysis(t_minishell *minishell, char *input)
   new = create_token(&input[i], &minishell->operator_nbr);
   if (!new)
    break ;
-  if (!minishell->token_stream)
-   minishell->token_stream = new;
-  else
-  {
-   new->prev = index;
-   index->next = new;
-  }
-  index = new;
+  append_token_to_stream(minishell, new, &index);
   i += new->length;
   check_lexical_error(minishell, &index, input[i]);
  }

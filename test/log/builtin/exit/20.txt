@@ -18,18 +18,18 @@ BASH=2
 ---->[OK]
 
 	-- VALGRIND --
-==96907== Memcheck, a memory error detector
-==96907== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==96907== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==96907== Command: ./minishell exit\ something
-==96907== Parent PID: 93913
-==96907== 
-==96907== 
-==96907== HEAP SUMMARY:
-==96907==     in use at exit: 0 bytes in 0 blocks
-==96907==   total heap usage: 398 allocs, 398 frees, 13,169 bytes allocated
-==96907== 
-==96907== All heap blocks were freed -- no leaks are possible
-==96907== 
-==96907== For lists of detected and suppressed errors, rerun with: -s
-==96907== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==707321== Memcheck, a memory error detector
+==707321== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==707321== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==707321== Command: ./minishell exit\ something
+==707321== Parent PID: 704250
+==707321== 
+==707321== 
+==707321== HEAP SUMMARY:
+==707321==     in use at exit: 0 bytes in 0 blocks
+==707321==   total heap usage: 398 allocs, 398 frees, 13,185 bytes allocated
+==707321== 
+==707321== All heap blocks were freed -- no leaks are possible
+==707321== 
+==707321== For lists of detected and suppressed errors, rerun with: -s
+==707321== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

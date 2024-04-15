@@ -5,7 +5,7 @@
 INPUT=ls | wc
 
 	-- RETURN VALUE --
-     13      13      91
+     14      14     102
 ---->[OK]
 
 	-- EXIT STATUS --
@@ -14,65 +14,65 @@ BASH=0
 ---->[OK]
 
 	-- VALGRIND --
-==95265== Memcheck, a memory error detector
-==95265== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==95265== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==95265== Command: /usr/bin/wc
-==95265== Parent PID: 95256
-==95265== 
-==95265== ==95256== 
-==95256== HEAP SUMMARY:
-==95256==     in use at exit: 0 bytes in 0 blocks
-==95256==   total heap usage: 419 allocs, 419 frees, 13,630 bytes allocated
-==95256== 
-==95256== All heap blocks were freed -- no leaks are possible
-==95256== 
-==95256== For lists of detected and suppressed errors, rerun with: -s
-==95256== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==705734== Memcheck, a memory error detector
+==705734== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==705734== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==705734== Command: /usr/bin/wc
+==705734== Parent PID: 705732
+==705734== 
+==705734====705732== 
+==705732== HEAP SUMMARY:
+==705732==     in use at exit: 0 bytes in 0 blocks
+==705732==   total heap usage: 419 allocs, 419 frees, 13,646 bytes allocated
+==705732== 
+==705732== All heap blocks were freed -- no leaks are possible
+==705732== 
+==705732== For lists of detected and suppressed errors, rerun with: -s
+==705732== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
 ==    by 0x115DE9: ??? (in /usr/bin/ls)
-==95264==    by 0x10D528: ??? (in /usr/bin/ls)
-==95264==    by 0x48C9D8F: (below main) (libc_start_call_main.h:58)
-==95264== 
-==95264== 56 bytes in 1 blocks are still reachable in loss record 2 of 6
-==95264==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==95264==    by 0x115DB8: ??? (in /usr/bin/ls)
-==95264==    by 0x115DE9: ??? (in /usr/bin/ls)
-==95264==    by 0x10D132: ??? (in /usr/bin/ls)
-==95264==    by 0x48C9D8F: (below main) (libc_start_call_main.h:58)
-==95264== 
-==95264== 91 bytes in 13 blocks are still reachable in loss record 3 of 6
-==95264==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==95264==    by 0x11665E: ??? (in /usr/bin/ls)
-==95264==    by 0x116C9F: ??? (in /usr/bin/ls)
-==95264==    by 0x11A20E: ??? (in /usr/bin/ls)
-==95264==    by 0x10D33F: ??? (in /usr/bin/ls)
-==95264==    by 0x48C9D8F: (below main) (libc_start_call_main.h:58)
-==95264== 
-==95264== 128 bytes in 1 blocks are still reachable in loss record 4 of 6
-==95264==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==95264==    by 0x1138F9: ??? (in /usr/bin/ls)
-==95264==    by 0x10D236: ??? (in /usr/bin/ls)
-==95264==    by 0x48C9D8F: (below main) (libc_start_call_main.h:58)
-==95264== 
-==95264== 312 bytes in 1 blocks are still reachable in loss record 5 of 6
-==95264==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==95264==    by 0x115EBB: ??? (in /usr/bin/ls)
-==95264==    by 0x11A067: ??? (in /usr/bin/ls)
-==95264==    by 0x10D33F: ??? (in /usr/bin/ls)
-==95264==    by 0x48C9D8F: (below main) (libc_start_call_main.h:58)
-==95264== 
-==95264== 20,000 bytes in 1 blocks are still reachable in loss record 6 of 6
-==95264==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==95264==    by 0x115DB8: ??? (in /usr/bin/ls)
-==95264==    by 0x10D2A0: ??? (in /usr/bin/ls)
-==95264==    by 0x48C9D8F: (below main) (libc_start_call_main.h:58)
-==95264== 
-==95264== LEAK SUMMARY:
-==95264==    definitely lost: 0 bytes in 0 blocks
-==95264==    indirectly lost: 0 bytes in 0 blocks
-==95264==      possibly lost: 0 bytes in 0 blocks
-==95264==    still reachable: 20,643 bytes in 18 blocks
-==95264==         suppressed: 0 bytes in 0 blocks
-==95264== 
-==95264== For lists of detected and suppressed errors, rerun with: -s
-==95264== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==705733==    by 0x10D528: ??? (in /usr/bin/ls)
+==705733==    by 0x48C9D8F: (below main) (libc_start_call_main.h:58)
+==705733== 
+==705733== 56 bytes in 1 blocks are still reachable in loss record 2 of 6
+==705733==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==705733==    by 0x115DB8: ??? (in /usr/bin/ls)
+==705733==    by 0x115DE9: ??? (in /usr/bin/ls)
+==705733==    by 0x10D132: ??? (in /usr/bin/ls)
+==705733==    by 0x48C9D8F: (below main) (libc_start_call_main.h:58)
+==705733== 
+==705733== 102 bytes in 14 blocks are still reachable in loss record 3 of 6
+==705733==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==705733==    by 0x11665E: ??? (in /usr/bin/ls)
+==705733==    by 0x116C9F: ??? (in /usr/bin/ls)
+==705733==    by 0x11A20E: ??? (in /usr/bin/ls)
+==705733==    by 0x10D33F: ??? (in /usr/bin/ls)
+==705733==    by 0x48C9D8F: (below main) (libc_start_call_main.h:58)
+==705733== 
+==705733== 128 bytes in 1 blocks are still reachable in loss record 4 of 6
+==705733==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==705733==    by 0x1138F9: ??? (in /usr/bin/ls)
+==705733==    by 0x10D236: ??? (in /usr/bin/ls)
+==705733==    by 0x48C9D8F: (below main) (libc_start_call_main.h:58)
+==705733== 
+==705733== 336 bytes in 1 blocks are still reachable in loss record 5 of 6
+==705733==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==705733==    by 0x115EBB: ??? (in /usr/bin/ls)
+==705733==    by 0x11A067: ??? (in /usr/bin/ls)
+==705733==    by 0x10D33F: ??? (in /usr/bin/ls)
+==705733==    by 0x48C9D8F: (below main) (libc_start_call_main.h:58)
+==705733== 
+==705733== 20,000 bytes in 1 blocks are still reachable in loss record 6 of 6
+==705733==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==705733==    by 0x115DB8: ??? (in /usr/bin/ls)
+==705733==    by 0x10D2A0: ??? (in /usr/bin/ls)
+==705733==    by 0x48C9D8F: (below main) (libc_start_call_main.h:58)
+==705733== 
+==705733== LEAK SUMMARY:
+==705733==    definitely lost: 0 bytes in 0 blocks
+==705733==    indirectly lost: 0 bytes in 0 blocks
+==705733==      possibly lost: 0 bytes in 0 blocks
+==705733==    still reachable: 20,678 bytes in 19 blocks
+==705733==         suppressed: 0 bytes in 0 blocks
+==705733== 
+==705733== For lists of detected and suppressed errors, rerun with: -s
+==705733== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

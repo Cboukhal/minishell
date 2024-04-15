@@ -14,18 +14,18 @@ BASH=127
 ---->[OK]
 
 	-- VALGRIND --
-==94215== Memcheck, a memory error detector
-==94215== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==94215== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==94215== Command: ./minishell wrong_cmd
-==94215== Parent PID: 93913
-==94215== 
-==94215== 
-==94215== HEAP SUMMARY:
-==94215==     in use at exit: 0 bytes in 0 blocks
-==94215==   total heap usage: 404 allocs, 404 frees, 13,347 bytes allocated
-==94215== 
-==94215== All heap blocks were freed -- no leaks are possible
-==94215== 
-==94215== For lists of detected and suppressed errors, rerun with: -s
-==94215== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==704574== Memcheck, a memory error detector
+==704574== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==704574== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==704574== Command: ./minishell wrong_cmd
+==704574== Parent PID: 704250
+==704574== 
+==704574== 
+==704574== HEAP SUMMARY:
+==704574==     in use at exit: 0 bytes in 0 blocks
+==704574==   total heap usage: 404 allocs, 404 frees, 13,363 bytes allocated
+==704574== 
+==704574== All heap blocks were freed -- no leaks are possible
+==704574== 
+==704574== For lists of detected and suppressed errors, rerun with: -s
+==704574== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

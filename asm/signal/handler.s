@@ -16,45 +16,24 @@ display_newline_prompt:                 # @display_newline_prompt
 	movq	%rsp, %rbp
 	.cfi_def_cfa_register %rbp
 .Ltmp0:
-	.loc	1 94 11 prologue_end            # src/signal/handler.c:94:11
-	movl	$2, g_signal
-.Ltmp1:
-	.loc	1 95 15                         # src/signal/handler.c:95:15
-	cmpl	$0, g_signal
-.Ltmp2:
-	.loc	1 95 6 is_stmt 0                # src/signal/handler.c:95:6
-	jne	.LBB0_2
-# %bb.1:
-.Ltmp3:
-	.loc	1 97 3 is_stmt 1                # src/signal/handler.c:97:3
+	.loc	1 94 2 prologue_end             # src/signal/handler.c:94:2
 	movl	$1, %edi
 	movabsq	$.L.str, %rsi
 	movl	$1, %edx
 	callq	write
-	.loc	1 98 3                          # src/signal/handler.c:98:3
+	.loc	1 95 2                          # src/signal/handler.c:95:2
 	callq	rl_on_new_line
-	.loc	1 99 3                          # src/signal/handler.c:99:3
+	.loc	1 96 2                          # src/signal/handler.c:96:2
 	movabsq	$.L.str.1, %rdi
 	xorl	%esi, %esi
 	callq	rl_replace_line
-	.loc	1 100 3                         # src/signal/handler.c:100:3
+	.loc	1 97 2                          # src/signal/handler.c:97:2
 	callq	rl_redisplay
-	.loc	1 101 2                         # src/signal/handler.c:101:2
-	jmp	.LBB0_3
-.Ltmp4:
-.LBB0_2:
-	.loc	1 103 3                         # src/signal/handler.c:103:3
-	movl	$1, %edi
-	movabsq	$.L.str, %rsi
-	movl	$1, %edx
-	callq	write
-.Ltmp5:
-.LBB0_3:
-	.loc	1 104 1                         # src/signal/handler.c:104:1
+	.loc	1 98 1                          # src/signal/handler.c:98:1
 	popq	%rbp
 	.cfi_def_cfa %rsp, 8
 	retq
-.Ltmp6:
+.Ltmp1:
 .Lfunc_end0:
 	.size	display_newline_prompt, .Lfunc_end0-display_newline_prompt
 	.cfi_endproc
@@ -64,7 +43,7 @@ display_newline_prompt:                 # @display_newline_prompt
 	.type	handle_sigint,@function
 handle_sigint:                          # @handle_sigint
 .Lfunc_begin1:
-	.loc	1 107 0                         # src/signal/handler.c:107:0
+	.loc	1 101 0                         # src/signal/handler.c:101:0
 	.cfi_startproc
 # %bb.0:
 	pushq	%rbp
@@ -74,15 +53,15 @@ handle_sigint:                          # @handle_sigint
 	.cfi_def_cfa_register %rbp
 	subq	$16, %rsp
 	movl	%edi, -4(%rbp)
-.Ltmp7:
-	.loc	1 109 2 prologue_end            # src/signal/handler.c:109:2
+.Ltmp2:
+	.loc	1 103 2 prologue_end            # src/signal/handler.c:103:2
 	callq	display_newline_prompt
-	.loc	1 110 1                         # src/signal/handler.c:110:1
+	.loc	1 104 1                         # src/signal/handler.c:104:1
 	addq	$16, %rsp
 	popq	%rbp
 	.cfi_def_cfa %rsp, 8
 	retq
-.Ltmp8:
+.Ltmp3:
 .Lfunc_end1:
 	.size	handle_sigint, .Lfunc_end1-handle_sigint
 	.cfi_endproc
@@ -92,7 +71,7 @@ handle_sigint:                          # @handle_sigint
 	.type	handle_sigquit,@function
 handle_sigquit:                         # @handle_sigquit
 .Lfunc_begin2:
-	.loc	1 113 0                         # src/signal/handler.c:113:0
+	.loc	1 107 0                         # src/signal/handler.c:107:0
 	.cfi_startproc
 # %bb.0:
 	pushq	%rbp
@@ -101,12 +80,12 @@ handle_sigquit:                         # @handle_sigquit
 	movq	%rsp, %rbp
 	.cfi_def_cfa_register %rbp
 	movl	%edi, -4(%rbp)
-.Ltmp9:
-	.loc	1 115 1 prologue_end            # src/signal/handler.c:115:1
+.Ltmp4:
+	.loc	1 109 1 prologue_end            # src/signal/handler.c:109:1
 	popq	%rbp
 	.cfi_def_cfa %rsp, 8
 	retq
-.Ltmp10:
+.Ltmp5:
 .Lfunc_end2:
 	.size	handle_sigquit, .Lfunc_end2-handle_sigquit
 	.cfi_endproc
@@ -116,7 +95,7 @@ handle_sigquit:                         # @handle_sigquit
 	.type	init_signal_handler,@function
 init_signal_handler:                    # @init_signal_handler
 .Lfunc_begin3:
-	.loc	1 118 0                         # src/signal/handler.c:118:0
+	.loc	1 112 0                         # src/signal/handler.c:112:0
 	.cfi_startproc
 # %bb.0:
 	pushq	%rbp
@@ -125,57 +104,49 @@ init_signal_handler:                    # @init_signal_handler
 	movq	%rsp, %rbp
 	.cfi_def_cfa_register %rbp
 	subq	$304, %rsp                      # imm = 0x130
-.Ltmp11:
-	.loc	1 122 21 prologue_end           # src/signal/handler.c:122:21
+.Ltmp6:
+	.loc	1 116 21 prologue_end           # src/signal/handler.c:116:21
 	movabsq	$handle_sigint, %rax
 	movq	%rax, -152(%rbp)
-	.loc	1 123 23                        # src/signal/handler.c:123:23
+	.loc	1 117 23                        # src/signal/handler.c:117:23
 	leaq	-152(%rbp), %rdi
 	addq	$8, %rdi
-	.loc	1 123 2 is_stmt 0               # src/signal/handler.c:123:2
+	.loc	1 117 2 is_stmt 0               # src/signal/handler.c:117:2
 	callq	sigemptyset
-	.loc	1 124 19 is_stmt 1              # src/signal/handler.c:124:19
+	.loc	1 118 19 is_stmt 1              # src/signal/handler.c:118:19
 	movl	$0, -16(%rbp)
-	.loc	1 125 2                         # src/signal/handler.c:125:2
+	.loc	1 119 2                         # src/signal/handler.c:119:2
 	movl	$2, %edi
 	leaq	-152(%rbp), %rsi
 	xorl	%eax, %eax
 	movl	%eax, %edx
 	callq	sigaction
-	.loc	1 126 21                        # src/signal/handler.c:126:21
+	.loc	1 120 21                        # src/signal/handler.c:120:21
 	movl	$1, %eax
 	movq	%rax, -304(%rbp)
-	.loc	1 127 23                        # src/signal/handler.c:127:23
+	.loc	1 121 23                        # src/signal/handler.c:121:23
 	leaq	-304(%rbp), %rdi
 	addq	$8, %rdi
-	.loc	1 127 2 is_stmt 0               # src/signal/handler.c:127:2
+	.loc	1 121 2 is_stmt 0               # src/signal/handler.c:121:2
 	callq	sigemptyset
-	.loc	1 128 19 is_stmt 1              # src/signal/handler.c:128:19
+	.loc	1 122 19 is_stmt 1              # src/signal/handler.c:122:19
 	movl	$0, -168(%rbp)
-	.loc	1 129 2                         # src/signal/handler.c:129:2
+	.loc	1 123 2                         # src/signal/handler.c:123:2
 	movl	$3, %edi
 	leaq	-304(%rbp), %rsi
 	xorl	%eax, %eax
 	movl	%eax, %edx
 	callq	sigaction
-	.loc	1 130 1                         # src/signal/handler.c:130:1
+	.loc	1 124 1                         # src/signal/handler.c:124:1
 	addq	$304, %rsp                      # imm = 0x130
 	popq	%rbp
 	.cfi_def_cfa %rsp, 8
 	retq
-.Ltmp12:
+.Ltmp7:
 .Lfunc_end3:
 	.size	init_signal_handler, .Lfunc_end3-init_signal_handler
 	.cfi_endproc
                                         # -- End function
-	.type	g_signal,@object                # @g_signal
-	.bss
-	.globl	g_signal
-	.p2align	2
-g_signal:
-	.long	0                               # 0x0
-	.size	g_signal, 4
-
 	.type	.L.str,@object                  # @.str
 	.section	.rodata.str1.1,"aMS",@progbits,1
 .L.str:
@@ -186,6 +157,14 @@ g_signal:
 .L.str.1:
 	.zero	1
 	.size	.L.str.1, 1
+
+	.type	g_signal,@object                # @g_signal
+	.bss
+	.globl	g_signal
+	.p2align	2
+g_signal:
+	.long	0                               # 0x0
+	.size	g_signal, 4
 
 	.file	3 "/usr/include/x86_64-linux-gnu/bits" "sigaction.h"
 	.file	4 "/usr/include/x86_64-linux-gnu/bits/types" "siginfo_t.h"
@@ -506,7 +485,7 @@ g_signal:
 	.byte	86
 	.long	.Linfo_string7                  # DW_AT_name
 	.byte	1                               # DW_AT_decl_file
-	.byte	106                             # DW_AT_decl_line
+	.byte	100                             # DW_AT_decl_line
                                         # DW_AT_prototyped
                                         # DW_AT_external
 	.byte	10                              # Abbrev [10] 0x87:0xe DW_TAG_formal_parameter
@@ -515,7 +494,7 @@ g_signal:
 	.byte	124
 	.long	.Linfo_string10                 # DW_AT_name
 	.byte	1                               # DW_AT_decl_file
-	.byte	106                             # DW_AT_decl_line
+	.byte	100                             # DW_AT_decl_line
 	.long	63                              # DW_AT_type
 	.byte	0                               # End Of Children Mark
 	.byte	9                               # Abbrev [9] 0x96:0x24 DW_TAG_subprogram
@@ -525,7 +504,7 @@ g_signal:
 	.byte	86
 	.long	.Linfo_string8                  # DW_AT_name
 	.byte	1                               # DW_AT_decl_file
-	.byte	112                             # DW_AT_decl_line
+	.byte	106                             # DW_AT_decl_line
                                         # DW_AT_prototyped
                                         # DW_AT_external
 	.byte	10                              # Abbrev [10] 0xab:0xe DW_TAG_formal_parameter
@@ -534,7 +513,7 @@ g_signal:
 	.byte	124
 	.long	.Linfo_string10                 # DW_AT_name
 	.byte	1                               # DW_AT_decl_file
-	.byte	112                             # DW_AT_decl_line
+	.byte	106                             # DW_AT_decl_line
 	.long	63                              # DW_AT_type
 	.byte	0                               # End Of Children Mark
 	.byte	9                               # Abbrev [9] 0xba:0x34 DW_TAG_subprogram
@@ -544,7 +523,7 @@ g_signal:
 	.byte	86
 	.long	.Linfo_string9                  # DW_AT_name
 	.byte	1                               # DW_AT_decl_file
-	.byte	117                             # DW_AT_decl_line
+	.byte	111                             # DW_AT_decl_line
                                         # DW_AT_prototyped
                                         # DW_AT_external
 	.byte	11                              # Abbrev [11] 0xcf:0xf DW_TAG_variable
@@ -553,7 +532,7 @@ g_signal:
 	.ascii	"\350~"
 	.long	.Linfo_string11                 # DW_AT_name
 	.byte	1                               # DW_AT_decl_file
-	.byte	119                             # DW_AT_decl_line
+	.byte	113                             # DW_AT_decl_line
 	.long	238                             # DW_AT_type
 	.byte	11                              # Abbrev [11] 0xde:0xf DW_TAG_variable
 	.byte	3                               # DW_AT_location
@@ -561,7 +540,7 @@ g_signal:
 	.ascii	"\320}"
 	.long	.Linfo_string68                 # DW_AT_name
 	.byte	1                               # DW_AT_decl_file
-	.byte	120                             # DW_AT_decl_line
+	.byte	114                             # DW_AT_decl_line
 	.long	238                             # DW_AT_type
 	.byte	0                               # End Of Children Mark
 	.byte	12                              # Abbrev [12] 0xee:0x56 DW_TAG_structure_type
@@ -1160,6 +1139,5 @@ g_signal:
 	.addrsig_sym handle_sigint
 	.addrsig_sym sigemptyset
 	.addrsig_sym sigaction
-	.addrsig_sym g_signal
 	.section	.debug_line,"",@progbits
 .Lline_table_start0:

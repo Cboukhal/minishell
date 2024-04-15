@@ -14,18 +14,18 @@ BASH=127
 ---->[OK]
 
 	-- VALGRIND --
-==94723== Memcheck, a memory error detector
-==94723== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==94723== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==94723== Command: ./minishell wrong_cmd\ \<\ test/file/infile1.txt\ \<\ test/file/infile2.txt
-==94723== Parent PID: 93913
-==94723== 
-==94723== 
-==94723== HEAP SUMMARY:
-==94723==     in use at exit: 0 bytes in 0 blocks
-==94723==   total heap usage: 413 allocs, 413 frees, 13,607 bytes allocated
-==94723== 
-==94723== All heap blocks were freed -- no leaks are possible
-==94723== 
-==94723== For lists of detected and suppressed errors, rerun with: -s
-==94723== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==705066== Memcheck, a memory error detector
+==705066== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==705066== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==705066== Command: ./minishell wrong_cmd\ \<\ test/file/infile1.txt\ \<\ test/file/infile2.txt
+==705066== Parent PID: 704250
+==705066== 
+==705066== 
+==705066== HEAP SUMMARY:
+==705066==     in use at exit: 0 bytes in 0 blocks
+==705066==   total heap usage: 413 allocs, 413 frees, 13,623 bytes allocated
+==705066== 
+==705066== All heap blocks were freed -- no leaks are possible
+==705066== 
+==705066== For lists of detected and suppressed errors, rerun with: -s
+==705066== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

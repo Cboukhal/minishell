@@ -123,12 +123,12 @@ get_word_length:                        # @get_word_length
 	.size	get_word_length, .Lfunc_end0-get_word_length
 	.cfi_endproc
                                         # -- End function
-	.globl	get_word_lexeme                 # -- Begin function get_word_lexeme
+	.globl	extract_lexeme_from_input       # -- Begin function extract_lexeme_from_input
 	.p2align	4, 0x90
-	.type	get_word_lexeme,@function
-get_word_lexeme:                        # @get_word_lexeme
+	.type	extract_lexeme_from_input,@function
+extract_lexeme_from_input:              # @extract_lexeme_from_input
 .Lfunc_begin1:
-	.loc	1 33 0                          # src/lexer/token_word.c:33:0
+	.loc	1 34 0                          # src/lexer/token_word.c:34:0
 	.cfi_startproc
 # %bb.0:
 	pushq	%rbp
@@ -136,157 +136,204 @@ get_word_lexeme:                        # @get_word_lexeme
 	.cfi_offset %rbp, -16
 	movq	%rsp, %rbp
 	.cfi_def_cfa_register %rbp
-	subq	$64, %rsp
-	movq	%rdi, -16(%rbp)
-	movl	%esi, -20(%rbp)
-	movl	%edx, -24(%rbp)
+	subq	$48, %rsp
+	movq	%rdi, -8(%rbp)
+	movq	%rsi, -16(%rbp)
+	movl	%edx, -20(%rbp)
+	movl	%ecx, -24(%rbp)
 .Ltmp10:
-	.loc	1 40 18 prologue_end            # src/lexer/token_word.c:40:18
-	movl	-20(%rbp), %eax
-	.loc	1 40 25 is_stmt 0               # src/lexer/token_word.c:40:25
-	subl	-24(%rbp), %eax
-	.loc	1 40 37                         # src/lexer/token_word.c:40:37
-	addl	$1, %eax
-	.loc	1 40 18                         # src/lexer/token_word.c:40:18
-	movslq	%eax, %rdi
-	.loc	1 40 11                         # src/lexer/token_word.c:40:11
-	callq	malloc
-	.loc	1 40 9                          # src/lexer/token_word.c:40:9
-	movq	%rax, -48(%rbp)
-.Ltmp11:
-	.loc	1 41 7 is_stmt 1                # src/lexer/token_word.c:41:7
-	cmpq	$0, -48(%rbp)
-.Ltmp12:
-	.loc	1 41 6 is_stmt 0                # src/lexer/token_word.c:41:6
-	jne	.LBB1_2
-# %bb.1:
-.Ltmp13:
-	.loc	1 42 11 is_stmt 1               # src/lexer/token_word.c:42:11
-	movabsq	$.L.str, %rdi
-	callq	perror
-	.loc	1 42 3 is_stmt 0                # src/lexer/token_word.c:42:3
-	movq	$0, -8(%rbp)
-	jmp	.LBB1_12
-.Ltmp14:
-.LBB1_2:
-	.loc	1 43 4 is_stmt 1                # src/lexer/token_word.c:43:4
+	.loc	1 40 4 prologue_end             # src/lexer/token_word.c:40:4
 	movl	$0, -28(%rbp)
-	.loc	1 44 4                          # src/lexer/token_word.c:44:4
+	.loc	1 41 4                          # src/lexer/token_word.c:41:4
 	movl	$0, -32(%rbp)
-	.loc	1 45 8                          # src/lexer/token_word.c:45:8
+	.loc	1 42 8                          # src/lexer/token_word.c:42:8
 	movb	$0, -33(%rbp)
-	.loc	1 46 15                         # src/lexer/token_word.c:46:15
-	movl	$0, -52(%rbp)
-.LBB1_3:                                # =>This Inner Loop Header: Depth=1
-	.loc	1 47 9                          # src/lexer/token_word.c:47:9
+	.loc	1 43 15                         # src/lexer/token_word.c:43:15
+	movl	$0, -40(%rbp)
+.LBB1_1:                                # =>This Inner Loop Header: Depth=1
+	.loc	1 44 9                          # src/lexer/token_word.c:44:9
 	movl	-28(%rbp), %eax
-	.loc	1 47 13 is_stmt 0               # src/lexer/token_word.c:47:13
+	.loc	1 44 13 is_stmt 0               # src/lexer/token_word.c:44:13
 	movl	-20(%rbp), %ecx
-	.loc	1 47 20                         # src/lexer/token_word.c:47:20
+	.loc	1 44 20                         # src/lexer/token_word.c:44:20
 	subl	-24(%rbp), %ecx
-	.loc	1 47 11                         # src/lexer/token_word.c:47:11
+	.loc	1 44 11                         # src/lexer/token_word.c:44:11
 	cmpl	%ecx, %eax
-	.loc	1 47 2                          # src/lexer/token_word.c:47:2
-	jge	.LBB1_11
-# %bb.4:                                #   in Loop: Header=BB1_3 Depth=1
-.Ltmp15:
-	.loc	1 49 16 is_stmt 1               # src/lexer/token_word.c:49:16
-	movq	-16(%rbp), %rax
+	.loc	1 44 2                          # src/lexer/token_word.c:44:2
+	jge	.LBB1_9
+# %bb.2:                                #   in Loop: Header=BB1_1 Depth=1
+.Ltmp11:
+	.loc	1 46 16 is_stmt 1               # src/lexer/token_word.c:46:16
+	movq	-8(%rbp), %rax
 	movslq	-28(%rbp), %rcx
-	.loc	1 49 7 is_stmt 0                # src/lexer/token_word.c:49:7
+	.loc	1 46 7 is_stmt 0                # src/lexer/token_word.c:46:7
 	movsbl	(%rax,%rcx), %edi
 	callq	is_quote
-.Ltmp16:
-	.loc	1 49 7                          # src/lexer/token_word.c:49:7
+.Ltmp12:
+	.loc	1 46 7                          # src/lexer/token_word.c:46:7
 	testb	$1, %al
-	jne	.LBB1_5
-	jmp	.LBB1_6
-.LBB1_5:                                #   in Loop: Header=BB1_3 Depth=1
-.Ltmp17:
-	.loc	1 50 22 is_stmt 1               # src/lexer/token_word.c:50:22
-	movq	-16(%rbp), %rax
+	jne	.LBB1_3
+	jmp	.LBB1_4
+.LBB1_3:                                #   in Loop: Header=BB1_1 Depth=1
+.Ltmp13:
+	.loc	1 47 22 is_stmt 1               # src/lexer/token_word.c:47:22
+	movq	-8(%rbp), %rax
 	movslq	-28(%rbp), %rcx
-	.loc	1 50 9 is_stmt 0                # src/lexer/token_word.c:50:9
+	.loc	1 47 9 is_stmt 0                # src/lexer/token_word.c:47:9
 	leaq	-33(%rbp), %rsi
-	leaq	-52(%rbp), %rdx
+	leaq	-40(%rbp), %rdx
 	movsbl	(%rax,%rcx), %edi
 	callq	remove_quote
-	.loc	1 50 6                          # src/lexer/token_word.c:50:6
+	.loc	1 47 6                          # src/lexer/token_word.c:47:6
 	addl	-28(%rbp), %eax
 	movl	%eax, -28(%rbp)
-.Ltmp18:
-.LBB1_6:                                #   in Loop: Header=BB1_3 Depth=1
-	.loc	1 51 20 is_stmt 1               # src/lexer/token_word.c:51:20
-	cmpl	$0, -52(%rbp)
-	.loc	1 51 25 is_stmt 0               # src/lexer/token_word.c:51:25
-	jne	.LBB1_9
-# %bb.7:                                #   in Loop: Header=BB1_3 Depth=1
-	.loc	1 51 37                         # src/lexer/token_word.c:51:37
-	movq	-16(%rbp), %rax
+.Ltmp14:
+.LBB1_4:                                #   in Loop: Header=BB1_1 Depth=1
+	.loc	1 48 20 is_stmt 1               # src/lexer/token_word.c:48:20
+	cmpl	$0, -40(%rbp)
+	.loc	1 48 25 is_stmt 0               # src/lexer/token_word.c:48:25
+	jne	.LBB1_7
+# %bb.5:                                #   in Loop: Header=BB1_1 Depth=1
+	.loc	1 48 37                         # src/lexer/token_word.c:48:37
+	movq	-8(%rbp), %rax
 	movslq	-28(%rbp), %rcx
-	.loc	1 51 28                         # src/lexer/token_word.c:51:28
+	.loc	1 48 28                         # src/lexer/token_word.c:48:28
 	movsbl	(%rax,%rcx), %edi
 	callq	is_quote
-.Ltmp19:
-	.loc	1 51 7                          # src/lexer/token_word.c:51:7
+.Ltmp15:
+	.loc	1 48 7                          # src/lexer/token_word.c:48:7
 	testb	$1, %al
-	jne	.LBB1_8
-	jmp	.LBB1_9
-.LBB1_8:                                #   in Loop: Header=BB1_3 Depth=1
-.Ltmp20:
-	.loc	1 52 4 is_stmt 1                # src/lexer/token_word.c:52:4
-	jmp	.LBB1_3
-.LBB1_9:                                #   in Loop: Header=BB1_3 Depth=1
-.Ltmp21:
-	.loc	1 55 16                         # src/lexer/token_word.c:55:16
-	movq	-16(%rbp), %rax
-	movslq	-28(%rbp), %rcx
-	movb	(%rax,%rcx), %dl
-	.loc	1 55 4 is_stmt 0                # src/lexer/token_word.c:55:4
-	movq	-48(%rbp), %rax
-	movslq	-32(%rbp), %rcx
-	.loc	1 55 14                         # src/lexer/token_word.c:55:14
-	movb	%dl, (%rax,%rcx)
-	.loc	1 56 5 is_stmt 1                # src/lexer/token_word.c:56:5
-	movl	-32(%rbp), %eax
-	addl	$1, %eax
-	movl	%eax, -32(%rbp)
-	.loc	1 57 5                          # src/lexer/token_word.c:57:5
+	jne	.LBB1_6
+	jmp	.LBB1_7
+.LBB1_6:                                #   in Loop: Header=BB1_1 Depth=1
+.Ltmp16:
+	.loc	1 50 5 is_stmt 1                # src/lexer/token_word.c:50:5
 	movl	-28(%rbp), %eax
 	addl	$1, %eax
 	movl	%eax, -28(%rbp)
-.Ltmp22:
-# %bb.10:                               #   in Loop: Header=BB1_3 Depth=1
-	.loc	1 47 2                          # src/lexer/token_word.c:47:2
-	jmp	.LBB1_3
-.LBB1_11:
-	.loc	1 60 2                          # src/lexer/token_word.c:60:2
-	movq	-48(%rbp), %rax
-	movslq	-32(%rbp), %rcx
-	.loc	1 60 12 is_stmt 0               # src/lexer/token_word.c:60:12
-	movb	$0, (%rax,%rcx)
-	.loc	1 61 10 is_stmt 1               # src/lexer/token_word.c:61:10
-	movq	-48(%rbp), %rax
-	.loc	1 61 2 is_stmt 0                # src/lexer/token_word.c:61:2
-	movq	%rax, -8(%rbp)
-.LBB1_12:
-	.loc	1 62 1 is_stmt 1                # src/lexer/token_word.c:62:1
+	.loc	1 51 4                          # src/lexer/token_word.c:51:4
+	jmp	.LBB1_1
+.Ltmp17:
+.LBB1_7:                                #   in Loop: Header=BB1_1 Depth=1
+	.loc	1 54 18                         # src/lexer/token_word.c:54:18
 	movq	-8(%rbp), %rax
-	addq	$64, %rsp
+	.loc	1 54 25 is_stmt 0               # src/lexer/token_word.c:54:25
+	movl	-28(%rbp), %ecx
+	movl	%ecx, %edx
+	addl	$1, %edx
+	movl	%edx, -28(%rbp)
+	.loc	1 54 18                         # src/lexer/token_word.c:54:18
+	movslq	%ecx, %rcx
+	movb	(%rax,%rcx), %dl
+	.loc	1 54 4                          # src/lexer/token_word.c:54:4
+	movq	-16(%rbp), %rax
+	.loc	1 54 12                         # src/lexer/token_word.c:54:12
+	movl	-32(%rbp), %ecx
+	movl	%ecx, %esi
+	addl	$1, %esi
+	movl	%esi, -32(%rbp)
+	.loc	1 54 4                          # src/lexer/token_word.c:54:4
+	movslq	%ecx, %rcx
+	.loc	1 54 16                         # src/lexer/token_word.c:54:16
+	movb	%dl, (%rax,%rcx)
+.Ltmp18:
+# %bb.8:                                #   in Loop: Header=BB1_1 Depth=1
+	.loc	1 44 2 is_stmt 1                # src/lexer/token_word.c:44:2
+	jmp	.LBB1_1
+.LBB1_9:
+	.loc	1 56 2                          # src/lexer/token_word.c:56:2
+	movq	-16(%rbp), %rax
+	movslq	-32(%rbp), %rcx
+	.loc	1 56 12 is_stmt 0               # src/lexer/token_word.c:56:12
+	movb	$0, (%rax,%rcx)
+	.loc	1 57 1 is_stmt 1                # src/lexer/token_word.c:57:1
+	addq	$48, %rsp
 	popq	%rbp
 	.cfi_def_cfa %rsp, 8
 	retq
-.Ltmp23:
+.Ltmp19:
 .Lfunc_end1:
-	.size	get_word_lexeme, .Lfunc_end1-get_word_lexeme
+	.size	extract_lexeme_from_input, .Lfunc_end1-extract_lexeme_from_input
+	.cfi_endproc
+                                        # -- End function
+	.globl	get_word_lexeme                 # -- Begin function get_word_lexeme
+	.p2align	4, 0x90
+	.type	get_word_lexeme,@function
+get_word_lexeme:                        # @get_word_lexeme
+.Lfunc_begin2:
+	.loc	1 60 0                          # src/lexer/token_word.c:60:0
+	.cfi_startproc
+# %bb.0:
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset %rbp, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register %rbp
+	subq	$32, %rsp
+	movq	%rdi, -16(%rbp)
+	movl	%esi, -20(%rbp)
+	movl	%edx, -24(%rbp)
+.Ltmp20:
+	.loc	1 67 18 prologue_end            # src/lexer/token_word.c:67:18
+	movl	-20(%rbp), %eax
+	.loc	1 67 25 is_stmt 0               # src/lexer/token_word.c:67:25
+	subl	-24(%rbp), %eax
+	.loc	1 67 37                         # src/lexer/token_word.c:67:37
+	addl	$1, %eax
+	.loc	1 67 18                         # src/lexer/token_word.c:67:18
+	movslq	%eax, %rdi
+	.loc	1 67 11                         # src/lexer/token_word.c:67:11
+	callq	malloc
+	.loc	1 67 9                          # src/lexer/token_word.c:67:9
+	movq	%rax, -32(%rbp)
+.Ltmp21:
+	.loc	1 68 7 is_stmt 1                # src/lexer/token_word.c:68:7
+	cmpq	$0, -32(%rbp)
+.Ltmp22:
+	.loc	1 68 6 is_stmt 0                # src/lexer/token_word.c:68:6
+	jne	.LBB2_2
+# %bb.1:
+.Ltmp23:
+	.loc	1 69 11 is_stmt 1               # src/lexer/token_word.c:69:11
+	movabsq	$.L.str, %rdi
+	callq	perror
+	.loc	1 69 3 is_stmt 0                # src/lexer/token_word.c:69:3
+	movq	$0, -8(%rbp)
+	jmp	.LBB2_3
+.Ltmp24:
+.LBB2_2:
+	.loc	1 88 28 is_stmt 1               # src/lexer/token_word.c:88:28
+	movq	-16(%rbp), %rdi
+	.loc	1 88 35 is_stmt 0               # src/lexer/token_word.c:88:35
+	movq	-32(%rbp), %rsi
+	.loc	1 88 43                         # src/lexer/token_word.c:88:43
+	movl	-20(%rbp), %edx
+	.loc	1 88 51                         # src/lexer/token_word.c:88:51
+	movl	-24(%rbp), %ecx
+	.loc	1 88 2                          # src/lexer/token_word.c:88:2
+	callq	extract_lexeme_from_input
+	.loc	1 89 10 is_stmt 1               # src/lexer/token_word.c:89:10
+	movq	-32(%rbp), %rax
+	.loc	1 89 2 is_stmt 0                # src/lexer/token_word.c:89:2
+	movq	%rax, -8(%rbp)
+.LBB2_3:
+	.loc	1 90 1 is_stmt 1                # src/lexer/token_word.c:90:1
+	movq	-8(%rbp), %rax
+	addq	$32, %rsp
+	popq	%rbp
+	.cfi_def_cfa %rsp, 8
+	retq
+.Ltmp25:
+.Lfunc_end2:
+	.size	get_word_lexeme, .Lfunc_end2-get_word_lexeme
 	.cfi_endproc
                                         # -- End function
 	.globl	is_empty_within_two_quote       # -- Begin function is_empty_within_two_quote
 	.p2align	4, 0x90
 	.type	is_empty_within_two_quote,@function
 is_empty_within_two_quote:              # @is_empty_within_two_quote
-.Lfunc_begin2:
-	.loc	1 65 0                          # src/lexer/token_word.c:65:0
+.Lfunc_begin3:
+	.loc	1 93 0                          # src/lexer/token_word.c:93:0
 	.cfi_startproc
 # %bb.0:
 	pushq	%rbp
@@ -296,48 +343,48 @@ is_empty_within_two_quote:              # @is_empty_within_two_quote
 	.cfi_def_cfa_register %rbp
 	movl	%edi, -8(%rbp)
 	movl	%esi, -12(%rbp)
-.Ltmp24:
-	.loc	1 66 6 prologue_end             # src/lexer/token_word.c:66:6
-	movl	-8(%rbp), %eax
-	.loc	1 66 15 is_stmt 0               # src/lexer/token_word.c:66:15
-	movl	-12(%rbp), %ecx
-	.loc	1 66 25                         # src/lexer/token_word.c:66:25
-	shll	$1, %ecx
-	.loc	1 66 13                         # src/lexer/token_word.c:66:13
-	subl	%ecx, %eax
-	.loc	1 66 29                         # src/lexer/token_word.c:66:29
-	cmpl	$0, %eax
-.Ltmp25:
-	.loc	1 66 6                          # src/lexer/token_word.c:66:6
-	jne	.LBB2_2
-# %bb.1:
 .Ltmp26:
-	.loc	1 67 3 is_stmt 1                # src/lexer/token_word.c:67:3
-	movb	$1, -1(%rbp)
-	jmp	.LBB2_3
+	.loc	1 94 6 prologue_end             # src/lexer/token_word.c:94:6
+	movl	-8(%rbp), %eax
+	.loc	1 94 15 is_stmt 0               # src/lexer/token_word.c:94:15
+	movl	-12(%rbp), %ecx
+	.loc	1 94 25                         # src/lexer/token_word.c:94:25
+	shll	$1, %ecx
+	.loc	1 94 13                         # src/lexer/token_word.c:94:13
+	subl	%ecx, %eax
+	.loc	1 94 29                         # src/lexer/token_word.c:94:29
+	cmpl	$0, %eax
 .Ltmp27:
-.LBB2_2:
-	.loc	1 68 2                          # src/lexer/token_word.c:68:2
+	.loc	1 94 6                          # src/lexer/token_word.c:94:6
+	jne	.LBB3_2
+# %bb.1:
+.Ltmp28:
+	.loc	1 95 3 is_stmt 1                # src/lexer/token_word.c:95:3
+	movb	$1, -1(%rbp)
+	jmp	.LBB3_3
+.Ltmp29:
+.LBB3_2:
+	.loc	1 96 2                          # src/lexer/token_word.c:96:2
 	movb	$0, -1(%rbp)
-.LBB2_3:
-	.loc	1 69 1                          # src/lexer/token_word.c:69:1
+.LBB3_3:
+	.loc	1 97 1                          # src/lexer/token_word.c:97:1
 	movb	-1(%rbp), %al
 	andb	$1, %al
 	movzbl	%al, %eax
 	popq	%rbp
 	.cfi_def_cfa %rsp, 8
 	retq
-.Ltmp28:
-.Lfunc_end2:
-	.size	is_empty_within_two_quote, .Lfunc_end2-is_empty_within_two_quote
+.Ltmp30:
+.Lfunc_end3:
+	.size	is_empty_within_two_quote, .Lfunc_end3-is_empty_within_two_quote
 	.cfi_endproc
                                         # -- End function
 	.globl	get_word_token                  # -- Begin function get_word_token
 	.p2align	4, 0x90
 	.type	get_word_token,@function
 get_word_token:                         # @get_word_token
-.Lfunc_begin3:
-	.loc	1 72 0                          # src/lexer/token_word.c:72:0
+.Lfunc_begin4:
+	.loc	1 100 0                         # src/lexer/token_word.c:100:0
 	.cfi_startproc
 # %bb.0:
 	pushq	%rbp
@@ -348,134 +395,134 @@ get_word_token:                         # @get_word_token
 	subq	$16, %rsp
 	movq	%rdi, -8(%rbp)
 	movq	%rsi, -16(%rbp)
-.Ltmp29:
-	.loc	1 73 42 prologue_end            # src/lexer/token_word.c:73:42
+.Ltmp31:
+	.loc	1 101 42 prologue_end           # src/lexer/token_word.c:101:42
 	movq	-8(%rbp), %rdi
-	.loc	1 73 22 is_stmt 0               # src/lexer/token_word.c:73:22
+	.loc	1 101 22 is_stmt 0              # src/lexer/token_word.c:101:22
 	callq	get_token_quote_nbr
 	movl	%eax, %ecx
-	.loc	1 73 4                          # src/lexer/token_word.c:73:4
+	.loc	1 101 4                         # src/lexer/token_word.c:101:4
 	movq	-16(%rbp), %rax
-	.loc	1 73 3                          # src/lexer/token_word.c:73:3
+	.loc	1 101 3                         # src/lexer/token_word.c:101:3
 	movq	(%rax), %rax
-	.loc	1 73 20                         # src/lexer/token_word.c:73:20
+	.loc	1 101 20                        # src/lexer/token_word.c:101:20
 	movl	%ecx, 4(%rax)
-.Ltmp30:
-	.loc	1 74 6 is_stmt 1                # src/lexer/token_word.c:74:6
-	callq	__errno_location
-	.loc	1 74 12 is_stmt 0               # src/lexer/token_word.c:74:12
-	cmpl	$0, (%rax)
-	.loc	1 74 17                         # src/lexer/token_word.c:74:17
-	jne	.LBB3_6
-# %bb.1:
-	.loc	1 74 22                         # src/lexer/token_word.c:74:22
-	movq	-16(%rbp), %rax
-	.loc	1 74 21                         # src/lexer/token_word.c:74:21
-	movq	(%rax), %rax
-	.loc	1 74 38                         # src/lexer/token_word.c:74:38
-	cmpl	$-1, 4(%rax)
-.Ltmp31:
-	.loc	1 74 6                          # src/lexer/token_word.c:74:6
-	je	.LBB3_6
-# %bb.2:
 .Ltmp32:
-	.loc	1 76 36 is_stmt 1               # src/lexer/token_word.c:76:36
+	.loc	1 102 6 is_stmt 1               # src/lexer/token_word.c:102:6
+	callq	__errno_location
+	.loc	1 102 12 is_stmt 0              # src/lexer/token_word.c:102:12
+	cmpl	$0, (%rax)
+	.loc	1 102 17                        # src/lexer/token_word.c:102:17
+	jne	.LBB4_6
+# %bb.1:
+	.loc	1 102 22                        # src/lexer/token_word.c:102:22
+	movq	-16(%rbp), %rax
+	.loc	1 102 21                        # src/lexer/token_word.c:102:21
+	movq	(%rax), %rax
+	.loc	1 102 38                        # src/lexer/token_word.c:102:38
+	cmpl	$-1, 4(%rax)
+.Ltmp33:
+	.loc	1 102 6                         # src/lexer/token_word.c:102:6
+	je	.LBB4_6
+# %bb.2:
+.Ltmp34:
+	.loc	1 104 36 is_stmt 1              # src/lexer/token_word.c:104:36
 	movq	-8(%rbp), %rdi
-	.loc	1 76 20 is_stmt 0               # src/lexer/token_word.c:76:20
+	.loc	1 104 20 is_stmt 0              # src/lexer/token_word.c:104:20
 	callq	get_word_length
 	movl	%eax, %ecx
-	.loc	1 76 5                          # src/lexer/token_word.c:76:5
+	.loc	1 104 5                         # src/lexer/token_word.c:104:5
 	movq	-16(%rbp), %rax
-	.loc	1 76 4                          # src/lexer/token_word.c:76:4
+	.loc	1 104 4                         # src/lexer/token_word.c:104:4
 	movq	(%rax), %rax
-	.loc	1 76 18                         # src/lexer/token_word.c:76:18
+	.loc	1 104 18                        # src/lexer/token_word.c:104:18
 	movl	%ecx, 8(%rax)
-.Ltmp33:
-	.loc	1 77 35 is_stmt 1               # src/lexer/token_word.c:77:35
-	movq	-16(%rbp), %rax
-	.loc	1 77 34 is_stmt 0               # src/lexer/token_word.c:77:34
-	movq	(%rax), %rax
-	.loc	1 77 41                         # src/lexer/token_word.c:77:41
-	movl	8(%rax), %edi
-	.loc	1 77 51                         # src/lexer/token_word.c:77:51
-	movq	-16(%rbp), %rax
-	.loc	1 77 50                         # src/lexer/token_word.c:77:50
-	movq	(%rax), %rax
-	.loc	1 77 57                         # src/lexer/token_word.c:77:57
-	movl	4(%rax), %esi
-	.loc	1 77 7                          # src/lexer/token_word.c:77:7
-	callq	is_empty_within_two_quote
-.Ltmp34:
-	.loc	1 77 7                          # src/lexer/token_word.c:77:7
-	testb	$1, %al
-	jne	.LBB3_3
-	jmp	.LBB3_4
-.LBB3_3:
 .Ltmp35:
-	.loc	1 78 6 is_stmt 1                # src/lexer/token_word.c:78:6
+	.loc	1 105 35 is_stmt 1              # src/lexer/token_word.c:105:35
 	movq	-16(%rbp), %rax
-	.loc	1 78 5 is_stmt 0                # src/lexer/token_word.c:78:5
+	.loc	1 105 34 is_stmt 0              # src/lexer/token_word.c:105:34
 	movq	(%rax), %rax
-	.loc	1 78 19                         # src/lexer/token_word.c:78:19
-	movq	$0, 16(%rax)
-	.loc	1 78 4                          # src/lexer/token_word.c:78:4
-	jmp	.LBB3_5
-.LBB3_4:
+	.loc	1 105 41                        # src/lexer/token_word.c:105:41
+	movl	8(%rax), %edi
+	.loc	1 105 51                        # src/lexer/token_word.c:105:51
+	movq	-16(%rbp), %rax
+	.loc	1 105 50                        # src/lexer/token_word.c:105:50
+	movq	(%rax), %rax
+	.loc	1 105 57                        # src/lexer/token_word.c:105:57
+	movl	4(%rax), %esi
+	.loc	1 105 7                         # src/lexer/token_word.c:105:7
+	callq	is_empty_within_two_quote
 .Ltmp36:
-	.loc	1 81 37 is_stmt 1               # src/lexer/token_word.c:81:37
+	.loc	1 105 7                         # src/lexer/token_word.c:105:7
+	testb	$1, %al
+	jne	.LBB4_3
+	jmp	.LBB4_4
+.LBB4_3:
+.Ltmp37:
+	.loc	1 106 6 is_stmt 1               # src/lexer/token_word.c:106:6
+	movq	-16(%rbp), %rax
+	.loc	1 106 5 is_stmt 0               # src/lexer/token_word.c:106:5
+	movq	(%rax), %rax
+	.loc	1 106 19                        # src/lexer/token_word.c:106:19
+	movq	$0, 16(%rax)
+	.loc	1 106 4                         # src/lexer/token_word.c:106:4
+	jmp	.LBB4_5
+.LBB4_4:
+.Ltmp38:
+	.loc	1 109 37 is_stmt 1              # src/lexer/token_word.c:109:37
 	movq	-8(%rbp), %rdi
-	.loc	1 82 8                          # src/lexer/token_word.c:82:8
+	.loc	1 110 8                         # src/lexer/token_word.c:110:8
 	movq	-16(%rbp), %rax
-	.loc	1 82 7 is_stmt 0                # src/lexer/token_word.c:82:7
+	.loc	1 110 7 is_stmt 0               # src/lexer/token_word.c:110:7
 	movq	(%rax), %rax
-	.loc	1 82 14                         # src/lexer/token_word.c:82:14
+	.loc	1 110 14                        # src/lexer/token_word.c:110:14
 	movl	8(%rax), %esi
-	.loc	1 82 24                         # src/lexer/token_word.c:82:24
+	.loc	1 110 24                        # src/lexer/token_word.c:110:24
 	movq	-16(%rbp), %rax
-	.loc	1 82 23                         # src/lexer/token_word.c:82:23
+	.loc	1 110 23                        # src/lexer/token_word.c:110:23
 	movq	(%rax), %rax
-	.loc	1 82 30                         # src/lexer/token_word.c:82:30
+	.loc	1 110 30                        # src/lexer/token_word.c:110:30
 	movl	4(%rax), %edx
-	.loc	1 81 21 is_stmt 1               # src/lexer/token_word.c:81:21
+	.loc	1 109 21 is_stmt 1              # src/lexer/token_word.c:109:21
 	callq	get_word_lexeme
 	movq	%rax, %rcx
-	.loc	1 81 6 is_stmt 0                # src/lexer/token_word.c:81:6
+	.loc	1 109 6 is_stmt 0               # src/lexer/token_word.c:109:6
 	movq	-16(%rbp), %rax
-	.loc	1 81 5                          # src/lexer/token_word.c:81:5
+	.loc	1 109 5                         # src/lexer/token_word.c:109:5
 	movq	(%rax), %rax
-	.loc	1 81 19                         # src/lexer/token_word.c:81:19
+	.loc	1 109 19                        # src/lexer/token_word.c:109:19
 	movq	%rcx, 16(%rax)
-	.loc	1 83 44 is_stmt 1               # src/lexer/token_word.c:83:44
+	.loc	1 111 44 is_stmt 1              # src/lexer/token_word.c:111:44
 	movq	-8(%rbp), %rdi
-	.loc	1 83 53 is_stmt 0               # src/lexer/token_word.c:83:53
+	.loc	1 111 53 is_stmt 0              # src/lexer/token_word.c:111:53
 	movq	-16(%rbp), %rax
-	.loc	1 83 52                         # src/lexer/token_word.c:83:52
+	.loc	1 111 52                        # src/lexer/token_word.c:111:52
 	movq	(%rax), %rax
-	.loc	1 83 59                         # src/lexer/token_word.c:83:59
+	.loc	1 111 59                        # src/lexer/token_word.c:111:59
 	movl	8(%rax), %esi
-	.loc	1 83 24                         # src/lexer/token_word.c:83:24
+	.loc	1 111 24                        # src/lexer/token_word.c:111:24
 	callq	get_token_expansion
 	movq	%rax, %rcx
-	.loc	1 83 6                          # src/lexer/token_word.c:83:6
+	.loc	1 111 6                         # src/lexer/token_word.c:111:6
 	movq	-16(%rbp), %rax
-	.loc	1 83 5                          # src/lexer/token_word.c:83:5
+	.loc	1 111 5                         # src/lexer/token_word.c:111:5
 	movq	(%rax), %rax
-	.loc	1 83 22                         # src/lexer/token_word.c:83:22
+	.loc	1 111 22                        # src/lexer/token_word.c:111:22
 	movq	%rcx, 24(%rax)
-.Ltmp37:
-.LBB3_5:
-	.loc	1 85 2 is_stmt 1                # src/lexer/token_word.c:85:2
-	jmp	.LBB3_6
-.Ltmp38:
-.LBB3_6:
-	.loc	1 86 1                          # src/lexer/token_word.c:86:1
+.Ltmp39:
+.LBB4_5:
+	.loc	1 113 2 is_stmt 1               # src/lexer/token_word.c:113:2
+	jmp	.LBB4_6
+.Ltmp40:
+.LBB4_6:
+	.loc	1 114 1                         # src/lexer/token_word.c:114:1
 	addq	$16, %rsp
 	popq	%rbp
 	.cfi_def_cfa %rsp, 8
 	retq
-.Ltmp39:
-.Lfunc_end3:
-	.size	get_word_token, .Lfunc_end3-get_word_token
+.Ltmp41:
+.Lfunc_end4:
+	.size	get_word_token, .Lfunc_end4-get_word_token
 	.cfi_endproc
                                         # -- End function
 	.type	.L.str,@object                  # @.str
@@ -603,6 +650,13 @@ get_word_token:                         # @get_word_token
 	.byte	0                               # EOM(1)
 	.byte	0                               # EOM(2)
 	.byte	9                               # Abbreviation Code
+	.byte	38                              # DW_TAG_const_type
+	.byte	0                               # DW_CHILDREN_no
+	.byte	73                              # DW_AT_type
+	.byte	19                              # DW_FORM_ref4
+	.byte	0                               # EOM(1)
+	.byte	0                               # EOM(2)
+	.byte	10                              # Abbreviation Code
 	.byte	22                              # DW_TAG_typedef
 	.byte	0                               # DW_CHILDREN_no
 	.byte	73                              # DW_AT_type
@@ -615,7 +669,7 @@ get_word_token:                         # @get_word_token
 	.byte	11                              # DW_FORM_data1
 	.byte	0                               # EOM(1)
 	.byte	0                               # EOM(2)
-	.byte	10                              # Abbreviation Code
+	.byte	11                              # Abbreviation Code
 	.byte	19                              # DW_TAG_structure_type
 	.byte	1                               # DW_CHILDREN_yes
 	.byte	3                               # DW_AT_name
@@ -628,7 +682,7 @@ get_word_token:                         # @get_word_token
 	.byte	11                              # DW_FORM_data1
 	.byte	0                               # EOM(1)
 	.byte	0                               # EOM(2)
-	.byte	11                              # Abbreviation Code
+	.byte	12                              # Abbreviation Code
 	.byte	13                              # DW_TAG_member
 	.byte	0                               # DW_CHILDREN_no
 	.byte	3                               # DW_AT_name
@@ -651,14 +705,14 @@ get_word_token:                         # @get_word_token
 	.short	4                               # DWARF version number
 	.long	.debug_abbrev                   # Offset Into Abbrev. Section
 	.byte	8                               # Address Size (in bytes)
-	.byte	1                               # Abbrev [1] 0xb:0x210 DW_TAG_compile_unit
+	.byte	1                               # Abbrev [1] 0xb:0x268 DW_TAG_compile_unit
 	.long	.Linfo_string0                  # DW_AT_producer
 	.short	12                              # DW_AT_language
 	.long	.Linfo_string1                  # DW_AT_name
 	.long	.Lline_table_start0             # DW_AT_stmt_list
 	.long	.Linfo_string2                  # DW_AT_comp_dir
 	.quad	.Lfunc_begin0                   # DW_AT_low_pc
-	.long	.Lfunc_end3-.Lfunc_begin0       # DW_AT_high_pc
+	.long	.Lfunc_end4-.Lfunc_begin0       # DW_AT_high_pc
 	.byte	2                               # Abbrev [2] 0x2a:0x1 DW_TAG_pointer_type
 	.byte	3                               # Abbrev [3] 0x2b:0x36 DW_TAG_subprogram
 	.quad	.Lfunc_begin0                   # DW_AT_low_pc
@@ -669,26 +723,26 @@ get_word_token:                         # @get_word_token
 	.byte	1                               # DW_AT_decl_file
 	.byte	15                              # DW_AT_decl_line
                                         # DW_AT_prototyped
-	.long	339                             # DW_AT_type
+	.long	417                             # DW_AT_type
                                         # DW_AT_external
 	.byte	4                               # Abbrev [4] 0x44:0xe DW_TAG_formal_parameter
 	.byte	2                               # DW_AT_location
 	.byte	145
 	.byte	112
-	.long	.Linfo_string10                 # DW_AT_name
+	.long	.Linfo_string11                 # DW_AT_name
 	.byte	1                               # DW_AT_decl_file
 	.byte	15                              # DW_AT_decl_line
-	.long	346                             # DW_AT_type
+	.long	424                             # DW_AT_type
 	.byte	5                               # Abbrev [5] 0x52:0xe DW_TAG_variable
 	.byte	2                               # DW_AT_location
 	.byte	145
 	.byte	108
-	.long	.Linfo_string11                 # DW_AT_name
+	.long	.Linfo_string12                 # DW_AT_name
 	.byte	1                               # DW_AT_decl_file
 	.byte	17                              # DW_AT_decl_line
-	.long	339                             # DW_AT_type
+	.long	417                             # DW_AT_type
 	.byte	0                               # End Of Children Mark
-	.byte	3                               # Abbrev [3] 0x61:0x8a DW_TAG_subprogram
+	.byte	6                               # Abbrev [6] 0x61:0x86 DW_TAG_subprogram
 	.quad	.Lfunc_begin1                   # DW_AT_low_pc
 	.long	.Lfunc_end1-.Lfunc_begin1       # DW_AT_high_pc
 	.byte	1                               # DW_AT_frame_base
@@ -697,228 +751,275 @@ get_word_token:                         # @get_word_token
 	.byte	1                               # DW_AT_decl_file
 	.byte	32                              # DW_AT_decl_line
                                         # DW_AT_prototyped
-	.long	346                             # DW_AT_type
                                         # DW_AT_external
-	.byte	4                               # Abbrev [4] 0x7a:0xe DW_TAG_formal_parameter
+	.byte	4                               # Abbrev [4] 0x76:0xe DW_TAG_formal_parameter
+	.byte	2                               # DW_AT_location
+	.byte	145
+	.byte	120
+	.long	.Linfo_string11                 # DW_AT_name
+	.byte	1                               # DW_AT_decl_file
+	.byte	32                              # DW_AT_decl_line
+	.long	443                             # DW_AT_type
+	.byte	4                               # Abbrev [4] 0x84:0xe DW_TAG_formal_parameter
 	.byte	2                               # DW_AT_location
 	.byte	145
 	.byte	112
-	.long	.Linfo_string10                 # DW_AT_name
-	.byte	1                               # DW_AT_decl_file
-	.byte	32                              # DW_AT_decl_line
-	.long	346                             # DW_AT_type
-	.byte	4                               # Abbrev [4] 0x88:0xe DW_TAG_formal_parameter
-	.byte	2                               # DW_AT_location
-	.byte	145
-	.byte	108
-	.long	.Linfo_string12                 # DW_AT_name
-	.byte	1                               # DW_AT_decl_file
-	.byte	32                              # DW_AT_decl_line
-	.long	339                             # DW_AT_type
-	.byte	4                               # Abbrev [4] 0x96:0xe DW_TAG_formal_parameter
-	.byte	2                               # DW_AT_location
-	.byte	145
-	.byte	104
 	.long	.Linfo_string13                 # DW_AT_name
 	.byte	1                               # DW_AT_decl_file
 	.byte	32                              # DW_AT_decl_line
-	.long	339                             # DW_AT_type
-	.byte	5                               # Abbrev [5] 0xa4:0xe DW_TAG_variable
+	.long	424                             # DW_AT_type
+	.byte	4                               # Abbrev [4] 0x92:0xe DW_TAG_formal_parameter
+	.byte	2                               # DW_AT_location
+	.byte	145
+	.byte	108
+	.long	.Linfo_string14                 # DW_AT_name
+	.byte	1                               # DW_AT_decl_file
+	.byte	33                              # DW_AT_decl_line
+	.long	417                             # DW_AT_type
+	.byte	4                               # Abbrev [4] 0xa0:0xe DW_TAG_formal_parameter
+	.byte	2                               # DW_AT_location
+	.byte	145
+	.byte	104
+	.long	.Linfo_string15                 # DW_AT_name
+	.byte	1                               # DW_AT_decl_file
+	.byte	33                              # DW_AT_decl_line
+	.long	417                             # DW_AT_type
+	.byte	5                               # Abbrev [5] 0xae:0xe DW_TAG_variable
 	.byte	2                               # DW_AT_location
 	.byte	145
 	.byte	100
-	.long	.Linfo_string11                 # DW_AT_name
+	.long	.Linfo_string12                 # DW_AT_name
 	.byte	1                               # DW_AT_decl_file
-	.byte	34                              # DW_AT_decl_line
-	.long	339                             # DW_AT_type
-	.byte	5                               # Abbrev [5] 0xb2:0xe DW_TAG_variable
+	.byte	35                              # DW_AT_decl_line
+	.long	417                             # DW_AT_type
+	.byte	5                               # Abbrev [5] 0xbc:0xe DW_TAG_variable
 	.byte	2                               # DW_AT_location
 	.byte	145
 	.byte	96
-	.long	.Linfo_string14                 # DW_AT_name
+	.long	.Linfo_string16                 # DW_AT_name
 	.byte	1                               # DW_AT_decl_file
-	.byte	35                              # DW_AT_decl_line
-	.long	339                             # DW_AT_type
-	.byte	5                               # Abbrev [5] 0xc0:0xe DW_TAG_variable
+	.byte	36                              # DW_AT_decl_line
+	.long	417                             # DW_AT_type
+	.byte	5                               # Abbrev [5] 0xca:0xe DW_TAG_variable
 	.byte	2                               # DW_AT_location
 	.byte	145
 	.byte	95
-	.long	.Linfo_string15                 # DW_AT_name
-	.byte	1                               # DW_AT_decl_file
-	.byte	36                              # DW_AT_decl_line
-	.long	351                             # DW_AT_type
-	.byte	5                               # Abbrev [5] 0xce:0xe DW_TAG_variable
-	.byte	2                               # DW_AT_location
-	.byte	145
-	.byte	80
-	.long	.Linfo_string16                 # DW_AT_name
-	.byte	1                               # DW_AT_decl_file
-	.byte	37                              # DW_AT_decl_line
-	.long	346                             # DW_AT_type
-	.byte	5                               # Abbrev [5] 0xdc:0xe DW_TAG_variable
-	.byte	2                               # DW_AT_location
-	.byte	145
-	.byte	76
 	.long	.Linfo_string17                 # DW_AT_name
 	.byte	1                               # DW_AT_decl_file
+	.byte	37                              # DW_AT_decl_line
+	.long	429                             # DW_AT_type
+	.byte	5                               # Abbrev [5] 0xd8:0xe DW_TAG_variable
+	.byte	2                               # DW_AT_location
+	.byte	145
+	.byte	88
+	.long	.Linfo_string18                 # DW_AT_name
+	.byte	1                               # DW_AT_decl_file
 	.byte	38                              # DW_AT_decl_line
-	.long	339                             # DW_AT_type
+	.long	417                             # DW_AT_type
 	.byte	0                               # End Of Children Mark
-	.byte	3                               # Abbrev [3] 0xeb:0x36 DW_TAG_subprogram
+	.byte	3                               # Abbrev [3] 0xe7:0x52 DW_TAG_subprogram
 	.quad	.Lfunc_begin2                   # DW_AT_low_pc
 	.long	.Lfunc_end2-.Lfunc_begin2       # DW_AT_high_pc
 	.byte	1                               # DW_AT_frame_base
 	.byte	86
-	.long	.Linfo_string7                  # DW_AT_name
+	.long	.Linfo_string6                  # DW_AT_name
 	.byte	1                               # DW_AT_decl_file
-	.byte	64                              # DW_AT_decl_line
+	.byte	59                              # DW_AT_decl_line
                                         # DW_AT_prototyped
-	.long	358                             # DW_AT_type
+	.long	424                             # DW_AT_type
                                         # DW_AT_external
-	.byte	4                               # Abbrev [4] 0x104:0xe DW_TAG_formal_parameter
+	.byte	4                               # Abbrev [4] 0x100:0xe DW_TAG_formal_parameter
 	.byte	2                               # DW_AT_location
 	.byte	145
-	.byte	120
-	.long	.Linfo_string12                 # DW_AT_name
+	.byte	112
+	.long	.Linfo_string11                 # DW_AT_name
 	.byte	1                               # DW_AT_decl_file
-	.byte	64                              # DW_AT_decl_line
-	.long	339                             # DW_AT_type
-	.byte	4                               # Abbrev [4] 0x112:0xe DW_TAG_formal_parameter
+	.byte	59                              # DW_AT_decl_line
+	.long	424                             # DW_AT_type
+	.byte	4                               # Abbrev [4] 0x10e:0xe DW_TAG_formal_parameter
 	.byte	2                               # DW_AT_location
 	.byte	145
-	.byte	116
+	.byte	108
+	.long	.Linfo_string14                 # DW_AT_name
+	.byte	1                               # DW_AT_decl_file
+	.byte	59                              # DW_AT_decl_line
+	.long	417                             # DW_AT_type
+	.byte	4                               # Abbrev [4] 0x11c:0xe DW_TAG_formal_parameter
+	.byte	2                               # DW_AT_location
+	.byte	145
+	.byte	104
+	.long	.Linfo_string15                 # DW_AT_name
+	.byte	1                               # DW_AT_decl_file
+	.byte	59                              # DW_AT_decl_line
+	.long	417                             # DW_AT_type
+	.byte	5                               # Abbrev [5] 0x12a:0xe DW_TAG_variable
+	.byte	2                               # DW_AT_location
+	.byte	145
+	.byte	96
 	.long	.Linfo_string13                 # DW_AT_name
 	.byte	1                               # DW_AT_decl_file
-	.byte	64                              # DW_AT_decl_line
-	.long	339                             # DW_AT_type
+	.byte	65                              # DW_AT_decl_line
+	.long	424                             # DW_AT_type
 	.byte	0                               # End Of Children Mark
-	.byte	6                               # Abbrev [6] 0x121:0x32 DW_TAG_subprogram
+	.byte	3                               # Abbrev [3] 0x139:0x36 DW_TAG_subprogram
 	.quad	.Lfunc_begin3                   # DW_AT_low_pc
 	.long	.Lfunc_end3-.Lfunc_begin3       # DW_AT_high_pc
 	.byte	1                               # DW_AT_frame_base
 	.byte	86
-	.long	.Linfo_string9                  # DW_AT_name
+	.long	.Linfo_string8                  # DW_AT_name
 	.byte	1                               # DW_AT_decl_file
-	.byte	71                              # DW_AT_decl_line
+	.byte	92                              # DW_AT_decl_line
                                         # DW_AT_prototyped
+	.long	436                             # DW_AT_type
                                         # DW_AT_external
-	.byte	4                               # Abbrev [4] 0x136:0xe DW_TAG_formal_parameter
+	.byte	4                               # Abbrev [4] 0x152:0xe DW_TAG_formal_parameter
 	.byte	2                               # DW_AT_location
 	.byte	145
 	.byte	120
+	.long	.Linfo_string14                 # DW_AT_name
+	.byte	1                               # DW_AT_decl_file
+	.byte	92                              # DW_AT_decl_line
+	.long	417                             # DW_AT_type
+	.byte	4                               # Abbrev [4] 0x160:0xe DW_TAG_formal_parameter
+	.byte	2                               # DW_AT_location
+	.byte	145
+	.byte	116
+	.long	.Linfo_string15                 # DW_AT_name
+	.byte	1                               # DW_AT_decl_file
+	.byte	92                              # DW_AT_decl_line
+	.long	417                             # DW_AT_type
+	.byte	0                               # End Of Children Mark
+	.byte	6                               # Abbrev [6] 0x16f:0x32 DW_TAG_subprogram
+	.quad	.Lfunc_begin4                   # DW_AT_low_pc
+	.long	.Lfunc_end4-.Lfunc_begin4       # DW_AT_high_pc
+	.byte	1                               # DW_AT_frame_base
+	.byte	86
 	.long	.Linfo_string10                 # DW_AT_name
 	.byte	1                               # DW_AT_decl_file
-	.byte	71                              # DW_AT_decl_line
-	.long	346                             # DW_AT_type
-	.byte	4                               # Abbrev [4] 0x144:0xe DW_TAG_formal_parameter
+	.byte	99                              # DW_AT_decl_line
+                                        # DW_AT_prototyped
+                                        # DW_AT_external
+	.byte	4                               # Abbrev [4] 0x184:0xe DW_TAG_formal_parameter
+	.byte	2                               # DW_AT_location
+	.byte	145
+	.byte	120
+	.long	.Linfo_string11                 # DW_AT_name
+	.byte	1                               # DW_AT_decl_file
+	.byte	99                              # DW_AT_decl_line
+	.long	424                             # DW_AT_type
+	.byte	4                               # Abbrev [4] 0x192:0xe DW_TAG_formal_parameter
 	.byte	2                               # DW_AT_location
 	.byte	145
 	.byte	112
-	.long	.Linfo_string18                 # DW_AT_name
+	.long	.Linfo_string19                 # DW_AT_name
 	.byte	1                               # DW_AT_decl_file
-	.byte	71                              # DW_AT_decl_line
-	.long	365                             # DW_AT_type
+	.byte	99                              # DW_AT_decl_line
+	.long	453                             # DW_AT_type
 	.byte	0                               # End Of Children Mark
-	.byte	7                               # Abbrev [7] 0x153:0x7 DW_TAG_base_type
+	.byte	7                               # Abbrev [7] 0x1a1:0x7 DW_TAG_base_type
 	.long	.Linfo_string4                  # DW_AT_name
 	.byte	5                               # DW_AT_encoding
 	.byte	4                               # DW_AT_byte_size
-	.byte	8                               # Abbrev [8] 0x15a:0x5 DW_TAG_pointer_type
-	.long	351                             # DW_AT_type
-	.byte	7                               # Abbrev [7] 0x15f:0x7 DW_TAG_base_type
-	.long	.Linfo_string6                  # DW_AT_name
+	.byte	8                               # Abbrev [8] 0x1a8:0x5 DW_TAG_pointer_type
+	.long	429                             # DW_AT_type
+	.byte	7                               # Abbrev [7] 0x1ad:0x7 DW_TAG_base_type
+	.long	.Linfo_string7                  # DW_AT_name
 	.byte	6                               # DW_AT_encoding
 	.byte	1                               # DW_AT_byte_size
-	.byte	7                               # Abbrev [7] 0x166:0x7 DW_TAG_base_type
-	.long	.Linfo_string8                  # DW_AT_name
+	.byte	7                               # Abbrev [7] 0x1b4:0x7 DW_TAG_base_type
+	.long	.Linfo_string9                  # DW_AT_name
 	.byte	2                               # DW_AT_encoding
 	.byte	1                               # DW_AT_byte_size
-	.byte	8                               # Abbrev [8] 0x16d:0x5 DW_TAG_pointer_type
-	.long	370                             # DW_AT_type
-	.byte	8                               # Abbrev [8] 0x172:0x5 DW_TAG_pointer_type
-	.long	375                             # DW_AT_type
-	.byte	9                               # Abbrev [9] 0x177:0xb DW_TAG_typedef
-	.long	386                             # DW_AT_type
-	.long	.Linfo_string27                 # DW_AT_name
+	.byte	8                               # Abbrev [8] 0x1bb:0x5 DW_TAG_pointer_type
+	.long	448                             # DW_AT_type
+	.byte	9                               # Abbrev [9] 0x1c0:0x5 DW_TAG_const_type
+	.long	429                             # DW_AT_type
+	.byte	8                               # Abbrev [8] 0x1c5:0x5 DW_TAG_pointer_type
+	.long	458                             # DW_AT_type
+	.byte	8                               # Abbrev [8] 0x1ca:0x5 DW_TAG_pointer_type
+	.long	463                             # DW_AT_type
+	.byte	10                              # Abbrev [10] 0x1cf:0xb DW_TAG_typedef
+	.long	474                             # DW_AT_type
+	.long	.Linfo_string28                 # DW_AT_name
 	.byte	2                               # DW_AT_decl_file
 	.byte	120                             # DW_AT_decl_line
-	.byte	10                              # Abbrev [10] 0x182:0x5d DW_TAG_structure_type
-	.long	.Linfo_string26                 # DW_AT_name
+	.byte	11                              # Abbrev [11] 0x1da:0x5d DW_TAG_structure_type
+	.long	.Linfo_string27                 # DW_AT_name
 	.byte	48                              # DW_AT_byte_size
 	.byte	2                               # DW_AT_decl_file
 	.byte	111                             # DW_AT_decl_line
-	.byte	11                              # Abbrev [11] 0x18a:0xc DW_TAG_member
-	.long	.Linfo_string19                 # DW_AT_name
-	.long	339                             # DW_AT_type
+	.byte	12                              # Abbrev [12] 0x1e2:0xc DW_TAG_member
+	.long	.Linfo_string20                 # DW_AT_name
+	.long	417                             # DW_AT_type
 	.byte	2                               # DW_AT_decl_file
 	.byte	113                             # DW_AT_decl_line
 	.byte	0                               # DW_AT_data_member_location
-	.byte	11                              # Abbrev [11] 0x196:0xc DW_TAG_member
-	.long	.Linfo_string13                 # DW_AT_name
-	.long	339                             # DW_AT_type
+	.byte	12                              # Abbrev [12] 0x1ee:0xc DW_TAG_member
+	.long	.Linfo_string15                 # DW_AT_name
+	.long	417                             # DW_AT_type
 	.byte	2                               # DW_AT_decl_file
 	.byte	114                             # DW_AT_decl_line
 	.byte	4                               # DW_AT_data_member_location
-	.byte	11                              # Abbrev [11] 0x1a2:0xc DW_TAG_member
-	.long	.Linfo_string12                 # DW_AT_name
-	.long	339                             # DW_AT_type
+	.byte	12                              # Abbrev [12] 0x1fa:0xc DW_TAG_member
+	.long	.Linfo_string14                 # DW_AT_name
+	.long	417                             # DW_AT_type
 	.byte	2                               # DW_AT_decl_file
 	.byte	115                             # DW_AT_decl_line
 	.byte	8                               # DW_AT_data_member_location
-	.byte	11                              # Abbrev [11] 0x1ae:0xc DW_TAG_member
-	.long	.Linfo_string16                 # DW_AT_name
-	.long	346                             # DW_AT_type
+	.byte	12                              # Abbrev [12] 0x206:0xc DW_TAG_member
+	.long	.Linfo_string13                 # DW_AT_name
+	.long	424                             # DW_AT_type
 	.byte	2                               # DW_AT_decl_file
 	.byte	116                             # DW_AT_decl_line
 	.byte	16                              # DW_AT_data_member_location
-	.byte	11                              # Abbrev [11] 0x1ba:0xc DW_TAG_member
-	.long	.Linfo_string20                 # DW_AT_name
-	.long	479                             # DW_AT_type
+	.byte	12                              # Abbrev [12] 0x212:0xc DW_TAG_member
+	.long	.Linfo_string21                 # DW_AT_name
+	.long	567                             # DW_AT_type
 	.byte	2                               # DW_AT_decl_file
 	.byte	117                             # DW_AT_decl_line
 	.byte	24                              # DW_AT_data_member_location
-	.byte	11                              # Abbrev [11] 0x1c6:0xc DW_TAG_member
-	.long	.Linfo_string25                 # DW_AT_name
-	.long	533                             # DW_AT_type
+	.byte	12                              # Abbrev [12] 0x21e:0xc DW_TAG_member
+	.long	.Linfo_string26                 # DW_AT_name
+	.long	621                             # DW_AT_type
 	.byte	2                               # DW_AT_decl_file
 	.byte	118                             # DW_AT_decl_line
 	.byte	32                              # DW_AT_data_member_location
-	.byte	11                              # Abbrev [11] 0x1d2:0xc DW_TAG_member
-	.long	.Linfo_string22                 # DW_AT_name
-	.long	533                             # DW_AT_type
+	.byte	12                              # Abbrev [12] 0x22a:0xc DW_TAG_member
+	.long	.Linfo_string23                 # DW_AT_name
+	.long	621                             # DW_AT_type
 	.byte	2                               # DW_AT_decl_file
 	.byte	119                             # DW_AT_decl_line
 	.byte	40                              # DW_AT_data_member_location
 	.byte	0                               # End Of Children Mark
-	.byte	8                               # Abbrev [8] 0x1df:0x5 DW_TAG_pointer_type
-	.long	484                             # DW_AT_type
-	.byte	9                               # Abbrev [9] 0x1e4:0xb DW_TAG_typedef
-	.long	495                             # DW_AT_type
-	.long	.Linfo_string24                 # DW_AT_name
+	.byte	8                               # Abbrev [8] 0x237:0x5 DW_TAG_pointer_type
+	.long	572                             # DW_AT_type
+	.byte	10                              # Abbrev [10] 0x23c:0xb DW_TAG_typedef
+	.long	583                             # DW_AT_type
+	.long	.Linfo_string25                 # DW_AT_name
 	.byte	2                               # DW_AT_decl_file
 	.byte	109                             # DW_AT_decl_line
-	.byte	10                              # Abbrev [10] 0x1ef:0x21 DW_TAG_structure_type
-	.long	.Linfo_string23                 # DW_AT_name
+	.byte	11                              # Abbrev [11] 0x247:0x21 DW_TAG_structure_type
+	.long	.Linfo_string24                 # DW_AT_name
 	.byte	16                              # DW_AT_byte_size
 	.byte	2                               # DW_AT_decl_file
 	.byte	105                             # DW_AT_decl_line
-	.byte	11                              # Abbrev [11] 0x1f7:0xc DW_TAG_member
-	.long	.Linfo_string21                 # DW_AT_name
-	.long	346                             # DW_AT_type
+	.byte	12                              # Abbrev [12] 0x24f:0xc DW_TAG_member
+	.long	.Linfo_string22                 # DW_AT_name
+	.long	424                             # DW_AT_type
 	.byte	2                               # DW_AT_decl_file
 	.byte	107                             # DW_AT_decl_line
 	.byte	0                               # DW_AT_data_member_location
-	.byte	11                              # Abbrev [11] 0x203:0xc DW_TAG_member
-	.long	.Linfo_string22                 # DW_AT_name
-	.long	528                             # DW_AT_type
+	.byte	12                              # Abbrev [12] 0x25b:0xc DW_TAG_member
+	.long	.Linfo_string23                 # DW_AT_name
+	.long	616                             # DW_AT_type
 	.byte	2                               # DW_AT_decl_file
 	.byte	108                             # DW_AT_decl_line
 	.byte	8                               # DW_AT_data_member_location
 	.byte	0                               # End Of Children Mark
-	.byte	8                               # Abbrev [8] 0x210:0x5 DW_TAG_pointer_type
-	.long	495                             # DW_AT_type
-	.byte	8                               # Abbrev [8] 0x215:0x5 DW_TAG_pointer_type
-	.long	386                             # DW_AT_type
+	.byte	8                               # Abbrev [8] 0x268:0x5 DW_TAG_pointer_type
+	.long	583                             # DW_AT_type
+	.byte	8                               # Abbrev [8] 0x26d:0x5 DW_TAG_pointer_type
+	.long	474                             # DW_AT_type
 	.byte	0                               # End Of Children Mark
 .Ldebug_info_end0:
 	.section	.debug_str,"MS",@progbits,1
@@ -933,51 +1034,53 @@ get_word_token:                         # @get_word_token
 .Linfo_string4:
 	.asciz	"int"                           # string offset=111
 .Linfo_string5:
-	.asciz	"get_word_lexeme"               # string offset=115
+	.asciz	"extract_lexeme_from_input"     # string offset=115
 .Linfo_string6:
-	.asciz	"char"                          # string offset=131
+	.asciz	"get_word_lexeme"               # string offset=141
 .Linfo_string7:
-	.asciz	"is_empty_within_two_quote"     # string offset=136
+	.asciz	"char"                          # string offset=157
 .Linfo_string8:
-	.asciz	"_Bool"                         # string offset=162
+	.asciz	"is_empty_within_two_quote"     # string offset=162
 .Linfo_string9:
-	.asciz	"get_word_token"                # string offset=168
+	.asciz	"_Bool"                         # string offset=188
 .Linfo_string10:
-	.asciz	"input"                         # string offset=183
+	.asciz	"get_word_token"                # string offset=194
 .Linfo_string11:
-	.asciz	"i"                             # string offset=189
+	.asciz	"input"                         # string offset=209
 .Linfo_string12:
-	.asciz	"length"                        # string offset=191
+	.asciz	"i"                             # string offset=215
 .Linfo_string13:
-	.asciz	"quote_nbr"                     # string offset=198
+	.asciz	"lexeme"                        # string offset=217
 .Linfo_string14:
-	.asciz	"j"                             # string offset=208
+	.asciz	"length"                        # string offset=224
 .Linfo_string15:
-	.asciz	"quote"                         # string offset=210
+	.asciz	"quote_nbr"                     # string offset=231
 .Linfo_string16:
-	.asciz	"lexeme"                        # string offset=216
+	.asciz	"j"                             # string offset=241
 .Linfo_string17:
-	.asciz	"second_quote"                  # string offset=223
+	.asciz	"quote"                         # string offset=243
 .Linfo_string18:
-	.asciz	"new"                           # string offset=236
+	.asciz	"second_quote"                  # string offset=249
 .Linfo_string19:
-	.asciz	"type"                          # string offset=240
+	.asciz	"new"                           # string offset=262
 .Linfo_string20:
-	.asciz	"expansion"                     # string offset=245
+	.asciz	"type"                          # string offset=266
 .Linfo_string21:
-	.asciz	"name"                          # string offset=255
+	.asciz	"expansion"                     # string offset=271
 .Linfo_string22:
-	.asciz	"next"                          # string offset=260
+	.asciz	"name"                          # string offset=281
 .Linfo_string23:
-	.asciz	"s_expan"                       # string offset=265
+	.asciz	"next"                          # string offset=286
 .Linfo_string24:
-	.asciz	"t_expan"                       # string offset=273
+	.asciz	"s_expan"                       # string offset=291
 .Linfo_string25:
-	.asciz	"prev"                          # string offset=281
+	.asciz	"t_expan"                       # string offset=299
 .Linfo_string26:
-	.asciz	"s_token"                       # string offset=286
+	.asciz	"prev"                          # string offset=307
 .Linfo_string27:
-	.asciz	"t_token"                       # string offset=294
+	.asciz	"s_token"                       # string offset=312
+.Linfo_string28:
+	.asciz	"t_token"                       # string offset=320
 	.ident	"Ubuntu clang version 12.0.1-19ubuntu3"
 	.section	".note.GNU-stack","",@progbits
 	.addrsig
@@ -986,10 +1089,11 @@ get_word_token:                         # @get_word_token
 	.addrsig_sym is_metacharacter
 	.addrsig_sym is_quote
 	.addrsig_sym add_quote
+	.addrsig_sym extract_lexeme_from_input
+	.addrsig_sym remove_quote
 	.addrsig_sym get_word_lexeme
 	.addrsig_sym malloc
 	.addrsig_sym perror
-	.addrsig_sym remove_quote
 	.addrsig_sym is_empty_within_two_quote
 	.addrsig_sym get_token_quote_nbr
 	.addrsig_sym get_token_expansion

@@ -205,6 +205,8 @@ test_redirection()
 		"ls > ${FILE_OUTFILE1} > ${FILE_OUTFILE2}"
 		"wrong_cmd > ${FILE_OUTFILE1}"
 		"wrong_cmd > ${FILE_OUTFILE1} > ${FILE_OUTFILE2}"
+		"echo "Contenu à écrire dans le fichier" > output.txt"
+		"echo "Nouveau contenu" >> output.txt"
 	)
 	launch_test "${TEST[@]}"
 }

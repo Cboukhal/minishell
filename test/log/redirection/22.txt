@@ -14,20 +14,20 @@ BASH=0
 ---->[OK]
 
 	-- VALGRIND --
-==94683== Memcheck, a memory error detector
-==94683== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==94683== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==94683== Command: /usr/bin/cat
-==94683== Parent PID: 94680
-==94683== 
-==94683== 
-==94683== HEAP SUMMARY:
-==94683==     in use a==94680== 
-==94680== HEAP SUMMARY:
-==94680==     in use at exit: 0 bytes in 0 blocks
-==94680==   total heap usage: 408 allocs, 408 frees, 13,460 bytes allocated
-==94680== 
-==94680== All heap blocks were freed -- no leaks are possible
-==94680== 
-==94680== For lists of detected and suppressed errors, rerun with: -s
-==94680== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==705024== Memcheck, a memory error detector
+==705024== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==705024== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==705024== Command: /usr/bin/cat
+==705024== Parent PID: 705023
+==705024== 
+==705024== 
+==705024== HEAP SUMMARY:
+==705024==     in us==705023== 
+==705023== HEAP SUMMARY:
+==705023==     in use at exit: 0 bytes in 0 blocks
+==705023==   total heap usage: 408 allocs, 408 frees, 13,476 bytes allocated
+==705023== 
+==705023== All heap blocks were freed -- no leaks are possible
+==705023== 
+==705023== For lists of detected and suppressed errors, rerun with: -s
+==705023== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

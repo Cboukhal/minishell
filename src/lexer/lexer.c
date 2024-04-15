@@ -68,6 +68,50 @@ t_token	*create_token(char *input, int *operator_nbr)
 	return (new);
 }
 
+// void	lexical_analysis(t_minishell *minishell, char *input)
+// {
+// 	int		i;
+// 	t_token	*index;
+// 	t_token	*new;
+
+// 	i = 0;
+// 	new = NULL;
+// 	index = NULL;
+// 	while (input[i] && errno == 0)
+// 	{
+// 		while (input[i] && (is_blank(input[i]) == true))
+// 			i++;
+// 		new = create_token(&input[i], &minishell->operator_nbr);
+// 		if (!new)
+// 			break ;
+// 		if (!minishell->token_stream)
+// 			minishell->token_stream = new;
+// 		else
+// 		{
+// 			new->prev = index;
+// 			index->next = new;
+// 		}
+// 		index = new;
+// 		i += new->length;
+// 		check_lexical_error(minishell, &index, input[i]);
+// 	}
+// 	if (new)
+// 		get_eof_token(&new);
+// }
+
+void	append_token_to_stream(t_minishell *minishell,
+	t_token *new, t_token **index)
+{
+	if (!minishell->token_stream)
+		minishell->token_stream = new;
+	else
+	{
+		new->prev = *index;
+		(*index)->next = new;
+	}
+	*index = new;
+}
+
 void	lexical_analysis(t_minishell *minishell, char *input)
 {
 	int		i;
@@ -75,7 +119,6 @@ void	lexical_analysis(t_minishell *minishell, char *input)
 	t_token	*new;
 
 	i = 0;
-	new = NULL;
 	index = NULL;
 	while (input[i] && errno == 0)
 	{
@@ -84,14 +127,7 @@ void	lexical_analysis(t_minishell *minishell, char *input)
 		new = create_token(&input[i], &minishell->operator_nbr);
 		if (!new)
 			break ;
-		if (!minishell->token_stream)
-			minishell->token_stream = new;
-		else
-		{
-			new->prev = index;
-			index->next = new;
-		}
-		index = new;
+		append_token_to_stream(minishell, new, &index);
 		i += new->length;
 		check_lexical_error(minishell, &index, input[i]);
 	}

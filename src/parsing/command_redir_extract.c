@@ -45,10 +45,68 @@ bool	is_file_accessible(t_minishell *minishell, char *filename)
 	return (false);
 }
 
-void	extract_command_infile(t_minishell *minishell,
-			t_token *token, t_infile **infile)
+// void	extract_command_infile(t_minishell *minishell,
+// 			t_token *token, t_infile **infile)
+// {
+// 	t_infile	*index;
+// 	t_infile	*new;
+
+// 	new = malloc(sizeof(t_infile));
+// 	if (!new)
+// 	{
+// 		perror("malloc");
+// 		return ;
+// 	}
+// 	new->next = NULL;
+// 	new->type = token->type;
+// 	new->name = get_redir_filename(token->lexeme, new->type);
+// 	if (new->type == heredoc && ft_strlen(new->name) > 0)
+// 		get_redir_heredoc(new->name);
+// 	else if (new->name && is_file_accessible(minishell, new->name) == true)
+// 	{
+// 		if ((*infile))
+// 		{
+// 			index = (*infile);
+// 			while (index)
+// 			{
+// 				if (index->next == NULL)
+// 					break ;
+// 				index = index->next;
+// 			}
+// 			index->next = new;
+// 			return ;
+// 		}
+// 		else
+// 			(*infile) = new;
+// 		return ;
+// 	}
+// 	free(new->name);
+// 	free(new);
+// }
+void	process_redirection(t_infile *new)
+{
+	if (new->type == heredoc && ft_strlen(new->name) > 0)
+		get_redir_heredoc(new->name);
+}
+
+void	manage_infile_list(t_infile **infile, t_infile *new)
 {
 	t_infile	*index;
+
+	index = *infile;
+	if (index)
+	{
+		while (index->next)
+			index = index->next;
+		index->next = new;
+	}
+	else
+		*infile = new;
+}
+
+void	extract_command_infile(t_minishell *minishell,
+	t_token *token, t_infile **infile)
+{
 	t_infile	*new;
 
 	new = malloc(sizeof(t_infile));
@@ -60,36 +118,66 @@ void	extract_command_infile(t_minishell *minishell,
 	new->next = NULL;
 	new->type = token->type;
 	new->name = get_redir_filename(token->lexeme, new->type);
-	if (new->type == heredoc && ft_strlen(new->name) > 0)
-		get_redir_heredoc(new->name);
-	else if (new->name && is_file_accessible(minishell, new->name) == true)
+	process_redirection(new);
+	if (new->name && is_file_accessible(minishell, new->name))
+		manage_infile_list(infile, new);
+	else
 	{
-		if ((*infile))
-		{
-			index = (*infile);
-			while (index)
-			{
-				if (index->next == NULL)
-					break ;
-				index = index->next;
-			}
-			index->next = new;
-			return ;
-		}
-		else
-			(*infile) = new;
-		return ;
+		free(new->name);
+		free(new);
 	}
-	free(new->name);
-	free(new);
+}
+
+// void	extract_command_outfile(t_token *token, t_outfile **outfile)
+// {
+// 	t_outfile	*index;
+// 	t_outfile	*new;
+
+// 	new = malloc(sizeof(t_infile));
+// 	if (!new)
+// 	{
+// 		perror("malloc");
+// 		return ;
+// 	}
+// 	new->next = NULL;
+// 	new->type = token->type;
+// 	new->name = get_redir_filename(token->lexeme, new->type);
+// 	if ((*outfile))
+// 	{
+// 		index = (*outfile);
+// 		while (index)
+// 		{
+// 			if (index->next == NULL)
+// 				break ;
+// 			index = index->next;
+// 		}
+// 		index->next = new;
+// 		return ;
+// 	}
+// 	else
+// 		(*outfile) = new;
+// }
+
+void	manage_outfile_list(t_outfile **outfile, t_outfile *new)
+{
+	t_outfile	*index;
+
+	index = *outfile;
+	if (index)
+	{
+		while (index->next)
+			index = index->next;
+		index->next = new;
+	}
+	else
+		*outfile = new;
 }
 
 void	extract_command_outfile(t_token *token, t_outfile **outfile)
 {
-	t_outfile	*index;
 	t_outfile	*new;
 
-	new = malloc(sizeof(t_infile));
+	new = malloc(sizeof(t_outfile));
 	if (!new)
 	{
 		perror("malloc");
@@ -98,20 +186,7 @@ void	extract_command_outfile(t_token *token, t_outfile **outfile)
 	new->next = NULL;
 	new->type = token->type;
 	new->name = get_redir_filename(token->lexeme, new->type);
-	if ((*outfile))
-	{
-		index = (*outfile);
-		while (index)
-		{
-			if (index->next == NULL)
-				break ;
-			index = index->next;
-		}
-		index->next = new;
-		return ;
-	}
-	else
-		(*outfile) = new;
+	manage_outfile_list(outfile, new);
 }
 
 void	get_command_redir(t_minishell *minishell,

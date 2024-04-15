@@ -1,0 +1,31 @@
+					### REDIRECTION ###
+
+	-- Test[37] --
+
+INPUT=echo Nouveau
+
+	-- RETURN VALUE --
+Nouveau
+---->[OK]
+
+	-- EXIT STATUS --
+MINISHELL=0
+BASH=0
+---->[OK]
+
+	-- VALGRIND --
+==705305== Memcheck, a memory error detector
+==705305== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==705305== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==705305== Command: ./minishell echo\ Nouveau
+==705305== Parent PID: 704250
+==705305== 
+==705305== 
+==705305== HEAP SUMMARY:
+==705305==     in use at exit: 0 bytes in 0 blocks
+==705305==   total heap usage: 397 allocs, 397 frees, 13,178 bytes allocated
+==705305== 
+==705305== All heap blocks were freed -- no leaks are possible
+==705305== 
+==705305== For lists of detected and suppressed errors, rerun with: -s
+==705305== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

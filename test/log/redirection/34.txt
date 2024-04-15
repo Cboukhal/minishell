@@ -1,0 +1,31 @@
+					### REDIRECTION ###
+
+	-- Test[34] --
+
+INPUT=dans
+
+	-- RETURN VALUE --
+dans: command not found
+---->[OK]
+
+	-- EXIT STATUS --
+MINISHELL=127
+BASH=127
+---->[OK]
+
+	-- VALGRIND --
+==705244== Memcheck, a memory error detector
+==705244== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==705244== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==705244== Command: ./minishell dans
+==705244== Parent PID: 704250
+==705244== 
+==705244== 
+==705244== HEAP SUMMARY:
+==705244==     in use at exit: 0 bytes in 0 blocks
+==705244==   total heap usage: 404 allocs, 404 frees, 13,288 bytes allocated
+==705244== 
+==705244== All heap blocks were freed -- no leaks are possible
+==705244== 
+==705244== For lists of detected and suppressed errors, rerun with: -s
+==705244== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

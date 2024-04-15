@@ -6635,6 +6635,7 @@ void open_command_redirection(t_cmd *cmd);
 void interrupt_all_execution(t_minishell *minishell);
 void exec_list(t_minishell **minishell, t_ast **ast);
 void exec_builtin(t_minishell *minishell, t_cmd *cmd);
+_Bool is_next_node_pipeline(t_ast *ast);
 
 
 void exec_command(t_minishell **minishell, t_cmd **cmd);
@@ -6642,7 +6643,6 @@ void exec_pipe(t_minishell **minishell, t_ast **ast, int i);
 void child_job(t_minishell **minishell, t_cmd *cmd, char **envp);
 
 void setup_pipe(t_ast **ast);
-_Bool is_next_node_pipeline(t_ast *ast);
 
 
 void get_command_error(t_minishell **minishell);

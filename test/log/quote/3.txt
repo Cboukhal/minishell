@@ -5,8 +5,11 @@
 INPUT='"''"'
 
 	-- RETURN VALUE --
-"": command not found
----->[OK]
+1c1
+< "": command not found
+---
+> ": command not found
+---->[KO]
 
 	-- EXIT STATUS --
 MINISHELL=127
@@ -14,18 +17,18 @@ BASH=127
 ---->[OK]
 
 	-- VALGRIND --
-==95045== Memcheck, a memory error detector
-==95045== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==95045== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==95045== Command: ./minishell '"''"'
-==95045== Parent PID: 93913
-==95045== 
-==95045== 
-==95045== HEAP SUMMARY:
-==95045==     in use at exit: 0 bytes in 0 blocks
-==95045==   total heap usage: 404 allocs, 404 frees, 13,244 bytes allocated
-==95045== 
-==95045== All heap blocks were freed -- no leaks are possible
-==95045== 
-==95045== For lists of detected and suppressed errors, rerun with: -s
-==95045== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==705530== Memcheck, a memory error detector
+==705530== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==705530== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==705530== Command: ./minishell '"''"'
+==705530== Parent PID: 704250
+==705530== 
+==705530== 
+==705530== HEAP SUMMARY:
+==705530==     in use at exit: 0 bytes in 0 blocks
+==705530==   total heap usage: 404 allocs, 404 frees, 13,246 bytes allocated
+==705530== 
+==705530== All heap blocks were freed -- no leaks are possible
+==705530== 
+==705530== For lists of detected and suppressed errors, rerun with: -s
+==705530== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

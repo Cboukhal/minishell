@@ -26,8 +26,8 @@ char	*get_expansion_value(t_env *env, char *name)
 	return (value);
 }
 
-void	replace_expansion_name_by_value(char *lexeme,
-		char **lexeme_expanded, char *value, char *name)
+size_t	expand_variable_in_lexeme(char *lexeme, char **lexeme_expanded,
+	const char *name, const char *value)
 {
 	size_t	i;
 
@@ -43,12 +43,39 @@ void	replace_expansion_name_by_value(char *lexeme,
 				value++;
 				i++;
 			}
-			break ;
+			return (i);
 		}
 		(*lexeme_expanded)[i] = *lexeme;
 		lexeme++;
 		i++;
 	}
+	return (i);
+}
+
+void	replace_expansion_name_by_value(char *lexeme,
+		char **lexeme_expanded, char *value, char *name)
+{
+	// while (*lexeme)
+	// {
+	// 	if (*lexeme == '$' && ft_strncmp(name,
+	// 			&(*lexeme) + 1, ft_strlen(name)) == 0)
+	// 	{
+	// 		while (*value)
+	// 		{
+	// 			(*lexeme_expanded)[i] = *value;
+	// 			value++;
+	// 			i++;
+	// 		}
+	// 		break ;
+	// 	}
+	// 	(*lexeme_expanded)[i] = *lexeme;
+	// 	lexeme++;
+	// 	i++;
+	// }
+	size_t	i;
+
+	i = 0;
+	i = expand_variable_in_lexeme(lexeme, lexeme_expanded, name, value);
 	while (*lexeme && i < ft_strlen(lexeme) && !is_exit_status(name))
 	{
 		(*lexeme_expanded)[i] = *lexeme;
@@ -58,17 +85,19 @@ void	replace_expansion_name_by_value(char *lexeme,
 	(*lexeme_expanded)[i] = '\0';
 }
 
-void	remove_expansion_name(char *lexeme, char **lexeme_expanded, char *name)
+void	replace_variable_in_lexeme(char *lexeme, char **lexeme_expanded,
+	const char *name)
 {
-	int	len;
-	int	j;
 	int	i;
+	int	j;
+	int	len;
 
 	i = 0;
 	j = 0;
+	len = 0;
 	while (lexeme[j])
 	{
-		if (lexeme[j] == '$' && ft_strncmp(name, &(*lexeme) + 1,
+		if (lexeme[j] == '$' && ft_strncmp(name, &lexeme[j + 1],
 				ft_strlen(name)) == 0)
 		{
 			len = ft_strlen(name) + j + 1;
@@ -76,17 +105,42 @@ void	remove_expansion_name(char *lexeme, char **lexeme_expanded, char *name)
 				j++;
 			break ;
 		}
-		(*lexeme_expanded)[i] = lexeme[j];
-		j++;
-		i++;
+		(*lexeme_expanded)[i++] = lexeme[j++];
 	}
 	while (lexeme[j])
-	{
-		(*lexeme_expanded)[i] = lexeme[j];
-		j++;
-		i++;
-	}
+		(*lexeme_expanded)[i++] = lexeme[j++];
 	(*lexeme_expanded)[i] = '\0';
+}
+
+void	remove_expansion_name(char *lexeme, char **lexeme_expanded, char *name)
+{
+	// int	len;
+	// int	j;
+	// int	i;
+	// i = 0;
+	// j = 0;
+	// while (lexeme[j])
+	// {
+	// 	if (lexeme[j] == '$' && ft_strncmp(name, &(*lexeme) + 1,
+	// 			ft_strlen(name)) == 0)
+	// 	{
+	// 		len = ft_strlen(name) + j + 1;
+	// 		while (j < len)
+	// 			j++;
+	// 		break ;
+	// 	}
+	// 	(*lexeme_expanded)[i] = lexeme[j];
+	// 	j++;
+	// 	i++;
+	// }
+	// while (lexeme[j])
+	// {
+	// 	(*lexeme_expanded)[i] = lexeme[j];
+	// 	j++;
+	// 	i++;
+	// }
+	// (*lexeme_expanded)[i] = '\0';
+	replace_variable_in_lexeme(lexeme, lexeme_expanded, name);
 	if (ft_strlen((*lexeme_expanded)) == 0 && ft_strlen(lexeme) > 0)
 	{
 		free((*lexeme_expanded));

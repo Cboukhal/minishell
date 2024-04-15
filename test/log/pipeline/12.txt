@@ -5,7 +5,7 @@
 INPUT=sleep 1 | sleep 1 | ls | sleep 1 | ls | wc
 
 	-- RETURN VALUE --
-     13      13      91
+     14      14     102
 ---->[OK]
 
 	-- EXIT STATUS --
@@ -14,20 +14,20 @@ BASH=0
 ---->[OK]
 
 	-- VALGRIND --
-==95593== Memcheck, a memory error detector
-==95593== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==95593== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==95593== Command: /usr/bin/wc
-==95593== Parent PID: 95554
-==95593== 
-==95593== 
-==95593== HEAP SUMMARY:
-==95593==     in use ==95554== 
-==95554== HEAP SUMMARY:
-==95554==     in use at exit: 0 bytes in 0 blocks
-==95554==   total heap usage: 518 allocs, 518 frees, 15,887 bytes allocated
-==95554== 
-==95554== All heap blocks were freed -- no leaks are possible
-==95554== 
-==95554== For lists of detected and suppressed errors, rerun with: -s
-==95554== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==706081== Memcheck, a memory error detector
+==706081== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==706081== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==706081== Command: /usr/bin/wc
+==706081== Parent PID: 706053
+==706081== 
+==706081== 
+==706081== HEAP SUMMARY:
+==706081==     in u==706053== 
+==706053== HEAP SUMMARY:
+==706053==     in use at exit: 0 bytes in 0 blocks
+==706053==   total heap usage: 518 allocs, 518 frees, 15,903 bytes allocated
+==706053== 
+==706053== All heap blocks were freed -- no leaks are possible
+==706053== 
+==706053== For lists of detected and suppressed errors, rerun with: -s
+==706053== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
