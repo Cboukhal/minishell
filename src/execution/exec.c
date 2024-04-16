@@ -26,7 +26,10 @@ void	exec_command(t_minishell **minishell, t_cmd **cmd)
 	if ((*cmd)->type == assignment)
 		assign_variable(minishell, (*cmd));
 	else if ((*cmd)->name && is_builtin((*cmd)->name))
+	{
 		exec_builtin(*minishell, (*cmd));
+		(*minishell)->exit_status = 0;
+	}
 	else if ((*cmd)->path && ft_strlen((*cmd)->name) > 0)
 	{
 		(*cmd)->pid = fork();
