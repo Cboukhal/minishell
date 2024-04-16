@@ -49,6 +49,7 @@ void	print_export(t_env *env, int fd)
 		write(fd, "declare -x ", 11);
 		write(fd, env->name, ft_strlen(env->name));
 		write(fd, env->value, ft_strlen(env->value));
+		printf("\n");
 		env = env->next;
 	}
 }
