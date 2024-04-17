@@ -99,12 +99,12 @@ void	handle_special_arguments(t_minishell *minishell, char *arg, int fd)
 		write(fd, exit_status, ft_strlen(exit_status));
 		free(exit_status);
 	}
-	if ((ft_strcmp(arg, "$") == 0) && strlen(arg) != 1)
-	{
-		env_value = getenv(arg + 1);
-		if (env_value != NULL)
-			write(fd, env_value, ft_strlen(env_value));
-	}
+	// if ((ft_strcmp(arg, "$") == 0) && strlen(arg) != 1)
+	// {
+	// 	env_value = getenv(arg + 1);
+	// 	if (env_value != NULL)
+	// 		write(fd, env_value, ft_strlen(env_value));
+	// }
 	else if (arg[0] == '~' && arg[1] == '\0')
 		echo_home(arg, fd);
 	else
