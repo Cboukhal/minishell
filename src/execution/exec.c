@@ -27,8 +27,8 @@ void	exec_command(t_minishell **minishell, t_cmd **cmd)
 		assign_variable(minishell, (*cmd));
 	else if ((*cmd)->name && is_builtin((*cmd)->name))
 	{
-		exec_builtin(*minishell, (*cmd));
 		(*minishell)->exit_status = 0;
+		exec_builtin(*minishell, (*cmd));
 	}
 	else if ((*cmd)->path && ft_strlen((*cmd)->name) > 0)
 	{

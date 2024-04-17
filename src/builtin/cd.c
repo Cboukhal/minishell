@@ -93,6 +93,7 @@ void	cd_home(t_minishell *minishell)
 
 void	cd(t_minishell *minishell, t_cmd *cmd)
 {
+	update_environment_state(minishell,cmd,1);
 	if (got_too_much_arg(cmd->arg_array))
 	{
 		ft_printf("bash: cd: too many arguments\n");

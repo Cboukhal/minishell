@@ -239,6 +239,7 @@ void		echo(t_minishell *minishell, t_cmd *cmd);
 void		ft_exit(t_minishell *minishell, t_cmd *cmd);
 void		env(t_minishell *minishell, t_env *env, t_cmd *cmd);
 void		unset(t_minishell *minishell, t_env *env, t_cmd *cmd);
+void		unset_variable(t_env **env, char *arg);
 void		export(t_minishell *minishell, t_env **env, t_cmd *cmd);
 int			ft_strcmp(const char *str1, const char *str2);
 
@@ -267,6 +268,7 @@ t_env		*extract_environment(char **envp);
 void		add_new_var_to_env(t_env **new_var, t_env **env);
 void		init_environment(t_env **env, char **envp);
 bool		is_exit_status(char *expan_name);
+void		update_environment_state(t_minishell *minishell, t_cmd *cmd, int i);
 
 /*		LEXER		*/
 void		lexical_analysis(t_minishell *minishell, char *input);

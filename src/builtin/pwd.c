@@ -79,9 +79,21 @@ t_env	*get_env_pwd(t_env **env)
 	return (NULL);
 }
 
-void	pwd(t_minishell *minishell, t_cmd *cmd)
+void write_current_directory(int fd, const char *cwd)
 {
-	int		fd;
+    size_t len = strlen(cwd);
+
+    // Écriture du chemin du répertoire courant dans le descripteur de fichier
+    write(fd, cwd, len);
+
+    // Écriture d'un saut de ligne ('\n') dans le descripteur de fichier
+    write(fd, "\n", 1);
+}
+
+
+void update_environment_state(t_minishell *minishell, t_cmd *cmd, int i)
+{
+		int		fd;
 	char	*cwd;
 	t_env	*pwd;
 	t_env	*oldpwd;
@@ -100,6 +112,34 @@ void	pwd(t_minishell *minishell, t_cmd *cmd)
 	}
 	if (cmd->pipe && cmd->pipe->write)
 		fd = cmd->pipe->write[1];
-	write(fd, cwd, ft_strlen(cwd));
-	write(fd, "\n", 1);
+	if (i == 0)
+		write_current_directory(fd, cwd);
+	// write(fd, cwd, ft_strlen(cwd));
+	// write(fd, "\n", 1);
+}
+
+void	pwd(t_minishell *minishell, t_cmd *cmd)
+{
+	// int		fd;
+	// char	*cwd;
+	// t_env	*pwd;
+	// t_env	*oldpwd;
+
+	// (void)cmd;
+	// fd = 1;
+	// cwd = getcwd(NULL, PATH_MAX);
+	// pwd = get_env_pwd(&minishell->env);
+	// if (pwd)
+	// {
+	// 	oldpwd = get_oldpwd(&minishell->env, pwd);
+	// 	if (ft_strncmp(pwd->name, oldpwd->name, ft_strlen(pwd->name)) == 0)
+	// 		free(cwd);
+	// 	else
+	// 		pwd->value = cwd;
+	// }
+	// if (cmd->pipe && cmd->pipe->write)
+	// 	fd = cmd->pipe->write[1];
+	// write(fd, cwd, ft_strlen(cwd));
+	// write(fd, "\n", 1);
+	update_environment_state(minishell,cmd,0);
 }
