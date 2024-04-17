@@ -42,18 +42,20 @@ void	ft_exit(t_minishell *minishell, t_cmd *cmd)
 		if (!is_numeric_string(cmd->arg_array[1])
 			|| ft_strlen(cmd->arg_array[1]) == 0)
 		{
+			printf("exit\n");
 			ft_printf("bash: exit: %s: numeric argument required\n",
 				cmd->arg_array[1]);
 			minishell->exit_status = 2;
 		}
 		else if (cmd_arg_nbr(cmd->arg_array) > 2)
 		{
+			printf("exit\n");
 			ft_printf("bash: exit: too many arguments\n");
 			minishell->exit_status = 1;
+			return ;
 		}
 		else
 			minishell->exit_status = ft_atoi(cmd->arg_array[1]);
 	}
 	minishell->state = stop;
-	ft_printf("exit\n");
 }
