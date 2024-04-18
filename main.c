@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agadea <agadea@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jbocktor <jbocktor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 00:28:19 by agadea            #+#    #+#             */
-/*   Updated: 2024/04/01 18:48:56 by agadea           ###   ########.fr       */
+/*   Updated: 2024/04/18 16:10:11 by jbocktor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int				fstat(int fd, struct stat *statbuf);
 int				unlink(const char *pathname);
 int				execve(const char *pathname,
 					char *const argv[], char *const envp[]);
-int				dup(int oldfd);
+int				int oldfd);
 int				dup2(int oldfd, int newfd);
 int				pipe(int pipefd[2]);
 DIR				opendir(const char *name);

@@ -5,7 +5,7 @@
 	.type	is_in_home_dir,@function
 is_in_home_dir:                         # @is_in_home_dir
 .Lfunc_begin0:
-	.file	1 "/mnt/nfs/homes/cboukhal/minishell" "src/prompt/dir_path.c"
+	.file	1 "/mnt/nfs/homes/jbocktor/student/group_minishell/minigroup" "src/prompt/dir_path.c"
 	.loc	1 16 0                          # src/prompt/dir_path.c:16:0
 	.cfi_startproc
 # %bb.0:
@@ -378,13 +378,13 @@ get_dir_path:                           # @get_dir_path
 
 	.type	.L.str.2,@object                # @.str.2
 .L.str.2:
-	.asciz	"\033[1m\033[37m"
-	.size	.L.str.2, 10
+	.asciz	"\001\033[1m\002\001\033[37m\002"
+	.size	.L.str.2, 14
 
 	.type	.L.str.3,@object                # @.str.3
 .L.str.3:
-	.asciz	"\033[0m"
-	.size	.L.str.3, 5
+	.asciz	"\001\033[0m\002"
+	.size	.L.str.3, 7
 
 	.section	.debug_abbrev,"",@progbits
 	.byte	1                               # Abbreviation Code
@@ -669,35 +669,35 @@ get_dir_path:                           # @get_dir_path
 .Linfo_string1:
 	.asciz	"src/prompt/dir_path.c"         # string offset=38
 .Linfo_string2:
-	.asciz	"/mnt/nfs/homes/cboukhal/minishell" # string offset=60
+	.asciz	"/mnt/nfs/homes/jbocktor/student/group_minishell/minigroup" # string offset=60
 .Linfo_string3:
-	.asciz	"is_in_home_dir"                # string offset=94
+	.asciz	"is_in_home_dir"                # string offset=118
 .Linfo_string4:
-	.asciz	"_Bool"                         # string offset=109
+	.asciz	"_Bool"                         # string offset=133
 .Linfo_string5:
-	.asciz	"set_dir_path_color"            # string offset=115
+	.asciz	"set_dir_path_color"            # string offset=139
 .Linfo_string6:
-	.asciz	"char"                          # string offset=134
+	.asciz	"char"                          # string offset=158
 .Linfo_string7:
-	.asciz	"get_dir_path_from_home"        # string offset=139
+	.asciz	"get_dir_path_from_home"        # string offset=163
 .Linfo_string8:
-	.asciz	"get_dir_path"                  # string offset=162
+	.asciz	"get_dir_path"                  # string offset=186
 .Linfo_string9:
-	.asciz	"cwd"                           # string offset=175
+	.asciz	"cwd"                           # string offset=199
 .Linfo_string10:
-	.asciz	"home_length"                   # string offset=179
+	.asciz	"home_length"                   # string offset=203
 .Linfo_string11:
-	.asciz	"int"                           # string offset=191
+	.asciz	"int"                           # string offset=215
 .Linfo_string12:
-	.asciz	"dir_path"                      # string offset=195
+	.asciz	"dir_path"                      # string offset=219
 .Linfo_string13:
-	.asciz	"tmp"                           # string offset=204
+	.asciz	"tmp"                           # string offset=228
 .Linfo_string14:
-	.asciz	"dir_path_colorized"            # string offset=208
+	.asciz	"dir_path_colorized"            # string offset=232
 .Linfo_string15:
-	.asciz	"i"                             # string offset=227
+	.asciz	"i"                             # string offset=251
 .Linfo_string16:
-	.asciz	"j"                             # string offset=229
+	.asciz	"j"                             # string offset=253
 	.ident	"Ubuntu clang version 12.0.1-19ubuntu3"
 	.section	".note.GNU-stack","",@progbits
 	.addrsig

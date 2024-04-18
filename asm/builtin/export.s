@@ -5,7 +5,7 @@
 	.type	get_last_env_variable,@function
 get_last_env_variable:                  # @get_last_env_variable
 .Lfunc_begin0:
-	.file	1 "/mnt/nfs/homes/cboukhal/minishell" "src/builtin/export.c"
+	.file	1 "/mnt/nfs/homes/jbocktor/student/group_minishell/minigroup" "src/builtin/export.c"
 	.loc	1 32 0                          # src/builtin/export.c:32:0
 	.cfi_startproc
 # %bb.0:
@@ -127,17 +127,21 @@ print_export:                           # @print_export
 	movq	%rax, %rdx
 	.loc	1 51 3                          # src/builtin/export.c:51:3
 	callq	write
-	.loc	1 52 9 is_stmt 1                # src/builtin/export.c:52:9
+	.loc	1 52 3 is_stmt 1                # src/builtin/export.c:52:3
+	movabsq	$.L.str.1, %rdi
+	movb	$0, %al
+	callq	printf
+	.loc	1 53 9                          # src/builtin/export.c:53:9
 	movq	-8(%rbp), %rax
-	.loc	1 52 14 is_stmt 0               # src/builtin/export.c:52:14
+	.loc	1 53 14 is_stmt 0               # src/builtin/export.c:53:14
 	movq	16(%rax), %rax
-	.loc	1 52 7                          # src/builtin/export.c:52:7
+	.loc	1 53 7                          # src/builtin/export.c:53:7
 	movq	%rax, -8(%rbp)
 .Ltmp9:
 	.loc	1 47 2 is_stmt 1                # src/builtin/export.c:47:2
 	jmp	.LBB1_1
 .LBB1_3:
-	.loc	1 54 1                          # src/builtin/export.c:54:1
+	.loc	1 55 1                          # src/builtin/export.c:55:1
 	addq	$48, %rsp
 	popq	%rbp
 	.cfi_def_cfa %rsp, 8
@@ -152,7 +156,7 @@ print_export:                           # @print_export
 	.type	is_valid_variable,@function
 is_valid_variable:                      # @is_valid_variable
 .Lfunc_begin2:
-	.loc	1 57 0                          # src/builtin/export.c:57:0
+	.loc	1 58 0                          # src/builtin/export.c:58:0
 	.cfi_startproc
 # %bb.0:
 	pushq	%rbp
@@ -164,44 +168,44 @@ is_valid_variable:                      # @is_valid_variable
 	movq	%rdi, -16(%rbp)
 	movq	%rsi, -24(%rbp)
 .Ltmp11:
-	.loc	1 60 18 prologue_end            # src/builtin/export.c:60:18
+	.loc	1 61 18 prologue_end            # src/builtin/export.c:61:18
 	movq	-24(%rbp), %rax
 	movsbl	(%rax), %edi
-	.loc	1 60 7 is_stmt 0                # src/builtin/export.c:60:7
+	.loc	1 61 7 is_stmt 0                # src/builtin/export.c:61:7
 	callq	ft_isalpha
 	cmpl	$0, %eax
-	.loc	1 60 26                         # src/builtin/export.c:60:26
+	.loc	1 61 26                         # src/builtin/export.c:61:26
 	jne	.LBB2_3
 # %bb.1:
-	.loc	1 60 29                         # src/builtin/export.c:60:29
+	.loc	1 61 29                         # src/builtin/export.c:61:29
 	movq	-24(%rbp), %rax
 	movsbl	(%rax), %eax
-	.loc	1 60 36                         # src/builtin/export.c:60:36
+	.loc	1 61 36                         # src/builtin/export.c:61:36
 	cmpl	$95, %eax
 .Ltmp12:
-	.loc	1 60 6                          # src/builtin/export.c:60:6
+	.loc	1 61 6                          # src/builtin/export.c:61:6
 	je	.LBB2_3
 # %bb.2:
 .Ltmp13:
-	.loc	1 62 61 is_stmt 1               # src/builtin/export.c:62:61
+	.loc	1 63 61 is_stmt 1               # src/builtin/export.c:63:61
 	movq	-24(%rbp), %rsi
-	.loc	1 62 3 is_stmt 0                # src/builtin/export.c:62:3
-	movabsq	$.L.str.1, %rdi
+	.loc	1 63 3 is_stmt 0                # src/builtin/export.c:63:3
+	movabsq	$.L.str.2, %rdi
 	movb	$0, %al
 	callq	ft_printf
-	.loc	1 63 3 is_stmt 1                # src/builtin/export.c:63:3
-	movq	-16(%rbp), %rax
-	.loc	1 63 26 is_stmt 0               # src/builtin/export.c:63:26
-	movl	$1, 44(%rax)
 	.loc	1 64 3 is_stmt 1                # src/builtin/export.c:64:3
+	movq	-16(%rbp), %rax
+	.loc	1 64 26 is_stmt 0               # src/builtin/export.c:64:26
+	movl	$1, 44(%rax)
+	.loc	1 65 3 is_stmt 1                # src/builtin/export.c:65:3
 	movb	$0, -1(%rbp)
 	jmp	.LBB2_18
 .Ltmp14:
 .LBB2_3:
-	.loc	1 66 4                          # src/builtin/export.c:66:4
+	.loc	1 67 4                          # src/builtin/export.c:67:4
 	movl	$0, -28(%rbp)
 .LBB2_4:                                # =>This Inner Loop Header: Depth=1
-	.loc	1 67 9                          # src/builtin/export.c:67:9
+	.loc	1 68 9                          # src/builtin/export.c:68:9
 	movq	-24(%rbp), %rax
 	movslq	-28(%rbp), %rcx
 	movsbl	(%rax,%rcx), %ecx
@@ -209,27 +213,27 @@ is_valid_variable:                      # @is_valid_variable
                                         # kill: def $al killed $al killed $eax
 	cmpl	$0, %ecx
 	movb	%al, -29(%rbp)                  # 1-byte Spill
-	.loc	1 67 16 is_stmt 0               # src/builtin/export.c:67:16
+	.loc	1 68 16 is_stmt 0               # src/builtin/export.c:68:16
 	je	.LBB2_8
 # %bb.5:                                #   in Loop: Header=BB2_4 Depth=1
-	.loc	1 67 31                         # src/builtin/export.c:67:31
+	.loc	1 68 31                         # src/builtin/export.c:68:31
 	movq	-24(%rbp), %rax
 	movslq	-28(%rbp), %rcx
 	movsbl	(%rax,%rcx), %edi
-	.loc	1 67 20                         # src/builtin/export.c:67:20
+	.loc	1 68 20                         # src/builtin/export.c:68:20
 	callq	ft_isalnum
 	movl	%eax, %ecx
 	movb	$1, %al
 	cmpl	$0, %ecx
 	movb	%al, -30(%rbp)                  # 1-byte Spill
-	.loc	1 67 39                         # src/builtin/export.c:67:39
+	.loc	1 68 39                         # src/builtin/export.c:68:39
 	jne	.LBB2_7
 # %bb.6:                                #   in Loop: Header=BB2_4 Depth=1
-	.loc	1 67 42                         # src/builtin/export.c:67:42
+	.loc	1 68 42                         # src/builtin/export.c:68:42
 	movq	-24(%rbp), %rax
 	movslq	-28(%rbp), %rcx
 	movsbl	(%rax,%rcx), %eax
-	.loc	1 67 49                         # src/builtin/export.c:67:49
+	.loc	1 68 49                         # src/builtin/export.c:68:49
 	cmpl	$95, %eax
 	sete	%al
 	movb	%al, -30(%rbp)                  # 1-byte Spill
@@ -239,96 +243,96 @@ is_valid_variable:                      # @is_valid_variable
 	movb	%al, -29(%rbp)                  # 1-byte Spill
 .LBB2_8:                                #   in Loop: Header=BB2_4 Depth=1
 	movb	-29(%rbp), %al                  # 1-byte Reload
-	.loc	1 67 2                          # src/builtin/export.c:67:2
+	.loc	1 68 2                          # src/builtin/export.c:68:2
 	testb	$1, %al
 	jne	.LBB2_9
 	jmp	.LBB2_14
 .LBB2_9:                                #   in Loop: Header=BB2_4 Depth=1
 .Ltmp15:
-	.loc	1 69 4 is_stmt 1                # src/builtin/export.c:69:4
+	.loc	1 70 4 is_stmt 1                # src/builtin/export.c:70:4
 	movl	-28(%rbp), %eax
 	addl	$1, %eax
 	movl	%eax, -28(%rbp)
 .Ltmp16:
-	.loc	1 70 8                          # src/builtin/export.c:70:8
+	.loc	1 71 8                          # src/builtin/export.c:71:8
 	movq	-24(%rbp), %rax
 	movslq	-28(%rbp), %rcx
 	movsbl	(%rax,%rcx), %eax
-	.loc	1 70 15 is_stmt 0               # src/builtin/export.c:70:15
+	.loc	1 71 15 is_stmt 0               # src/builtin/export.c:71:15
 	cmpl	$43, %eax
-	.loc	1 70 22                         # src/builtin/export.c:70:22
+	.loc	1 71 22                         # src/builtin/export.c:71:22
 	jne	.LBB2_11
 # %bb.10:                               #   in Loop: Header=BB2_4 Depth=1
-	.loc	1 70 25                         # src/builtin/export.c:70:25
+	.loc	1 71 25                         # src/builtin/export.c:71:25
 	movq	-24(%rbp), %rax
-	.loc	1 70 29                         # src/builtin/export.c:70:29
+	.loc	1 71 29                         # src/builtin/export.c:71:29
 	movl	-28(%rbp), %ecx
-	.loc	1 70 31                         # src/builtin/export.c:70:31
+	.loc	1 71 31                         # src/builtin/export.c:71:31
 	addl	$1, %ecx
-	.loc	1 70 25                         # src/builtin/export.c:70:25
+	.loc	1 71 25                         # src/builtin/export.c:71:25
 	movslq	%ecx, %rcx
 	movsbl	(%rax,%rcx), %eax
-	.loc	1 70 36                         # src/builtin/export.c:70:36
+	.loc	1 71 36                         # src/builtin/export.c:71:36
 	cmpl	$61, %eax
-	.loc	1 70 44                         # src/builtin/export.c:70:44
+	.loc	1 71 44                         # src/builtin/export.c:71:44
 	je	.LBB2_12
 .LBB2_11:                               #   in Loop: Header=BB2_4 Depth=1
-	.loc	1 70 47                         # src/builtin/export.c:70:47
+	.loc	1 71 47                         # src/builtin/export.c:71:47
 	movq	-24(%rbp), %rax
 	movslq	-28(%rbp), %rcx
 	movsbl	(%rax,%rcx), %eax
-	.loc	1 70 54                         # src/builtin/export.c:70:54
+	.loc	1 71 54                         # src/builtin/export.c:71:54
 	cmpl	$61, %eax
 .Ltmp17:
-	.loc	1 70 7                          # src/builtin/export.c:70:7
+	.loc	1 71 7                          # src/builtin/export.c:71:7
 	jne	.LBB2_13
 .LBB2_12:
 .Ltmp18:
-	.loc	1 71 4 is_stmt 1                # src/builtin/export.c:71:4
+	.loc	1 72 4 is_stmt 1                # src/builtin/export.c:72:4
 	movb	$1, -1(%rbp)
 	jmp	.LBB2_18
 .Ltmp19:
 .LBB2_13:                               #   in Loop: Header=BB2_4 Depth=1
-	.loc	1 67 2                          # src/builtin/export.c:67:2
+	.loc	1 68 2                          # src/builtin/export.c:68:2
 	jmp	.LBB2_4
 .LBB2_14:
 .Ltmp20:
-	.loc	1 73 6                          # src/builtin/export.c:73:6
+	.loc	1 74 6                          # src/builtin/export.c:74:6
 	movq	-24(%rbp), %rax
 	movslq	-28(%rbp), %rcx
 	movsbl	(%rax,%rcx), %eax
-	.loc	1 73 13 is_stmt 0               # src/builtin/export.c:73:13
+	.loc	1 74 13 is_stmt 0               # src/builtin/export.c:74:13
 	cmpl	$0, %eax
-	.loc	1 73 21                         # src/builtin/export.c:73:21
+	.loc	1 74 21                         # src/builtin/export.c:74:21
 	je	.LBB2_17
 # %bb.15:
-	.loc	1 73 24                         # src/builtin/export.c:73:24
+	.loc	1 74 24                         # src/builtin/export.c:74:24
 	movq	-24(%rbp), %rax
 	movslq	-28(%rbp), %rcx
 	movsbl	(%rax,%rcx), %eax
-	.loc	1 73 31                         # src/builtin/export.c:73:31
+	.loc	1 74 31                         # src/builtin/export.c:74:31
 	cmpl	$61, %eax
 .Ltmp21:
-	.loc	1 73 6                          # src/builtin/export.c:73:6
+	.loc	1 74 6                          # src/builtin/export.c:74:6
 	je	.LBB2_17
 # %bb.16:
 .Ltmp22:
-	.loc	1 75 61 is_stmt 1               # src/builtin/export.c:75:61
+	.loc	1 76 61 is_stmt 1               # src/builtin/export.c:76:61
 	movq	-24(%rbp), %rsi
-	.loc	1 75 3 is_stmt 0                # src/builtin/export.c:75:3
-	movabsq	$.L.str.1, %rdi
+	.loc	1 76 3 is_stmt 0                # src/builtin/export.c:76:3
+	movabsq	$.L.str.2, %rdi
 	movb	$0, %al
 	callq	ft_printf
-	.loc	1 76 3 is_stmt 1                # src/builtin/export.c:76:3
+	.loc	1 77 3 is_stmt 1                # src/builtin/export.c:77:3
 	movq	-16(%rbp), %rax
-	.loc	1 76 26 is_stmt 0               # src/builtin/export.c:76:26
+	.loc	1 77 26 is_stmt 0               # src/builtin/export.c:77:26
 	movl	$1, 44(%rax)
 .Ltmp23:
 .LBB2_17:
-	.loc	1 78 2 is_stmt 1                # src/builtin/export.c:78:2
+	.loc	1 79 2 is_stmt 1                # src/builtin/export.c:79:2
 	movb	$0, -1(%rbp)
 .LBB2_18:
-	.loc	1 79 1                          # src/builtin/export.c:79:1
+	.loc	1 80 1                          # src/builtin/export.c:80:1
 	movb	-1(%rbp), %al
 	andb	$1, %al
 	movzbl	%al, %eax
@@ -346,7 +350,7 @@ is_valid_variable:                      # @is_valid_variable
 	.type	parse_export_arg,@function
 parse_export_arg:                       # @parse_export_arg
 .Lfunc_begin3:
-	.loc	1 82 0                          # src/builtin/export.c:82:0
+	.loc	1 83 0                          # src/builtin/export.c:83:0
 	.cfi_startproc
 # %bb.0:
 	pushq	%rbp
@@ -358,100 +362,100 @@ parse_export_arg:                       # @parse_export_arg
 	movq	%rdi, -8(%rbp)
 	movq	%rsi, -16(%rbp)
 .Ltmp25:
-	.loc	1 88 4 prologue_end             # src/builtin/export.c:88:4
+	.loc	1 89 4 prologue_end             # src/builtin/export.c:89:4
 	movl	$0, -20(%rbp)
-	.loc	1 89 13                         # src/builtin/export.c:89:13
+	.loc	1 90 13                         # src/builtin/export.c:90:13
 	movq	$0, -32(%rbp)
 .LBB3_1:                                # =>This Inner Loop Header: Depth=1
-	.loc	1 90 9                          # src/builtin/export.c:90:9
+	.loc	1 91 9                          # src/builtin/export.c:91:9
 	movq	-16(%rbp), %rcx
 	movslq	-20(%rbp), %rdx
 	xorl	%eax, %eax
                                         # kill: def $al killed $al killed $eax
 	cmpq	$0, (%rcx,%rdx,8)
 	movb	%al, -49(%rbp)                  # 1-byte Spill
-	.loc	1 90 22 is_stmt 0               # src/builtin/export.c:90:22
+	.loc	1 91 22 is_stmt 0               # src/builtin/export.c:91:22
 	je	.LBB3_3
 # %bb.2:                                #   in Loop: Header=BB3_1 Depth=1
-	.loc	1 90 25                         # src/builtin/export.c:90:25
+	.loc	1 91 25                         # src/builtin/export.c:91:25
 	callq	__errno_location
-	.loc	1 90 31                         # src/builtin/export.c:90:31
+	.loc	1 91 31                         # src/builtin/export.c:91:31
 	cmpl	$0, (%rax)
 	sete	%al
 	movb	%al, -49(%rbp)                  # 1-byte Spill
 .LBB3_3:                                #   in Loop: Header=BB3_1 Depth=1
 	.loc	1 0 31                          # src/builtin/export.c:0:31
 	movb	-49(%rbp), %al                  # 1-byte Reload
-	.loc	1 90 2                          # src/builtin/export.c:90:2
+	.loc	1 91 2                          # src/builtin/export.c:91:2
 	testb	$1, %al
 	jne	.LBB3_4
 	jmp	.LBB3_10
 .LBB3_4:                                #   in Loop: Header=BB3_1 Depth=1
 .Ltmp26:
-	.loc	1 92 26 is_stmt 1               # src/builtin/export.c:92:26
+	.loc	1 93 26 is_stmt 1               # src/builtin/export.c:93:26
 	movq	-8(%rbp), %rdi
-	.loc	1 92 37 is_stmt 0               # src/builtin/export.c:92:37
+	.loc	1 93 37 is_stmt 0               # src/builtin/export.c:93:37
 	movq	-16(%rbp), %rax
 	movslq	-20(%rbp), %rcx
 	movq	(%rax,%rcx,8), %rsi
-	.loc	1 92 8                          # src/builtin/export.c:92:8
+	.loc	1 93 8                          # src/builtin/export.c:93:8
 	callq	is_valid_variable
 .Ltmp27:
-	.loc	1 92 7                          # src/builtin/export.c:92:7
+	.loc	1 93 7                          # src/builtin/export.c:93:7
 	testb	$1, %al
 	jne	.LBB3_6
 # %bb.5:
 .Ltmp28:
-	.loc	1 93 4 is_stmt 1                # src/builtin/export.c:93:4
+	.loc	1 94 4 is_stmt 1                # src/builtin/export.c:94:4
 	jmp	.LBB3_10
 .Ltmp29:
 .LBB3_6:                                #   in Loop: Header=BB3_1 Depth=1
-	.loc	1 94 26                         # src/builtin/export.c:94:26
+	.loc	1 95 26                         # src/builtin/export.c:95:26
 	movq	-16(%rbp), %rax
 	movslq	-20(%rbp), %rcx
 	movq	(%rax,%rcx,8), %rdi
-	.loc	1 94 9 is_stmt 0                # src/builtin/export.c:94:9
+	.loc	1 95 9 is_stmt 0                # src/builtin/export.c:95:9
 	callq	get_env_variable
-	.loc	1 94 7                          # src/builtin/export.c:94:7
+	.loc	1 95 7                          # src/builtin/export.c:95:7
 	movq	%rax, -48(%rbp)
 .Ltmp30:
-	.loc	1 95 8 is_stmt 1                # src/builtin/export.c:95:8
+	.loc	1 96 8 is_stmt 1                # src/builtin/export.c:96:8
 	cmpq	$0, -32(%rbp)
 .Ltmp31:
-	.loc	1 95 7 is_stmt 0                # src/builtin/export.c:95:7
+	.loc	1 96 7 is_stmt 0                # src/builtin/export.c:96:7
 	jne	.LBB3_8
 # %bb.7:                                #   in Loop: Header=BB3_1 Depth=1
 .Ltmp32:
-	.loc	1 96 17 is_stmt 1               # src/builtin/export.c:96:17
+	.loc	1 97 17 is_stmt 1               # src/builtin/export.c:97:17
 	movq	-48(%rbp), %rax
-	.loc	1 96 15 is_stmt 0               # src/builtin/export.c:96:15
+	.loc	1 97 15 is_stmt 0               # src/builtin/export.c:97:15
 	movq	%rax, -32(%rbp)
-	.loc	1 96 4                          # src/builtin/export.c:96:4
+	.loc	1 97 4                          # src/builtin/export.c:97:4
 	jmp	.LBB3_9
 .LBB3_8:                                #   in Loop: Header=BB3_1 Depth=1
-	.loc	1 98 18 is_stmt 1               # src/builtin/export.c:98:18
+	.loc	1 99 18 is_stmt 1               # src/builtin/export.c:99:18
 	movq	-48(%rbp), %rcx
-	.loc	1 98 4 is_stmt 0                # src/builtin/export.c:98:4
+	.loc	1 99 4 is_stmt 0                # src/builtin/export.c:99:4
 	movq	-40(%rbp), %rax
-	.loc	1 98 16                         # src/builtin/export.c:98:16
+	.loc	1 99 16                         # src/builtin/export.c:99:16
 	movq	%rcx, 16(%rax)
 .Ltmp33:
 .LBB3_9:                                #   in Loop: Header=BB3_1 Depth=1
-	.loc	1 99 11 is_stmt 1               # src/builtin/export.c:99:11
+	.loc	1 100 11 is_stmt 1              # src/builtin/export.c:100:11
 	movq	-48(%rbp), %rax
-	.loc	1 99 9 is_stmt 0                # src/builtin/export.c:99:9
+	.loc	1 100 9 is_stmt 0               # src/builtin/export.c:100:9
 	movq	%rax, -40(%rbp)
-	.loc	1 100 4 is_stmt 1               # src/builtin/export.c:100:4
+	.loc	1 101 4 is_stmt 1               # src/builtin/export.c:101:4
 	movl	-20(%rbp), %eax
 	addl	$1, %eax
 	movl	%eax, -20(%rbp)
 .Ltmp34:
-	.loc	1 90 2                          # src/builtin/export.c:90:2
+	.loc	1 91 2                          # src/builtin/export.c:91:2
 	jmp	.LBB3_1
 .LBB3_10:
-	.loc	1 102 10                        # src/builtin/export.c:102:10
+	.loc	1 103 10                        # src/builtin/export.c:103:10
 	movq	-32(%rbp), %rax
-	.loc	1 102 2 is_stmt 0               # src/builtin/export.c:102:2
+	.loc	1 103 2 is_stmt 0               # src/builtin/export.c:103:2
 	addq	$64, %rsp
 	popq	%rbp
 	.cfi_def_cfa %rsp, 8
@@ -466,7 +470,7 @@ parse_export_arg:                       # @parse_export_arg
 	.type	export,@function
 export:                                 # @export
 .Lfunc_begin4:
-	.loc	1 106 0 is_stmt 1               # src/builtin/export.c:106:0
+	.loc	1 107 0 is_stmt 1               # src/builtin/export.c:107:0
 	.cfi_startproc
 # %bb.0:
 	pushq	%rbp
@@ -479,104 +483,114 @@ export:                                 # @export
 	movq	%rsi, -16(%rbp)
 	movq	%rdx, -24(%rbp)
 .Ltmp36:
-	.loc	1 112 4 prologue_end            # src/builtin/export.c:112:4
+	.loc	1 113 4 prologue_end            # src/builtin/export.c:113:4
 	movl	$0, -28(%rbp)
 .Ltmp37:
-	.loc	1 114 7                         # src/builtin/export.c:114:7
+	.loc	1 115 7                         # src/builtin/export.c:115:7
 	movq	-24(%rbp), %rax
 	cmpq	$0, 88(%rax)
 .Ltmp38:
-	.loc	1 114 6 is_stmt 0               # src/builtin/export.c:114:6
+	.loc	1 115 6 is_stmt 0               # src/builtin/export.c:115:6
 	jne	.LBB4_2
 # %bb.1:
 .Ltmp39:
-	.loc	1 115 3 is_stmt 1               # src/builtin/export.c:115:3
+	.loc	1 116 3 is_stmt 1               # src/builtin/export.c:116:3
 	jmp	.LBB4_11
 .Ltmp40:
 .LBB4_2:
-	.loc	1 116 6                         # src/builtin/export.c:116:6
+	.loc	1 117 6                         # src/builtin/export.c:117:6
 	movq	-24(%rbp), %rax
 	cmpq	$0, 40(%rax)
-	.loc	1 116 16 is_stmt 0              # src/builtin/export.c:116:16
+	.loc	1 117 16 is_stmt 0              # src/builtin/export.c:117:16
 	je	.LBB4_5
 # %bb.3:
-	.loc	1 116 19                        # src/builtin/export.c:116:19
+	.loc	1 117 19                        # src/builtin/export.c:117:19
 	movq	-24(%rbp), %rax
-	.loc	1 116 24                        # src/builtin/export.c:116:24
+	.loc	1 117 24                        # src/builtin/export.c:117:24
 	movq	40(%rax), %rax
-	.loc	1 116 19                        # src/builtin/export.c:116:19
+	.loc	1 117 19                        # src/builtin/export.c:117:19
 	cmpq	$0, 8(%rax)
 .Ltmp41:
-	.loc	1 116 6                         # src/builtin/export.c:116:6
+	.loc	1 117 6                         # src/builtin/export.c:117:6
 	je	.LBB4_5
 # %bb.4:
 .Ltmp42:
-	.loc	1 117 8 is_stmt 1               # src/builtin/export.c:117:8
+	.loc	1 118 8 is_stmt 1               # src/builtin/export.c:118:8
 	movq	-24(%rbp), %rax
-	.loc	1 117 13 is_stmt 0              # src/builtin/export.c:117:13
+	.loc	1 118 13 is_stmt 0              # src/builtin/export.c:118:13
 	movq	40(%rax), %rax
-	.loc	1 117 19                        # src/builtin/export.c:117:19
+	.loc	1 118 19                        # src/builtin/export.c:118:19
 	movq	8(%rax), %rax
-	.loc	1 117 8                         # src/builtin/export.c:117:8
+	.loc	1 118 8                         # src/builtin/export.c:118:8
 	movl	4(%rax), %eax
-	.loc	1 117 6                         # src/builtin/export.c:117:6
+	.loc	1 118 6                         # src/builtin/export.c:118:6
 	movl	%eax, -32(%rbp)
-	.loc	1 117 3                         # src/builtin/export.c:117:3
+	.loc	1 118 3                         # src/builtin/export.c:118:3
 	jmp	.LBB4_6
 .LBB4_5:
-	.loc	1 119 6 is_stmt 1               # src/builtin/export.c:119:6
+	.loc	1 120 6 is_stmt 1               # src/builtin/export.c:120:6
 	movl	$1, -32(%rbp)
 .Ltmp43:
 .LBB4_6:
-	.loc	1 120 24                        # src/builtin/export.c:120:24
+	.loc	1 121 24                        # src/builtin/export.c:121:24
 	movq	-24(%rbp), %rax
-	.loc	1 120 29 is_stmt 0              # src/builtin/export.c:120:29
+	.loc	1 121 29 is_stmt 0              # src/builtin/export.c:121:29
 	movq	88(%rax), %rdi
-	.loc	1 120 12                        # src/builtin/export.c:120:12
+	.loc	1 121 12                        # src/builtin/export.c:121:12
 	callq	cmd_arg_nbr
-	.loc	1 120 10                        # src/builtin/export.c:120:10
+	.loc	1 121 10                        # src/builtin/export.c:121:10
 	movl	%eax, -36(%rbp)
 .Ltmp44:
-	.loc	1 121 14 is_stmt 1              # src/builtin/export.c:121:14
+	.loc	1 122 14 is_stmt 1              # src/builtin/export.c:122:14
 	cmpl	$1, -36(%rbp)
 .Ltmp45:
-	.loc	1 121 6 is_stmt 0               # src/builtin/export.c:121:6
+	.loc	1 122 6 is_stmt 0               # src/builtin/export.c:122:6
 	jne	.LBB4_8
 # %bb.7:
 .Ltmp46:
-	.loc	1 122 18 is_stmt 1              # src/builtin/export.c:122:18
+	.loc	1 123 18 is_stmt 1              # src/builtin/export.c:123:18
 	movq	-16(%rbp), %rax
-	.loc	1 122 17 is_stmt 0              # src/builtin/export.c:122:17
+	.loc	1 123 17 is_stmt 0              # src/builtin/export.c:123:17
 	movq	(%rax), %rdi
-	.loc	1 122 24                        # src/builtin/export.c:122:24
+	.loc	1 123 24                        # src/builtin/export.c:123:24
 	movl	-32(%rbp), %esi
-	.loc	1 122 3                         # src/builtin/export.c:122:3
+	.loc	1 123 3                         # src/builtin/export.c:123:3
 	callq	print_export
 	jmp	.LBB4_11
 .LBB4_8:
 .Ltmp47:
-	.loc	1 123 19 is_stmt 1              # src/builtin/export.c:123:19
+	.loc	1 124 19 is_stmt 1              # src/builtin/export.c:124:19
 	cmpl	$1, -36(%rbp)
 .Ltmp48:
-	.loc	1 123 11 is_stmt 0              # src/builtin/export.c:123:11
+	.loc	1 124 11 is_stmt 0              # src/builtin/export.c:124:11
 	jle	.LBB4_10
 # %bb.9:
 .Ltmp49:
-	.loc	1 125 30 is_stmt 1              # src/builtin/export.c:125:30
-	movq	-8(%rbp), %rdi
-	.loc	1 125 42 is_stmt 0              # src/builtin/export.c:125:42
+	.loc	1 126 18 is_stmt 1              # src/builtin/export.c:126:18
+	movq	-16(%rbp), %rdi
+	.loc	1 126 23 is_stmt 0              # src/builtin/export.c:126:23
 	movq	-24(%rbp), %rax
-	.loc	1 125 47                        # src/builtin/export.c:125:47
+	.loc	1 126 28                        # src/builtin/export.c:126:28
+	movq	88(%rax), %rax
+	.loc	1 126 23                        # src/builtin/export.c:126:23
+	movq	8(%rax), %rsi
+	.loc	1 126 3                         # src/builtin/export.c:126:3
+	callq	unset_variable
+	.loc	1 127 30 is_stmt 1              # src/builtin/export.c:127:30
+	movq	-8(%rbp), %rdi
+	.loc	1 127 42 is_stmt 0              # src/builtin/export.c:127:42
+	movq	-24(%rbp), %rax
+	.loc	1 127 47                        # src/builtin/export.c:127:47
 	movq	88(%rax), %rsi
-	.loc	1 125 42                        # src/builtin/export.c:125:42
+	.loc	1 127 42                        # src/builtin/export.c:127:42
 	addq	$8, %rsi
-	.loc	1 125 13                        # src/builtin/export.c:125:13
+	.loc	1 127 13                        # src/builtin/export.c:127:13
 	callq	parse_export_arg
-	.loc	1 125 11                        # src/builtin/export.c:125:11
+	.loc	1 127 11                        # src/builtin/export.c:127:11
 	movq	%rax, -48(%rbp)
-	.loc	1 126 35 is_stmt 1              # src/builtin/export.c:126:35
+	.loc	1 128 35 is_stmt 1              # src/builtin/export.c:128:35
 	movq	-16(%rbp), %rsi
-	.loc	1 126 3 is_stmt 0               # src/builtin/export.c:126:3
+	.loc	1 128 3 is_stmt 0               # src/builtin/export.c:128:3
 	leaq	-48(%rbp), %rdi
 	callq	add_new_var_to_env
 .Ltmp50:
@@ -584,7 +598,7 @@ export:                                 # @export
 	.loc	1 0 3                           # src/builtin/export.c:0:3
 	jmp	.LBB4_11
 .LBB4_11:
-	.loc	1 128 1 is_stmt 1               # src/builtin/export.c:128:1
+	.loc	1 130 1 is_stmt 1               # src/builtin/export.c:130:1
 	addq	$48, %rsp
 	popq	%rbp
 	.cfi_def_cfa %rsp, 8
@@ -602,10 +616,15 @@ export:                                 # @export
 
 	.type	.L.str.1,@object                # @.str.1
 .L.str.1:
-	.asciz	"bash: export: `%s': not a valid identifier\n"
-	.size	.L.str.1, 44
+	.asciz	"\n"
+	.size	.L.str.1, 2
 
-	.file	2 "/mnt/nfs/homes/cboukhal/minishell" "src/builtin/../../include/minishell.h"
+	.type	.L.str.2,@object                # @.str.2
+.L.str.2:
+	.asciz	"bash: export: `%s': not a valid identifier\n"
+	.size	.L.str.2, 44
+
+	.file	2 "/mnt/nfs/homes/jbocktor/student/group_minishell/minigroup" "src/builtin/../../include/minishell.h"
 	.file	3 "/usr/include" "dirent.h"
 	.file	4 "/usr/include" "signal.h"
 	.file	5 "/usr/include/x86_64-linux-gnu/bits" "sigaction.h"
@@ -959,7 +978,7 @@ export:                                 # @export
 	.byte	86
 	.long	.Linfo_string11                 # DW_AT_name
 	.byte	1                               # DW_AT_decl_file
-	.byte	56                              # DW_AT_decl_line
+	.byte	57                              # DW_AT_decl_line
                                         # DW_AT_prototyped
 	.long	523                             # DW_AT_type
                                         # DW_AT_external
@@ -969,7 +988,7 @@ export:                                 # @export
 	.byte	112
 	.long	.Linfo_string19                 # DW_AT_name
 	.byte	1                               # DW_AT_decl_file
-	.byte	56                              # DW_AT_decl_line
+	.byte	57                              # DW_AT_decl_line
 	.long	537                             # DW_AT_type
 	.byte	4                               # Abbrev [4] 0xba:0xe DW_TAG_formal_parameter
 	.byte	2                               # DW_AT_location
@@ -977,7 +996,7 @@ export:                                 # @export
 	.byte	104
 	.long	.Linfo_string41                 # DW_AT_name
 	.byte	1                               # DW_AT_decl_file
-	.byte	56                              # DW_AT_decl_line
+	.byte	57                              # DW_AT_decl_line
 	.long	506                             # DW_AT_type
 	.byte	5                               # Abbrev [5] 0xc8:0xe DW_TAG_variable
 	.byte	2                               # DW_AT_location
@@ -985,7 +1004,7 @@ export:                                 # @export
 	.byte	100
 	.long	.Linfo_string182                # DW_AT_name
 	.byte	1                               # DW_AT_decl_file
-	.byte	58                              # DW_AT_decl_line
+	.byte	59                              # DW_AT_decl_line
 	.long	530                             # DW_AT_type
 	.byte	0                               # End Of Children Mark
 	.byte	3                               # Abbrev [3] 0xd7:0x6e DW_TAG_subprogram
@@ -995,7 +1014,7 @@ export:                                 # @export
 	.byte	86
 	.long	.Linfo_string13                 # DW_AT_name
 	.byte	1                               # DW_AT_decl_file
-	.byte	81                              # DW_AT_decl_line
+	.byte	82                              # DW_AT_decl_line
                                         # DW_AT_prototyped
 	.long	445                             # DW_AT_type
                                         # DW_AT_external
@@ -1005,7 +1024,7 @@ export:                                 # @export
 	.byte	120
 	.long	.Linfo_string19                 # DW_AT_name
 	.byte	1                               # DW_AT_decl_file
-	.byte	81                              # DW_AT_decl_line
+	.byte	82                              # DW_AT_decl_line
 	.long	537                             # DW_AT_type
 	.byte	4                               # Abbrev [4] 0xfe:0xe DW_TAG_formal_parameter
 	.byte	2                               # DW_AT_location
@@ -1013,7 +1032,7 @@ export:                                 # @export
 	.byte	112
 	.long	.Linfo_string65                 # DW_AT_name
 	.byte	1                               # DW_AT_decl_file
-	.byte	81                              # DW_AT_decl_line
+	.byte	82                              # DW_AT_decl_line
 	.long	764                             # DW_AT_type
 	.byte	5                               # Abbrev [5] 0x10c:0xe DW_TAG_variable
 	.byte	2                               # DW_AT_location
@@ -1021,7 +1040,7 @@ export:                                 # @export
 	.byte	108
 	.long	.Linfo_string182                # DW_AT_name
 	.byte	1                               # DW_AT_decl_file
-	.byte	83                              # DW_AT_decl_line
+	.byte	84                              # DW_AT_decl_line
 	.long	530                             # DW_AT_type
 	.byte	5                               # Abbrev [5] 0x11a:0xe DW_TAG_variable
 	.byte	2                               # DW_AT_location
@@ -1029,7 +1048,7 @@ export:                                 # @export
 	.byte	96
 	.long	.Linfo_string183                # DW_AT_name
 	.byte	1                               # DW_AT_decl_file
-	.byte	84                              # DW_AT_decl_line
+	.byte	85                              # DW_AT_decl_line
 	.long	445                             # DW_AT_type
 	.byte	5                               # Abbrev [5] 0x128:0xe DW_TAG_variable
 	.byte	2                               # DW_AT_location
@@ -1037,7 +1056,7 @@ export:                                 # @export
 	.byte	88
 	.long	.Linfo_string16                 # DW_AT_name
 	.byte	1                               # DW_AT_decl_file
-	.byte	85                              # DW_AT_decl_line
+	.byte	86                              # DW_AT_decl_line
 	.long	445                             # DW_AT_type
 	.byte	5                               # Abbrev [5] 0x136:0xe DW_TAG_variable
 	.byte	2                               # DW_AT_location
@@ -1045,7 +1064,7 @@ export:                                 # @export
 	.byte	80
 	.long	.Linfo_string184                # DW_AT_name
 	.byte	1                               # DW_AT_decl_file
-	.byte	86                              # DW_AT_decl_line
+	.byte	87                              # DW_AT_decl_line
 	.long	445                             # DW_AT_type
 	.byte	0                               # End Of Children Mark
 	.byte	6                               # Abbrev [6] 0x145:0x78 DW_TAG_subprogram
@@ -1055,7 +1074,7 @@ export:                                 # @export
 	.byte	86
 	.long	.Linfo_string14                 # DW_AT_name
 	.byte	1                               # DW_AT_decl_file
-	.byte	105                             # DW_AT_decl_line
+	.byte	106                             # DW_AT_decl_line
                                         # DW_AT_prototyped
                                         # DW_AT_external
 	.byte	4                               # Abbrev [4] 0x15a:0xe DW_TAG_formal_parameter
@@ -1064,7 +1083,7 @@ export:                                 # @export
 	.byte	120
 	.long	.Linfo_string19                 # DW_AT_name
 	.byte	1                               # DW_AT_decl_file
-	.byte	105                             # DW_AT_decl_line
+	.byte	106                             # DW_AT_decl_line
 	.long	537                             # DW_AT_type
 	.byte	4                               # Abbrev [4] 0x168:0xe DW_TAG_formal_parameter
 	.byte	2                               # DW_AT_location
@@ -1072,7 +1091,7 @@ export:                                 # @export
 	.byte	112
 	.long	.Linfo_string15                 # DW_AT_name
 	.byte	1                               # DW_AT_decl_file
-	.byte	105                             # DW_AT_decl_line
+	.byte	106                             # DW_AT_decl_line
 	.long	3071                            # DW_AT_type
 	.byte	4                               # Abbrev [4] 0x176:0xe DW_TAG_formal_parameter
 	.byte	2                               # DW_AT_location
@@ -1080,7 +1099,7 @@ export:                                 # @export
 	.byte	104
 	.long	.Linfo_string185                # DW_AT_name
 	.byte	1                               # DW_AT_decl_file
-	.byte	105                             # DW_AT_decl_line
+	.byte	106                             # DW_AT_decl_line
 	.long	3076                            # DW_AT_type
 	.byte	5                               # Abbrev [5] 0x184:0xe DW_TAG_variable
 	.byte	2                               # DW_AT_location
@@ -1088,7 +1107,7 @@ export:                                 # @export
 	.byte	100
 	.long	.Linfo_string182                # DW_AT_name
 	.byte	1                               # DW_AT_decl_file
-	.byte	107                             # DW_AT_decl_line
+	.byte	108                             # DW_AT_decl_line
 	.long	530                             # DW_AT_type
 	.byte	5                               # Abbrev [5] 0x192:0xe DW_TAG_variable
 	.byte	2                               # DW_AT_location
@@ -1096,7 +1115,7 @@ export:                                 # @export
 	.byte	96
 	.long	.Linfo_string17                 # DW_AT_name
 	.byte	1                               # DW_AT_decl_file
-	.byte	108                             # DW_AT_decl_line
+	.byte	109                             # DW_AT_decl_line
 	.long	530                             # DW_AT_type
 	.byte	5                               # Abbrev [5] 0x1a0:0xe DW_TAG_variable
 	.byte	2                               # DW_AT_location
@@ -1104,7 +1123,7 @@ export:                                 # @export
 	.byte	92
 	.long	.Linfo_string187                # DW_AT_name
 	.byte	1                               # DW_AT_decl_file
-	.byte	109                             # DW_AT_decl_line
+	.byte	110                             # DW_AT_decl_line
 	.long	530                             # DW_AT_type
 	.byte	5                               # Abbrev [5] 0x1ae:0xe DW_TAG_variable
 	.byte	2                               # DW_AT_location
@@ -1112,7 +1131,7 @@ export:                                 # @export
 	.byte	80
 	.long	.Linfo_string188                # DW_AT_name
 	.byte	1                               # DW_AT_decl_file
-	.byte	110                             # DW_AT_decl_line
+	.byte	111                             # DW_AT_decl_line
 	.long	445                             # DW_AT_type
 	.byte	0                               # End Of Children Mark
 	.byte	7                               # Abbrev [7] 0x1bd:0x5 DW_TAG_pointer_type
@@ -2480,385 +2499,386 @@ export:                                 # @export
 .Linfo_string1:
 	.asciz	"src/builtin/export.c"          # string offset=38
 .Linfo_string2:
-	.asciz	"/mnt/nfs/homes/cboukhal/minishell" # string offset=59
+	.asciz	"/mnt/nfs/homes/jbocktor/student/group_minishell/minigroup" # string offset=59
 .Linfo_string3:
-	.asciz	"get_last_env_variable"         # string offset=93
+	.asciz	"get_last_env_variable"         # string offset=117
 .Linfo_string4:
-	.asciz	"name"                          # string offset=115
+	.asciz	"name"                          # string offset=139
 .Linfo_string5:
-	.asciz	"char"                          # string offset=120
+	.asciz	"char"                          # string offset=144
 .Linfo_string6:
-	.asciz	"value"                         # string offset=125
+	.asciz	"value"                         # string offset=149
 .Linfo_string7:
-	.asciz	"next"                          # string offset=131
+	.asciz	"next"                          # string offset=155
 .Linfo_string8:
-	.asciz	"s_env"                         # string offset=136
+	.asciz	"s_env"                         # string offset=160
 .Linfo_string9:
-	.asciz	"t_env"                         # string offset=142
+	.asciz	"t_env"                         # string offset=166
 .Linfo_string10:
-	.asciz	"print_export"                  # string offset=148
+	.asciz	"print_export"                  # string offset=172
 .Linfo_string11:
-	.asciz	"is_valid_variable"             # string offset=161
+	.asciz	"is_valid_variable"             # string offset=185
 .Linfo_string12:
-	.asciz	"_Bool"                         # string offset=179
+	.asciz	"_Bool"                         # string offset=203
 .Linfo_string13:
-	.asciz	"parse_export_arg"              # string offset=185
+	.asciz	"parse_export_arg"              # string offset=209
 .Linfo_string14:
-	.asciz	"export"                        # string offset=202
+	.asciz	"export"                        # string offset=226
 .Linfo_string15:
-	.asciz	"env"                           # string offset=209
+	.asciz	"env"                           # string offset=233
 .Linfo_string16:
-	.asciz	"index"                         # string offset=213
+	.asciz	"index"                         # string offset=237
 .Linfo_string17:
-	.asciz	"fd"                            # string offset=219
+	.asciz	"fd"                            # string offset=243
 .Linfo_string18:
-	.asciz	"int"                           # string offset=222
+	.asciz	"int"                           # string offset=246
 .Linfo_string19:
-	.asciz	"minishell"                     # string offset=226
+	.asciz	"minishell"                     # string offset=250
 .Linfo_string20:
-	.asciz	"dir"                           # string offset=236
+	.asciz	"dir"                           # string offset=260
 .Linfo_string21:
-	.asciz	"__dirstream"                   # string offset=240
+	.asciz	"__dirstream"                   # string offset=264
 .Linfo_string22:
-	.asciz	"DIR"                           # string offset=252
+	.asciz	"DIR"                           # string offset=276
 .Linfo_string23:
-	.asciz	"state"                         # string offset=256
+	.asciz	"state"                         # string offset=280
 .Linfo_string24:
-	.asciz	"input"                         # string offset=262
+	.asciz	"input"                         # string offset=286
 .Linfo_string25:
-	.asciz	"path"                          # string offset=268
+	.asciz	"path"                          # string offset=292
 .Linfo_string26:
-	.asciz	"prompt"                        # string offset=273
+	.asciz	"prompt"                        # string offset=297
 .Linfo_string27:
-	.asciz	"operator_nbr"                  # string offset=280
+	.asciz	"operator_nbr"                  # string offset=304
 .Linfo_string28:
-	.asciz	"exit_status"                   # string offset=293
+	.asciz	"exit_status"                   # string offset=317
 .Linfo_string29:
-	.asciz	"env_array"                     # string offset=305
+	.asciz	"env_array"                     # string offset=329
 .Linfo_string30:
-	.asciz	"local"                         # string offset=315
+	.asciz	"local"                         # string offset=339
 .Linfo_string31:
-	.asciz	"s_var"                         # string offset=321
+	.asciz	"s_var"                         # string offset=345
 .Linfo_string32:
-	.asciz	"t_var"                         # string offset=327
+	.asciz	"t_var"                         # string offset=351
 .Linfo_string33:
-	.asciz	"syntax_tree"                   # string offset=333
+	.asciz	"syntax_tree"                   # string offset=357
 .Linfo_string34:
-	.asciz	"node"                          # string offset=345
+	.asciz	"node"                          # string offset=369
 .Linfo_string35:
-	.asciz	"id"                            # string offset=350
+	.asciz	"id"                            # string offset=374
 .Linfo_string36:
-	.asciz	"type"                          # string offset=353
+	.asciz	"type"                          # string offset=377
 .Linfo_string37:
-	.asciz	"pipe_fd"                       # string offset=358
+	.asciz	"pipe_fd"                       # string offset=382
 .Linfo_string38:
-	.asciz	"left"                          # string offset=366
+	.asciz	"left"                          # string offset=390
 .Linfo_string39:
-	.asciz	"pid"                           # string offset=371
+	.asciz	"pid"                           # string offset=395
 .Linfo_string40:
-	.asciz	"wstatus"                       # string offset=375
+	.asciz	"wstatus"                       # string offset=399
 .Linfo_string41:
-	.asciz	"arg"                           # string offset=383
+	.asciz	"arg"                           # string offset=407
 .Linfo_string42:
-	.asciz	"s_arg"                         # string offset=387
+	.asciz	"s_arg"                         # string offset=411
 .Linfo_string43:
-	.asciz	"t_arg"                         # string offset=393
+	.asciz	"t_arg"                         # string offset=417
 .Linfo_string44:
-	.asciz	"pipe"                          # string offset=399
+	.asciz	"pipe"                          # string offset=423
 .Linfo_string45:
-	.asciz	"to_close"                      # string offset=404
+	.asciz	"to_close"                      # string offset=428
 .Linfo_string46:
-	.asciz	"write"                         # string offset=413
+	.asciz	"write"                         # string offset=437
 .Linfo_string47:
-	.asciz	"read"                          # string offset=419
+	.asciz	"read"                          # string offset=443
 .Linfo_string48:
-	.asciz	"s_pipe"                        # string offset=424
+	.asciz	"s_pipe"                        # string offset=448
 .Linfo_string49:
-	.asciz	"t_pipe"                        # string offset=431
+	.asciz	"t_pipe"                        # string offset=455
 .Linfo_string50:
-	.asciz	"redir"                         # string offset=438
+	.asciz	"redir"                         # string offset=462
 .Linfo_string51:
-	.asciz	"in_fd"                         # string offset=444
+	.asciz	"in_fd"                         # string offset=468
 .Linfo_string52:
-	.asciz	"out_fd"                        # string offset=450
+	.asciz	"out_fd"                        # string offset=474
 .Linfo_string53:
-	.asciz	"infile"                        # string offset=457
+	.asciz	"infile"                        # string offset=481
 .Linfo_string54:
-	.asciz	"s_infile"                      # string offset=464
+	.asciz	"s_infile"                      # string offset=488
 .Linfo_string55:
-	.asciz	"t_infile"                      # string offset=473
+	.asciz	"t_infile"                      # string offset=497
 .Linfo_string56:
-	.asciz	"outfile"                       # string offset=482
+	.asciz	"outfile"                       # string offset=506
 .Linfo_string57:
-	.asciz	"s_outfile"                     # string offset=490
+	.asciz	"s_outfile"                     # string offset=514
 .Linfo_string58:
-	.asciz	"t_outfile"                     # string offset=500
+	.asciz	"t_outfile"                     # string offset=524
 .Linfo_string59:
-	.asciz	"s_redir"                       # string offset=510
+	.asciz	"s_redir"                       # string offset=534
 .Linfo_string60:
-	.asciz	"t_redir"                       # string offset=518
+	.asciz	"t_redir"                       # string offset=542
 .Linfo_string61:
-	.asciz	"assign"                        # string offset=526
+	.asciz	"assign"                        # string offset=550
 .Linfo_string62:
-	.asciz	"expansion"                     # string offset=533
+	.asciz	"expansion"                     # string offset=557
 .Linfo_string63:
-	.asciz	"s_expan"                       # string offset=543
+	.asciz	"s_expan"                       # string offset=567
 .Linfo_string64:
-	.asciz	"t_expan"                       # string offset=551
+	.asciz	"t_expan"                       # string offset=575
 .Linfo_string65:
-	.asciz	"arg_array"                     # string offset=559
+	.asciz	"arg_array"                     # string offset=583
 .Linfo_string66:
-	.asciz	"prev"                          # string offset=569
+	.asciz	"prev"                          # string offset=593
 .Linfo_string67:
-	.asciz	"s_cmd"                         # string offset=574
+	.asciz	"s_cmd"                         # string offset=598
 .Linfo_string68:
-	.asciz	"right"                         # string offset=580
+	.asciz	"right"                         # string offset=604
 .Linfo_string69:
-	.asciz	"s_ast_node"                    # string offset=586
+	.asciz	"s_ast_node"                    # string offset=610
 .Linfo_string70:
-	.asciz	"t_ast_node"                    # string offset=597
+	.asciz	"t_ast_node"                    # string offset=621
 .Linfo_string71:
-	.asciz	"s_ast"                         # string offset=608
+	.asciz	"s_ast"                         # string offset=632
 .Linfo_string72:
-	.asciz	"t_ast"                         # string offset=614
+	.asciz	"t_ast"                         # string offset=638
 .Linfo_string73:
-	.asciz	"token_stream"                  # string offset=620
+	.asciz	"token_stream"                  # string offset=644
 .Linfo_string74:
-	.asciz	"quote_nbr"                     # string offset=633
+	.asciz	"quote_nbr"                     # string offset=657
 .Linfo_string75:
-	.asciz	"length"                        # string offset=643
+	.asciz	"length"                        # string offset=667
 .Linfo_string76:
-	.asciz	"lexeme"                        # string offset=650
+	.asciz	"lexeme"                        # string offset=674
 .Linfo_string77:
-	.asciz	"s_token"                       # string offset=657
+	.asciz	"s_token"                       # string offset=681
 .Linfo_string78:
-	.asciz	"t_token"                       # string offset=665
+	.asciz	"t_token"                       # string offset=689
 .Linfo_string79:
-	.asciz	"sighandler"                    # string offset=673
+	.asciz	"sighandler"                    # string offset=697
 .Linfo_string80:
-	.asciz	"__sigaction_handler"           # string offset=684
+	.asciz	"__sigaction_handler"           # string offset=708
 .Linfo_string81:
-	.asciz	"sa_handler"                    # string offset=704
+	.asciz	"sa_handler"                    # string offset=728
 .Linfo_string82:
-	.asciz	"__sighandler_t"                # string offset=715
+	.asciz	"__sighandler_t"                # string offset=739
 .Linfo_string83:
-	.asciz	"sa_sigaction"                  # string offset=730
+	.asciz	"sa_sigaction"                  # string offset=754
 .Linfo_string84:
-	.asciz	"si_signo"                      # string offset=743
+	.asciz	"si_signo"                      # string offset=767
 .Linfo_string85:
-	.asciz	"si_errno"                      # string offset=752
+	.asciz	"si_errno"                      # string offset=776
 .Linfo_string86:
-	.asciz	"si_code"                       # string offset=761
+	.asciz	"si_code"                       # string offset=785
 .Linfo_string87:
-	.asciz	"__pad0"                        # string offset=769
+	.asciz	"__pad0"                        # string offset=793
 .Linfo_string88:
-	.asciz	"_sifields"                     # string offset=776
+	.asciz	"_sifields"                     # string offset=800
 .Linfo_string89:
-	.asciz	"_pad"                          # string offset=786
+	.asciz	"_pad"                          # string offset=810
 .Linfo_string90:
-	.asciz	"__ARRAY_SIZE_TYPE__"           # string offset=791
+	.asciz	"__ARRAY_SIZE_TYPE__"           # string offset=815
 .Linfo_string91:
-	.asciz	"_kill"                         # string offset=811
+	.asciz	"_kill"                         # string offset=835
 .Linfo_string92:
-	.asciz	"si_pid"                        # string offset=817
+	.asciz	"si_pid"                        # string offset=841
 .Linfo_string93:
-	.asciz	"__pid_t"                       # string offset=824
+	.asciz	"__pid_t"                       # string offset=848
 .Linfo_string94:
-	.asciz	"si_uid"                        # string offset=832
+	.asciz	"si_uid"                        # string offset=856
 .Linfo_string95:
-	.asciz	"unsigned int"                  # string offset=839
+	.asciz	"unsigned int"                  # string offset=863
 .Linfo_string96:
-	.asciz	"__uid_t"                       # string offset=852
+	.asciz	"__uid_t"                       # string offset=876
 .Linfo_string97:
-	.asciz	"_timer"                        # string offset=860
+	.asciz	"_timer"                        # string offset=884
 .Linfo_string98:
-	.asciz	"si_tid"                        # string offset=867
+	.asciz	"si_tid"                        # string offset=891
 .Linfo_string99:
-	.asciz	"si_overrun"                    # string offset=874
+	.asciz	"si_overrun"                    # string offset=898
 .Linfo_string100:
-	.asciz	"si_sigval"                     # string offset=885
+	.asciz	"si_sigval"                     # string offset=909
 .Linfo_string101:
-	.asciz	"sival_int"                     # string offset=895
+	.asciz	"sival_int"                     # string offset=919
 .Linfo_string102:
-	.asciz	"sival_ptr"                     # string offset=905
+	.asciz	"sival_ptr"                     # string offset=929
 .Linfo_string103:
-	.asciz	"sigval"                        # string offset=915
+	.asciz	"sigval"                        # string offset=939
 .Linfo_string104:
-	.asciz	"__sigval_t"                    # string offset=922
+	.asciz	"__sigval_t"                    # string offset=946
 .Linfo_string105:
-	.asciz	"_rt"                           # string offset=933
+	.asciz	"_rt"                           # string offset=957
 .Linfo_string106:
-	.asciz	"_sigchld"                      # string offset=937
+	.asciz	"_sigchld"                      # string offset=961
 .Linfo_string107:
-	.asciz	"si_status"                     # string offset=946
+	.asciz	"si_status"                     # string offset=970
 .Linfo_string108:
-	.asciz	"si_utime"                      # string offset=956
+	.asciz	"si_utime"                      # string offset=980
 .Linfo_string109:
-	.asciz	"long int"                      # string offset=965
+	.asciz	"long int"                      # string offset=989
 .Linfo_string110:
-	.asciz	"__clock_t"                     # string offset=974
+	.asciz	"__clock_t"                     # string offset=998
 .Linfo_string111:
-	.asciz	"si_stime"                      # string offset=984
+	.asciz	"si_stime"                      # string offset=1008
 .Linfo_string112:
-	.asciz	"_sigfault"                     # string offset=993
+	.asciz	"_sigfault"                     # string offset=1017
 .Linfo_string113:
-	.asciz	"si_addr"                       # string offset=1003
+	.asciz	"si_addr"                       # string offset=1027
 .Linfo_string114:
-	.asciz	"si_addr_lsb"                   # string offset=1011
+	.asciz	"si_addr_lsb"                   # string offset=1035
 .Linfo_string115:
-	.asciz	"short"                         # string offset=1023
+	.asciz	"short"                         # string offset=1047
 .Linfo_string116:
-	.asciz	"_bounds"                       # string offset=1029
+	.asciz	"_bounds"                       # string offset=1053
 .Linfo_string117:
-	.asciz	"_addr_bnd"                     # string offset=1037
+	.asciz	"_addr_bnd"                     # string offset=1061
 .Linfo_string118:
-	.asciz	"_lower"                        # string offset=1047
+	.asciz	"_lower"                        # string offset=1071
 .Linfo_string119:
-	.asciz	"_upper"                        # string offset=1054
+	.asciz	"_upper"                        # string offset=1078
 .Linfo_string120:
-	.asciz	"_pkey"                         # string offset=1061
+	.asciz	"_pkey"                         # string offset=1085
 .Linfo_string121:
-	.asciz	"__uint32_t"                    # string offset=1067
+	.asciz	"__uint32_t"                    # string offset=1091
 .Linfo_string122:
-	.asciz	"_sigpoll"                      # string offset=1078
+	.asciz	"_sigpoll"                      # string offset=1102
 .Linfo_string123:
-	.asciz	"si_band"                       # string offset=1087
+	.asciz	"si_band"                       # string offset=1111
 .Linfo_string124:
-	.asciz	"si_fd"                         # string offset=1095
+	.asciz	"si_fd"                         # string offset=1119
 .Linfo_string125:
-	.asciz	"_sigsys"                       # string offset=1101
+	.asciz	"_sigsys"                       # string offset=1125
 .Linfo_string126:
-	.asciz	"_call_addr"                    # string offset=1109
+	.asciz	"_call_addr"                    # string offset=1133
 .Linfo_string127:
-	.asciz	"_syscall"                      # string offset=1120
+	.asciz	"_syscall"                      # string offset=1144
 .Linfo_string128:
-	.asciz	"_arch"                         # string offset=1129
+	.asciz	"_arch"                         # string offset=1153
 .Linfo_string129:
-	.asciz	"siginfo_t"                     # string offset=1135
+	.asciz	"siginfo_t"                     # string offset=1159
 .Linfo_string130:
-	.asciz	"sa_mask"                       # string offset=1145
+	.asciz	"sa_mask"                       # string offset=1169
 .Linfo_string131:
-	.asciz	"__val"                         # string offset=1153
+	.asciz	"__val"                         # string offset=1177
 .Linfo_string132:
-	.asciz	"long unsigned int"             # string offset=1159
+	.asciz	"long unsigned int"             # string offset=1183
 .Linfo_string133:
-	.asciz	"__sigset_t"                    # string offset=1177
+	.asciz	"__sigset_t"                    # string offset=1201
 .Linfo_string134:
-	.asciz	"sa_flags"                      # string offset=1188
+	.asciz	"sa_flags"                      # string offset=1212
 .Linfo_string135:
-	.asciz	"sa_restorer"                   # string offset=1197
+	.asciz	"sa_restorer"                   # string offset=1221
 .Linfo_string136:
-	.asciz	"sigaction"                     # string offset=1209
+	.asciz	"sigaction"                     # string offset=1233
 .Linfo_string137:
-	.asciz	"statbuf"                       # string offset=1219
+	.asciz	"statbuf"                       # string offset=1243
 .Linfo_string138:
-	.asciz	"st_dev"                        # string offset=1227
+	.asciz	"st_dev"                        # string offset=1251
 .Linfo_string139:
-	.asciz	"__dev_t"                       # string offset=1234
+	.asciz	"__dev_t"                       # string offset=1258
 .Linfo_string140:
-	.asciz	"st_ino"                        # string offset=1242
+	.asciz	"st_ino"                        # string offset=1266
 .Linfo_string141:
-	.asciz	"__ino_t"                       # string offset=1249
+	.asciz	"__ino_t"                       # string offset=1273
 .Linfo_string142:
-	.asciz	"st_nlink"                      # string offset=1257
+	.asciz	"st_nlink"                      # string offset=1281
 .Linfo_string143:
-	.asciz	"__nlink_t"                     # string offset=1266
+	.asciz	"__nlink_t"                     # string offset=1290
 .Linfo_string144:
-	.asciz	"st_mode"                       # string offset=1276
+	.asciz	"st_mode"                       # string offset=1300
 .Linfo_string145:
-	.asciz	"__mode_t"                      # string offset=1284
+	.asciz	"__mode_t"                      # string offset=1308
 .Linfo_string146:
-	.asciz	"st_uid"                        # string offset=1293
+	.asciz	"st_uid"                        # string offset=1317
 .Linfo_string147:
-	.asciz	"st_gid"                        # string offset=1300
+	.asciz	"st_gid"                        # string offset=1324
 .Linfo_string148:
-	.asciz	"__gid_t"                       # string offset=1307
+	.asciz	"__gid_t"                       # string offset=1331
 .Linfo_string149:
-	.asciz	"st_rdev"                       # string offset=1315
+	.asciz	"st_rdev"                       # string offset=1339
 .Linfo_string150:
-	.asciz	"st_size"                       # string offset=1323
+	.asciz	"st_size"                       # string offset=1347
 .Linfo_string151:
-	.asciz	"__off_t"                       # string offset=1331
+	.asciz	"__off_t"                       # string offset=1355
 .Linfo_string152:
-	.asciz	"st_blksize"                    # string offset=1339
+	.asciz	"st_blksize"                    # string offset=1363
 .Linfo_string153:
-	.asciz	"__blksize_t"                   # string offset=1350
+	.asciz	"__blksize_t"                   # string offset=1374
 .Linfo_string154:
-	.asciz	"st_blocks"                     # string offset=1362
+	.asciz	"st_blocks"                     # string offset=1386
 .Linfo_string155:
-	.asciz	"__blkcnt_t"                    # string offset=1372
+	.asciz	"__blkcnt_t"                    # string offset=1396
 .Linfo_string156:
-	.asciz	"st_atim"                       # string offset=1383
+	.asciz	"st_atim"                       # string offset=1407
 .Linfo_string157:
-	.asciz	"tv_sec"                        # string offset=1391
+	.asciz	"tv_sec"                        # string offset=1415
 .Linfo_string158:
-	.asciz	"__time_t"                      # string offset=1398
+	.asciz	"__time_t"                      # string offset=1422
 .Linfo_string159:
-	.asciz	"tv_nsec"                       # string offset=1407
+	.asciz	"tv_nsec"                       # string offset=1431
 .Linfo_string160:
-	.asciz	"__syscall_slong_t"             # string offset=1415
+	.asciz	"__syscall_slong_t"             # string offset=1439
 .Linfo_string161:
-	.asciz	"timespec"                      # string offset=1433
+	.asciz	"timespec"                      # string offset=1457
 .Linfo_string162:
-	.asciz	"st_mtim"                       # string offset=1442
+	.asciz	"st_mtim"                       # string offset=1466
 .Linfo_string163:
-	.asciz	"st_ctim"                       # string offset=1450
+	.asciz	"st_ctim"                       # string offset=1474
 .Linfo_string164:
-	.asciz	"__glibc_reserved"              # string offset=1458
+	.asciz	"__glibc_reserved"              # string offset=1482
 .Linfo_string165:
-	.asciz	"stat"                          # string offset=1475
+	.asciz	"stat"                          # string offset=1499
 .Linfo_string166:
-	.asciz	"term"                          # string offset=1480
+	.asciz	"term"                          # string offset=1504
 .Linfo_string167:
-	.asciz	"c_iflag"                       # string offset=1485
+	.asciz	"c_iflag"                       # string offset=1509
 .Linfo_string168:
-	.asciz	"tcflag_t"                      # string offset=1493
+	.asciz	"tcflag_t"                      # string offset=1517
 .Linfo_string169:
-	.asciz	"c_oflag"                       # string offset=1502
+	.asciz	"c_oflag"                       # string offset=1526
 .Linfo_string170:
-	.asciz	"c_cflag"                       # string offset=1510
+	.asciz	"c_cflag"                       # string offset=1534
 .Linfo_string171:
-	.asciz	"c_lflag"                       # string offset=1518
+	.asciz	"c_lflag"                       # string offset=1542
 .Linfo_string172:
-	.asciz	"c_line"                        # string offset=1526
+	.asciz	"c_line"                        # string offset=1550
 .Linfo_string173:
-	.asciz	"unsigned char"                 # string offset=1533
+	.asciz	"unsigned char"                 # string offset=1557
 .Linfo_string174:
-	.asciz	"cc_t"                          # string offset=1547
+	.asciz	"cc_t"                          # string offset=1571
 .Linfo_string175:
-	.asciz	"c_cc"                          # string offset=1552
+	.asciz	"c_cc"                          # string offset=1576
 .Linfo_string176:
-	.asciz	"c_ispeed"                      # string offset=1557
+	.asciz	"c_ispeed"                      # string offset=1581
 .Linfo_string177:
-	.asciz	"speed_t"                       # string offset=1566
+	.asciz	"speed_t"                       # string offset=1590
 .Linfo_string178:
-	.asciz	"c_ospeed"                      # string offset=1574
+	.asciz	"c_ospeed"                      # string offset=1598
 .Linfo_string179:
-	.asciz	"termios"                       # string offset=1583
+	.asciz	"termios"                       # string offset=1607
 .Linfo_string180:
-	.asciz	"s_minishell"                   # string offset=1591
+	.asciz	"s_minishell"                   # string offset=1615
 .Linfo_string181:
-	.asciz	"t_minishell"                   # string offset=1603
+	.asciz	"t_minishell"                   # string offset=1627
 .Linfo_string182:
-	.asciz	"i"                             # string offset=1615
+	.asciz	"i"                             # string offset=1639
 .Linfo_string183:
-	.asciz	"export_arg"                    # string offset=1617
+	.asciz	"export_arg"                    # string offset=1641
 .Linfo_string184:
-	.asciz	"new"                           # string offset=1628
+	.asciz	"new"                           # string offset=1652
 .Linfo_string185:
-	.asciz	"cmd"                           # string offset=1632
+	.asciz	"cmd"                           # string offset=1656
 .Linfo_string186:
-	.asciz	"t_cmd"                         # string offset=1636
+	.asciz	"t_cmd"                         # string offset=1660
 .Linfo_string187:
-	.asciz	"arg_nbr"                       # string offset=1642
+	.asciz	"arg_nbr"                       # string offset=1666
 .Linfo_string188:
-	.asciz	"new_var"                       # string offset=1650
+	.asciz	"new_var"                       # string offset=1674
 	.ident	"Ubuntu clang version 12.0.1-19ubuntu3"
 	.section	".note.GNU-stack","",@progbits
 	.addrsig
 	.addrsig_sym print_export
 	.addrsig_sym write
 	.addrsig_sym ft_strlen
+	.addrsig_sym printf
 	.addrsig_sym is_valid_variable
 	.addrsig_sym ft_isalpha
 	.addrsig_sym ft_printf
@@ -2867,6 +2887,7 @@ export:                                 # @export
 	.addrsig_sym __errno_location
 	.addrsig_sym get_env_variable
 	.addrsig_sym cmd_arg_nbr
+	.addrsig_sym unset_variable
 	.addrsig_sym add_new_var_to_env
 	.section	.debug_line,"",@progbits
 .Lline_table_start0:

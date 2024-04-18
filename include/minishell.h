@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agadea <agadea@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jbocktor <jbocktor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 00:27:45 by agadea            #+#    #+#             */
-/*   Updated: 2024/03/29 10:13:38 by agadea           ###   ########.fr       */
+/*   Updated: 2024/04/18 16:36:18 by jbocktor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -228,6 +228,13 @@ typedef struct s_minishell
 	struct termios		*term;
 }	t_minishell;
 
+typedef struct s_backup
+{
+    int					stdin_backup;
+    int					stdout_backup;
+}	t_backup;
+
+
 /*		INIT		*/
 char		**get_path(t_env *env);
 void		init_minishell(t_minishell *minishell, char **envp);
@@ -325,7 +332,9 @@ void		manage_parent_pipe(t_ast **ast);
 void		manage_child_pipe(t_pipe *pipe);
 void		manage_builtin_pipe(t_pipe *pipe);
 void		execution(t_minishell *minishell);
+void		backup_in_out(t_backup *std_in_out);
 void		open_command_redirection(t_cmd *cmd);
+void		close_redirection(t_backup *std_in_out, t_cmd *cmd);
 void		interrupt_all_execution(t_minishell *minishell);
 void		exec_list(t_minishell **minishell, t_ast **ast);
 void		exec_builtin(t_minishell *minishell, t_cmd *cmd);

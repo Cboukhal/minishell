@@ -1,12 +1,12 @@
 	.text
 	.file	"command_redir_utils.c"
-	.file	1 "/mnt/nfs/homes/cboukhal/minishell" "src/parsing/../../include/minishell.h"
+	.file	1 "/mnt/nfs/homes/jbocktor/student/group_minishell/minigroup" "src/parsing/../../include/minishell.h"
 	.globl	get_redir_filename_length       # -- Begin function get_redir_filename_length
 	.p2align	4, 0x90
 	.type	get_redir_filename_length,@function
 get_redir_filename_length:              # @get_redir_filename_length
 .Lfunc_begin0:
-	.file	2 "/mnt/nfs/homes/cboukhal/minishell" "src/parsing/command_redir_utils.c"
+	.file	2 "/mnt/nfs/homes/jbocktor/student/group_minishell/minigroup" "src/parsing/command_redir_utils.c"
 	.loc	2 16 0                          # src/parsing/command_redir_utils.c:16:0
 	.cfi_startproc
 # %bb.0:
@@ -541,71 +541,71 @@ get_redir_filename:                     # @get_redir_filename
 .Linfo_string1:
 	.asciz	"src/parsing/command_redir_utils.c" # string offset=38
 .Linfo_string2:
-	.asciz	"/mnt/nfs/homes/cboukhal/minishell" # string offset=72
+	.asciz	"/mnt/nfs/homes/jbocktor/student/group_minishell/minigroup" # string offset=72
 .Linfo_string3:
-	.asciz	"unsigned int"                  # string offset=106
+	.asciz	"unsigned int"                  # string offset=130
 .Linfo_string4:
-	.asciz	"l_parentheses"                 # string offset=119
+	.asciz	"l_parentheses"                 # string offset=143
 .Linfo_string5:
-	.asciz	"r_parentheses"                 # string offset=133
+	.asciz	"r_parentheses"                 # string offset=157
 .Linfo_string6:
-	.asciz	"simple_quote"                  # string offset=147
+	.asciz	"simple_quote"                  # string offset=171
 .Linfo_string7:
-	.asciz	"double_quote"                  # string offset=160
+	.asciz	"double_quote"                  # string offset=184
 .Linfo_string8:
-	.asciz	"exit_status"                   # string offset=173
+	.asciz	"exit_status"                   # string offset=197
 .Linfo_string9:
-	.asciz	"expansion"                     # string offset=185
+	.asciz	"expansion"                     # string offset=209
 .Linfo_string10:
-	.asciz	"operator"                      # string offset=195
+	.asciz	"operator"                      # string offset=219
 .Linfo_string11:
-	.asciz	"wildcard"                      # string offset=204
+	.asciz	"wildcard"                      # string offset=228
 .Linfo_string12:
-	.asciz	"pipe_op"                       # string offset=213
+	.asciz	"pipe_op"                       # string offset=237
 .Linfo_string13:
-	.asciz	"heredoc"                       # string offset=221
+	.asciz	"heredoc"                       # string offset=245
 .Linfo_string14:
-	.asciz	"outfile"                       # string offset=229
+	.asciz	"outfile"                       # string offset=253
 .Linfo_string15:
-	.asciz	"append"                        # string offset=237
+	.asciz	"append"                        # string offset=261
 .Linfo_string16:
-	.asciz	"infile"                        # string offset=244
+	.asciz	"infile"                        # string offset=268
 .Linfo_string17:
-	.asciz	"and_if"                        # string offset=251
+	.asciz	"and_if"                        # string offset=275
 .Linfo_string18:
-	.asciz	"or_if"                         # string offset=258
+	.asciz	"or_if"                         # string offset=282
 .Linfo_string19:
-	.asciz	"word"                          # string offset=264
+	.asciz	"word"                          # string offset=288
 .Linfo_string20:
-	.asciz	"name"                          # string offset=269
+	.asciz	"name"                          # string offset=293
 .Linfo_string21:
-	.asciz	"assignment_word"               # string offset=274
+	.asciz	"assignment_word"               # string offset=298
 .Linfo_string22:
-	.asciz	"eof_token"                     # string offset=290
+	.asciz	"eof_token"                     # string offset=314
 .Linfo_string23:
-	.asciz	"e_token"                       # string offset=300
+	.asciz	"e_token"                       # string offset=324
 .Linfo_string24:
-	.asciz	"get_redir_filename_length"     # string offset=308
+	.asciz	"get_redir_filename_length"     # string offset=332
 .Linfo_string25:
-	.asciz	"int"                           # string offset=334
+	.asciz	"int"                           # string offset=358
 .Linfo_string26:
-	.asciz	"get_redir_filename"            # string offset=338
+	.asciz	"get_redir_filename"            # string offset=362
 .Linfo_string27:
-	.asciz	"char"                          # string offset=357
+	.asciz	"char"                          # string offset=381
 .Linfo_string28:
-	.asciz	"lexeme"                        # string offset=362
+	.asciz	"lexeme"                        # string offset=386
 .Linfo_string29:
-	.asciz	"type"                          # string offset=369
+	.asciz	"type"                          # string offset=393
 .Linfo_string30:
-	.asciz	"start"                         # string offset=374
+	.asciz	"start"                         # string offset=398
 .Linfo_string31:
-	.asciz	"length"                        # string offset=380
+	.asciz	"length"                        # string offset=404
 .Linfo_string32:
-	.asciz	"i"                             # string offset=387
+	.asciz	"i"                             # string offset=411
 .Linfo_string33:
-	.asciz	"j"                             # string offset=389
+	.asciz	"j"                             # string offset=413
 .Linfo_string34:
-	.asciz	"filename"                      # string offset=391
+	.asciz	"filename"                      # string offset=415
 	.ident	"Ubuntu clang version 12.0.1-19ubuntu3"
 	.section	".note.GNU-stack","",@progbits
 	.addrsig

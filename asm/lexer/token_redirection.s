@@ -1,12 +1,12 @@
 	.text
 	.file	"token_redirection.c"
-	.file	1 "/mnt/nfs/homes/cboukhal/minishell" "src/lexer/../../include/minishell.h"
+	.file	1 "/mnt/nfs/homes/jbocktor/student/group_minishell/minigroup" "src/lexer/../../include/minishell.h"
 	.globl	get_redirection_length          # -- Begin function get_redirection_length
 	.p2align	4, 0x90
 	.type	get_redirection_length,@function
 get_redirection_length:                 # @get_redirection_length
 .Lfunc_begin0:
-	.file	2 "/mnt/nfs/homes/cboukhal/minishell" "src/lexer/token_redirection.c"
+	.file	2 "/mnt/nfs/homes/jbocktor/student/group_minishell/minigroup" "src/lexer/token_redirection.c"
 	.loc	2 16 0                          # src/lexer/token_redirection.c:16:0
 	.cfi_startproc
 # %bb.0:
@@ -903,91 +903,91 @@ get_redirection_token:                  # @get_redirection_token
 .Linfo_string1:
 	.asciz	"src/lexer/token_redirection.c" # string offset=38
 .Linfo_string2:
-	.asciz	"/mnt/nfs/homes/cboukhal/minishell" # string offset=68
+	.asciz	"/mnt/nfs/homes/jbocktor/student/group_minishell/minigroup" # string offset=68
 .Linfo_string3:
-	.asciz	"unsigned int"                  # string offset=102
+	.asciz	"unsigned int"                  # string offset=126
 .Linfo_string4:
-	.asciz	"l_parentheses"                 # string offset=115
+	.asciz	"l_parentheses"                 # string offset=139
 .Linfo_string5:
-	.asciz	"r_parentheses"                 # string offset=129
+	.asciz	"r_parentheses"                 # string offset=153
 .Linfo_string6:
-	.asciz	"simple_quote"                  # string offset=143
+	.asciz	"simple_quote"                  # string offset=167
 .Linfo_string7:
-	.asciz	"double_quote"                  # string offset=156
+	.asciz	"double_quote"                  # string offset=180
 .Linfo_string8:
-	.asciz	"exit_status"                   # string offset=169
+	.asciz	"exit_status"                   # string offset=193
 .Linfo_string9:
-	.asciz	"expansion"                     # string offset=181
+	.asciz	"expansion"                     # string offset=205
 .Linfo_string10:
-	.asciz	"operator"                      # string offset=191
+	.asciz	"operator"                      # string offset=215
 .Linfo_string11:
-	.asciz	"wildcard"                      # string offset=200
+	.asciz	"wildcard"                      # string offset=224
 .Linfo_string12:
-	.asciz	"pipe_op"                       # string offset=209
+	.asciz	"pipe_op"                       # string offset=233
 .Linfo_string13:
-	.asciz	"heredoc"                       # string offset=217
+	.asciz	"heredoc"                       # string offset=241
 .Linfo_string14:
-	.asciz	"outfile"                       # string offset=225
+	.asciz	"outfile"                       # string offset=249
 .Linfo_string15:
-	.asciz	"append"                        # string offset=233
+	.asciz	"append"                        # string offset=257
 .Linfo_string16:
-	.asciz	"infile"                        # string offset=240
+	.asciz	"infile"                        # string offset=264
 .Linfo_string17:
-	.asciz	"and_if"                        # string offset=247
+	.asciz	"and_if"                        # string offset=271
 .Linfo_string18:
-	.asciz	"or_if"                         # string offset=254
+	.asciz	"or_if"                         # string offset=278
 .Linfo_string19:
-	.asciz	"word"                          # string offset=260
+	.asciz	"word"                          # string offset=284
 .Linfo_string20:
-	.asciz	"name"                          # string offset=265
+	.asciz	"name"                          # string offset=289
 .Linfo_string21:
-	.asciz	"assignment_word"               # string offset=270
+	.asciz	"assignment_word"               # string offset=294
 .Linfo_string22:
-	.asciz	"eof_token"                     # string offset=286
+	.asciz	"eof_token"                     # string offset=310
 .Linfo_string23:
-	.asciz	"e_token"                       # string offset=296
+	.asciz	"e_token"                       # string offset=320
 .Linfo_string24:
-	.asciz	"get_redirection_length"        # string offset=304
+	.asciz	"get_redirection_length"        # string offset=328
 .Linfo_string25:
-	.asciz	"int"                           # string offset=327
+	.asciz	"int"                           # string offset=351
 .Linfo_string26:
-	.asciz	"get_redirection_lexeme"        # string offset=331
+	.asciz	"get_redirection_lexeme"        # string offset=355
 .Linfo_string27:
-	.asciz	"char"                          # string offset=354
+	.asciz	"char"                          # string offset=378
 .Linfo_string28:
-	.asciz	"get_redirection_token"         # string offset=359
+	.asciz	"get_redirection_token"         # string offset=383
 .Linfo_string29:
-	.asciz	"input"                         # string offset=381
+	.asciz	"input"                         # string offset=405
 .Linfo_string30:
-	.asciz	"type"                          # string offset=387
+	.asciz	"type"                          # string offset=411
 .Linfo_string31:
-	.asciz	"i"                             # string offset=392
+	.asciz	"i"                             # string offset=416
 .Linfo_string32:
-	.asciz	"length"                        # string offset=394
+	.asciz	"length"                        # string offset=418
 .Linfo_string33:
-	.asciz	"quote_nbr"                     # string offset=401
+	.asciz	"quote_nbr"                     # string offset=425
 .Linfo_string34:
-	.asciz	"j"                             # string offset=411
+	.asciz	"j"                             # string offset=435
 .Linfo_string35:
-	.asciz	"quote"                         # string offset=413
+	.asciz	"quote"                         # string offset=437
 .Linfo_string36:
-	.asciz	"lexeme"                        # string offset=419
+	.asciz	"lexeme"                        # string offset=443
 .Linfo_string37:
-	.asciz	"second_quote"                  # string offset=426
+	.asciz	"second_quote"                  # string offset=450
 .Linfo_string38:
-	.asciz	"new"                           # string offset=439
+	.asciz	"new"                           # string offset=463
 .Linfo_string39:
-	.asciz	"next"                          # string offset=443
+	.asciz	"next"                          # string offset=467
 .Linfo_string40:
-	.asciz	"s_expan"                       # string offset=448
+	.asciz	"s_expan"                       # string offset=472
 .Linfo_string41:
-	.asciz	"t_expan"                       # string offset=456
+	.asciz	"t_expan"                       # string offset=480
 .Linfo_string42:
-	.asciz	"prev"                          # string offset=464
+	.asciz	"prev"                          # string offset=488
 .Linfo_string43:
-	.asciz	"s_token"                       # string offset=469
+	.asciz	"s_token"                       # string offset=493
 .Linfo_string44:
-	.asciz	"t_token"                       # string offset=477
+	.asciz	"t_token"                       # string offset=501
 	.ident	"Ubuntu clang version 12.0.1-19ubuntu3"
 	.section	".note.GNU-stack","",@progbits
 	.addrsig

@@ -5,7 +5,7 @@
 	.type	get_name_length,@function
 get_name_length:                        # @get_name_length
 .Lfunc_begin0:
-	.file	1 "/mnt/nfs/homes/cboukhal/minishell" "src/environment/env_variable.c"
+	.file	1 "/mnt/nfs/homes/jbocktor/student/group_minishell/minigroup" "src/environment/env_variable.c"
 	.loc	1 16 0                          # src/environment/env_variable.c:16:0
 	.cfi_startproc
 # %bb.0:
@@ -501,29 +501,29 @@ get_variable_value:                     # @get_variable_value
 .Linfo_string1:
 	.asciz	"src/environment/env_variable.c" # string offset=38
 .Linfo_string2:
-	.asciz	"/mnt/nfs/homes/cboukhal/minishell" # string offset=69
+	.asciz	"/mnt/nfs/homes/jbocktor/student/group_minishell/minigroup" # string offset=69
 .Linfo_string3:
-	.asciz	"get_name_length"               # string offset=103
+	.asciz	"get_name_length"               # string offset=127
 .Linfo_string4:
-	.asciz	"int"                           # string offset=119
+	.asciz	"int"                           # string offset=143
 .Linfo_string5:
-	.asciz	"get_variable_name"             # string offset=123
+	.asciz	"get_variable_name"             # string offset=147
 .Linfo_string6:
-	.asciz	"char"                          # string offset=141
+	.asciz	"char"                          # string offset=165
 .Linfo_string7:
-	.asciz	"get_variable_value"            # string offset=146
+	.asciz	"get_variable_value"            # string offset=170
 .Linfo_string8:
-	.asciz	"envp"                          # string offset=165
+	.asciz	"envp"                          # string offset=189
 .Linfo_string9:
-	.asciz	"i"                             # string offset=170
+	.asciz	"i"                             # string offset=194
 .Linfo_string10:
-	.asciz	"len"                           # string offset=172
+	.asciz	"len"                           # string offset=196
 .Linfo_string11:
-	.asciz	"name"                          # string offset=176
+	.asciz	"name"                          # string offset=200
 .Linfo_string12:
-	.asciz	"j"                             # string offset=181
+	.asciz	"j"                             # string offset=205
 .Linfo_string13:
-	.asciz	"value"                         # string offset=183
+	.asciz	"value"                         # string offset=207
 	.ident	"Ubuntu clang version 12.0.1-19ubuntu3"
 	.section	".note.GNU-stack","",@progbits
 	.addrsig

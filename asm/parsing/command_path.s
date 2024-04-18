@@ -5,7 +5,7 @@
 	.type	search_command_path,@function
 search_command_path:                    # @search_command_path
 .Lfunc_begin0:
-	.file	1 "/mnt/nfs/homes/cboukhal/minishell" "src/parsing/command_path.c"
+	.file	1 "/mnt/nfs/homes/jbocktor/student/group_minishell/minigroup" "src/parsing/command_path.c"
 	.loc	1 16 0                          # src/parsing/command_path.c:16:0
 	.cfi_startproc
 # %bb.0:
@@ -436,25 +436,25 @@ get_command_path:                       # @get_command_path
 .Linfo_string1:
 	.asciz	"src/parsing/command_path.c"    # string offset=38
 .Linfo_string2:
-	.asciz	"/mnt/nfs/homes/cboukhal/minishell" # string offset=65
+	.asciz	"/mnt/nfs/homes/jbocktor/student/group_minishell/minigroup" # string offset=65
 .Linfo_string3:
-	.asciz	"search_command_path"           # string offset=99
+	.asciz	"search_command_path"           # string offset=123
 .Linfo_string4:
-	.asciz	"char"                          # string offset=119
+	.asciz	"char"                          # string offset=143
 .Linfo_string5:
-	.asciz	"get_command_path"              # string offset=124
+	.asciz	"get_command_path"              # string offset=148
 .Linfo_string6:
-	.asciz	"path"                          # string offset=141
+	.asciz	"path"                          # string offset=165
 .Linfo_string7:
-	.asciz	"cmd_name"                      # string offset=146
+	.asciz	"cmd_name"                      # string offset=170
 .Linfo_string8:
-	.asciz	"i"                             # string offset=155
+	.asciz	"i"                             # string offset=179
 .Linfo_string9:
-	.asciz	"int"                           # string offset=157
+	.asciz	"int"                           # string offset=181
 .Linfo_string10:
-	.asciz	"tmp"                           # string offset=161
+	.asciz	"tmp"                           # string offset=185
 .Linfo_string11:
-	.asciz	"cmd_path"                      # string offset=165
+	.asciz	"cmd_path"                      # string offset=189
 	.ident	"Ubuntu clang version 12.0.1-19ubuntu3"
 	.section	".note.GNU-stack","",@progbits
 	.addrsig

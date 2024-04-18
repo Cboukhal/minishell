@@ -5,7 +5,7 @@
 	.type	free_environment,@function
 free_environment:                       # @free_environment
 .Lfunc_begin0:
-	.file	1 "/mnt/nfs/homes/cboukhal/minishell" "src/memory/free_utils.c"
+	.file	1 "/mnt/nfs/homes/jbocktor/student/group_minishell/minigroup" "src/memory/free_utils.c"
 	.loc	1 16 0                          # src/memory/free_utils.c:16:0
 	.cfi_startproc
 # %bb.0:
@@ -260,7 +260,7 @@ free_token_stream:                      # @free_token_stream
 	.size	free_token_stream, .Lfunc_end3-free_token_stream
 	.cfi_endproc
                                         # -- End function
-	.file	2 "/mnt/nfs/homes/cboukhal/minishell" "src/memory/../../include/minishell.h"
+	.file	2 "/mnt/nfs/homes/jbocktor/student/group_minishell/minigroup" "src/memory/../../include/minishell.h"
 	.section	.debug_abbrev,"",@progbits
 	.byte	1                               # Abbreviation Code
 	.byte	17                              # DW_TAG_compile_unit
@@ -652,63 +652,63 @@ free_token_stream:                      # @free_token_stream
 .Linfo_string1:
 	.asciz	"src/memory/free_utils.c"       # string offset=38
 .Linfo_string2:
-	.asciz	"/mnt/nfs/homes/cboukhal/minishell" # string offset=62
+	.asciz	"/mnt/nfs/homes/jbocktor/student/group_minishell/minigroup" # string offset=62
 .Linfo_string3:
-	.asciz	"free_environment"              # string offset=96
+	.asciz	"free_environment"              # string offset=120
 .Linfo_string4:
-	.asciz	"free_char_array"               # string offset=113
+	.asciz	"free_char_array"               # string offset=137
 .Linfo_string5:
-	.asciz	"free_expansion"                # string offset=129
+	.asciz	"free_expansion"                # string offset=153
 .Linfo_string6:
-	.asciz	"free_token_stream"             # string offset=144
+	.asciz	"free_token_stream"             # string offset=168
 .Linfo_string7:
-	.asciz	"minishell_env"                 # string offset=162
+	.asciz	"minishell_env"                 # string offset=186
 .Linfo_string8:
-	.asciz	"name"                          # string offset=176
+	.asciz	"name"                          # string offset=200
 .Linfo_string9:
-	.asciz	"char"                          # string offset=181
+	.asciz	"char"                          # string offset=205
 .Linfo_string10:
-	.asciz	"value"                         # string offset=186
+	.asciz	"value"                         # string offset=210
 .Linfo_string11:
-	.asciz	"next"                          # string offset=192
+	.asciz	"next"                          # string offset=216
 .Linfo_string12:
-	.asciz	"s_env"                         # string offset=197
+	.asciz	"s_env"                         # string offset=221
 .Linfo_string13:
-	.asciz	"t_env"                         # string offset=203
+	.asciz	"t_env"                         # string offset=227
 .Linfo_string14:
-	.asciz	"tmp"                           # string offset=209
+	.asciz	"tmp"                           # string offset=233
 .Linfo_string15:
-	.asciz	"array"                         # string offset=213
+	.asciz	"array"                         # string offset=237
 .Linfo_string16:
-	.asciz	"i"                             # string offset=219
+	.asciz	"i"                             # string offset=243
 .Linfo_string17:
-	.asciz	"int"                           # string offset=221
+	.asciz	"int"                           # string offset=245
 .Linfo_string18:
-	.asciz	"expansion"                     # string offset=225
+	.asciz	"expansion"                     # string offset=249
 .Linfo_string19:
-	.asciz	"s_expan"                       # string offset=235
+	.asciz	"s_expan"                       # string offset=259
 .Linfo_string20:
-	.asciz	"t_expan"                       # string offset=243
+	.asciz	"t_expan"                       # string offset=267
 .Linfo_string21:
-	.asciz	"index"                         # string offset=251
+	.asciz	"index"                         # string offset=275
 .Linfo_string22:
-	.asciz	"stream"                        # string offset=257
+	.asciz	"stream"                        # string offset=281
 .Linfo_string23:
-	.asciz	"type"                          # string offset=264
+	.asciz	"type"                          # string offset=288
 .Linfo_string24:
-	.asciz	"quote_nbr"                     # string offset=269
+	.asciz	"quote_nbr"                     # string offset=293
 .Linfo_string25:
-	.asciz	"length"                        # string offset=279
+	.asciz	"length"                        # string offset=303
 .Linfo_string26:
-	.asciz	"lexeme"                        # string offset=286
+	.asciz	"lexeme"                        # string offset=310
 .Linfo_string27:
-	.asciz	"prev"                          # string offset=293
+	.asciz	"prev"                          # string offset=317
 .Linfo_string28:
-	.asciz	"s_token"                       # string offset=298
+	.asciz	"s_token"                       # string offset=322
 .Linfo_string29:
-	.asciz	"t_token"                       # string offset=306
+	.asciz	"t_token"                       # string offset=330
 .Linfo_string30:
-	.asciz	"token"                         # string offset=314
+	.asciz	"token"                         # string offset=338
 	.ident	"Ubuntu clang version 12.0.1-19ubuntu3"
 	.section	".note.GNU-stack","",@progbits
 	.addrsig

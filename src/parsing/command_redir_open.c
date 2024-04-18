@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   command_redir_open.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agadea <agadea@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jbocktor <jbocktor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 10:38:15 by agadea            #+#    #+#             */
-/*   Updated: 2024/03/15 14:33:36 by agadea           ###   ########.fr       */
+/*   Updated: 2024/04/18 16:36:26 by jbocktor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,12 @@ int	open_command_outfile(t_cmd *cmd)
 	return (out_fd);
 }
 
+void	backup_in_out(t_backup *std_in_out)
+{
+	std_in_out->stdin_backup = dup(STDIN_FILENO);
+	std_in_out->stdout_backup = dup(STDOUT_FILENO);
+}
+
 void	open_command_redirection(t_cmd *cmd)
 {
 	if (cmd->redir->infile)
@@ -68,4 +74,12 @@ void	open_command_redirection(t_cmd *cmd)
 		cmd->redir->out_fd = open_command_outfile(cmd);
 		dup2(cmd->redir->out_fd, STDOUT_FILENO);
 	}
+}
+
+void	close_redirection(t_backup *std_in_out, t_cmd *cmd)
+{
+	if (cmd->redir->infile)
+		dup2(std_in_out->stdin_backup , STDIN_FILENO);
+	if (cmd->redir->outfile)
+		dup2(std_in_out->stdout_backup, STDOUT_FILENO);
 }

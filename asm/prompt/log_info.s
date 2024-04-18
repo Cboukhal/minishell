@@ -5,7 +5,7 @@
 	.type	set_log_info_colors,@function
 set_log_info_colors:                    # @set_log_info_colors
 .Lfunc_begin0:
-	.file	1 "/mnt/nfs/homes/cboukhal/minishell" "src/prompt/log_info.c"
+	.file	1 "/mnt/nfs/homes/jbocktor/student/group_minishell/minigroup" "src/prompt/log_info.c"
 	.loc	1 16 0                          # src/prompt/log_info.c:16:0
 	.cfi_startproc
 # %bb.0:
@@ -334,13 +334,13 @@ get_log_info:                           # @get_log_info
 	.type	.L.str,@object                  # @.str
 	.section	.rodata.str1.1,"aMS",@progbits,1
 .L.str:
-	.asciz	"\033[1m\033[32m"
-	.size	.L.str, 10
+	.asciz	"\001\033[1m\002\001\033[32m\002"
+	.size	.L.str, 14
 
 	.type	.L.str.1,@object                # @.str.1
 .L.str.1:
-	.asciz	"\033[0m"
-	.size	.L.str.1, 5
+	.asciz	"\001\033[0m\002"
+	.size	.L.str.1, 7
 
 	.type	.L.str.2,@object                # @.str.2
 .L.str.2:
@@ -632,31 +632,31 @@ get_log_info:                           # @get_log_info
 .Linfo_string1:
 	.asciz	"src/prompt/log_info.c"         # string offset=38
 .Linfo_string2:
-	.asciz	"/mnt/nfs/homes/cboukhal/minishell" # string offset=60
+	.asciz	"/mnt/nfs/homes/jbocktor/student/group_minishell/minigroup" # string offset=60
 .Linfo_string3:
-	.asciz	"set_log_info_colors"           # string offset=94
+	.asciz	"set_log_info_colors"           # string offset=118
 .Linfo_string4:
-	.asciz	"char"                          # string offset=114
+	.asciz	"char"                          # string offset=138
 .Linfo_string5:
-	.asciz	"get_hostname_length"           # string offset=119
+	.asciz	"get_hostname_length"           # string offset=143
 .Linfo_string6:
-	.asciz	"int"                           # string offset=139
+	.asciz	"int"                           # string offset=163
 .Linfo_string7:
-	.asciz	"get_hostname"                  # string offset=143
+	.asciz	"get_hostname"                  # string offset=167
 .Linfo_string8:
-	.asciz	"get_log_info"                  # string offset=156
+	.asciz	"get_log_info"                  # string offset=180
 .Linfo_string9:
-	.asciz	"log_info"                      # string offset=169
+	.asciz	"log_info"                      # string offset=193
 .Linfo_string10:
-	.asciz	"tmp"                           # string offset=178
+	.asciz	"tmp"                           # string offset=202
 .Linfo_string11:
-	.asciz	"log_info_colorized"            # string offset=182
+	.asciz	"log_info_colorized"            # string offset=206
 .Linfo_string12:
-	.asciz	"hostname"                      # string offset=201
+	.asciz	"hostname"                      # string offset=225
 .Linfo_string13:
-	.asciz	"i"                             # string offset=210
+	.asciz	"i"                             # string offset=234
 .Linfo_string14:
-	.asciz	"username"                      # string offset=212
+	.asciz	"username"                      # string offset=236
 	.ident	"Ubuntu clang version 12.0.1-19ubuntu3"
 	.section	".note.GNU-stack","",@progbits
 	.addrsig

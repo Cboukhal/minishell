@@ -5,7 +5,7 @@
 	.type	get_token_error,@function
 get_token_error:                        # @get_token_error
 .Lfunc_begin0:
-	.file	1 "/mnt/nfs/homes/cboukhal/minishell" "src/error/error.c"
+	.file	1 "/mnt/nfs/homes/jbocktor/student/group_minishell/minigroup" "src/error/error.c"
 	.loc	1 16 0                          # src/error/error.c:16:0
 	.cfi_startproc
 # %bb.0:
@@ -26,7 +26,7 @@ get_token_error:                        # @get_token_error
 	.size	get_token_error, .Lfunc_end0-get_token_error
 	.cfi_endproc
                                         # -- End function
-	.file	2 "/mnt/nfs/homes/cboukhal/minishell" "src/error/../../include/minishell.h"
+	.file	2 "/mnt/nfs/homes/jbocktor/student/group_minishell/minigroup" "src/error/../../include/minishell.h"
 	.section	.debug_abbrev,"",@progbits
 	.byte	1                               # Abbreviation Code
 	.byte	17                              # DW_TAG_compile_unit
@@ -287,41 +287,41 @@ get_token_error:                        # @get_token_error
 .Linfo_string1:
 	.asciz	"src/error/error.c"             # string offset=38
 .Linfo_string2:
-	.asciz	"/mnt/nfs/homes/cboukhal/minishell" # string offset=56
+	.asciz	"/mnt/nfs/homes/jbocktor/student/group_minishell/minigroup" # string offset=56
 .Linfo_string3:
-	.asciz	"get_token_error"               # string offset=90
+	.asciz	"get_token_error"               # string offset=114
 .Linfo_string4:
-	.asciz	"token"                         # string offset=106
+	.asciz	"token"                         # string offset=130
 .Linfo_string5:
-	.asciz	"type"                          # string offset=112
+	.asciz	"type"                          # string offset=136
 .Linfo_string6:
-	.asciz	"int"                           # string offset=117
+	.asciz	"int"                           # string offset=141
 .Linfo_string7:
-	.asciz	"quote_nbr"                     # string offset=121
+	.asciz	"quote_nbr"                     # string offset=145
 .Linfo_string8:
-	.asciz	"length"                        # string offset=131
+	.asciz	"length"                        # string offset=155
 .Linfo_string9:
-	.asciz	"lexeme"                        # string offset=138
+	.asciz	"lexeme"                        # string offset=162
 .Linfo_string10:
-	.asciz	"char"                          # string offset=145
+	.asciz	"char"                          # string offset=169
 .Linfo_string11:
-	.asciz	"expansion"                     # string offset=150
+	.asciz	"expansion"                     # string offset=174
 .Linfo_string12:
-	.asciz	"name"                          # string offset=160
+	.asciz	"name"                          # string offset=184
 .Linfo_string13:
-	.asciz	"next"                          # string offset=165
+	.asciz	"next"                          # string offset=189
 .Linfo_string14:
-	.asciz	"s_expan"                       # string offset=170
+	.asciz	"s_expan"                       # string offset=194
 .Linfo_string15:
-	.asciz	"t_expan"                       # string offset=178
+	.asciz	"t_expan"                       # string offset=202
 .Linfo_string16:
-	.asciz	"prev"                          # string offset=186
+	.asciz	"prev"                          # string offset=210
 .Linfo_string17:
-	.asciz	"s_token"                       # string offset=191
+	.asciz	"s_token"                       # string offset=215
 .Linfo_string18:
-	.asciz	"t_token"                       # string offset=199
+	.asciz	"t_token"                       # string offset=223
 .Linfo_string19:
-	.asciz	"stream"                        # string offset=207
+	.asciz	"stream"                        # string offset=231
 	.ident	"Ubuntu clang version 12.0.1-19ubuntu3"
 	.section	".note.GNU-stack","",@progbits
 	.addrsig

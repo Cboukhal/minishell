@@ -1,12 +1,12 @@
 	.text
 	.file	"token_quote.c"
-	.file	1 "/mnt/nfs/homes/cboukhal/minishell" "src/lexer/../../include/minishell.h"
+	.file	1 "/mnt/nfs/homes/jbocktor/student/group_minishell/minigroup" "src/lexer/../../include/minishell.h"
 	.globl	add_quote                       # -- Begin function add_quote
 	.p2align	4, 0x90
 	.type	add_quote,@function
 add_quote:                              # @add_quote
 .Lfunc_begin0:
-	.file	2 "/mnt/nfs/homes/cboukhal/minishell" "src/lexer/token_quote.c"
+	.file	2 "/mnt/nfs/homes/jbocktor/student/group_minishell/minigroup" "src/lexer/token_quote.c"
 	.loc	2 16 0                          # src/lexer/token_quote.c:16:0
 	.cfi_startproc
 # %bb.0:
@@ -690,45 +690,45 @@ remove_quote:                           # @remove_quote
 .Linfo_string1:
 	.asciz	"src/lexer/token_quote.c"       # string offset=38
 .Linfo_string2:
-	.asciz	"/mnt/nfs/homes/cboukhal/minishell" # string offset=62
+	.asciz	"/mnt/nfs/homes/jbocktor/student/group_minishell/minigroup" # string offset=62
 .Linfo_string3:
-	.asciz	"unsigned int"                  # string offset=96
+	.asciz	"unsigned int"                  # string offset=120
 .Linfo_string4:
-	.asciz	"error_syntax"                  # string offset=109
+	.asciz	"error_syntax"                  # string offset=133
 .Linfo_string5:
-	.asciz	"error_token"                   # string offset=122
+	.asciz	"error_token"                   # string offset=146
 .Linfo_string6:
-	.asciz	"error_and"                     # string offset=134
+	.asciz	"error_and"                     # string offset=158
 .Linfo_string7:
-	.asciz	"error_file"                    # string offset=144
+	.asciz	"error_file"                    # string offset=168
 .Linfo_string8:
-	.asciz	"error_builtin"                 # string offset=155
+	.asciz	"error_builtin"                 # string offset=179
 .Linfo_string9:
-	.asciz	"error_malloc"                  # string offset=169
+	.asciz	"error_malloc"                  # string offset=193
 .Linfo_string10:
-	.asciz	"error_command"                 # string offset=182
+	.asciz	"error_command"                 # string offset=206
 .Linfo_string11:
-	.asciz	"add_quote"                     # string offset=196
+	.asciz	"add_quote"                     # string offset=220
 .Linfo_string12:
-	.asciz	"int"                           # string offset=206
+	.asciz	"int"                           # string offset=230
 .Linfo_string13:
-	.asciz	"skip_quote"                    # string offset=210
+	.asciz	"skip_quote"                    # string offset=234
 .Linfo_string14:
-	.asciz	"get_token_quote_nbr"           # string offset=221
+	.asciz	"get_token_quote_nbr"           # string offset=245
 .Linfo_string15:
-	.asciz	"remove_quote"                  # string offset=241
+	.asciz	"remove_quote"                  # string offset=265
 .Linfo_string16:
-	.asciz	"input"                         # string offset=254
+	.asciz	"input"                         # string offset=278
 .Linfo_string17:
-	.asciz	"char"                          # string offset=260
+	.asciz	"char"                          # string offset=284
 .Linfo_string18:
-	.asciz	"i"                             # string offset=265
+	.asciz	"i"                             # string offset=289
 .Linfo_string19:
-	.asciz	"quote"                         # string offset=267
+	.asciz	"quote"                         # string offset=291
 .Linfo_string20:
-	.asciz	"lexeme"                        # string offset=273
+	.asciz	"lexeme"                        # string offset=297
 .Linfo_string21:
-	.asciz	"second_quote"                  # string offset=280
+	.asciz	"second_quote"                  # string offset=304
 	.ident	"Ubuntu clang version 12.0.1-19ubuntu3"
 	.section	".note.GNU-stack","",@progbits
 	.addrsig

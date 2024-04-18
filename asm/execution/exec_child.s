@@ -1,12 +1,12 @@
 	.text
 	.file	"exec_child.c"
-	.file	1 "/mnt/nfs/homes/cboukhal/minishell" "src/execution/../../include/minishell.h"
+	.file	1 "/mnt/nfs/homes/jbocktor/student/group_minishell/minigroup" "src/execution/../../include/minishell.h"
 	.globl	manage_child_pipe               # -- Begin function manage_child_pipe
 	.p2align	4, 0x90
 	.type	manage_child_pipe,@function
 manage_child_pipe:                      # @manage_child_pipe
 .Lfunc_begin0:
-	.file	2 "/mnt/nfs/homes/cboukhal/minishell" "src/execution/exec_child.c"
+	.file	2 "/mnt/nfs/homes/jbocktor/student/group_minishell/minigroup" "src/execution/exec_child.c"
 	.loc	2 16 0                          # src/execution/exec_child.c:16:0
 	.cfi_startproc
 # %bb.0:
@@ -1924,371 +1924,371 @@ child_job:                              # @child_job
 .Linfo_string1:
 	.asciz	"src/execution/exec_child.c"    # string offset=38
 .Linfo_string2:
-	.asciz	"/mnt/nfs/homes/cboukhal/minishell" # string offset=65
+	.asciz	"/mnt/nfs/homes/jbocktor/student/group_minishell/minigroup" # string offset=65
 .Linfo_string3:
-	.asciz	"unsigned int"                  # string offset=99
+	.asciz	"unsigned int"                  # string offset=123
 .Linfo_string4:
-	.asciz	"run"                           # string offset=112
+	.asciz	"run"                           # string offset=136
 .Linfo_string5:
-	.asciz	"stop"                          # string offset=116
+	.asciz	"stop"                          # string offset=140
 .Linfo_string6:
-	.asciz	"success"                       # string offset=121
+	.asciz	"success"                       # string offset=145
 .Linfo_string7:
-	.asciz	"failure"                       # string offset=129
+	.asciz	"failure"                       # string offset=153
 .Linfo_string8:
-	.asciz	"e_state"                       # string offset=137
+	.asciz	"e_state"                       # string offset=161
 .Linfo_string9:
-	.asciz	"manage_child_pipe"             # string offset=145
+	.asciz	"manage_child_pipe"             # string offset=169
 .Linfo_string10:
-	.asciz	"child_job"                     # string offset=163
+	.asciz	"child_job"                     # string offset=187
 .Linfo_string11:
-	.asciz	"pipe"                          # string offset=173
+	.asciz	"pipe"                          # string offset=197
 .Linfo_string12:
-	.asciz	"to_close"                      # string offset=178
+	.asciz	"to_close"                      # string offset=202
 .Linfo_string13:
-	.asciz	"int"                           # string offset=187
+	.asciz	"int"                           # string offset=211
 .Linfo_string14:
-	.asciz	"write"                         # string offset=191
+	.asciz	"write"                         # string offset=215
 .Linfo_string15:
-	.asciz	"read"                          # string offset=197
+	.asciz	"read"                          # string offset=221
 .Linfo_string16:
-	.asciz	"s_pipe"                        # string offset=202
+	.asciz	"s_pipe"                        # string offset=226
 .Linfo_string17:
-	.asciz	"t_pipe"                        # string offset=209
+	.asciz	"t_pipe"                        # string offset=233
 .Linfo_string18:
-	.asciz	"minishell"                     # string offset=216
+	.asciz	"minishell"                     # string offset=240
 .Linfo_string19:
-	.asciz	"dir"                           # string offset=226
+	.asciz	"dir"                           # string offset=250
 .Linfo_string20:
-	.asciz	"__dirstream"                   # string offset=230
+	.asciz	"__dirstream"                   # string offset=254
 .Linfo_string21:
-	.asciz	"DIR"                           # string offset=242
+	.asciz	"DIR"                           # string offset=266
 .Linfo_string22:
-	.asciz	"state"                         # string offset=246
+	.asciz	"state"                         # string offset=270
 .Linfo_string23:
-	.asciz	"input"                         # string offset=252
+	.asciz	"input"                         # string offset=276
 .Linfo_string24:
-	.asciz	"char"                          # string offset=258
+	.asciz	"char"                          # string offset=282
 .Linfo_string25:
-	.asciz	"path"                          # string offset=263
+	.asciz	"path"                          # string offset=287
 .Linfo_string26:
-	.asciz	"prompt"                        # string offset=268
+	.asciz	"prompt"                        # string offset=292
 .Linfo_string27:
-	.asciz	"operator_nbr"                  # string offset=275
+	.asciz	"operator_nbr"                  # string offset=299
 .Linfo_string28:
-	.asciz	"exit_status"                   # string offset=288
+	.asciz	"exit_status"                   # string offset=312
 .Linfo_string29:
-	.asciz	"env_array"                     # string offset=300
+	.asciz	"env_array"                     # string offset=324
 .Linfo_string30:
-	.asciz	"env"                           # string offset=310
+	.asciz	"env"                           # string offset=334
 .Linfo_string31:
-	.asciz	"name"                          # string offset=314
+	.asciz	"name"                          # string offset=338
 .Linfo_string32:
-	.asciz	"value"                         # string offset=319
+	.asciz	"value"                         # string offset=343
 .Linfo_string33:
-	.asciz	"next"                          # string offset=325
+	.asciz	"next"                          # string offset=349
 .Linfo_string34:
-	.asciz	"s_env"                         # string offset=330
+	.asciz	"s_env"                         # string offset=354
 .Linfo_string35:
-	.asciz	"t_env"                         # string offset=336
+	.asciz	"t_env"                         # string offset=360
 .Linfo_string36:
-	.asciz	"local"                         # string offset=342
+	.asciz	"local"                         # string offset=366
 .Linfo_string37:
-	.asciz	"s_var"                         # string offset=348
+	.asciz	"s_var"                         # string offset=372
 .Linfo_string38:
-	.asciz	"t_var"                         # string offset=354
+	.asciz	"t_var"                         # string offset=378
 .Linfo_string39:
-	.asciz	"syntax_tree"                   # string offset=360
+	.asciz	"syntax_tree"                   # string offset=384
 .Linfo_string40:
-	.asciz	"node"                          # string offset=372
+	.asciz	"node"                          # string offset=396
 .Linfo_string41:
-	.asciz	"id"                            # string offset=377
+	.asciz	"id"                            # string offset=401
 .Linfo_string42:
-	.asciz	"type"                          # string offset=380
+	.asciz	"type"                          # string offset=404
 .Linfo_string43:
-	.asciz	"pipe_fd"                       # string offset=385
+	.asciz	"pipe_fd"                       # string offset=409
 .Linfo_string44:
-	.asciz	"left"                          # string offset=393
+	.asciz	"left"                          # string offset=417
 .Linfo_string45:
-	.asciz	"pid"                           # string offset=398
+	.asciz	"pid"                           # string offset=422
 .Linfo_string46:
-	.asciz	"wstatus"                       # string offset=402
+	.asciz	"wstatus"                       # string offset=426
 .Linfo_string47:
-	.asciz	"arg"                           # string offset=410
+	.asciz	"arg"                           # string offset=434
 .Linfo_string48:
-	.asciz	"s_arg"                         # string offset=414
+	.asciz	"s_arg"                         # string offset=438
 .Linfo_string49:
-	.asciz	"t_arg"                         # string offset=420
+	.asciz	"t_arg"                         # string offset=444
 .Linfo_string50:
-	.asciz	"redir"                         # string offset=426
+	.asciz	"redir"                         # string offset=450
 .Linfo_string51:
-	.asciz	"in_fd"                         # string offset=432
+	.asciz	"in_fd"                         # string offset=456
 .Linfo_string52:
-	.asciz	"out_fd"                        # string offset=438
+	.asciz	"out_fd"                        # string offset=462
 .Linfo_string53:
-	.asciz	"infile"                        # string offset=445
+	.asciz	"infile"                        # string offset=469
 .Linfo_string54:
-	.asciz	"fd"                            # string offset=452
+	.asciz	"fd"                            # string offset=476
 .Linfo_string55:
-	.asciz	"s_infile"                      # string offset=455
+	.asciz	"s_infile"                      # string offset=479
 .Linfo_string56:
-	.asciz	"t_infile"                      # string offset=464
+	.asciz	"t_infile"                      # string offset=488
 .Linfo_string57:
-	.asciz	"outfile"                       # string offset=473
+	.asciz	"outfile"                       # string offset=497
 .Linfo_string58:
-	.asciz	"s_outfile"                     # string offset=481
+	.asciz	"s_outfile"                     # string offset=505
 .Linfo_string59:
-	.asciz	"t_outfile"                     # string offset=491
+	.asciz	"t_outfile"                     # string offset=515
 .Linfo_string60:
-	.asciz	"s_redir"                       # string offset=501
+	.asciz	"s_redir"                       # string offset=525
 .Linfo_string61:
-	.asciz	"t_redir"                       # string offset=509
+	.asciz	"t_redir"                       # string offset=533
 .Linfo_string62:
-	.asciz	"assign"                        # string offset=517
+	.asciz	"assign"                        # string offset=541
 .Linfo_string63:
-	.asciz	"expansion"                     # string offset=524
+	.asciz	"expansion"                     # string offset=548
 .Linfo_string64:
-	.asciz	"s_expan"                       # string offset=534
+	.asciz	"s_expan"                       # string offset=558
 .Linfo_string65:
-	.asciz	"t_expan"                       # string offset=542
+	.asciz	"t_expan"                       # string offset=566
 .Linfo_string66:
-	.asciz	"arg_array"                     # string offset=550
+	.asciz	"arg_array"                     # string offset=574
 .Linfo_string67:
-	.asciz	"prev"                          # string offset=560
+	.asciz	"prev"                          # string offset=584
 .Linfo_string68:
-	.asciz	"s_cmd"                         # string offset=565
+	.asciz	"s_cmd"                         # string offset=589
 .Linfo_string69:
-	.asciz	"right"                         # string offset=571
+	.asciz	"right"                         # string offset=595
 .Linfo_string70:
-	.asciz	"s_ast_node"                    # string offset=577
+	.asciz	"s_ast_node"                    # string offset=601
 .Linfo_string71:
-	.asciz	"t_ast_node"                    # string offset=588
+	.asciz	"t_ast_node"                    # string offset=612
 .Linfo_string72:
-	.asciz	"s_ast"                         # string offset=599
+	.asciz	"s_ast"                         # string offset=623
 .Linfo_string73:
-	.asciz	"t_ast"                         # string offset=605
+	.asciz	"t_ast"                         # string offset=629
 .Linfo_string74:
-	.asciz	"token_stream"                  # string offset=611
+	.asciz	"token_stream"                  # string offset=635
 .Linfo_string75:
-	.asciz	"quote_nbr"                     # string offset=624
+	.asciz	"quote_nbr"                     # string offset=648
 .Linfo_string76:
-	.asciz	"length"                        # string offset=634
+	.asciz	"length"                        # string offset=658
 .Linfo_string77:
-	.asciz	"lexeme"                        # string offset=641
+	.asciz	"lexeme"                        # string offset=665
 .Linfo_string78:
-	.asciz	"s_token"                       # string offset=648
+	.asciz	"s_token"                       # string offset=672
 .Linfo_string79:
-	.asciz	"t_token"                       # string offset=656
+	.asciz	"t_token"                       # string offset=680
 .Linfo_string80:
-	.asciz	"sighandler"                    # string offset=664
+	.asciz	"sighandler"                    # string offset=688
 .Linfo_string81:
-	.asciz	"__sigaction_handler"           # string offset=675
+	.asciz	"__sigaction_handler"           # string offset=699
 .Linfo_string82:
-	.asciz	"sa_handler"                    # string offset=695
+	.asciz	"sa_handler"                    # string offset=719
 .Linfo_string83:
-	.asciz	"__sighandler_t"                # string offset=706
+	.asciz	"__sighandler_t"                # string offset=730
 .Linfo_string84:
-	.asciz	"sa_sigaction"                  # string offset=721
+	.asciz	"sa_sigaction"                  # string offset=745
 .Linfo_string85:
-	.asciz	"si_signo"                      # string offset=734
+	.asciz	"si_signo"                      # string offset=758
 .Linfo_string86:
-	.asciz	"si_errno"                      # string offset=743
+	.asciz	"si_errno"                      # string offset=767
 .Linfo_string87:
-	.asciz	"si_code"                       # string offset=752
+	.asciz	"si_code"                       # string offset=776
 .Linfo_string88:
-	.asciz	"__pad0"                        # string offset=760
+	.asciz	"__pad0"                        # string offset=784
 .Linfo_string89:
-	.asciz	"_sifields"                     # string offset=767
+	.asciz	"_sifields"                     # string offset=791
 .Linfo_string90:
-	.asciz	"_pad"                          # string offset=777
+	.asciz	"_pad"                          # string offset=801
 .Linfo_string91:
-	.asciz	"__ARRAY_SIZE_TYPE__"           # string offset=782
+	.asciz	"__ARRAY_SIZE_TYPE__"           # string offset=806
 .Linfo_string92:
-	.asciz	"_kill"                         # string offset=802
+	.asciz	"_kill"                         # string offset=826
 .Linfo_string93:
-	.asciz	"si_pid"                        # string offset=808
+	.asciz	"si_pid"                        # string offset=832
 .Linfo_string94:
-	.asciz	"__pid_t"                       # string offset=815
+	.asciz	"__pid_t"                       # string offset=839
 .Linfo_string95:
-	.asciz	"si_uid"                        # string offset=823
+	.asciz	"si_uid"                        # string offset=847
 .Linfo_string96:
-	.asciz	"__uid_t"                       # string offset=830
+	.asciz	"__uid_t"                       # string offset=854
 .Linfo_string97:
-	.asciz	"_timer"                        # string offset=838
+	.asciz	"_timer"                        # string offset=862
 .Linfo_string98:
-	.asciz	"si_tid"                        # string offset=845
+	.asciz	"si_tid"                        # string offset=869
 .Linfo_string99:
-	.asciz	"si_overrun"                    # string offset=852
+	.asciz	"si_overrun"                    # string offset=876
 .Linfo_string100:
-	.asciz	"si_sigval"                     # string offset=863
+	.asciz	"si_sigval"                     # string offset=887
 .Linfo_string101:
-	.asciz	"sival_int"                     # string offset=873
+	.asciz	"sival_int"                     # string offset=897
 .Linfo_string102:
-	.asciz	"sival_ptr"                     # string offset=883
+	.asciz	"sival_ptr"                     # string offset=907
 .Linfo_string103:
-	.asciz	"sigval"                        # string offset=893
+	.asciz	"sigval"                        # string offset=917
 .Linfo_string104:
-	.asciz	"__sigval_t"                    # string offset=900
+	.asciz	"__sigval_t"                    # string offset=924
 .Linfo_string105:
-	.asciz	"_rt"                           # string offset=911
+	.asciz	"_rt"                           # string offset=935
 .Linfo_string106:
-	.asciz	"_sigchld"                      # string offset=915
+	.asciz	"_sigchld"                      # string offset=939
 .Linfo_string107:
-	.asciz	"si_status"                     # string offset=924
+	.asciz	"si_status"                     # string offset=948
 .Linfo_string108:
-	.asciz	"si_utime"                      # string offset=934
+	.asciz	"si_utime"                      # string offset=958
 .Linfo_string109:
-	.asciz	"long int"                      # string offset=943
+	.asciz	"long int"                      # string offset=967
 .Linfo_string110:
-	.asciz	"__clock_t"                     # string offset=952
+	.asciz	"__clock_t"                     # string offset=976
 .Linfo_string111:
-	.asciz	"si_stime"                      # string offset=962
+	.asciz	"si_stime"                      # string offset=986
 .Linfo_string112:
-	.asciz	"_sigfault"                     # string offset=971
+	.asciz	"_sigfault"                     # string offset=995
 .Linfo_string113:
-	.asciz	"si_addr"                       # string offset=981
+	.asciz	"si_addr"                       # string offset=1005
 .Linfo_string114:
-	.asciz	"si_addr_lsb"                   # string offset=989
+	.asciz	"si_addr_lsb"                   # string offset=1013
 .Linfo_string115:
-	.asciz	"short"                         # string offset=1001
+	.asciz	"short"                         # string offset=1025
 .Linfo_string116:
-	.asciz	"_bounds"                       # string offset=1007
+	.asciz	"_bounds"                       # string offset=1031
 .Linfo_string117:
-	.asciz	"_addr_bnd"                     # string offset=1015
+	.asciz	"_addr_bnd"                     # string offset=1039
 .Linfo_string118:
-	.asciz	"_lower"                        # string offset=1025
+	.asciz	"_lower"                        # string offset=1049
 .Linfo_string119:
-	.asciz	"_upper"                        # string offset=1032
+	.asciz	"_upper"                        # string offset=1056
 .Linfo_string120:
-	.asciz	"_pkey"                         # string offset=1039
+	.asciz	"_pkey"                         # string offset=1063
 .Linfo_string121:
-	.asciz	"__uint32_t"                    # string offset=1045
+	.asciz	"__uint32_t"                    # string offset=1069
 .Linfo_string122:
-	.asciz	"_sigpoll"                      # string offset=1056
+	.asciz	"_sigpoll"                      # string offset=1080
 .Linfo_string123:
-	.asciz	"si_band"                       # string offset=1065
+	.asciz	"si_band"                       # string offset=1089
 .Linfo_string124:
-	.asciz	"si_fd"                         # string offset=1073
+	.asciz	"si_fd"                         # string offset=1097
 .Linfo_string125:
-	.asciz	"_sigsys"                       # string offset=1079
+	.asciz	"_sigsys"                       # string offset=1103
 .Linfo_string126:
-	.asciz	"_call_addr"                    # string offset=1087
+	.asciz	"_call_addr"                    # string offset=1111
 .Linfo_string127:
-	.asciz	"_syscall"                      # string offset=1098
+	.asciz	"_syscall"                      # string offset=1122
 .Linfo_string128:
-	.asciz	"_arch"                         # string offset=1107
+	.asciz	"_arch"                         # string offset=1131
 .Linfo_string129:
-	.asciz	"siginfo_t"                     # string offset=1113
+	.asciz	"siginfo_t"                     # string offset=1137
 .Linfo_string130:
-	.asciz	"sa_mask"                       # string offset=1123
+	.asciz	"sa_mask"                       # string offset=1147
 .Linfo_string131:
-	.asciz	"__val"                         # string offset=1131
+	.asciz	"__val"                         # string offset=1155
 .Linfo_string132:
-	.asciz	"long unsigned int"             # string offset=1137
+	.asciz	"long unsigned int"             # string offset=1161
 .Linfo_string133:
-	.asciz	"__sigset_t"                    # string offset=1155
+	.asciz	"__sigset_t"                    # string offset=1179
 .Linfo_string134:
-	.asciz	"sa_flags"                      # string offset=1166
+	.asciz	"sa_flags"                      # string offset=1190
 .Linfo_string135:
-	.asciz	"sa_restorer"                   # string offset=1175
+	.asciz	"sa_restorer"                   # string offset=1199
 .Linfo_string136:
-	.asciz	"sigaction"                     # string offset=1187
+	.asciz	"sigaction"                     # string offset=1211
 .Linfo_string137:
-	.asciz	"statbuf"                       # string offset=1197
+	.asciz	"statbuf"                       # string offset=1221
 .Linfo_string138:
-	.asciz	"st_dev"                        # string offset=1205
+	.asciz	"st_dev"                        # string offset=1229
 .Linfo_string139:
-	.asciz	"__dev_t"                       # string offset=1212
+	.asciz	"__dev_t"                       # string offset=1236
 .Linfo_string140:
-	.asciz	"st_ino"                        # string offset=1220
+	.asciz	"st_ino"                        # string offset=1244
 .Linfo_string141:
-	.asciz	"__ino_t"                       # string offset=1227
+	.asciz	"__ino_t"                       # string offset=1251
 .Linfo_string142:
-	.asciz	"st_nlink"                      # string offset=1235
+	.asciz	"st_nlink"                      # string offset=1259
 .Linfo_string143:
-	.asciz	"__nlink_t"                     # string offset=1244
+	.asciz	"__nlink_t"                     # string offset=1268
 .Linfo_string144:
-	.asciz	"st_mode"                       # string offset=1254
+	.asciz	"st_mode"                       # string offset=1278
 .Linfo_string145:
-	.asciz	"__mode_t"                      # string offset=1262
+	.asciz	"__mode_t"                      # string offset=1286
 .Linfo_string146:
-	.asciz	"st_uid"                        # string offset=1271
+	.asciz	"st_uid"                        # string offset=1295
 .Linfo_string147:
-	.asciz	"st_gid"                        # string offset=1278
+	.asciz	"st_gid"                        # string offset=1302
 .Linfo_string148:
-	.asciz	"__gid_t"                       # string offset=1285
+	.asciz	"__gid_t"                       # string offset=1309
 .Linfo_string149:
-	.asciz	"st_rdev"                       # string offset=1293
+	.asciz	"st_rdev"                       # string offset=1317
 .Linfo_string150:
-	.asciz	"st_size"                       # string offset=1301
+	.asciz	"st_size"                       # string offset=1325
 .Linfo_string151:
-	.asciz	"__off_t"                       # string offset=1309
+	.asciz	"__off_t"                       # string offset=1333
 .Linfo_string152:
-	.asciz	"st_blksize"                    # string offset=1317
+	.asciz	"st_blksize"                    # string offset=1341
 .Linfo_string153:
-	.asciz	"__blksize_t"                   # string offset=1328
+	.asciz	"__blksize_t"                   # string offset=1352
 .Linfo_string154:
-	.asciz	"st_blocks"                     # string offset=1340
+	.asciz	"st_blocks"                     # string offset=1364
 .Linfo_string155:
-	.asciz	"__blkcnt_t"                    # string offset=1350
+	.asciz	"__blkcnt_t"                    # string offset=1374
 .Linfo_string156:
-	.asciz	"st_atim"                       # string offset=1361
+	.asciz	"st_atim"                       # string offset=1385
 .Linfo_string157:
-	.asciz	"tv_sec"                        # string offset=1369
+	.asciz	"tv_sec"                        # string offset=1393
 .Linfo_string158:
-	.asciz	"__time_t"                      # string offset=1376
+	.asciz	"__time_t"                      # string offset=1400
 .Linfo_string159:
-	.asciz	"tv_nsec"                       # string offset=1385
+	.asciz	"tv_nsec"                       # string offset=1409
 .Linfo_string160:
-	.asciz	"__syscall_slong_t"             # string offset=1393
+	.asciz	"__syscall_slong_t"             # string offset=1417
 .Linfo_string161:
-	.asciz	"timespec"                      # string offset=1411
+	.asciz	"timespec"                      # string offset=1435
 .Linfo_string162:
-	.asciz	"st_mtim"                       # string offset=1420
+	.asciz	"st_mtim"                       # string offset=1444
 .Linfo_string163:
-	.asciz	"st_ctim"                       # string offset=1428
+	.asciz	"st_ctim"                       # string offset=1452
 .Linfo_string164:
-	.asciz	"__glibc_reserved"              # string offset=1436
+	.asciz	"__glibc_reserved"              # string offset=1460
 .Linfo_string165:
-	.asciz	"stat"                          # string offset=1453
+	.asciz	"stat"                          # string offset=1477
 .Linfo_string166:
-	.asciz	"term"                          # string offset=1458
+	.asciz	"term"                          # string offset=1482
 .Linfo_string167:
-	.asciz	"c_iflag"                       # string offset=1463
+	.asciz	"c_iflag"                       # string offset=1487
 .Linfo_string168:
-	.asciz	"tcflag_t"                      # string offset=1471
+	.asciz	"tcflag_t"                      # string offset=1495
 .Linfo_string169:
-	.asciz	"c_oflag"                       # string offset=1480
+	.asciz	"c_oflag"                       # string offset=1504
 .Linfo_string170:
-	.asciz	"c_cflag"                       # string offset=1488
+	.asciz	"c_cflag"                       # string offset=1512
 .Linfo_string171:
-	.asciz	"c_lflag"                       # string offset=1496
+	.asciz	"c_lflag"                       # string offset=1520
 .Linfo_string172:
-	.asciz	"c_line"                        # string offset=1504
+	.asciz	"c_line"                        # string offset=1528
 .Linfo_string173:
-	.asciz	"unsigned char"                 # string offset=1511
+	.asciz	"unsigned char"                 # string offset=1535
 .Linfo_string174:
-	.asciz	"cc_t"                          # string offset=1525
+	.asciz	"cc_t"                          # string offset=1549
 .Linfo_string175:
-	.asciz	"c_cc"                          # string offset=1530
+	.asciz	"c_cc"                          # string offset=1554
 .Linfo_string176:
-	.asciz	"c_ispeed"                      # string offset=1535
+	.asciz	"c_ispeed"                      # string offset=1559
 .Linfo_string177:
-	.asciz	"speed_t"                       # string offset=1544
+	.asciz	"speed_t"                       # string offset=1568
 .Linfo_string178:
-	.asciz	"c_ospeed"                      # string offset=1552
+	.asciz	"c_ospeed"                      # string offset=1576
 .Linfo_string179:
-	.asciz	"termios"                       # string offset=1561
+	.asciz	"termios"                       # string offset=1585
 .Linfo_string180:
-	.asciz	"s_minishell"                   # string offset=1569
+	.asciz	"s_minishell"                   # string offset=1593
 .Linfo_string181:
-	.asciz	"t_minishell"                   # string offset=1581
+	.asciz	"t_minishell"                   # string offset=1605
 .Linfo_string182:
-	.asciz	"cmd"                           # string offset=1593
+	.asciz	"cmd"                           # string offset=1617
 .Linfo_string183:
-	.asciz	"t_cmd"                         # string offset=1597
+	.asciz	"t_cmd"                         # string offset=1621
 .Linfo_string184:
-	.asciz	"envp"                          # string offset=1603
+	.asciz	"envp"                          # string offset=1627
 	.ident	"Ubuntu clang version 12.0.1-19ubuntu3"
 	.section	".note.GNU-stack","",@progbits
 	.addrsig

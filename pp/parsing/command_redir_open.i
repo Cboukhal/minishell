@@ -6536,6 +6536,13 @@ typedef struct s_minishell
  struct termios *term;
 } t_minishell;
 
+typedef struct s_backup
+{
+    int stdin_backup;
+    int stdout_backup;
+} t_backup;
+
+
 
 char **get_path(t_env *env);
 void init_minishell(t_minishell *minishell, char **envp);
@@ -6547,6 +6554,7 @@ void echo(t_minishell *minishell, t_cmd *cmd);
 void ft_exit(t_minishell *minishell, t_cmd *cmd);
 void env(t_minishell *minishell, t_env *env, t_cmd *cmd);
 void unset(t_minishell *minishell, t_env *env, t_cmd *cmd);
+void unset_variable(t_env **env, char *arg);
 void export(t_minishell *minishell, t_env **env, t_cmd *cmd);
 int ft_strcmp(const char *str1, const char *str2);
 
@@ -6575,6 +6583,7 @@ t_env *extract_environment(char **envp);
 void add_new_var_to_env(t_env **new_var, t_env **env);
 void init_environment(t_env **env, char **envp);
 _Bool is_exit_status(char *expan_name);
+void update_environment_state(t_minishell *minishell, t_cmd *cmd, int i);
 
 
 void lexical_analysis(t_minishell *minishell, char *input);
@@ -6631,7 +6640,9 @@ void manage_parent_pipe(t_ast **ast);
 void manage_child_pipe(t_pipe *pipe);
 void manage_builtin_pipe(t_pipe *pipe);
 void execution(t_minishell *minishell);
+void backup_in_out(t_backup *std_in_out);
 void open_command_redirection(t_cmd *cmd);
+void close_redirection(t_backup *std_in_out, t_cmd *cmd);
 void interrupt_all_execution(t_minishell *minishell);
 void exec_list(t_minishell **minishell, t_ast **ast);
 void exec_builtin(t_minishell *minishell, t_cmd *cmd);
@@ -6709,6 +6720,12 @@ int open_command_outfile(t_cmd *cmd)
  return (out_fd);
 }
 
+void backup_in_out(t_backup *std_in_out)
+{
+ std_in_out->stdin_backup = dup(0);
+ std_in_out->stdout_backup = dup(1);
+}
+
 void open_command_redirection(t_cmd *cmd)
 {
  if (cmd->redir->infile)
@@ -6721,4 +6738,12 @@ void open_command_redirection(t_cmd *cmd)
   cmd->redir->out_fd = open_command_outfile(cmd);
   dup2(cmd->redir->out_fd, 1);
  }
+}
+
+void close_redirection(t_backup *std_in_out, t_cmd *cmd)
+{
+ if (cmd->redir->infile)
+  dup2(std_in_out->stdin_backup , 0);
+ if (cmd->redir->outfile)
+  dup2(std_in_out->stdout_backup, 1);
 }
