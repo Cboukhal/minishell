@@ -130,6 +130,8 @@ void	echo(t_minishell *minishell, t_cmd *cmd)
 	handle_option_n(cmd, &i, &new_line);
 	while (cmd->arg_array[i] != NULL)
 	{
+		while (cmd->arg_array[i] == NULL)
+			i++;
 		handle_special_arguments(minishell, cmd->arg_array[i], fd);
 		i++;
 		if (cmd->arg_array[i] != NULL)
