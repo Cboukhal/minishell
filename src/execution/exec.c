@@ -38,6 +38,9 @@ void	exec_command(t_minishell **minishell, t_cmd **cmd)
 		if ((*cmd)->pid == 0)
 			child_job(minishell, (*cmd), (*minishell)->env_array);
 	}
+	else if (((*cmd)->name)[0] == '$')
+		//return ;
+		printf("%s",((*cmd)->name));
 	else
 	{
 		ft_printf("%s: command not found\n", (*cmd)->name);

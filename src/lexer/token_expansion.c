@@ -63,7 +63,15 @@ t_expan	*extract_expansion(char *lexeme)
 	if (!expan_new)
 		return (perror("malloc"), NULL);
 	expan_new->next = NULL;
-	expan_new->name = extract_expansion_name(lexeme);
+	if (getenv(lexeme) != NULL )
+		expan_new->name = extract_expansion_name(lexeme);
+	else
+		expan_new->name = NULL;
+	if (expan_new->name == NULL)
+		{
+			free (expan_new);
+			return NULL;
+		}
 	return (expan_new);
 }
 

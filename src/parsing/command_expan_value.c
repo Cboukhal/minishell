@@ -61,8 +61,8 @@ void	replace_expansion_name_by_value(char *lexeme,
 		j++;
 		i++;
 	}
-	// while (lexeme[j] && i < ft_strlen(lexeme) && !is_exit_status(name))
-	while (lexeme[j] && !is_exit_status(name))
+	while (lexeme[j] && i < ft_strlen(lexeme) && !is_exit_status(name))
+	//while (lexeme[j] && !is_exit_status(name))
 	{
 		(*lexeme_expanded)[i] = lexeme[j];
 		j++;

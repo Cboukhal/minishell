@@ -55,6 +55,9 @@ size_t	expand_variable_in_lexeme(char *lexeme, char **lexeme_expanded,
 void	replace_expansion_name_by_value(char *lexeme,
 		char **lexeme_expanded, char *value, char *name)
 {
+	size_t	i;
+
+	i = 0;
 	// while (*lexeme)
 	// {
 	// 	if (*lexeme == '$' && ft_strncmp(name,
@@ -72,9 +75,6 @@ void	replace_expansion_name_by_value(char *lexeme,
 	// 	lexeme++;
 	// 	i++;
 	// }
-	size_t	i;
-
-	i = 0;
 	i = expand_variable_in_lexeme(lexeme, lexeme_expanded, name, value);
 	while (*lexeme && i < ft_strlen(lexeme) && !is_exit_status(name))
 	{

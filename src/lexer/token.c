@@ -48,22 +48,22 @@ void	get_eof_token(t_token **token)
 		(*token) = eof;
 }
 
-t_token	*create_token(char *input, int *operator_nbr)
-{
-	t_token	*new;
+// t_token	*create_token(char *input, int *operator_nbr)
+// {
+// 	t_token	*new;
 
-	if (!input || !*input)
-		return (NULL);
-	new = malloc(sizeof(t_token));
-	if (!new)
-		return (perror("malloc"), NULL);
-	init_token_attr(&new);
-	new->type = get_token_type(input);
-	if (type_is_operator(new->type))
-		get_operator_token(input, &new);
-	else
-		get_word_token(input, &new);
-	if (is_operator_token(new))
-		*operator_nbr += 1;
-	return (new);
-}
+// 	if (!input || !*input)
+// 		return (NULL);
+// 	new = malloc(sizeof(t_token));
+// 	if (!new)
+// 		return (perror("malloc"), NULL);
+// 	init_token_attr(&new);
+// 	new->type = get_token_type(input);
+// 	if (type_is_operator(new->type))
+// 		get_operator_token(input, &new);
+// 	else
+// 		get_word_token(input, &new);
+// 	if (is_operator_token(new))
+// 		*operator_nbr += 1;
+// 	return (new);
+// }

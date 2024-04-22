@@ -79,7 +79,7 @@ void	open_command_redirection(t_cmd *cmd)
 void	close_redirection(t_backup *std_in_out, t_cmd *cmd)
 {
 	if (cmd->redir->infile)
-		dup2(std_in_out->stdin_backup , STDIN_FILENO);
+		dup2(std_in_out->stdin_backup, STDIN_FILENO);
 	if (cmd->redir->outfile)
 		dup2(std_in_out->stdout_backup, STDOUT_FILENO);
 }

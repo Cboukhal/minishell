@@ -53,9 +53,6 @@ void	error_exit(int errnum, char *arg, unsigned char *exit_status)
 {
 	if (errnum == 1)
 	{
-		// write(2, "bash: exit: ", 12);
-		// write(2, arg, ft_strlen(arg));
-		// write(2, ": numeric argument required\n", 28);
 		printf("bash: exit: %s: numeric argument required\n", arg);
 		*exit_status = 2;
 	}

@@ -14,7 +14,7 @@
 
 void	exec_builtin(t_minishell *minishell, t_cmd *cmd)
 {
-	t_backup std_in_out;
+	t_backup	std_in_out;
 
 	backup_in_out(&std_in_out);
 	if (cmd->redir)
