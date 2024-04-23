@@ -82,23 +82,31 @@ bool	is_valid_variable(t_minishell *minishell, char *arg)
 t_env	*parse_export_arg(t_minishell *minishell, char **arg_array)
 {
 	int		i;
+	int		j;
 	t_env	*export_arg;
 	t_env	*index;
 	t_env	*new;
 
 	i = 0;
+	j = 0;
 	export_arg = NULL;
 	while (arg_array[i] && errno == 0)
 	{
 		if (!is_valid_variable(minishell, arg_array[i]))
-			break ;
-		new = get_env_variable(arg_array[i]);
-		if (!export_arg)
-			export_arg = new;
-		else
-			index->next = new;
-		index = new;
-		i++;
+			{
+				if(arg_array[i])
+					i++;
+			}
+		else 
+		{
+			new = get_env_variable(arg_array[i]);
+			if (!export_arg)
+				export_arg = new;
+			else
+				index->next = new;
+			index = new;
+			i++;
+		}
 	}
 	return (export_arg);
 }
@@ -123,7 +131,8 @@ void	export(t_minishell *minishell, t_env **env, t_cmd *cmd)
 		print_export((*env), fd);
 	else if (arg_nbr > 1)
 	{
-		unset_variable(env, cmd->arg_array[1]);
+		while (++i < arg_nbr)
+			unset_variable(env, cmd->arg_array[i]);
 		new_var = parse_export_arg(minishell, &cmd->arg_array[1]);
 		add_new_var_to_env(&new_var, &(*env));
 	}
