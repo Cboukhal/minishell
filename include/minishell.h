@@ -230,10 +230,9 @@ typedef struct s_minishell
 
 typedef struct s_backup
 {
-    int					stdin_backup;
-    int					stdout_backup;
+	int					stdin_backup;
+	int					stdout_backup;
 }	t_backup;
-
 
 /*		INIT		*/
 char		**get_path(t_env *env);

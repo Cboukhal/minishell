@@ -6,7 +6,7 @@
 /*   By: agadea <agadea@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 17:51:43 by agadea            #+#    #+#             */
-/*   Updated: 2024/03/28 16:26:27 by agadea           ###   ########.fr       */
+/*   Updated: 2024/04/23 12:04:37 by cboukhal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ int	g_signal;
 void	display_newline_prompt(void)
 {
 	// write(STDOUT_FILENO, "\n", 1);
-       printf("\n");
+	printf("\n");
 	rl_on_new_line();
 	rl_replace_line("", 0);
 	rl_redisplay();
@@ -101,14 +101,14 @@ void	display_newline_prompt(void)
 void	handle_sigint(int sig)
 {
 	// (void)sig;
-       g_signal = sig;
+	g_signal = sig;
 	display_newline_prompt();
 }
 
 void	handle_sigquit(int sig)
 {
 	// (void)sig;
-       g_signal = sig;
+	g_signal = sig;
 }
 
 void	init_signal_handler(void)
