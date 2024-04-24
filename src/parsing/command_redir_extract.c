@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   command_redir_extract.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agadea <agadea@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jbocktor <jbocktor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 21:54:41 by agadea            #+#    #+#             */
-/*   Updated: 2024/03/28 19:09:25 by agadea           ###   ########.fr       */
+/*   Updated: 2024/04/24 14:10:44 by jbocktor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,8 +104,47 @@ void	manage_infile_list(t_infile **infile, t_infile *new)
 		*infile = new;
 }
 
+void	add_infile_to_list(t_infile **infile, t_infile **new)
+{
+	t_infile	*index;
+
+	if ((*infile))
+	{
+		index = (*infile);
+		while (index)
+		{
+			if (index->next == NULL)
+				break ;
+			index = index->next;
+		}
+		index->next = (*new);
+	}
+	else
+		(*infile) = (*new);
+}
+
+void	handle_infile_token(t_minishell *minishell,
+	t_infile *new, t_infile **infile)
+	{
+	if (new->type == heredoc && ft_strlen(new->name) > 0)
+	{
+		get_redir_heredoc(new->name);
+		add_infile_to_list(infile, &new);
+	}
+	else if (new->name && is_file_accessible(minishell, new->name))
+	{
+		add_infile_to_list(infile, &new);
+		return ;
+	}
+	else
+	{
+		free(new->name);
+		free(new);
+	}
+}
+
 void	extract_command_infile(t_minishell *minishell,
-	t_token *token, t_infile **infile)
+			t_token *token, t_infile **infile)
 {
 	t_infile	*new;
 
@@ -118,14 +157,7 @@ void	extract_command_infile(t_minishell *minishell,
 	new->next = NULL;
 	new->type = token->type;
 	new->name = get_redir_filename(token->lexeme, new->type);
-	process_redirection(new);
-	if (new->name && is_file_accessible(minishell, new->name))
-		manage_infile_list(infile, new);
-	else
-	{
-		free(new->name);
-		free(new);
-	}
+	handle_infile_token (minishell, new, infile);
 }
 
 // void	extract_command_outfile(t_token *token, t_outfile **outfile)
