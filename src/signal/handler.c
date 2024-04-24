@@ -91,7 +91,6 @@ int	g_signal;
 
 void	display_newline_prompt(void)
 {
-	// write(STDOUT_FILENO, "\n", 1);
 	printf("\n");
 	rl_on_new_line();
 	rl_replace_line("", 0);
@@ -100,14 +99,12 @@ void	display_newline_prompt(void)
 
 void	handle_sigint(int sig)
 {
-	// (void)sig;
 	g_signal = sig;
 	display_newline_prompt();
 }
 
 void	handle_sigquit(int sig)
 {
-	// (void)sig;
 	g_signal = sig;
 }
 

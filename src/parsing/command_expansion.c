@@ -19,7 +19,6 @@ char	*get_expansion_value(t_env *env, char *name)
 	value = NULL;
 	while (env)
 	{
-		//if (ft_strncmp(name, env->name, ft_strlen(name)) == 0)
 		if (strcmp(name, env->name) == 0)
 			value = ft_strdup(env->value);
 		env = env->next;
@@ -58,31 +57,7 @@ void	replace_expansion_name_by_value(char *lexeme,
 {
 	size_t	i;
 
-	// i = 0;
-	// while (*lexeme)
-	// {
-	// 	if (*lexeme == '$' && ft_strncmp(name,
-	// 			&(*lexeme) + 1, ft_strlen(name)) == 0)
-	// 	{
-	// 		while (*value)
-	// 		{
-	// 			(*lexeme_expanded)[i] = *value;
-	// 			value++;
-	// 			i++;
-	// 		}
-	// 		break ;
-	// 	}
-	// 	(*lexeme_expanded)[i] = *lexeme;
-	// 	lexeme++;
-	// 	i++;
-	// }
 	i = expand_variable_in_lexeme(lexeme, lexeme_expanded, name, value);
-	// while (*lexeme && i < ft_strlen(lexeme) && !is_exit_status(name))
-	// {
-	// 	(*lexeme_expanded)[i] = *lexeme;
-	// 	lexeme++;
-	// 	i++;
-	// }
 	(*lexeme_expanded)[i] = '\0';
 }
 
@@ -115,32 +90,6 @@ void	replace_variable_in_lexeme(char *lexeme, char **lexeme_expanded,
 
 void	remove_expansion_name(char *lexeme, char **lexeme_expanded, char *name)
 {
-	// int	len;
-	// int	j;
-	// int	i;
-	// i = 0;
-	// j = 0;
-	// while (lexeme[j])
-	// {
-	// 	if (lexeme[j] == '$' && ft_strncmp(name, &(*lexeme) + 1,
-	// 			ft_strlen(name)) == 0)
-	// 	{
-	// 		len = ft_strlen(name) + j + 1;
-	// 		while (j < len)
-	// 			j++;
-	// 		break ;
-	// 	}
-	// 	(*lexeme_expanded)[i] = lexeme[j];
-	// 	j++;
-	// 	i++;
-	// }
-	// while (lexeme[j])
-	// {
-	// 	(*lexeme_expanded)[i] = lexeme[j];
-	// 	j++;
-	// 	i++;
-	// }
-	// (*lexeme_expanded)[i] = '\0';
 	replace_variable_in_lexeme(lexeme, lexeme_expanded, name);
 	if (ft_strlen((*lexeme_expanded)) == 0 && ft_strlen(lexeme) > 0)
 	{
@@ -194,6 +143,5 @@ void	manage_expansion(t_minishell *minishell, t_token **token, t_env *env)
 					expansion->name, NULL);
 		expansion = expansion->next;
 	}
-	/////
 	free (value);
 }

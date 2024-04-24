@@ -82,22 +82,17 @@ bool	is_valid_variable(t_minishell *minishell, char *arg)
 t_env	*parse_export_arg(t_minishell *minishell, char **arg_array)
 {
 	int		i;
-	int		j;
 	t_env	*export_arg;
 	t_env	*index;
 	t_env	*new;
 
 	i = 0;
-	j = 0;
 	export_arg = NULL;
 	while (arg_array[i] && errno == 0)
 	{
 		if (!is_valid_variable(minishell, arg_array[i]))
-			{
-				if(arg_array[i])
-					i++;
-			}
-		else 
+				i++;
+		else
 		{
 			new = get_env_variable(arg_array[i]);
 			if (!export_arg)

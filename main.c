@@ -75,10 +75,6 @@ void	test_mode(t_minishell *minishell, int argc, char *input)
 {
 	int	exit_status;
 
-	// if (isatty(0))
-	// {
-	// 	printf("Isatty\n");
-	// }
 	if (argc == 2)
 	{
 		lexical_analysis(minishell, input);

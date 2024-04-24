@@ -99,19 +99,4 @@ void	extract_command_infile(t_minishell *minishell,
 	new->type = token->type;
 	new->name = get_redir_filename(token->lexeme, new->type);
 	handle_infile_token (minishell, token, infile);
-	// if (new->type == heredoc && ft_strlen(new->name) > 0)
-	// {
-	// 	get_redir_heredoc(new->name);
-	// 	add_infile_to_list(&(*infile), &new);
-	// }
-	// else if (new->name && is_file_accessible(minishell, new->name) == true)
-	// {
-	// 	add_infile_to_list(&(*infile), &new);
-	// 	return ;
-	// }
-	// else
-	// {
-	// 	free(new->name);
-	// 	free(new);
-	// }
 }

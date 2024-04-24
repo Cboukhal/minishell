@@ -58,33 +58,11 @@ void	extract_lexeme_from_input(const char *input, char *lexeme,
 
 char	*get_word_lexeme(char *input, int length, int quote_nbr)
 {
-	// int		i;
-	// int		j;
-	// char	quote;
-	// int		second_quote;
 	char	*lexeme;
 
 	lexeme = malloc(length - quote_nbr + 1);
 	if (!lexeme)
 		return (perror("malloc"), NULL);
-	// i = 0;
-	// j = 0;
-	// quote = '\0';
-	// second_quote = 0;
-	// while (i < length - quote_nbr)
-	// {
-	// 	if (is_quote(input[i]))
-	// 		i += remove_quote(input[i], &quote, &second_quote);
-	// 	if (second_quote == 0 && is_quote(input[i]))
-	// 		continue ;
-	// 	else
-	// 	{
-	// 		lexeme[j] = input[i];
-	// 		j++;
-	// 		i++;
-	// 	}
-	// }
-	// lexeme[j] = '\0';
 	extract_lexeme_from_input(input, lexeme, length, quote_nbr);
 	return (lexeme);
 }
