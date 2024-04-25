@@ -73,6 +73,8 @@ char	*get_dir_path(void)
 	home_length = 0;
 	dir_path = NULL;
 	cwd = getcwd(NULL, PATH_MAX);
+	if (cwd == NULL)
+		return (NULL);
 	while (cwd[i])
 	{
 		if (is_in_home_dir(&cwd[i], &home_length))
