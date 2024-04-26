@@ -240,6 +240,7 @@ void		init_minishell(t_minishell *minishell, char **envp);
 
 /*		BUILTIN		*/
 void		cd(t_minishell *minishell, t_cmd *cmd);
+t_env		*get_oldpwd(t_env **env, t_env *pwd);
 void		pwd(t_minishell *minishell, t_cmd *cmd);
 void		echo(t_minishell *minishell, t_cmd *cmd);
 void		ft_exit(t_minishell *minishell, t_cmd *cmd);
@@ -280,6 +281,7 @@ void		update_environment_state(t_minishell *minishell, t_cmd *cmd, int i);
 void		lexical_analysis(t_minishell *minishell, char *input);
 
 int			add_quote(char *input);
+void		init_token_attr(t_token **token);
 int			get_token_quote_nbr(char *input);
 int			skip_quote(char *lexeme, char quote);
 t_expan		*get_token_expansion(char *lexeme, int length);
@@ -320,11 +322,15 @@ void		get_command_redir(t_minishell *minishell,
 				t_token *token, t_redir **redir);
 void		get_command_arg(t_minishell *minishell, t_token *token,
 				t_arg **arg_table, t_env *env);
+char		*expand_lexeme_variable(char *lexeme, char *name, char *value);
 void		manage_expansion(t_minishell *minishell,
 				t_token **token, t_env *env);
 t_ast_node	*get_syntax_tree_node(t_minishell *minishell,
 				t_token **token, int i);
 bool		is_expansion_stored_in_env(char *value);
+void		get_redir_heredoc(char *delimiter);
+bool		is_file_accessible(t_minishell *minishell, char *filename);
+void		add_infile_to_list(t_infile **infile, t_infile **new);
 
 /*	   EXECUTION	*/
 void		manage_parent_pipe(t_ast **ast);

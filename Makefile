@@ -38,6 +38,7 @@ SRC					:= builtin/cd.c \
 						builtin/exit.c \
 						builtin/export.c \
 						builtin/pwd.c \
+						builtin/oldpwd.c \
 						builtin/unset.c \
 						builtin/builtin_utils.c \
 						environment/env_array.c \
@@ -45,6 +46,8 @@ SRC					:= builtin/cd.c \
 						environment/env_setup.c \
 						environment/env_variable.c \
 						error/error.c \
+						error/error_exec.c \
+						error/error_builtin.c \
 						execution/boolean_exec.c \
 						execution/exec_assign.c \
 						execution/exec_builtin.c \
@@ -58,6 +61,7 @@ SRC					:= builtin/cd.c \
 						lexer/boolean_redirection.c \
 						lexer/boolean_word.c \
 						lexer/lexer.c \
+						lexer/init_token.c \
 						lexer/lexer_error.c \
 						lexer/token_expansion.c \
 						lexer/token_operator.c \
@@ -79,6 +83,8 @@ SRC					:= builtin/cd.c \
 						parsing/command_redir_extract.c \
 						parsing/command_redir_open.c \
 						parsing/command_redir_utils.c \
+						parsing/expand_variable.c \
+						parsing/redir_extract.c \
 						parsing/syntax_tree.c \
 						prompt/dir_path.c \
 						prompt/log_info.c \

@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   token_wildcard.c                                   :+:      :+:    :+:   */
+/*   init_token.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agadea <agadea@student.42.fr>              +#+  +:+       +#+        */
+/*   By: cboukhal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/28 07:28:00 by agadea            #+#    #+#             */
-/*   Updated: 2024/03/28 08:20:02 by agadea           ###   ########.fr       */
+/*   Created: 2024/04/26 11:51:47 by cboukhal          #+#    #+#             */
+/*   Updated: 2024/04/26 11:51:50 by cboukhal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/minishell.h"
 
-void	manage_wildcard(t_token *token)
+void	init_token_attr(t_token **token)
 {
-	DIR				*dir;
-	struct dirent	*dirent;
-
-	dir = opendir(".");
-	if (!dir)
-		printf("%d\n", errno);
-	dirent = readdir(dir);
-	closedir(dir);
+	(*token)->quote_nbr = 0;
+	(*token)->length = 0;
+	(*token)->prev = NULL;
+	(*token)->next = NULL;
+	(*token)->lexeme = NULL;
+	(*token)->expansion = NULL;
 }
