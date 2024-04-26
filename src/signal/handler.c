@@ -104,10 +104,10 @@ void	handle_sigint(int sig)
 	display_newline_prompt(sig);
 }
 
-void	handle_sigquit(int sig)
-{
-	g_signal = sig;
-}
+// void	handle_sigquit(int sig)
+// {
+// 	g_signal = sig;
+// }
 
 void	init_signal_handler(void)
 {

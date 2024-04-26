@@ -12,12 +12,12 @@
 
 #include "../../include/minishell.h"
 
-bool	is_first_command(t_cmd *cmd)
-{
-	if (cmd->id == 0)
-		return (true);
-	return (false);
-}
+// bool	is_first_command(t_cmd *cmd)
+// {
+// 	if (cmd->id == 0)
+// 		return (true);
+// 	return (false);
+// }
 
 void	exec_command(t_minishell **minishell, t_cmd **cmd)
 {
@@ -47,26 +47,26 @@ void	exec_command(t_minishell **minishell, t_cmd **cmd)
 	}
 }
 
-void	wait_command_ending(t_minishell **minishell, t_ast_node **node,
-		t_ast *ast, int i)
-{
-	g_signal = 0;
-	(void)ast;
-	if ((*node)->left && i == 0 && (*node)->left->pid && (*node)->left->path
-		&& (*node)->left->type != builtin)
-	{
-		waitpid((*node)->left->pid, &(*node)->exit_status, 0);
-		(*minishell)->exit_status = WEXITSTATUS((*node)->exit_status);
-	}
-	if ((*node)->right && (*node)->right->path
-		&& (*node)->right->type != builtin)
-	{
-		waitpid((*node)->right->pid, &(*node)->exit_status, 0);
-		(*minishell)->exit_status = WEXITSTATUS((*node)->exit_status);
-	}
-}
+// void	wait_command_ending(t_minishell **minishell, t_ast_node **node,
+// 		t_ast *ast, int i)
+// {
+// 	g_signal = 0;
+// 	(void)ast;
+// 	if ((*node)->left && i == 0 && (*node)->left->pid && (*node)->left->path
+// 		&& (*node)->left->type != builtin)
+// 	{
+// 		waitpid((*node)->left->pid, &(*node)->exit_status, 0);
+// 		(*minishell)->exit_status = WEXITSTATUS((*node)->exit_status);
+// 	}
+// 	if ((*node)->right && (*node)->right->path
+// 		&& (*node)->right->type != builtin)
+// 	{
+// 		waitpid((*node)->right->pid, &(*node)->exit_status, 0);
+// 		(*minishell)->exit_status = WEXITSTATUS((*node)->exit_status);
+// 	}
+// }
 
-void	wait_command_ending_test(t_minishell **minishell, t_ast_node **node,
+void	wait_command_ending(t_minishell **minishell, t_ast_node **node,
 		t_ast *ast)
 {
 	g_signal = 0;
@@ -107,7 +107,8 @@ void	execution(t_minishell *minishell)
 		i++;
 	}
 	ast = minishell->syntax_tree;
-	wait_command_ending_test(&minishell, &ast->node, ast);
+	if (ast && errno == 0 && g_signal == 0)
+		wait_command_ending(&minishell, &ast->node, ast);
 	g_signal = 0;
 }
 

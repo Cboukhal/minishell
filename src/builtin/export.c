@@ -28,19 +28,19 @@
               supplied with a name that is not a function.
 */
 
-t_env	*get_last_env_variable(t_env *env)
-{
-	t_env	*index;
+// t_env	*get_last_env_variable(t_env *env)
+// {
+// 	t_env	*index;
 
-	index = env;
-	while (index)
-	{
-		if (index->next == NULL)
-			break ;
-		index = index->next;
-	}
-	return (index);
-}
+// 	index = env;
+// 	while (index)
+// 	{
+// 		if (index->next == NULL)
+// 			break ;
+// 		index = index->next;
+// 	}
+// 	return (index);
+// }
 
 void	print_export(t_env *env, int fd)
 {

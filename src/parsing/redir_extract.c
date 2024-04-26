@@ -46,26 +46,26 @@ bool	is_file_accessible(t_minishell *minishell, char *filename)
 	return (false);
 }
 
-void	process_redirection(t_infile *new)
-{
-	if (new->type == heredoc && ft_strlen(new->name) > 0)
-		get_redir_heredoc(new->name);
-}
+// void	process_redirection(t_infile *new)
+// {
+// 	if (new->type == heredoc && ft_strlen(new->name) > 0)
+// 		get_redir_heredoc(new->name);
+// }
 
-void	manage_infile_list(t_infile **infile, t_infile *new)
-{
-	t_infile	*index;
+// void	manage_infile_list(t_infile **infile, t_infile *new)
+// {
+// 	t_infile	*index;
 
-	index = *infile;
-	if (index)
-	{
-		while (index->next)
-			index = index->next;
-		index->next = new;
-	}
-	else
-		*infile = new;
-}
+// 	index = *infile;
+// 	if (index)
+// 	{
+// 		while (index->next)
+// 			index = index->next;
+// 		index->next = new;
+// 	}
+// 	else
+// 		*infile = new;
+// }
 
 void	add_infile_to_list(t_infile **infile, t_infile **new)
 {

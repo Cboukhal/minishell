@@ -12,11 +12,11 @@
 
 #include "../../include/minishell.h"
 
-void	get_token_error(t_token *token, t_token *stream)
-{
-	(void)token;
-	(void)stream;
-}
+// void	get_token_error(t_token *token, t_token *stream)
+// {
+// 	(void)token;
+// 	(void)stream;
+// }
 
 // void	print_error(int errnum)
 // {

@@ -21,30 +21,30 @@ void	print_local_var(t_var *local)
 	}
 }
 
-void	print_expansion(t_expan *expansion)
-{
-	while (expansion)
-	{
-		printf("Expansion=%s\n", expansion->name);
-		expansion = expansion->next;
-	}
-}
+// void	print_expansion(t_expan *expansion)
+// {
+// 	while (expansion)
+// 	{
+// 		printf("Expansion=%s\n", expansion->name);
+// 		expansion = expansion->next;
+// 	}
+// }
 
-void	print_token_with_expansion(t_token *token)
-{
-	int	i;
+// void	print_token_with_expansion(t_token *token)
+// {
+// 	int	i;
 
-	i = 0;
-	while (token)
-	{
-		ft_printf("Token[%d]=%s Expansion= ", i, token->lexeme);
-		while (token->expansion)
-		{
-			ft_printf("%s ", token->expansion->name);
-			token->expansion = token->expansion->next;
-		}
-		ft_printf("token type=%d\n", token->type);
-		token = token->next;
-		i++;
-	}
-}
+// 	i = 0;
+// 	while (token)
+// 	{
+// 		ft_printf("Token[%d]=%s Expansion= ", i, token->lexeme);
+// 		while (token->expansion)
+// 		{
+// 			ft_printf("%s ", token->expansion->name);
+// 			token->expansion = token->expansion->next;
+// 		}
+// 		ft_printf("token type=%d\n", token->type);
+// 		token = token->next;
+// 		i++;
+// 	}
+// }

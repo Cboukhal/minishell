@@ -79,6 +79,7 @@ void	lexical_analysis(t_minishell *minishell, char *input)
 
 	i = 0;
 	index = NULL;
+	new = NULL;
 	while (input[i] && errno == 0)
 	{
 		while (input[i] && (is_blank(input[i]) == true))

@@ -12,22 +12,22 @@
 
 #include "../../include/minishell.h"
 
-int	get_word_type(char *input)
-{
-	if (*input == '$')
-	{
-		input++;
-		if (*input == '?')
-			return (exit_status);
-		else if (is_metacharacter(*input) == false)
-			return (expansion);
-	}
-	return (word);
-}
+// int	get_word_type(char *input)
+// {
+// 	if (*input == '$')
+// 	{
+// 		input++;
+// 		if (*input == '?')
+// 			return (exit_status);
+// 		else if (is_metacharacter(*input) == false)
+// 			return (expansion);
+// 	}
+// 	return (word);
+// }
 
-int	get_quote_type(char *input)
-{
-	if (*input == '\'')
-		return (simple_quote);
-	return (double_quote);
-}
+// int	get_quote_type(char *input)
+// {
+// 	if (*input == '\'')
+// 		return (simple_quote);
+// 	return (double_quote);
+// }
