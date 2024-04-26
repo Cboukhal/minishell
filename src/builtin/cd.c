@@ -103,7 +103,6 @@ void	cd(t_minishell *minishell, t_cmd *cmd)
 		|| (cmd_arg_nbr(cmd->arg_array) == 2
 			&& ft_strncmp("~", cmd->arg_array[1], 1) == 0))
 		cd_home(minishell);
-	// else if (chdir(cmd->arg_array[1]) != 0)
 	else if (chdir(cmd->arg_array[1]) == -1)
 	{
 		ft_printf("bash: cd: %s: ", cmd->arg_array[1]);

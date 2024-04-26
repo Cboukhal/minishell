@@ -89,18 +89,21 @@
 
 int	g_signal;
 
-void	display_newline_prompt(void)
+void	display_newline_prompt(int sig)
 {
 	printf("\n");
 	rl_on_new_line();
 	rl_replace_line("", 0);
-	rl_redisplay();
+       //g_signal = sig;
+       if (g_signal != 1)
+	       rl_redisplay();
+       g_signal = sig;
 }
 
 void	handle_sigint(int sig)
 {
-	g_signal = sig;
-	display_newline_prompt();
+	//g_signal = sig;
+	display_newline_prompt(sig);
 }
 
 void	handle_sigquit(int sig)
@@ -113,7 +116,7 @@ void	init_signal_handler(void)
 	struct sigaction	touch_c;
 	struct sigaction	touch_n;
 
-	touch_c.sa_handler = handle_sigint;
+       touch_c.sa_handler = handle_sigint;
 	sigemptyset(&touch_c.sa_mask);
 	touch_c.sa_flags = 0;
 	sigaction(SIGINT, &touch_c, NULL);

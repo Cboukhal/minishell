@@ -113,10 +113,9 @@ void	echo(t_minishell *minishell, t_cmd *cmd)
 	char	*env_value;
 	char	*home_dir;
 
+	fd = 1;
 	if (cmd->pipe && cmd->pipe->write)
 		fd = cmd->pipe->write[1];
-	else
-		fd = 1;
 	i = 1;
 	new_line = 1;
 	env_value = NULL;

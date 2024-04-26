@@ -50,6 +50,7 @@ void	exec_command(t_minishell **minishell, t_cmd **cmd)
 void	wait_command_ending(t_minishell **minishell,
 		t_ast_node **node, t_ast *ast, int i)
 {
+	g_signal = 1;
 	(void)ast;
 	if ((*node)->left && i == 0 && (*node)->left->pid
 		&& (*node)->left->path && (*node)->left->type != builtin)
@@ -86,4 +87,5 @@ void	execution(t_minishell *minishell)
 		ast = ast->next;
 		i++;
 	}
+	g_signal = 0;
 }
