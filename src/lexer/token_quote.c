@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   token_quote.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agadea <agadea@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jbocktor <jbocktor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/24 11:11:03 by agadea            #+#    #+#             */
-/*   Updated: 2024/03/28 01:43:56 by agadea           ###   ########.fr       */
+/*   Updated: 2024/04/26 18:30:39 by jbocktor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,11 @@ int	skip_quote(char *lexeme, char quote)
 
 	i = 1;
 	while (lexeme[i] != quote)
+	{
+		if (!lexeme[i])
+			return (i);
 		i++;
+	}
 	return (i);
 }
 
