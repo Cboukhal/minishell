@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   redir_extract.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cboukhal <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jbocktor <jbocktor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 12:14:46 by cboukhal          #+#    #+#             */
-/*   Updated: 2024/04/26 12:14:49 by cboukhal         ###   ########.fr       */
+/*   Updated: 2024/04/27 12:03:27 by jbocktor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,24 @@
 
 void	get_redir_heredoc(char *delimiter)
 {
-	int			fd;
-	char		*buffer;
+	int		fd;
+	char	*buffer;
+	char	*newline_delimiter;
 
 	g_signal = 1;
-	fd = open("/tmp/heredoc", O_WRONLY | O_TRUNC | O_CREAT,
-			S_IRUSR | S_IWUSR);
+	newline_delimiter = ft_strjoin(delimiter, "\n");
+	fd = open("/tmp/heredoc", O_WRONLY | O_TRUNC | O_CREAT, S_IRUSR | S_IWUSR);
 	while (1)
 	{
 		write(1, "> ", 2);
 		buffer = get_next_line(1);
-		if (!buffer
-			|| ft_strncmp(buffer, delimiter, ft_strlen(delimiter)) == 0)
+		if (!buffer || ft_strcmp(buffer, newline_delimiter) == 0)
 			break ;
 		write(fd, buffer, ft_strlen(buffer));
 		free(buffer);
 	}
 	free(buffer);
+	free(newline_delimiter);
 	close(fd);
 }
 

@@ -6,7 +6,7 @@
 /*   By: jbocktor <jbocktor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 00:27:45 by agadea            #+#    #+#             */
-/*   Updated: 2024/04/18 16:36:18 by jbocktor         ###   ########.fr       */
+/*   Updated: 2024/04/28 09:27:03 by jbocktor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -323,6 +323,7 @@ void		get_command_redir(t_minishell *minishell,
 void		get_command_arg(t_minishell *minishell, t_token *token,
 				t_arg **arg_table, t_env *env);
 char		*expand_lexeme_variable(char *lexeme, char *name, char *value);
+char		*get_expansion_value(t_env *env, char *name);
 void		manage_expansion(t_minishell *minishell,
 				t_token **token, t_env *env);
 t_ast_node	*get_syntax_tree_node(t_minishell *minishell,

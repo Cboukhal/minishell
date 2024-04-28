@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   clean_functions.c                                  :+:      :+:    :+:   */
+/*   free_functions.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agadea <agadea@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jbocktor <jbocktor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 16:25:08 by agadea            #+#    #+#             */
-/*   Updated: 2024/03/25 12:32:03 by agadea           ###   ########.fr       */
+/*   Updated: 2024/04/28 13:26:17 by jbocktor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ void	free_syntax_tree(t_ast **syntax_tree)
 
 void	clean_input(t_minishell *minishell)
 {
+	if (minishell->input)
+		free(minishell->input);
 	if (minishell->syntax_tree)
 	{
 		free_syntax_tree(&minishell->syntax_tree);
@@ -67,8 +69,6 @@ void	clean_input(t_minishell *minishell)
 
 void	clean_program(t_minishell *minishell)
 {
-	if (minishell->input)
-		free(minishell->input);
 	if (minishell->prompt)
 		free(minishell->prompt);
 	if (minishell->path)

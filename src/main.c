@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agadea <agadea@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jbocktor <jbocktor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 00:28:19 by agadea            #+#    #+#             */
-/*   Updated: 2024/03/28 15:31:13 by agadea           ###   ########.fr       */
+/*   Updated: 2024/04/28 18:29:25 by jbocktor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,10 @@ pid_t			fork(void);
 pid_t			wait(int *wstatus);
 pid_t			waitpid(pid_t pid, int *wstatus, int options);
 pid_t			wait3(int *wstatus, int options, struct rusage *rusage);
-pid_t			wait4(pid_t pid,
+pid_t	wait4(pid_t pid,
 					int *wstatus, int options, struct rusage *rusage);
 sighandler_t	signal(int signum, sighandler_t handler);
-int				sigaction(int signum,
+int	sigaction(int signum,
 					const struct sigaction *act, struct sigaction *oldact);
 int				sigemptyset(sigset_t *set);
 int				sigaddset(sigset_t *set, int signum);
@@ -53,7 +53,7 @@ int				stat(const char *pathname, struct stat *statbuf);
 int				lstat(const char *pathname, struct stat *statbuf);
 int				fstat(int fd, struct stat *statbuf);
 int				unlink(const char *pathname);
-int				execve(const char *pathname,
+int	execve(const char *pathname,
 					char *const argv[], char *const envp[]);
 int				dup(int oldfd);
 int				dup2(int oldfd, int newfd);
@@ -66,7 +66,7 @@ char			*ttyname(int fd);
 int				ttyslot(void);
 int				ioctl(int fd, unsigned long request, ...);
 char			*getenv(const char *name);
-int				tcsetattr(int fd,
+int	tcsetattr(int fd,
 					int optional_actions, const struct termios *termios_p);
 int				tcgetattr(int fd, struct termios *termios_p);
 */
@@ -84,9 +84,82 @@ void	test_mode(t_minishell *minishell, int argc, char *input)
 		clean_program(minishell);
 		exit(exit_status);
 	}
-	ft_printf(BOLD WHITE"Test usage: ./minishell \"argument\"\n"DEFAULT);
+	ft_printf(BOLD WHITE "Test usage: ./minishell \"argument\"\n" DEFAULT);
 	clean_program(minishell);
 	exit(EXIT_FAILURE);
+}
+
+int	there_is_an_expenssion(char *input)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	while (input[i])
+	{
+		if (input[i] == '$')
+			j++;
+		i++;
+	}
+	return (j);
+}
+
+char	*parse_input(char *input, t_minishell *minishell)
+{
+	int			i;
+	size_t		j;
+	char	**split;
+	char	*pls;
+	split = ft_split(input, ' ');
+	i = 0;
+	j = 2;
+	while (split[i])
+	{
+		if (split[i][0] == 39)
+			j++;
+		if ((split[i][0] == '$') && (j % 2 == 0))
+		{
+			pls = split[i];
+			split[i] = get_expansion_value(minishell->env, &split[i][1]);
+			free(pls);
+			i++;
+		}
+	}
+	i = 0;
+	j = 0;
+	while (split[j])
+		j++;
+	if (j == 1)
+		pls = ft_strdup(split[0]);
+	else if (j != 0)
+	{
+		j = j - 2;
+		pls = ft_strjoin(split[0], " ");
+		pls = ft_strjoin_n_free(pls, split[1]);
+		i = i + 2;
+		while (j > 0)
+		{
+			pls = ft_strjoin_n_free(pls, " ");
+			pls = ft_strjoin_n_free(pls, split[i]);
+			i++;
+			j--;
+		}
+	}
+	free_char_array(split);
+	if (j == 0)
+		return (input);
+	else
+	{
+		free(input);
+		return (pls);
+	}
+}
+
+void	lexical_modification(t_minishell *minishell)
+{
+	if (there_is_an_expenssion(minishell->input) != 0)
+		minishell->input = parse_input(minishell->input, minishell);
 }
 
 int	main(int argc, char **argv, char **envp)
@@ -107,6 +180,7 @@ int	main(int argc, char **argv, char **envp)
 			break ;
 		}
 		add_history(minishell.input);
+		lexical_modification(&minishell);
 		lexical_analysis(&minishell, minishell.input);
 		parsing(&minishell);
 		execution(&minishell);

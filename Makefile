@@ -6,7 +6,7 @@
 #    By: jbocktor <jbocktor@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/15 10:52:20 by agadea            #+#    #+#              #
-#    Updated: 2024/04/24 14:20:51 by jbocktor         ###   ########.fr        #
+#    Updated: 2024/04/27 11:26:21 by jbocktor         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,9 +45,6 @@ SRC					:= builtin/cd.c \
 						environment/env_default.c \
 						environment/env_setup.c \
 						environment/env_variable.c \
-						error/error.c \
-						error/error_exec.c \
-						error/error_builtin.c \
 						execution/boolean_exec.c \
 						execution/exec_assign.c \
 						execution/exec_builtin.c \

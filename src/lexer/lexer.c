@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lexer.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agadea <agadea@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jbocktor <jbocktor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 15:59:04 by agadea            #+#    #+#             */
-/*   Updated: 2024/03/28 18:32:04 by agadea           ###   ########.fr       */
+/*   Updated: 2024/04/28 12:44:47 by jbocktor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,8 @@ t_token	*create_token(char *input, int *operator_nbr)
 	return (new);
 }
 
-void	append_token_to_stream(t_minishell *minishell,
-	t_token *new, t_token **index)
+void	append_token_to_stream(t_minishell *minishell, t_token *new,
+		t_token **index)
 {
 	if (!minishell->token_stream)
 		minishell->token_stream = new;

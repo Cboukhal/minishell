@@ -6,7 +6,7 @@
 /*   By: jbocktor <jbocktor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 10:20:24 by agadea            #+#    #+#             */
-/*   Updated: 2024/04/26 14:12:06 by jbocktor         ###   ########.fr       */
+/*   Updated: 2024/04/28 18:24:22 by jbocktor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ void	exec_command(t_minishell **minishell, t_cmd **cmd)
 		if ((*cmd)->pid == 0)
 			child_job(minishell, (*cmd), (*minishell)->env_array);
 	}
-	else if (((*cmd)->name)[0] == '$')
-		return ;
+	// else if (((*cmd)->name)[0] == '$')
+	// 	return ; /* ?? */
 	else
 	{
 		ft_printf("%s: command not found\n", (*cmd)->name);
