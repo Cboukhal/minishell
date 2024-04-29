@@ -6,7 +6,7 @@
 /*   By: jbocktor <jbocktor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 00:28:19 by agadea            #+#    #+#             */
-/*   Updated: 2024/04/29 14:52:09 by jbocktor         ###   ########.fr       */
+/*   Updated: 2024/04/29 23:53:31 by jbocktor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,12 +105,62 @@ int	there_is_an_expenssion(char *input)
 	return (j);
 }
 
+char *jspcmtappeler(char *value, t_minishell *minishell)
+{
+	char **split;
+	char *pls;
+	int 	i;
+	int 	j;
+	
+	i = 0;
+	split = ft_split(value, '$');
+	while(split[i])
+	{
+		pls = split[i];
+		if (ft_strcmp("?", split[i]) == 0)
+			split[i] = ft_itoa(minishell->exit_status);
+		else
+		{
+			split[i] = get_expansion_value(minishell->env, split[i]);
+			if (!split[i])
+				split[i] = ft_strdup(value);
+		}
+		free(pls);
+		i++;
+	}
+	i = 0;
+	j = 0;
+	while (split[j])
+		j++;
+	if (j != 0)
+	{
+		j--;
+		if (ft_strcmp(value, split[i]) != 0)
+			pls = ft_strdup(split[0]);
+		else
+			pls = NULL;
+		i++;
+		while (j > 0)
+		{
+			if (ft_strcmp(value, split[i]) != 0)
+				pls = ft_strjoin_n_free(pls, split[i]);
+			i++;
+			j--;
+		}
+	}
+	free_char_array(split);
+	free(value);
+	return (pls);
+
+}
+
 char	*parse_input(char *input, t_minishell *minishell)
 {
 	int			i;
 	size_t		j;
 	char	**split;
 	char	*pls;
+	
 	split = ft_split(input, ' ');
 	i = 0;
 	j = 2;
@@ -120,9 +170,7 @@ char	*parse_input(char *input, t_minishell *minishell)
 			j++;
 		if ((split[i][0] == '$') && (j % 2 == 0))
 		{
-			pls = split[i];
-			split[i] = get_expansion_value(minishell->env, &split[i][1]);
-			free(pls);
+			split[i] = jspcmtappeler(split[i], minishell);
 			i++;
 		}
 	}
