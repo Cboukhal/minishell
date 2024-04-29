@@ -6,7 +6,7 @@
 /*   By: jbocktor <jbocktor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 10:20:24 by agadea            #+#    #+#             */
-/*   Updated: 2024/04/28 18:24:22 by jbocktor         ###   ########.fr       */
+/*   Updated: 2024/04/29 18:02:55 by jbocktor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,34 @@
 // 	return (false);
 // }
 
+void	if_redir(t_cmd *cmd)
+{
+	char	*filename;
+
+	filename = NULL;
+	if (cmd->redir->infile)
+	{
+		filename = cmd->redir->infile->name;
+		cmd->redir->in_fd = open_command_infile(cmd);
+	}
+	if (cmd->redir->outfile)
+	{
+		filename = cmd->redir->outfile->name;
+		cmd->redir->out_fd = open_command_outfile(cmd);
+	}
+	if (access(filename, F_OK) == 0)
+		ft_printf("bash: %s: %s\n", filename, "Permission denied");
+}
+
 void	exec_command(t_minishell **minishell, t_cmd **cmd)
 {
 	if (!(*cmd)->name)
+	{
+		// if ((*cmd)->redir)
+		// 	if_redir((*cmd));
 		return ;
-	if ((*cmd)->type == assignment)
+	}
+	else if ((*cmd)->type == assignment)
 		assign_variable(minishell, (*cmd));
 	else if ((*cmd)->name && is_builtin((*cmd)->name))
 	{
@@ -70,14 +93,16 @@ void	wait_command_ending(t_minishell **minishell, t_ast_node **node,
 		t_ast *ast)
 {
 	g_signal = 0;
-	if ((*node)->left && (*node)->left->pid && (*node)->left->path && (*node)->left->type != builtin)
+	if ((*node)->left && (*node)->left->pid && (*node)->left->path
+		&& (*node)->left->type != builtin)
 	{
 		waitpid((*node)->left->pid, &(*node)->exit_status, 0);
 		(*minishell)->exit_status = WEXITSTATUS((*node)->exit_status);
 	}
-	while(ast)
+	while (ast)
 	{
-		if ((*node)->right && (*node)->right->path && (*node)->right->type != builtin)
+		if ((*node)->right && (*node)->right->path
+			&& (*node)->right->type != builtin)
 		{
 			waitpid((*node)->right->pid, &(*node)->exit_status, 0);
 			(*minishell)->exit_status = WEXITSTATUS((*node)->exit_status);
@@ -111,4 +136,3 @@ void	execution(t_minishell *minishell)
 		wait_command_ending(&minishell, &ast->node, ast);
 	g_signal = 0;
 }
-
