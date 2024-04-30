@@ -6,7 +6,7 @@
 /*   By: cboukhal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 15:35:00 by cboukhal          #+#    #+#             */
-/*   Updated: 2024/04/30 15:35:03 by cboukhal         ###   ########.fr       */
+/*   Updated: 2024/04/30 16:00:29 by cboukhal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,13 @@ void	if_redir(t_cmd *cmd)
 	char	*filename;
 
 	filename = NULL;
-	// while (cmd->redir->infile)
 	if (cmd->redir->infile)
 	{
-		// if (cmd->redir->in_fd != 0, 1, 2)
-		// close (cmd->redir->in_fd);
 		filename = cmd->redir->infile->name;
 		cmd->redir->in_fd = open_command_infile(cmd);
 	}
 	if (cmd->redir->outfile)
 	{
-		// the same here
 		filename = cmd->redir->outfile->name;
 		cmd->redir->out_fd = open_command_outfile(cmd);
 	}
@@ -48,7 +44,6 @@ void	exec_command(t_minishell **minishell, t_cmd **cmd)
 	{
 		if ((*cmd)->redir)
 			if_redir((*cmd));
-		return ;
 	}
 	else if ((*cmd)->type == assignment)
 		assign_variable(minishell, (*cmd));
@@ -65,8 +60,6 @@ void	exec_command(t_minishell **minishell, t_cmd **cmd)
 		if ((*cmd)->pid == 0)
 			child_job(minishell, (*cmd), (*minishell)->env_array);
 	}
-	// else if (((*cmd)->name)[0] == '$')
-	// 	return ; /* ?? */
 	else
 	{
 		ft_printf("%s: command not found\n", (*cmd)->name);
