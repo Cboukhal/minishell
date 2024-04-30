@@ -6,7 +6,7 @@
 /*   By: jbocktor <jbocktor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 00:28:19 by agadea            #+#    #+#             */
-/*   Updated: 2024/04/30 09:35:36 by jbocktor         ###   ########.fr       */
+/*   Updated: 2024/04/30 10:14:31 by jbocktor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -192,6 +192,9 @@ char	*parse_input(char *input, t_minishell *minishell)
 			j--;
 		}
 	}
+	j = 0;
+	while (split[j])
+		j++;
 	free_char_array(split);
 	if (j == 0)
 		return (input);
