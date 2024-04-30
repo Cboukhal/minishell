@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jbocktor <jbocktor@student.42.fr>          +#+  +:+       +#+         #
+#    By: cboukhal <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/15 10:52:20 by agadea            #+#    #+#              #
-#    Updated: 2024/04/30 09:26:27 by jbocktor         ###   ########.fr        #
+#    Updated: 2024/04/30 15:43:49 by cboukhal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,7 +66,6 @@ SRC					:= builtin/cd.c \
 						lexer/token_redirection.c \
 						lexer/token_word.c \
 						lexer/type_operator.c \
-						lexer/type_word.c \
 						memory/free_functions.c \
 						memory/free_command.c \
 						memory/free_utils.c \
@@ -87,7 +86,6 @@ SRC					:= builtin/cd.c \
 						prompt/log_info.c \
 						prompt/prompt.c \
 						signal/handler.c \
-						utils/function_tester.c \
 						utils/print.c \
 						utils/print2.c \
 						main.c \
