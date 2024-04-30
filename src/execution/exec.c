@@ -24,13 +24,17 @@ void	if_redir(t_cmd *cmd)
 	char	*filename;
 
 	filename = NULL;
+	// while (cmd->redir->infile)
 	if (cmd->redir->infile)
 	{
+		// if (cmd->redir->in_fd != 0, 1, 2)
+		// close (cmd->redir->in_fd);
 		filename = cmd->redir->infile->name;
 		cmd->redir->in_fd = open_command_infile(cmd);
 	}
 	if (cmd->redir->outfile)
 	{
+		// the same here
 		filename = cmd->redir->outfile->name;
 		cmd->redir->out_fd = open_command_outfile(cmd);
 	}
