@@ -92,7 +92,7 @@ void	exec_command(t_minishell **minishell, t_cmd **cmd)
 void	wait_command_ending(t_minishell **minishell, t_ast_node **node,
 		t_ast *ast)
 {
-	g_signal = 0;
+	g_signal = 1;
 	if ((*node)->left && (*node)->left->pid && (*node)->left->path
 		&& (*node)->left->type != builtin)
 	{
