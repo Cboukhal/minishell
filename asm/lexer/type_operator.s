@@ -1,12 +1,12 @@
 	.text
 	.file	"type_operator.c"
-	.file	1 "/mnt/nfs/homes/jbocktor/student/group_minishell/minigroup" "src/lexer/../../include/minishell.h"
+	.file	1 "/mnt/nfs/homes/jbocktor/student/group_minishell/more_hope/minigroups" "src/lexer/../../include/minishell.h"
 	.globl	get_redirection_type            # -- Begin function get_redirection_type
 	.p2align	4, 0x90
 	.type	get_redirection_type,@function
 get_redirection_type:                   # @get_redirection_type
 .Lfunc_begin0:
-	.file	2 "/mnt/nfs/homes/jbocktor/student/group_minishell/minigroup" "src/lexer/type_operator.c"
+	.file	2 "/mnt/nfs/homes/jbocktor/student/group_minishell/more_hope/minigroups" "src/lexer/type_operator.c"
 	.loc	2 16 0                          # src/lexer/type_operator.c:16:0
 	.cfi_startproc
 # %bb.0:
@@ -673,77 +673,77 @@ get_operator_type:                      # @get_operator_type
 .Linfo_string1:
 	.asciz	"src/lexer/type_operator.c"     # string offset=38
 .Linfo_string2:
-	.asciz	"/mnt/nfs/homes/jbocktor/student/group_minishell/minigroup" # string offset=64
+	.asciz	"/mnt/nfs/homes/jbocktor/student/group_minishell/more_hope/minigroups" # string offset=64
 .Linfo_string3:
-	.asciz	"unsigned int"                  # string offset=122
+	.asciz	"unsigned int"                  # string offset=133
 .Linfo_string4:
-	.asciz	"l_parentheses"                 # string offset=135
+	.asciz	"l_parentheses"                 # string offset=146
 .Linfo_string5:
-	.asciz	"r_parentheses"                 # string offset=149
+	.asciz	"r_parentheses"                 # string offset=160
 .Linfo_string6:
-	.asciz	"simple_quote"                  # string offset=163
+	.asciz	"simple_quote"                  # string offset=174
 .Linfo_string7:
-	.asciz	"double_quote"                  # string offset=176
+	.asciz	"double_quote"                  # string offset=187
 .Linfo_string8:
-	.asciz	"exit_status"                   # string offset=189
+	.asciz	"exit_status"                   # string offset=200
 .Linfo_string9:
-	.asciz	"expansion"                     # string offset=201
+	.asciz	"expansion"                     # string offset=212
 .Linfo_string10:
-	.asciz	"operator"                      # string offset=211
+	.asciz	"operator"                      # string offset=222
 .Linfo_string11:
-	.asciz	"wildcard"                      # string offset=220
+	.asciz	"wildcard"                      # string offset=231
 .Linfo_string12:
-	.asciz	"pipe_op"                       # string offset=229
+	.asciz	"pipe_op"                       # string offset=240
 .Linfo_string13:
-	.asciz	"heredoc"                       # string offset=237
+	.asciz	"heredoc"                       # string offset=248
 .Linfo_string14:
-	.asciz	"outfile"                       # string offset=245
+	.asciz	"outfile"                       # string offset=256
 .Linfo_string15:
-	.asciz	"append"                        # string offset=253
+	.asciz	"append"                        # string offset=264
 .Linfo_string16:
-	.asciz	"infile"                        # string offset=260
+	.asciz	"infile"                        # string offset=271
 .Linfo_string17:
-	.asciz	"and_if"                        # string offset=267
+	.asciz	"and_if"                        # string offset=278
 .Linfo_string18:
-	.asciz	"or_if"                         # string offset=274
+	.asciz	"or_if"                         # string offset=285
 .Linfo_string19:
-	.asciz	"word"                          # string offset=280
+	.asciz	"word"                          # string offset=291
 .Linfo_string20:
-	.asciz	"name"                          # string offset=285
+	.asciz	"name"                          # string offset=296
 .Linfo_string21:
-	.asciz	"assignment_word"               # string offset=290
+	.asciz	"assignment_word"               # string offset=301
 .Linfo_string22:
-	.asciz	"eof_token"                     # string offset=306
+	.asciz	"eof_token"                     # string offset=317
 .Linfo_string23:
-	.asciz	"e_token"                       # string offset=316
+	.asciz	"e_token"                       # string offset=327
 .Linfo_string24:
-	.asciz	"error_syntax"                  # string offset=324
+	.asciz	"error_syntax"                  # string offset=335
 .Linfo_string25:
-	.asciz	"error_token"                   # string offset=337
+	.asciz	"error_token"                   # string offset=348
 .Linfo_string26:
-	.asciz	"error_and"                     # string offset=349
+	.asciz	"error_and"                     # string offset=360
 .Linfo_string27:
-	.asciz	"error_file"                    # string offset=359
+	.asciz	"error_file"                    # string offset=370
 .Linfo_string28:
-	.asciz	"error_builtin"                 # string offset=370
+	.asciz	"error_builtin"                 # string offset=381
 .Linfo_string29:
-	.asciz	"error_malloc"                  # string offset=384
+	.asciz	"error_malloc"                  # string offset=395
 .Linfo_string30:
-	.asciz	"error_command"                 # string offset=397
+	.asciz	"error_command"                 # string offset=408
 .Linfo_string31:
-	.asciz	"get_redirection_type"          # string offset=411
+	.asciz	"get_redirection_type"          # string offset=422
 .Linfo_string32:
-	.asciz	"int"                           # string offset=432
+	.asciz	"int"                           # string offset=443
 .Linfo_string33:
-	.asciz	"get_logical_operator_type"     # string offset=436
+	.asciz	"get_logical_operator_type"     # string offset=447
 .Linfo_string34:
-	.asciz	"get_operator_type"             # string offset=462
+	.asciz	"get_operator_type"             # string offset=473
 .Linfo_string35:
-	.asciz	"input"                         # string offset=480
+	.asciz	"input"                         # string offset=491
 .Linfo_string36:
-	.asciz	"char"                          # string offset=486
+	.asciz	"char"                          # string offset=497
 .Linfo_string37:
-	.asciz	"token"                         # string offset=491
+	.asciz	"token"                         # string offset=502
 	.ident	"Ubuntu clang version 12.0.1-19ubuntu3"
 	.section	".note.GNU-stack","",@progbits
 	.addrsig

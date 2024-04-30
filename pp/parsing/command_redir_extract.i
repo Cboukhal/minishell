@@ -6548,6 +6548,7 @@ void init_minishell(t_minishell *minishell, char **envp);
 
 
 void cd(t_minishell *minishell, t_cmd *cmd);
+t_env *get_oldpwd(t_env **env, t_env *pwd);
 void pwd(t_minishell *minishell, t_cmd *cmd);
 void echo(t_minishell *minishell, t_cmd *cmd);
 void ft_exit(t_minishell *minishell, t_cmd *cmd);
@@ -6588,6 +6589,7 @@ void update_environment_state(t_minishell *minishell, t_cmd *cmd, int i);
 void lexical_analysis(t_minishell *minishell, char *input);
 
 int add_quote(char *input);
+void init_token_attr(t_token **token);
 int get_token_quote_nbr(char *input);
 int skip_quote(char *lexeme, char quote);
 t_expan *get_token_expansion(char *lexeme, int length);
@@ -6628,11 +6630,16 @@ void get_command_redir(t_minishell *minishell,
     t_token *token, t_redir **redir);
 void get_command_arg(t_minishell *minishell, t_token *token,
     t_arg **arg_table, t_env *env);
+char *expand_lexeme_variable(char *lexeme, char *name, char *value);
+char *get_expansion_value(t_env *env, char *name);
 void manage_expansion(t_minishell *minishell,
     t_token **token, t_env *env);
 t_ast_node *get_syntax_tree_node(t_minishell *minishell,
     t_token **token, int i);
 _Bool is_expansion_stored_in_env(char *value);
+void get_redir_heredoc(char *delimiter);
+_Bool is_file_accessible(t_minishell *minishell, char *filename);
+void add_infile_to_list(t_infile **infile, t_infile **new);
 
 
 void manage_parent_pipe(t_ast **ast);
@@ -6640,6 +6647,8 @@ void manage_child_pipe(t_pipe *pipe);
 void manage_builtin_pipe(t_pipe *pipe);
 void execution(t_minishell *minishell);
 void backup_in_out(t_backup *std_in_out);
+int open_command_infile(t_cmd *cmd);
+int open_command_outfile(t_cmd *cmd);
 void open_command_redirection(t_cmd *cmd);
 void close_redirection(t_backup *std_in_out, t_cmd *cmd);
 void interrupt_all_execution(t_minishell *minishell);
@@ -6675,82 +6684,9 @@ void print_expansion(t_expan *expansion);
 void print_token_with_expansion(t_token *stream);
 # 14 "src/parsing/command_redir_extract.c" 2
 
-void get_redir_heredoc(char *delimiter)
-{
- int fd;
- char *buffer;
-
- fd = open("/tmp/heredoc", 01 | 01000 | 0100,
-   0400 | 0200);
- while (1)
- {
-  write(1, "> ", 2);
-  buffer = get_next_line(1);
-  if (!buffer
-   || ft_strncmp(buffer, delimiter, ft_strlen(delimiter)) == 0)
-   break ;
-  write(fd, buffer, ft_strlen(buffer));
-  free(buffer);
- }
- free(buffer);
- close(fd);
-}
-
-_Bool is_file_accessible(t_minishell *minishell, char *filename)
-{
- if (filename && ft_strlen(filename) > 0)
- {
-  if (access(filename, 0) == 0)
-   return (1);
-  ft_printf("bash: %s: %s\n", filename, strerror((*__errno_location ())));
-  minishell->exit_status = 1;
- }
- return (0);
-}
-# 86 "src/parsing/command_redir_extract.c"
-void process_redirection(t_infile *new)
-{
- if (new->type == heredoc && ft_strlen(new->name) > 0)
-  get_redir_heredoc(new->name);
-}
-
-void manage_infile_list(t_infile **infile, t_infile *new)
-{
- t_infile *index;
-
- index = *infile;
- if (index)
- {
-  while (index->next)
-   index = index->next;
-  index->next = new;
- }
- else
-  *infile = new;
-}
-
-void add_infile_to_list(t_infile **infile, t_infile **new)
-{
- t_infile *index;
-
- if ((*infile))
- {
-  index = (*infile);
-  while (index)
-  {
-   if (index->next == ((void*)0))
-    break ;
-   index = index->next;
-  }
-  index->next = (*new);
- }
- else
-  (*infile) = (*new);
-}
-
 void handle_infile_token(t_minishell *minishell,
  t_infile *new, t_infile **infile)
- {
+{
  if (new->type == heredoc && ft_strlen(new->name) > 0)
  {
   get_redir_heredoc(new->name);
@@ -6784,7 +6720,7 @@ void extract_command_infile(t_minishell *minishell,
  new->name = get_redir_filename(token->lexeme, new->type);
  handle_infile_token (minishell, new, infile);
 }
-# 193 "src/parsing/command_redir_extract.c"
+
 void manage_outfile_list(t_outfile **outfile, t_outfile *new)
 {
  t_outfile *index;

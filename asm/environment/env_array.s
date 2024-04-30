@@ -5,7 +5,7 @@
 	.type	get_env_length,@function
 get_env_length:                         # @get_env_length
 .Lfunc_begin0:
-	.file	1 "/mnt/nfs/homes/jbocktor/student/group_minishell/minigroup" "src/environment/env_array.c"
+	.file	1 "/mnt/nfs/homes/jbocktor/student/group_minishell/more_hope/minigroups" "src/environment/env_array.c"
 	.loc	1 16 0                          # src/environment/env_array.c:16:0
 	.cfi_startproc
 # %bb.0:
@@ -197,7 +197,7 @@ get_env_array:                          # @get_env_array
 	.asciz	"="
 	.size	.L.str, 2
 
-	.file	2 "/mnt/nfs/homes/jbocktor/student/group_minishell/minigroup" "src/environment/../../include/minishell.h"
+	.file	2 "/mnt/nfs/homes/jbocktor/student/group_minishell/more_hope/minigroups" "src/environment/../../include/minishell.h"
 	.section	.debug_abbrev,"",@progbits
 	.byte	1                               # Abbreviation Code
 	.byte	17                              # DW_TAG_compile_unit
@@ -523,43 +523,43 @@ get_env_array:                          # @get_env_array
 .Linfo_string1:
 	.asciz	"src/environment/env_array.c"   # string offset=38
 .Linfo_string2:
-	.asciz	"/mnt/nfs/homes/jbocktor/student/group_minishell/minigroup" # string offset=66
+	.asciz	"/mnt/nfs/homes/jbocktor/student/group_minishell/more_hope/minigroups" # string offset=66
 .Linfo_string3:
-	.asciz	"get_env_length"                # string offset=124
+	.asciz	"get_env_length"                # string offset=135
 .Linfo_string4:
-	.asciz	"int"                           # string offset=139
+	.asciz	"int"                           # string offset=150
 .Linfo_string5:
-	.asciz	"extract_env_variable"          # string offset=143
+	.asciz	"extract_env_variable"          # string offset=154
 .Linfo_string6:
-	.asciz	"char"                          # string offset=164
+	.asciz	"char"                          # string offset=175
 .Linfo_string7:
-	.asciz	"get_env_array"                 # string offset=169
+	.asciz	"get_env_array"                 # string offset=180
 .Linfo_string8:
-	.asciz	"env"                           # string offset=183
+	.asciz	"env"                           # string offset=194
 .Linfo_string9:
-	.asciz	"name"                          # string offset=187
+	.asciz	"name"                          # string offset=198
 .Linfo_string10:
-	.asciz	"value"                         # string offset=192
+	.asciz	"value"                         # string offset=203
 .Linfo_string11:
-	.asciz	"next"                          # string offset=198
+	.asciz	"next"                          # string offset=209
 .Linfo_string12:
-	.asciz	"s_env"                         # string offset=203
+	.asciz	"s_env"                         # string offset=214
 .Linfo_string13:
-	.asciz	"t_env"                         # string offset=209
+	.asciz	"t_env"                         # string offset=220
 .Linfo_string14:
-	.asciz	"index"                         # string offset=215
+	.asciz	"index"                         # string offset=226
 .Linfo_string15:
-	.asciz	"length"                        # string offset=221
+	.asciz	"length"                        # string offset=232
 .Linfo_string16:
-	.asciz	"env_var"                       # string offset=228
+	.asciz	"env_var"                       # string offset=239
 .Linfo_string17:
-	.asciz	"tmp"                           # string offset=236
+	.asciz	"tmp"                           # string offset=247
 .Linfo_string18:
-	.asciz	"var"                           # string offset=240
+	.asciz	"var"                           # string offset=251
 .Linfo_string19:
-	.asciz	"i"                             # string offset=244
+	.asciz	"i"                             # string offset=255
 .Linfo_string20:
-	.asciz	"env_array"                     # string offset=246
+	.asciz	"env_array"                     # string offset=257
 	.ident	"Ubuntu clang version 12.0.1-19ubuntu3"
 	.section	".note.GNU-stack","",@progbits
 	.addrsig

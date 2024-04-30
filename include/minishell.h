@@ -6,7 +6,7 @@
 /*   By: jbocktor <jbocktor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 00:27:45 by agadea            #+#    #+#             */
-/*   Updated: 2024/04/28 09:27:03 by jbocktor         ###   ########.fr       */
+/*   Updated: 2024/04/30 09:26:39 by jbocktor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -339,6 +339,8 @@ void		manage_child_pipe(t_pipe *pipe);
 void		manage_builtin_pipe(t_pipe *pipe);
 void		execution(t_minishell *minishell);
 void		backup_in_out(t_backup *std_in_out);
+int			open_command_infile(t_cmd *cmd);
+int			open_command_outfile(t_cmd *cmd);
 void		open_command_redirection(t_cmd *cmd);
 void		close_redirection(t_backup *std_in_out, t_cmd *cmd);
 void		interrupt_all_execution(t_minishell *minishell);

@@ -6548,6 +6548,7 @@ void init_minishell(t_minishell *minishell, char **envp);
 
 
 void cd(t_minishell *minishell, t_cmd *cmd);
+t_env *get_oldpwd(t_env **env, t_env *pwd);
 void pwd(t_minishell *minishell, t_cmd *cmd);
 void echo(t_minishell *minishell, t_cmd *cmd);
 void ft_exit(t_minishell *minishell, t_cmd *cmd);
@@ -6588,6 +6589,7 @@ void update_environment_state(t_minishell *minishell, t_cmd *cmd, int i);
 void lexical_analysis(t_minishell *minishell, char *input);
 
 int add_quote(char *input);
+void init_token_attr(t_token **token);
 int get_token_quote_nbr(char *input);
 int skip_quote(char *lexeme, char quote);
 t_expan *get_token_expansion(char *lexeme, int length);
@@ -6628,11 +6630,16 @@ void get_command_redir(t_minishell *minishell,
     t_token *token, t_redir **redir);
 void get_command_arg(t_minishell *minishell, t_token *token,
     t_arg **arg_table, t_env *env);
+char *expand_lexeme_variable(char *lexeme, char *name, char *value);
+char *get_expansion_value(t_env *env, char *name);
 void manage_expansion(t_minishell *minishell,
     t_token **token, t_env *env);
 t_ast_node *get_syntax_tree_node(t_minishell *minishell,
     t_token **token, int i);
 _Bool is_expansion_stored_in_env(char *value);
+void get_redir_heredoc(char *delimiter);
+_Bool is_file_accessible(t_minishell *minishell, char *filename);
+void add_infile_to_list(t_infile **infile, t_infile **new);
 
 
 void manage_parent_pipe(t_ast **ast);
@@ -6640,6 +6647,8 @@ void manage_child_pipe(t_pipe *pipe);
 void manage_builtin_pipe(t_pipe *pipe);
 void execution(t_minishell *minishell);
 void backup_in_out(t_backup *std_in_out);
+int open_command_infile(t_cmd *cmd);
+int open_command_outfile(t_cmd *cmd);
 void open_command_redirection(t_cmd *cmd);
 void close_redirection(t_backup *std_in_out, t_cmd *cmd);
 void interrupt_all_execution(t_minishell *minishell);
@@ -6675,18 +6684,41 @@ void print_expansion(t_expan *expansion);
 void print_token_with_expansion(t_token *stream);
 # 14 "src/execution/exec.c" 2
 
-_Bool is_first_command(t_cmd *cmd)
+
+
+
+
+
+
+
+void if_redir(t_cmd *cmd)
 {
- if (cmd->id == 0)
-  return (1);
- return (0);
+ char *filename;
+
+ filename = ((void*)0);
+ if (cmd->redir->infile)
+ {
+  filename = cmd->redir->infile->name;
+  cmd->redir->in_fd = open_command_infile(cmd);
+ }
+ if (cmd->redir->outfile)
+ {
+  filename = cmd->redir->outfile->name;
+  cmd->redir->out_fd = open_command_outfile(cmd);
+ }
+ if (access(filename, 0) == 0)
+  ft_printf("bash: %s: %s\n", filename, "Permission denied");
 }
 
 void exec_command(t_minishell **minishell, t_cmd **cmd)
 {
  if (!(*cmd)->name)
+ {
+  if ((*cmd)->redir)
+   if_redir((*cmd));
   return ;
- if ((*cmd)->type == assignment)
+ }
+ else if ((*cmd)->type == assignment)
   assign_variable(minishell, (*cmd));
  else if ((*cmd)->name && is_builtin((*cmd)->name))
  {
@@ -6701,30 +6733,34 @@ void exec_command(t_minishell **minishell, t_cmd **cmd)
   if ((*cmd)->pid == 0)
    child_job(minishell, (*cmd), (*minishell)->env_array);
  }
- else if (((*cmd)->name)[0] == '$')
-  return ;
+
+
  else
  {
   ft_printf("%s: command not found\n", (*cmd)->name);
   (*minishell)->exit_status = 127;
  }
 }
-
-void wait_command_ending(t_minishell **minishell,
-  t_ast_node **node, t_ast *ast, int i)
+# 92 "src/execution/exec.c"
+void wait_command_ending(t_minishell **minishell, t_ast_node **node,
+  t_ast *ast)
 {
- (void)ast;
- if ((*node)->left && i == 0 && (*node)->left->pid
-  && (*node)->left->path && (*node)->left->type != builtin)
+ g_signal = 0;
+ if ((*node)->left && (*node)->left->pid && (*node)->left->path
+  && (*node)->left->type != builtin)
  {
   waitpid((*node)->left->pid, &(*node)->exit_status, 0);
   (*minishell)->exit_status = ((((*node)->exit_status) & 0xff00) >> 8);
  }
- if ((*node)->right && (*node)->right->path
-  && (*node)->right->type != builtin)
+ while (ast)
  {
-  waitpid((*node)->right->pid, &(*node)->exit_status, 0);
-  (*minishell)->exit_status = ((((*node)->exit_status) & 0xff00) >> 8);
+  if ((*node)->right && (*node)->right->path
+   && (*node)->right->type != builtin)
+  {
+   waitpid((*node)->right->pid, &(*node)->exit_status, 0);
+   (*minishell)->exit_status = ((((*node)->exit_status) & 0xff00) >> 8);
+  }
+  ast = ast->next;
  }
 }
 
@@ -6745,8 +6781,11 @@ void execution(t_minishell *minishell)
    exec_pipe(&minishell, &ast, i);
   else if (ast->node->type == and_if || ast->node->type == or_if)
    exec_list(&minishell, &ast);
-  wait_command_ending(&minishell, &ast->node, ast, i);
   ast = ast->next;
   i++;
  }
+ ast = minishell->syntax_tree;
+ if (ast && (*__errno_location ()) == 0 && g_signal == 0)
+  wait_command_ending(&minishell, &ast->node, ast);
+ g_signal = 0;
 }

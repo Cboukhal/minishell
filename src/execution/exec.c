@@ -6,7 +6,7 @@
 /*   By: jbocktor <jbocktor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 10:20:24 by agadea            #+#    #+#             */
-/*   Updated: 2024/04/29 18:02:55 by jbocktor         ###   ########.fr       */
+/*   Updated: 2024/04/29 18:05:09 by jbocktor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ void	exec_command(t_minishell **minishell, t_cmd **cmd)
 {
 	if (!(*cmd)->name)
 	{
-		// if ((*cmd)->redir)
-		// 	if_redir((*cmd));
+		if ((*cmd)->redir)
+			if_redir((*cmd));
 		return ;
 	}
 	else if ((*cmd)->type == assignment)

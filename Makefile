@@ -6,7 +6,7 @@
 #    By: jbocktor <jbocktor@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/15 10:52:20 by agadea            #+#    #+#              #
-#    Updated: 2024/04/27 11:26:21 by jbocktor         ###   ########.fr        #
+#    Updated: 2024/04/30 09:26:27 by jbocktor         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -96,6 +96,12 @@ SRC					:= ${addprefix ${SRC_DIR}/, ${SRC}}
 
 ###########################		  COMPILATION		###########################
 
+PP_DIR				:= pp
+PP					:= ${patsubst ${SRC_DIR}/%.c, ${PP_DIR}/%.i, ${SRC}}
+
+ASM_DIR				:= asm
+ASM					:= ${patsubst ${SRC_DIR}/%.c, ${ASM_DIR}/%.s, ${SRC}}
+
 OBJ_DIR				:= obj
 OBJ					:= ${patsubst ${SRC_DIR}/%.c, ${OBJ_DIR}/%.o, ${SRC}}
 
@@ -110,6 +116,16 @@ ${NAME}: ${OBJ}
 ${OBJ_DIR}/%.o: ${SRC_DIR}/%.c ${INCLUDE}
 	@mkdir -p ${dir $@}
 	@${CC} ${CFLAGS} -c $< -o $@
+
+# PREPROCESSING
+${PP_DIR}/%.i: ${SRC_DIR}/%.c
+	@mkdir -p ${dir $@}
+	@${CC} ${CFLAGS} -E $< -o $@
+
+# ASSEMBLY
+${ASM_DIR}/%.s: ${SRC_DIR}/%.c
+	@mkdir -p ${dir $@}
+	@${CC} ${CFLAGS} -S $< -o $@
 
 ${LIBFT}:
 	@${MAKE} -C libft

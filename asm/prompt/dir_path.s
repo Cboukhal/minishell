@@ -5,7 +5,7 @@
 	.type	is_in_home_dir,@function
 is_in_home_dir:                         # @is_in_home_dir
 .Lfunc_begin0:
-	.file	1 "/mnt/nfs/homes/jbocktor/student/group_minishell/minigroup" "src/prompt/dir_path.c"
+	.file	1 "/mnt/nfs/homes/jbocktor/student/group_minishell/more_hope/minigroups" "src/prompt/dir_path.c"
 	.loc	1 16 0                          # src/prompt/dir_path.c:16:0
 	.cfi_startproc
 # %bb.0:
@@ -282,85 +282,100 @@ get_dir_path:                           # @get_dir_path
 	callq	getcwd
 	.loc	1 75 6 is_stmt 0                # src/prompt/dir_path.c:75:6
 	movq	%rax, -24(%rbp)
-.LBB3_1:                                # =>This Inner Loop Header: Depth=1
-	.loc	1 76 9 is_stmt 1                # src/prompt/dir_path.c:76:9
+.Ltmp15:
+	.loc	1 76 10 is_stmt 1               # src/prompt/dir_path.c:76:10
+	cmpq	$0, -24(%rbp)
+.Ltmp16:
+	.loc	1 76 6 is_stmt 0                # src/prompt/dir_path.c:76:6
+	jne	.LBB3_2
+# %bb.1:
+.Ltmp17:
+	.loc	1 77 3 is_stmt 1                # src/prompt/dir_path.c:77:3
+	movq	$0, -8(%rbp)
+	jmp	.LBB3_8
+.Ltmp18:
+.LBB3_2:
+	.loc	1 78 2                          # src/prompt/dir_path.c:78:2
+	jmp	.LBB3_3
+.LBB3_3:                                # =>This Inner Loop Header: Depth=1
+	.loc	1 78 9 is_stmt 0                # src/prompt/dir_path.c:78:9
 	movq	-24(%rbp), %rax
 	movslq	-12(%rbp), %rcx
-	.loc	1 76 2 is_stmt 0                # src/prompt/dir_path.c:76:2
+	.loc	1 78 2                          # src/prompt/dir_path.c:78:2
 	cmpb	$0, (%rax,%rcx)
-	je	.LBB3_5
-# %bb.2:                                #   in Loop: Header=BB3_1 Depth=1
-.Ltmp15:
-	.loc	1 78 23 is_stmt 1               # src/prompt/dir_path.c:78:23
+	je	.LBB3_7
+# %bb.4:                                #   in Loop: Header=BB3_3 Depth=1
+.Ltmp19:
+	.loc	1 80 23 is_stmt 1               # src/prompt/dir_path.c:80:23
 	movq	-24(%rbp), %rdi
 	movslq	-12(%rbp), %rax
 	addq	%rax, %rdi
-	.loc	1 78 7 is_stmt 0                # src/prompt/dir_path.c:78:7
+	.loc	1 80 7 is_stmt 0                # src/prompt/dir_path.c:80:7
 	leaq	-28(%rbp), %rsi
 	callq	is_in_home_dir
-.Ltmp16:
-	.loc	1 78 7                          # src/prompt/dir_path.c:78:7
+.Ltmp20:
+	.loc	1 80 7                          # src/prompt/dir_path.c:80:7
 	testb	$1, %al
-	jne	.LBB3_3
-	jmp	.LBB3_4
-.LBB3_3:
-.Ltmp17:
-	.loc	1 80 9 is_stmt 1                # src/prompt/dir_path.c:80:9
+	jne	.LBB3_5
+	jmp	.LBB3_6
+.LBB3_5:
+.Ltmp21:
+	.loc	1 82 9 is_stmt 1                # src/prompt/dir_path.c:82:9
 	movl	-28(%rbp), %eax
-	.loc	1 80 6 is_stmt 0                # src/prompt/dir_path.c:80:6
+	.loc	1 82 6 is_stmt 0                # src/prompt/dir_path.c:82:6
 	addl	-12(%rbp), %eax
 	movl	%eax, -12(%rbp)
-	.loc	1 81 39 is_stmt 1               # src/prompt/dir_path.c:81:39
+	.loc	1 83 39 is_stmt 1               # src/prompt/dir_path.c:83:39
 	movq	-24(%rbp), %rdi
 	movslq	-12(%rbp), %rax
 	addq	%rax, %rdi
-	.loc	1 81 15 is_stmt 0               # src/prompt/dir_path.c:81:15
+	.loc	1 83 15 is_stmt 0               # src/prompt/dir_path.c:83:15
 	callq	get_dir_path_from_home
-	.loc	1 81 13                         # src/prompt/dir_path.c:81:13
+	.loc	1 83 13                         # src/prompt/dir_path.c:83:13
 	movq	%rax, -40(%rbp)
-	.loc	1 82 34 is_stmt 1               # src/prompt/dir_path.c:82:34
+	.loc	1 84 34 is_stmt 1               # src/prompt/dir_path.c:84:34
 	movq	-40(%rbp), %rdi
-	.loc	1 82 15 is_stmt 0               # src/prompt/dir_path.c:82:15
+	.loc	1 84 15 is_stmt 0               # src/prompt/dir_path.c:84:15
 	callq	set_dir_path_color
-	.loc	1 82 13                         # src/prompt/dir_path.c:82:13
+	.loc	1 84 13                         # src/prompt/dir_path.c:84:13
 	movq	%rax, -40(%rbp)
-	.loc	1 83 17 is_stmt 1               # src/prompt/dir_path.c:83:17
+	.loc	1 85 17 is_stmt 1               # src/prompt/dir_path.c:85:17
 	movq	-24(%rbp), %rdi
-	.loc	1 83 12 is_stmt 0               # src/prompt/dir_path.c:83:12
+	.loc	1 85 12 is_stmt 0               # src/prompt/dir_path.c:85:12
 	callq	free
-	.loc	1 83 23                         # src/prompt/dir_path.c:83:23
+	.loc	1 85 23                         # src/prompt/dir_path.c:85:23
 	movq	-40(%rbp), %rax
-	.loc	1 83 4                          # src/prompt/dir_path.c:83:4
+	.loc	1 85 4                          # src/prompt/dir_path.c:85:4
 	movq	%rax, -8(%rbp)
-	jmp	.LBB3_6
-.Ltmp18:
-.LBB3_4:                                #   in Loop: Header=BB3_1 Depth=1
-	.loc	1 85 4 is_stmt 1                # src/prompt/dir_path.c:85:4
+	jmp	.LBB3_8
+.Ltmp22:
+.LBB3_6:                                #   in Loop: Header=BB3_3 Depth=1
+	.loc	1 87 4 is_stmt 1                # src/prompt/dir_path.c:87:4
 	movl	-12(%rbp), %eax
 	addl	$1, %eax
 	movl	%eax, -12(%rbp)
-.Ltmp19:
-	.loc	1 76 2                          # src/prompt/dir_path.c:76:2
-	jmp	.LBB3_1
-.LBB3_5:
-	.loc	1 87 27                         # src/prompt/dir_path.c:87:27
+.Ltmp23:
+	.loc	1 78 2                          # src/prompt/dir_path.c:78:2
+	jmp	.LBB3_3
+.LBB3_7:
+	.loc	1 89 27                         # src/prompt/dir_path.c:89:27
 	movq	-24(%rbp), %rdi
-	.loc	1 87 8 is_stmt 0                # src/prompt/dir_path.c:87:8
+	.loc	1 89 8 is_stmt 0                # src/prompt/dir_path.c:89:8
 	callq	set_dir_path_color
-	.loc	1 87 6                          # src/prompt/dir_path.c:87:6
+	.loc	1 89 6                          # src/prompt/dir_path.c:89:6
 	movq	%rax, -24(%rbp)
-	.loc	1 88 10 is_stmt 1               # src/prompt/dir_path.c:88:10
+	.loc	1 90 10 is_stmt 1               # src/prompt/dir_path.c:90:10
 	movq	-24(%rbp), %rax
-	.loc	1 88 2 is_stmt 0                # src/prompt/dir_path.c:88:2
+	.loc	1 90 2 is_stmt 0                # src/prompt/dir_path.c:90:2
 	movq	%rax, -8(%rbp)
-.LBB3_6:
-	.loc	1 89 1 is_stmt 1                # src/prompt/dir_path.c:89:1
+.LBB3_8:
+	.loc	1 91 1 is_stmt 1                # src/prompt/dir_path.c:91:1
 	movq	-8(%rbp), %rax
 	addq	$48, %rsp
 	popq	%rbp
 	.cfi_def_cfa %rsp, 8
 	retq
-.Ltmp20:
+.Ltmp24:
 .Lfunc_end3:
 	.size	get_dir_path, .Lfunc_end3-get_dir_path
 	.cfi_endproc
@@ -407,6 +422,11 @@ get_dir_path:                           # @get_dir_path
 	.byte	0                               # EOM(1)
 	.byte	0                               # EOM(2)
 	.byte	2                               # Abbreviation Code
+	.byte	15                              # DW_TAG_pointer_type
+	.byte	0                               # DW_CHILDREN_no
+	.byte	0                               # EOM(1)
+	.byte	0                               # EOM(2)
+	.byte	3                               # Abbreviation Code
 	.byte	46                              # DW_TAG_subprogram
 	.byte	1                               # DW_CHILDREN_yes
 	.byte	17                              # DW_AT_low_pc
@@ -429,7 +449,7 @@ get_dir_path:                           # @get_dir_path
 	.byte	25                              # DW_FORM_flag_present
 	.byte	0                               # EOM(1)
 	.byte	0                               # EOM(2)
-	.byte	3                               # Abbreviation Code
+	.byte	4                               # Abbreviation Code
 	.byte	5                               # DW_TAG_formal_parameter
 	.byte	0                               # DW_CHILDREN_no
 	.byte	2                               # DW_AT_location
@@ -444,7 +464,7 @@ get_dir_path:                           # @get_dir_path
 	.byte	19                              # DW_FORM_ref4
 	.byte	0                               # EOM(1)
 	.byte	0                               # EOM(2)
-	.byte	4                               # Abbreviation Code
+	.byte	5                               # Abbreviation Code
 	.byte	52                              # DW_TAG_variable
 	.byte	0                               # DW_CHILDREN_no
 	.byte	2                               # DW_AT_location
@@ -459,7 +479,7 @@ get_dir_path:                           # @get_dir_path
 	.byte	19                              # DW_FORM_ref4
 	.byte	0                               # EOM(1)
 	.byte	0                               # EOM(2)
-	.byte	5                               # Abbreviation Code
+	.byte	6                               # Abbreviation Code
 	.byte	36                              # DW_TAG_base_type
 	.byte	0                               # DW_CHILDREN_no
 	.byte	3                               # DW_AT_name
@@ -470,7 +490,7 @@ get_dir_path:                           # @get_dir_path
 	.byte	11                              # DW_FORM_data1
 	.byte	0                               # EOM(1)
 	.byte	0                               # EOM(2)
-	.byte	6                               # Abbreviation Code
+	.byte	7                               # Abbreviation Code
 	.byte	15                              # DW_TAG_pointer_type
 	.byte	0                               # DW_CHILDREN_no
 	.byte	73                              # DW_AT_type
@@ -485,7 +505,7 @@ get_dir_path:                           # @get_dir_path
 	.short	4                               # DWARF version number
 	.long	.debug_abbrev                   # Offset Into Abbrev. Section
 	.byte	8                               # Address Size (in bytes)
-	.byte	1                               # Abbrev [1] 0xb:0x15d DW_TAG_compile_unit
+	.byte	1                               # Abbrev [1] 0xb:0x15e DW_TAG_compile_unit
 	.long	.Linfo_string0                  # DW_AT_producer
 	.short	12                              # DW_AT_language
 	.long	.Linfo_string1                  # DW_AT_name
@@ -493,7 +513,8 @@ get_dir_path:                           # @get_dir_path
 	.long	.Linfo_string2                  # DW_AT_comp_dir
 	.quad	.Lfunc_begin0                   # DW_AT_low_pc
 	.long	.Lfunc_end3-.Lfunc_begin0       # DW_AT_high_pc
-	.byte	2                               # Abbrev [2] 0x2a:0x36 DW_TAG_subprogram
+	.byte	2                               # Abbrev [2] 0x2a:0x1 DW_TAG_pointer_type
+	.byte	3                               # Abbrev [3] 0x2b:0x36 DW_TAG_subprogram
 	.quad	.Lfunc_begin0                   # DW_AT_low_pc
 	.long	.Lfunc_end0-.Lfunc_begin0       # DW_AT_high_pc
 	.byte	1                               # DW_AT_frame_base
@@ -502,26 +523,26 @@ get_dir_path:                           # @get_dir_path
 	.byte	1                               # DW_AT_decl_file
 	.byte	15                              # DW_AT_decl_line
                                         # DW_AT_prototyped
-	.long	328                             # DW_AT_type
+	.long	329                             # DW_AT_type
                                         # DW_AT_external
-	.byte	3                               # Abbrev [3] 0x43:0xe DW_TAG_formal_parameter
+	.byte	4                               # Abbrev [4] 0x44:0xe DW_TAG_formal_parameter
 	.byte	2                               # DW_AT_location
 	.byte	145
 	.byte	112
 	.long	.Linfo_string9                  # DW_AT_name
 	.byte	1                               # DW_AT_decl_file
 	.byte	15                              # DW_AT_decl_line
-	.long	335                             # DW_AT_type
-	.byte	3                               # Abbrev [3] 0x51:0xe DW_TAG_formal_parameter
+	.long	336                             # DW_AT_type
+	.byte	4                               # Abbrev [4] 0x52:0xe DW_TAG_formal_parameter
 	.byte	2                               # DW_AT_location
 	.byte	145
 	.byte	104
 	.long	.Linfo_string10                 # DW_AT_name
 	.byte	1                               # DW_AT_decl_file
 	.byte	15                              # DW_AT_decl_line
-	.long	347                             # DW_AT_type
+	.long	348                             # DW_AT_type
 	.byte	0                               # End Of Children Mark
-	.byte	2                               # Abbrev [2] 0x60:0x44 DW_TAG_subprogram
+	.byte	3                               # Abbrev [3] 0x61:0x44 DW_TAG_subprogram
 	.quad	.Lfunc_begin1                   # DW_AT_low_pc
 	.long	.Lfunc_end1-.Lfunc_begin1       # DW_AT_high_pc
 	.byte	1                               # DW_AT_frame_base
@@ -530,34 +551,34 @@ get_dir_path:                           # @get_dir_path
 	.byte	1                               # DW_AT_decl_file
 	.byte	30                              # DW_AT_decl_line
                                         # DW_AT_prototyped
-	.long	335                             # DW_AT_type
+	.long	336                             # DW_AT_type
                                         # DW_AT_external
-	.byte	3                               # Abbrev [3] 0x79:0xe DW_TAG_formal_parameter
+	.byte	4                               # Abbrev [4] 0x7a:0xe DW_TAG_formal_parameter
 	.byte	2                               # DW_AT_location
 	.byte	145
 	.byte	120
 	.long	.Linfo_string12                 # DW_AT_name
 	.byte	1                               # DW_AT_decl_file
 	.byte	30                              # DW_AT_decl_line
-	.long	335                             # DW_AT_type
-	.byte	4                               # Abbrev [4] 0x87:0xe DW_TAG_variable
+	.long	336                             # DW_AT_type
+	.byte	5                               # Abbrev [5] 0x88:0xe DW_TAG_variable
 	.byte	2                               # DW_AT_location
 	.byte	145
 	.byte	112
 	.long	.Linfo_string13                 # DW_AT_name
 	.byte	1                               # DW_AT_decl_file
 	.byte	32                              # DW_AT_decl_line
-	.long	335                             # DW_AT_type
-	.byte	4                               # Abbrev [4] 0x95:0xe DW_TAG_variable
+	.long	336                             # DW_AT_type
+	.byte	5                               # Abbrev [5] 0x96:0xe DW_TAG_variable
 	.byte	2                               # DW_AT_location
 	.byte	145
 	.byte	104
 	.long	.Linfo_string14                 # DW_AT_name
 	.byte	1                               # DW_AT_decl_file
 	.byte	33                              # DW_AT_decl_line
-	.long	335                             # DW_AT_type
+	.long	336                             # DW_AT_type
 	.byte	0                               # End Of Children Mark
-	.byte	2                               # Abbrev [2] 0xa4:0x52 DW_TAG_subprogram
+	.byte	3                               # Abbrev [3] 0xa5:0x52 DW_TAG_subprogram
 	.quad	.Lfunc_begin2                   # DW_AT_low_pc
 	.long	.Lfunc_end2-.Lfunc_begin2       # DW_AT_high_pc
 	.byte	1                               # DW_AT_frame_base
@@ -566,42 +587,42 @@ get_dir_path:                           # @get_dir_path
 	.byte	1                               # DW_AT_decl_file
 	.byte	42                              # DW_AT_decl_line
                                         # DW_AT_prototyped
-	.long	335                             # DW_AT_type
+	.long	336                             # DW_AT_type
                                         # DW_AT_external
-	.byte	3                               # Abbrev [3] 0xbd:0xe DW_TAG_formal_parameter
+	.byte	4                               # Abbrev [4] 0xbe:0xe DW_TAG_formal_parameter
 	.byte	2                               # DW_AT_location
 	.byte	145
 	.byte	120
 	.long	.Linfo_string13                 # DW_AT_name
 	.byte	1                               # DW_AT_decl_file
 	.byte	42                              # DW_AT_decl_line
-	.long	335                             # DW_AT_type
-	.byte	4                               # Abbrev [4] 0xcb:0xe DW_TAG_variable
+	.long	336                             # DW_AT_type
+	.byte	5                               # Abbrev [5] 0xcc:0xe DW_TAG_variable
 	.byte	2                               # DW_AT_location
 	.byte	145
 	.byte	116
 	.long	.Linfo_string15                 # DW_AT_name
 	.byte	1                               # DW_AT_decl_file
 	.byte	44                              # DW_AT_decl_line
-	.long	352                             # DW_AT_type
-	.byte	4                               # Abbrev [4] 0xd9:0xe DW_TAG_variable
+	.long	353                             # DW_AT_type
+	.byte	5                               # Abbrev [5] 0xda:0xe DW_TAG_variable
 	.byte	2                               # DW_AT_location
 	.byte	145
 	.byte	112
 	.long	.Linfo_string16                 # DW_AT_name
 	.byte	1                               # DW_AT_decl_file
 	.byte	45                              # DW_AT_decl_line
-	.long	352                             # DW_AT_type
-	.byte	4                               # Abbrev [4] 0xe7:0xe DW_TAG_variable
+	.long	353                             # DW_AT_type
+	.byte	5                               # Abbrev [5] 0xe8:0xe DW_TAG_variable
 	.byte	2                               # DW_AT_location
 	.byte	145
 	.byte	104
 	.long	.Linfo_string12                 # DW_AT_name
 	.byte	1                               # DW_AT_decl_file
 	.byte	46                              # DW_AT_decl_line
-	.long	335                             # DW_AT_type
+	.long	336                             # DW_AT_type
 	.byte	0                               # End Of Children Mark
-	.byte	2                               # Abbrev [2] 0xf6:0x52 DW_TAG_subprogram
+	.byte	3                               # Abbrev [3] 0xf7:0x52 DW_TAG_subprogram
 	.quad	.Lfunc_begin3                   # DW_AT_low_pc
 	.long	.Lfunc_end3-.Lfunc_begin3       # DW_AT_high_pc
 	.byte	1                               # DW_AT_frame_base
@@ -610,54 +631,54 @@ get_dir_path:                           # @get_dir_path
 	.byte	1                               # DW_AT_decl_file
 	.byte	65                              # DW_AT_decl_line
                                         # DW_AT_prototyped
-	.long	335                             # DW_AT_type
+	.long	336                             # DW_AT_type
                                         # DW_AT_external
-	.byte	4                               # Abbrev [4] 0x10f:0xe DW_TAG_variable
+	.byte	5                               # Abbrev [5] 0x110:0xe DW_TAG_variable
 	.byte	2                               # DW_AT_location
 	.byte	145
 	.byte	116
 	.long	.Linfo_string15                 # DW_AT_name
 	.byte	1                               # DW_AT_decl_file
 	.byte	67                              # DW_AT_decl_line
-	.long	352                             # DW_AT_type
-	.byte	4                               # Abbrev [4] 0x11d:0xe DW_TAG_variable
+	.long	353                             # DW_AT_type
+	.byte	5                               # Abbrev [5] 0x11e:0xe DW_TAG_variable
 	.byte	2                               # DW_AT_location
 	.byte	145
 	.byte	104
 	.long	.Linfo_string9                  # DW_AT_name
 	.byte	1                               # DW_AT_decl_file
 	.byte	68                              # DW_AT_decl_line
-	.long	335                             # DW_AT_type
-	.byte	4                               # Abbrev [4] 0x12b:0xe DW_TAG_variable
+	.long	336                             # DW_AT_type
+	.byte	5                               # Abbrev [5] 0x12c:0xe DW_TAG_variable
 	.byte	2                               # DW_AT_location
 	.byte	145
 	.byte	100
 	.long	.Linfo_string10                 # DW_AT_name
 	.byte	1                               # DW_AT_decl_file
 	.byte	69                              # DW_AT_decl_line
-	.long	352                             # DW_AT_type
-	.byte	4                               # Abbrev [4] 0x139:0xe DW_TAG_variable
+	.long	353                             # DW_AT_type
+	.byte	5                               # Abbrev [5] 0x13a:0xe DW_TAG_variable
 	.byte	2                               # DW_AT_location
 	.byte	145
 	.byte	88
 	.long	.Linfo_string12                 # DW_AT_name
 	.byte	1                               # DW_AT_decl_file
 	.byte	70                              # DW_AT_decl_line
-	.long	335                             # DW_AT_type
+	.long	336                             # DW_AT_type
 	.byte	0                               # End Of Children Mark
-	.byte	5                               # Abbrev [5] 0x148:0x7 DW_TAG_base_type
+	.byte	6                               # Abbrev [6] 0x149:0x7 DW_TAG_base_type
 	.long	.Linfo_string4                  # DW_AT_name
 	.byte	2                               # DW_AT_encoding
 	.byte	1                               # DW_AT_byte_size
-	.byte	6                               # Abbrev [6] 0x14f:0x5 DW_TAG_pointer_type
-	.long	340                             # DW_AT_type
-	.byte	5                               # Abbrev [5] 0x154:0x7 DW_TAG_base_type
+	.byte	7                               # Abbrev [7] 0x150:0x5 DW_TAG_pointer_type
+	.long	341                             # DW_AT_type
+	.byte	6                               # Abbrev [6] 0x155:0x7 DW_TAG_base_type
 	.long	.Linfo_string6                  # DW_AT_name
 	.byte	6                               # DW_AT_encoding
 	.byte	1                               # DW_AT_byte_size
-	.byte	6                               # Abbrev [6] 0x15b:0x5 DW_TAG_pointer_type
-	.long	352                             # DW_AT_type
-	.byte	5                               # Abbrev [5] 0x160:0x7 DW_TAG_base_type
+	.byte	7                               # Abbrev [7] 0x15c:0x5 DW_TAG_pointer_type
+	.long	353                             # DW_AT_type
+	.byte	6                               # Abbrev [6] 0x161:0x7 DW_TAG_base_type
 	.long	.Linfo_string11                 # DW_AT_name
 	.byte	5                               # DW_AT_encoding
 	.byte	4                               # DW_AT_byte_size
@@ -669,35 +690,35 @@ get_dir_path:                           # @get_dir_path
 .Linfo_string1:
 	.asciz	"src/prompt/dir_path.c"         # string offset=38
 .Linfo_string2:
-	.asciz	"/mnt/nfs/homes/jbocktor/student/group_minishell/minigroup" # string offset=60
+	.asciz	"/mnt/nfs/homes/jbocktor/student/group_minishell/more_hope/minigroups" # string offset=60
 .Linfo_string3:
-	.asciz	"is_in_home_dir"                # string offset=118
+	.asciz	"is_in_home_dir"                # string offset=129
 .Linfo_string4:
-	.asciz	"_Bool"                         # string offset=133
+	.asciz	"_Bool"                         # string offset=144
 .Linfo_string5:
-	.asciz	"set_dir_path_color"            # string offset=139
+	.asciz	"set_dir_path_color"            # string offset=150
 .Linfo_string6:
-	.asciz	"char"                          # string offset=158
+	.asciz	"char"                          # string offset=169
 .Linfo_string7:
-	.asciz	"get_dir_path_from_home"        # string offset=163
+	.asciz	"get_dir_path_from_home"        # string offset=174
 .Linfo_string8:
-	.asciz	"get_dir_path"                  # string offset=186
+	.asciz	"get_dir_path"                  # string offset=197
 .Linfo_string9:
-	.asciz	"cwd"                           # string offset=199
+	.asciz	"cwd"                           # string offset=210
 .Linfo_string10:
-	.asciz	"home_length"                   # string offset=203
+	.asciz	"home_length"                   # string offset=214
 .Linfo_string11:
-	.asciz	"int"                           # string offset=215
+	.asciz	"int"                           # string offset=226
 .Linfo_string12:
-	.asciz	"dir_path"                      # string offset=219
+	.asciz	"dir_path"                      # string offset=230
 .Linfo_string13:
-	.asciz	"tmp"                           # string offset=228
+	.asciz	"tmp"                           # string offset=239
 .Linfo_string14:
-	.asciz	"dir_path_colorized"            # string offset=232
+	.asciz	"dir_path_colorized"            # string offset=243
 .Linfo_string15:
-	.asciz	"i"                             # string offset=251
+	.asciz	"i"                             # string offset=262
 .Linfo_string16:
-	.asciz	"j"                             # string offset=253
+	.asciz	"j"                             # string offset=264
 	.ident	"Ubuntu clang version 12.0.1-19ubuntu3"
 	.section	".note.GNU-stack","",@progbits
 	.addrsig

@@ -6548,6 +6548,7 @@ void init_minishell(t_minishell *minishell, char **envp);
 
 
 void cd(t_minishell *minishell, t_cmd *cmd);
+t_env *get_oldpwd(t_env **env, t_env *pwd);
 void pwd(t_minishell *minishell, t_cmd *cmd);
 void echo(t_minishell *minishell, t_cmd *cmd);
 void ft_exit(t_minishell *minishell, t_cmd *cmd);
@@ -6588,6 +6589,7 @@ void update_environment_state(t_minishell *minishell, t_cmd *cmd, int i);
 void lexical_analysis(t_minishell *minishell, char *input);
 
 int add_quote(char *input);
+void init_token_attr(t_token **token);
 int get_token_quote_nbr(char *input);
 int skip_quote(char *lexeme, char quote);
 t_expan *get_token_expansion(char *lexeme, int length);
@@ -6628,11 +6630,16 @@ void get_command_redir(t_minishell *minishell,
     t_token *token, t_redir **redir);
 void get_command_arg(t_minishell *minishell, t_token *token,
     t_arg **arg_table, t_env *env);
+char *expand_lexeme_variable(char *lexeme, char *name, char *value);
+char *get_expansion_value(t_env *env, char *name);
 void manage_expansion(t_minishell *minishell,
     t_token **token, t_env *env);
 t_ast_node *get_syntax_tree_node(t_minishell *minishell,
     t_token **token, int i);
 _Bool is_expansion_stored_in_env(char *value);
+void get_redir_heredoc(char *delimiter);
+_Bool is_file_accessible(t_minishell *minishell, char *filename);
+void add_infile_to_list(t_infile **infile, t_infile **new);
 
 
 void manage_parent_pipe(t_ast **ast);
@@ -6640,6 +6647,8 @@ void manage_child_pipe(t_pipe *pipe);
 void manage_builtin_pipe(t_pipe *pipe);
 void execution(t_minishell *minishell);
 void backup_in_out(t_backup *std_in_out);
+int open_command_infile(t_cmd *cmd);
+int open_command_outfile(t_cmd *cmd);
 void open_command_redirection(t_cmd *cmd);
 void close_redirection(t_backup *std_in_out, t_cmd *cmd);
 void interrupt_all_execution(t_minishell *minishell);
@@ -6688,9 +6697,128 @@ void test_mode(t_minishell *minishell, int argc, char *input)
   clean_program(minishell);
   exit(exit_status);
  }
- ft_printf("\1\033[1m\2" "\1\033[37m\2""Test usage: ./minishell \"argument\"\n""\1\033[0m\2");
+ ft_printf("\1\033[1m\2" "\1\033[37m\2" "Test usage: ./minishell \"argument\"\n" "\1\033[0m\2");
  clean_program(minishell);
  exit(1);
+}
+
+int there_is_an_expenssion(char *input)
+{
+ int i;
+ int j;
+
+ i = 0;
+ j = 0;
+ while (input[i])
+ {
+  if (input[i] == '$')
+   j++;
+  i++;
+ }
+ return (j);
+}
+
+char *jspcmtappeler(char *value, t_minishell *minishell)
+{
+ char **split;
+ char *pls;
+ int i;
+ int j;
+
+ i = 0;
+ split = ft_split(value, '$');
+ while(split[i])
+ {
+  pls = split[i];
+  if (ft_strcmp("?", split[i]) == 0)
+   split[i] = ft_itoa(minishell->exit_status);
+  else
+  {
+   split[i] = get_expansion_value(minishell->env, split[i]);
+   if (!split[i])
+    split[i] = ft_strdup(value);
+  }
+  free(pls);
+  i++;
+ }
+ i = 0;
+ j = 0;
+ while (split[j])
+  j++;
+ if (j != 0)
+ {
+  j--;
+  if (ft_strcmp(value, split[i]) != 0)
+   pls = ft_strdup(split[0]);
+  else
+   pls = ((void*)0);
+  i++;
+  while (j > 0)
+  {
+   if (ft_strcmp(value, split[i]) != 0)
+    pls = ft_strjoin_n_free(pls, split[i]);
+   i++;
+   j--;
+  }
+ }
+ free_char_array(split);
+ free(value);
+ return (pls);
+
+}
+
+char *parse_input(char *input, t_minishell *minishell)
+{
+ int i;
+ size_t j;
+ char **split;
+ char *pls;
+
+ split = ft_split(input, ' ');
+ i = 0;
+ j = 2;
+ while (split[i])
+ {
+  if (split[i][0] == 39)
+   j++;
+  if ((split[i][0] == '$') && (j % 2 == 0))
+   split[i] = jspcmtappeler(split[i], minishell);
+  i++;
+ }
+ i = 0;
+ j = 0;
+ while (split[j])
+  j++;
+ if (j == 1)
+  pls = ft_strdup(split[0]);
+ else if (j != 0)
+ {
+  j = j - 2;
+  pls = ft_strjoin(split[0], " ");
+  pls = ft_strjoin_n_free(pls, split[1]);
+  i = i + 2;
+  while (j > 0)
+  {
+   pls = ft_strjoin_n_free(pls, " ");
+   pls = ft_strjoin_n_free(pls, split[i]);
+   i++;
+   j--;
+  }
+ }
+ free_char_array(split);
+ if (j == 0)
+  return (input);
+ else
+ {
+  free(input);
+  return (pls);
+ }
+}
+
+void lexical_modification(t_minishell *minishell)
+{
+ if (there_is_an_expenssion(minishell->input) != 0)
+  minishell->input = parse_input(minishell->input, minishell);
 }
 
 int main(int argc, char **argv, char **envp)
@@ -6711,6 +6839,7 @@ int main(int argc, char **argv, char **envp)
    break ;
   }
   add_history(minishell.input);
+  lexical_modification(&minishell);
   lexical_analysis(&minishell, minishell.input);
   parsing(&minishell);
   execution(&minishell);

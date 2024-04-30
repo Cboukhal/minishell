@@ -5,7 +5,7 @@
 	.type	get_prompt,@function
 get_prompt:                             # @get_prompt
 .Lfunc_begin0:
-	.file	1 "/mnt/nfs/homes/jbocktor/student/group_minishell/minigroup" "src/prompt/prompt.c"
+	.file	1 "/mnt/nfs/homes/jbocktor/student/group_minishell/more_hope/minigroups" "src/prompt/prompt.c"
 	.loc	1 16 0                          # src/prompt/prompt.c:16:0
 	.cfi_startproc
 # %bb.0:
@@ -17,106 +17,130 @@ get_prompt:                             # @get_prompt
 	subq	$32, %rsp
 	movq	%rdi, -8(%rbp)
 .Ltmp0:
-	.loc	1 21 7 prologue_end             # src/prompt/prompt.c:21:7
-	movq	-8(%rbp), %rax
-	.loc	1 21 6 is_stmt 0                # src/prompt/prompt.c:21:6
-	cmpq	$0, (%rax)
-.Ltmp1:
-	.loc	1 21 6                          # src/prompt/prompt.c:21:6
-	je	.LBB0_2
-# %bb.1:
-.Ltmp2:
-	.loc	1 22 9 is_stmt 1                # src/prompt/prompt.c:22:9
-	movq	-8(%rbp), %rax
-	.loc	1 22 8 is_stmt 0                # src/prompt/prompt.c:22:8
-	movq	(%rax), %rdi
-	.loc	1 22 3                          # src/prompt/prompt.c:22:3
-	callq	free
-.Ltmp3:
-.LBB0_2:
-	.loc	1 23 13 is_stmt 1               # src/prompt/prompt.c:23:13
+	.loc	1 21 13 prologue_end            # src/prompt/prompt.c:21:13
 	callq	get_dir_path
-	.loc	1 23 11 is_stmt 0               # src/prompt/prompt.c:23:11
+	.loc	1 21 11 is_stmt 0               # src/prompt/prompt.c:21:11
 	movq	%rax, -24(%rbp)
-	.loc	1 24 13 is_stmt 1               # src/prompt/prompt.c:24:13
+	.loc	1 22 13 is_stmt 1               # src/prompt/prompt.c:22:13
 	callq	get_log_info
-	.loc	1 24 11 is_stmt 0               # src/prompt/prompt.c:24:11
+	.loc	1 22 11 is_stmt 0               # src/prompt/prompt.c:22:11
 	movq	%rax, -32(%rbp)
-.Ltmp4:
-	.loc	1 25 15 is_stmt 1               # src/prompt/prompt.c:25:15
+.Ltmp1:
+	.loc	1 23 15 is_stmt 1               # src/prompt/prompt.c:23:15
 	cmpq	$0, -24(%rbp)
-	.loc	1 25 23 is_stmt 0               # src/prompt/prompt.c:25:23
-	jne	.LBB0_5
-# %bb.3:
-	.loc	1 25 35                         # src/prompt/prompt.c:25:35
-	cmpq	$0, -32(%rbp)
-.Ltmp5:
-	.loc	1 25 6                          # src/prompt/prompt.c:25:6
-	jne	.LBB0_5
-# %bb.4:
-.Ltmp6:
+.Ltmp2:
+	.loc	1 23 6 is_stmt 0                # src/prompt/prompt.c:23:6
+	jne	.LBB0_2
+# %bb.1:
+.Ltmp3:
+	.loc	1 25 8 is_stmt 1                # src/prompt/prompt.c:25:8
+	movq	-32(%rbp), %rdi
+	.loc	1 25 3 is_stmt 0                # src/prompt/prompt.c:25:3
+	callq	free
 	.loc	1 26 3 is_stmt 1                # src/prompt/prompt.c:26:3
-	jmp	.LBB0_10
-.LBB0_5:
+	jmp	.LBB0_13
+.Ltmp4:
+.LBB0_2:
+	.loc	1 28 7                          # src/prompt/prompt.c:28:7
+	movq	-8(%rbp), %rax
+	.loc	1 28 6 is_stmt 0                # src/prompt/prompt.c:28:6
+	cmpq	$0, (%rax)
+.Ltmp5:
+	.loc	1 28 6                          # src/prompt/prompt.c:28:6
+	je	.LBB0_4
+# %bb.3:
+.Ltmp6:
+	.loc	1 29 9 is_stmt 1                # src/prompt/prompt.c:29:9
+	movq	-8(%rbp), %rax
+	.loc	1 29 8 is_stmt 0                # src/prompt/prompt.c:29:8
+	movq	(%rax), %rdi
+	.loc	1 29 3                          # src/prompt/prompt.c:29:3
+	callq	free
 .Ltmp7:
-	.loc	1 27 20                         # src/prompt/prompt.c:27:20
+.LBB0_4:
+	.loc	1 30 15 is_stmt 1               # src/prompt/prompt.c:30:15
+	cmpq	$0, -24(%rbp)
+	.loc	1 30 23 is_stmt 0               # src/prompt/prompt.c:30:23
+	jne	.LBB0_7
+# %bb.5:
+	.loc	1 30 35                         # src/prompt/prompt.c:30:35
 	cmpq	$0, -32(%rbp)
 .Ltmp8:
-	.loc	1 27 11 is_stmt 0               # src/prompt/prompt.c:27:11
+	.loc	1 30 6                          # src/prompt/prompt.c:30:6
 	jne	.LBB0_7
 # %bb.6:
 .Ltmp9:
-	.loc	1 28 19 is_stmt 1               # src/prompt/prompt.c:28:19
-	movq	-24(%rbp), %rdi
-	.loc	1 28 9 is_stmt 0                # src/prompt/prompt.c:28:9
-	callq	ft_strdup
-	.loc	1 28 7                          # src/prompt/prompt.c:28:7
-	movq	%rax, -16(%rbp)
-	.loc	1 28 3                          # src/prompt/prompt.c:28:3
-	jmp	.LBB0_8
+	.loc	1 31 3 is_stmt 1                # src/prompt/prompt.c:31:3
+	jmp	.LBB0_13
 .LBB0_7:
-	.loc	1 30 20 is_stmt 1               # src/prompt/prompt.c:30:20
-	movq	-32(%rbp), %rdi
-	.loc	1 30 30 is_stmt 0               # src/prompt/prompt.c:30:30
-	movq	-24(%rbp), %rsi
-	.loc	1 30 9                          # src/prompt/prompt.c:30:9
-	callq	ft_strjoin
-	.loc	1 30 7                          # src/prompt/prompt.c:30:7
-	movq	%rax, -16(%rbp)
 .Ltmp10:
-.LBB0_8:
-	.loc	1 0 7                           # src/prompt/prompt.c:0:7
-	jmp	.LBB0_9
+	.loc	1 32 20                         # src/prompt/prompt.c:32:20
+	cmpq	$0, -32(%rbp)
+.Ltmp11:
+	.loc	1 32 11 is_stmt 0               # src/prompt/prompt.c:32:11
+	jne	.LBB0_9
+# %bb.8:
+.Ltmp12:
+	.loc	1 33 19 is_stmt 1               # src/prompt/prompt.c:33:19
+	movq	-24(%rbp), %rdi
+	.loc	1 33 9 is_stmt 0                # src/prompt/prompt.c:33:9
+	callq	ft_strdup
+	.loc	1 33 7                          # src/prompt/prompt.c:33:7
+	movq	%rax, -16(%rbp)
+	.loc	1 33 3                          # src/prompt/prompt.c:33:3
+	jmp	.LBB0_10
 .LBB0_9:
-	.loc	1 31 23 is_stmt 1               # src/prompt/prompt.c:31:23
+	.loc	1 35 20 is_stmt 1               # src/prompt/prompt.c:35:20
+	movq	-32(%rbp), %rdi
+	.loc	1 35 30 is_stmt 0               # src/prompt/prompt.c:35:30
+	movq	-24(%rbp), %rsi
+	.loc	1 35 9                          # src/prompt/prompt.c:35:9
+	callq	ft_strjoin
+	.loc	1 35 7                          # src/prompt/prompt.c:35:7
+	movq	%rax, -16(%rbp)
+.Ltmp13:
+.LBB0_10:
+	.loc	1 0 7                           # src/prompt/prompt.c:0:7
+	jmp	.LBB0_11
+.LBB0_11:
+	.loc	1 36 23 is_stmt 1               # src/prompt/prompt.c:36:23
 	movq	-16(%rbp), %rdi
-	.loc	1 31 12 is_stmt 0               # src/prompt/prompt.c:31:12
+	.loc	1 36 12 is_stmt 0               # src/prompt/prompt.c:36:12
 	movabsq	$.L.str, %rsi
 	callq	ft_strjoin
 	movq	%rax, %rcx
-	.loc	1 31 3                          # src/prompt/prompt.c:31:3
+	.loc	1 36 3                          # src/prompt/prompt.c:36:3
 	movq	-8(%rbp), %rax
-	.loc	1 31 10                         # src/prompt/prompt.c:31:10
+	.loc	1 36 10                         # src/prompt/prompt.c:36:10
 	movq	%rcx, (%rax)
-	.loc	1 32 7 is_stmt 1                # src/prompt/prompt.c:32:7
+	.loc	1 37 7 is_stmt 1                # src/prompt/prompt.c:37:7
 	movq	-16(%rbp), %rdi
-	.loc	1 32 2 is_stmt 0                # src/prompt/prompt.c:32:2
+	.loc	1 37 2 is_stmt 0                # src/prompt/prompt.c:37:2
 	callq	free
-	.loc	1 33 7 is_stmt 1                # src/prompt/prompt.c:33:7
+	.loc	1 38 7 is_stmt 1                # src/prompt/prompt.c:38:7
 	movq	-32(%rbp), %rdi
-	.loc	1 33 2 is_stmt 0                # src/prompt/prompt.c:33:2
+	.loc	1 38 2 is_stmt 0                # src/prompt/prompt.c:38:2
 	callq	free
-	.loc	1 34 7 is_stmt 1                # src/prompt/prompt.c:34:7
+.Ltmp14:
+	.loc	1 39 15 is_stmt 1               # src/prompt/prompt.c:39:15
+	cmpq	$0, -24(%rbp)
+.Ltmp15:
+	.loc	1 39 6 is_stmt 0                # src/prompt/prompt.c:39:6
+	je	.LBB0_13
+# %bb.12:
+.Ltmp16:
+	.loc	1 40 8 is_stmt 1                # src/prompt/prompt.c:40:8
 	movq	-24(%rbp), %rdi
-	.loc	1 34 2 is_stmt 0                # src/prompt/prompt.c:34:2
+	.loc	1 40 3 is_stmt 0                # src/prompt/prompt.c:40:3
 	callq	free
-.LBB0_10:
-	.loc	1 35 1 is_stmt 1                # src/prompt/prompt.c:35:1
+.Ltmp17:
+.LBB0_13:
+	.loc	1 41 1 is_stmt 1                # src/prompt/prompt.c:41:1
 	addq	$32, %rsp
 	popq	%rbp
 	.cfi_def_cfa %rsp, 8
 	retq
-.Ltmp11:
+.Ltmp18:
 .Lfunc_end0:
 	.size	get_prompt, .Lfunc_end0-get_prompt
 	.cfi_endproc
@@ -297,25 +321,25 @@ get_prompt:                             # @get_prompt
 .Linfo_string1:
 	.asciz	"src/prompt/prompt.c"           # string offset=38
 .Linfo_string2:
-	.asciz	"/mnt/nfs/homes/jbocktor/student/group_minishell/minigroup" # string offset=58
+	.asciz	"/mnt/nfs/homes/jbocktor/student/group_minishell/more_hope/minigroups" # string offset=58
 .Linfo_string3:
-	.asciz	"get_prompt"                    # string offset=116
+	.asciz	"get_prompt"                    # string offset=127
 .Linfo_string4:
-	.asciz	"prompt"                        # string offset=127
+	.asciz	"prompt"                        # string offset=138
 .Linfo_string5:
-	.asciz	"char"                          # string offset=134
+	.asciz	"char"                          # string offset=145
 .Linfo_string6:
-	.asciz	"tmp"                           # string offset=139
+	.asciz	"tmp"                           # string offset=150
 .Linfo_string7:
-	.asciz	"dir_path"                      # string offset=143
+	.asciz	"dir_path"                      # string offset=154
 .Linfo_string8:
-	.asciz	"log_info"                      # string offset=152
+	.asciz	"log_info"                      # string offset=163
 	.ident	"Ubuntu clang version 12.0.1-19ubuntu3"
 	.section	".note.GNU-stack","",@progbits
 	.addrsig
-	.addrsig_sym free
 	.addrsig_sym get_dir_path
 	.addrsig_sym get_log_info
+	.addrsig_sym free
 	.addrsig_sym ft_strdup
 	.addrsig_sym ft_strjoin
 	.section	.debug_line,"",@progbits

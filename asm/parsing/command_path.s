@@ -5,7 +5,7 @@
 	.type	search_command_path,@function
 search_command_path:                    # @search_command_path
 .Lfunc_begin0:
-	.file	1 "/mnt/nfs/homes/jbocktor/student/group_minishell/minigroup" "src/parsing/command_path.c"
+	.file	1 "/mnt/nfs/homes/jbocktor/student/group_minishell/more_hope/minigroups" "src/parsing/command_path.c"
 	.loc	1 16 0                          # src/parsing/command_path.c:16:0
 	.cfi_startproc
 # %bb.0:
@@ -436,25 +436,25 @@ get_command_path:                       # @get_command_path
 .Linfo_string1:
 	.asciz	"src/parsing/command_path.c"    # string offset=38
 .Linfo_string2:
-	.asciz	"/mnt/nfs/homes/jbocktor/student/group_minishell/minigroup" # string offset=65
+	.asciz	"/mnt/nfs/homes/jbocktor/student/group_minishell/more_hope/minigroups" # string offset=65
 .Linfo_string3:
-	.asciz	"search_command_path"           # string offset=123
+	.asciz	"search_command_path"           # string offset=134
 .Linfo_string4:
-	.asciz	"char"                          # string offset=143
+	.asciz	"char"                          # string offset=154
 .Linfo_string5:
-	.asciz	"get_command_path"              # string offset=148
+	.asciz	"get_command_path"              # string offset=159
 .Linfo_string6:
-	.asciz	"path"                          # string offset=165
+	.asciz	"path"                          # string offset=176
 .Linfo_string7:
-	.asciz	"cmd_name"                      # string offset=170
+	.asciz	"cmd_name"                      # string offset=181
 .Linfo_string8:
-	.asciz	"i"                             # string offset=179
+	.asciz	"i"                             # string offset=190
 .Linfo_string9:
-	.asciz	"int"                           # string offset=181
+	.asciz	"int"                           # string offset=192
 .Linfo_string10:
-	.asciz	"tmp"                           # string offset=185
+	.asciz	"tmp"                           # string offset=196
 .Linfo_string11:
-	.asciz	"cmd_path"                      # string offset=189
+	.asciz	"cmd_path"                      # string offset=200
 	.ident	"Ubuntu clang version 12.0.1-19ubuntu3"
 	.section	".note.GNU-stack","",@progbits
 	.addrsig

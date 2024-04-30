@@ -6548,6 +6548,7 @@ void init_minishell(t_minishell *minishell, char **envp);
 
 
 void cd(t_minishell *minishell, t_cmd *cmd);
+t_env *get_oldpwd(t_env **env, t_env *pwd);
 void pwd(t_minishell *minishell, t_cmd *cmd);
 void echo(t_minishell *minishell, t_cmd *cmd);
 void ft_exit(t_minishell *minishell, t_cmd *cmd);
@@ -6588,6 +6589,7 @@ void update_environment_state(t_minishell *minishell, t_cmd *cmd, int i);
 void lexical_analysis(t_minishell *minishell, char *input);
 
 int add_quote(char *input);
+void init_token_attr(t_token **token);
 int get_token_quote_nbr(char *input);
 int skip_quote(char *lexeme, char quote);
 t_expan *get_token_expansion(char *lexeme, int length);
@@ -6628,11 +6630,16 @@ void get_command_redir(t_minishell *minishell,
     t_token *token, t_redir **redir);
 void get_command_arg(t_minishell *minishell, t_token *token,
     t_arg **arg_table, t_env *env);
+char *expand_lexeme_variable(char *lexeme, char *name, char *value);
+char *get_expansion_value(t_env *env, char *name);
 void manage_expansion(t_minishell *minishell,
     t_token **token, t_env *env);
 t_ast_node *get_syntax_tree_node(t_minishell *minishell,
     t_token **token, int i);
 _Bool is_expansion_stored_in_env(char *value);
+void get_redir_heredoc(char *delimiter);
+_Bool is_file_accessible(t_minishell *minishell, char *filename);
+void add_infile_to_list(t_infile **infile, t_infile **new);
 
 
 void manage_parent_pipe(t_ast **ast);
@@ -6640,6 +6647,8 @@ void manage_child_pipe(t_pipe *pipe);
 void manage_builtin_pipe(t_pipe *pipe);
 void execution(t_minishell *minishell);
 void backup_in_out(t_backup *std_in_out);
+int open_command_infile(t_cmd *cmd);
+int open_command_outfile(t_cmd *cmd);
 void open_command_redirection(t_cmd *cmd);
 void close_redirection(t_backup *std_in_out, t_cmd *cmd);
 void interrupt_all_execution(t_minishell *minishell);
@@ -6682,102 +6691,11 @@ char *get_expansion_value(t_env *env, char *name)
  value = ((void*)0);
  while (env)
  {
-  if (strcmp(name, env->name) == 0)
+  if (ft_strcmp(name, env->name) == 0)
    value = ft_strdup(env->value);
   env = env->next;
  }
  return (value);
-}
-
-size_t expand_variable_in_lexeme(char *lexeme, char **lexeme_expanded,
- const char *name, const char *value)
-{
- size_t i;
-
- i = 0;
- while (*lexeme)
- {
-  if (*lexeme == '$' && ft_strncmp(name,
-    &(*lexeme) + 1, ft_strlen(name)) == 0)
-  {
-   while (*value)
-   {
-    (*lexeme_expanded)[i] = *value;
-    value++;
-    i++;
-   }
-   return (i);
-  }
-  (*lexeme_expanded)[i] = *lexeme;
-  lexeme++;
-  i++;
- }
- return (i);
-}
-
-void replace_expansion_name_by_value(char *lexeme,
-  char **lexeme_expanded, char *value, char *name)
-{
- size_t i;
-
- i = expand_variable_in_lexeme(lexeme, lexeme_expanded, name, value);
- (*lexeme_expanded)[i] = '\0';
-}
-
-void replace_variable_in_lexeme(char *lexeme, char **lexeme_expanded,
- const char *name)
-{
- int i;
- int j;
- int len;
-
- i = 0;
- j = 0;
- len = 0;
- while (lexeme[j])
- {
-  if (lexeme[j] == '$' && ft_strncmp(name, &lexeme[j + 1],
-    ft_strlen(name)) == 0)
-  {
-   len = ft_strlen(name) + j + 1;
-   while (j < len)
-    j++;
-   break ;
-  }
-  (*lexeme_expanded)[i++] = lexeme[j++];
- }
- while (lexeme[j])
-  (*lexeme_expanded)[i++] = lexeme[j++];
- (*lexeme_expanded)[i] = '\0';
-}
-
-void remove_expansion_name(char *lexeme, char **lexeme_expanded, char *name)
-{
- replace_variable_in_lexeme(lexeme, lexeme_expanded, name);
- if (ft_strlen((*lexeme_expanded)) == 0 && ft_strlen(lexeme) > 0)
- {
-  free((*lexeme_expanded));
-  (*lexeme_expanded) = ((void*)0);
- }
-}
-
-char *expand_lexeme_variable(char *lexeme, char *name, char *value)
-{
- int length;
- char *lexeme_expanded;
-
- length = ft_strlen(lexeme) - ft_strlen(name);
- if (value)
-  length += ft_strlen(value);
- lexeme_expanded = malloc(length + 1);
- if (!lexeme_expanded)
-  return (perror("malloc"), ((void*)0));
- if (value)
-  replace_expansion_name_by_value(lexeme, &lexeme_expanded, value, name);
- else
-  remove_expansion_name(lexeme, &lexeme_expanded, name);
- free(lexeme);
- return (lexeme_expanded);
 }
 
 void manage_expansion(t_minishell *minishell, t_token **token, t_env *env)

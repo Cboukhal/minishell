@@ -5,7 +5,7 @@
 	.type	size,@function
 size:                                   # @size
 .Lfunc_begin0:
-	.file	1 "/mnt/nfs/homes/jbocktor/student/group_minishell/minigroup" "src/init/path.c"
+	.file	1 "/mnt/nfs/homes/jbocktor/student/group_minishell/more_hope/minigroups" "src/init/path.c"
 	.loc	1 16 0                          # src/init/path.c:16:0
 	.cfi_startproc
 # %bb.0:
@@ -484,7 +484,7 @@ get_path:                               # @get_path
 	.size	.L.str.2, 2
 
 	.file	2 "/usr/lib/llvm-12/lib/clang/12.0.1/include" "stddef.h"
-	.file	3 "/mnt/nfs/homes/jbocktor/student/group_minishell/minigroup" "src/init/../../include/minishell.h"
+	.file	3 "/mnt/nfs/homes/jbocktor/student/group_minishell/more_hope/minigroups" "src/init/../../include/minishell.h"
 	.section	.debug_abbrev,"",@progbits
 	.byte	1                               # Abbreviation Code
 	.byte	17                              # DW_TAG_compile_unit
@@ -897,55 +897,55 @@ get_path:                               # @get_path
 .Linfo_string1:
 	.asciz	"src/init/path.c"               # string offset=38
 .Linfo_string2:
-	.asciz	"/mnt/nfs/homes/jbocktor/student/group_minishell/minigroup" # string offset=54
+	.asciz	"/mnt/nfs/homes/jbocktor/student/group_minishell/more_hope/minigroups" # string offset=54
 .Linfo_string3:
-	.asciz	"size"                          # string offset=112
+	.asciz	"size"                          # string offset=123
 .Linfo_string4:
-	.asciz	"int"                           # string offset=117
+	.asciz	"int"                           # string offset=128
 .Linfo_string5:
-	.asciz	"extract_path"                  # string offset=121
+	.asciz	"extract_path"                  # string offset=132
 .Linfo_string6:
-	.asciz	"char"                          # string offset=134
+	.asciz	"char"                          # string offset=145
 .Linfo_string7:
-	.asciz	"add_slash"                     # string offset=139
+	.asciz	"add_slash"                     # string offset=150
 .Linfo_string8:
-	.asciz	"is_path"                       # string offset=149
+	.asciz	"is_path"                       # string offset=160
 .Linfo_string9:
-	.asciz	"_Bool"                         # string offset=157
+	.asciz	"_Bool"                         # string offset=168
 .Linfo_string10:
-	.asciz	"get_path"                      # string offset=163
+	.asciz	"get_path"                      # string offset=174
 .Linfo_string11:
-	.asciz	"arg"                           # string offset=172
+	.asciz	"arg"                           # string offset=183
 .Linfo_string12:
-	.asciz	"i"                             # string offset=176
+	.asciz	"i"                             # string offset=187
 .Linfo_string13:
-	.asciz	"path"                          # string offset=178
+	.asciz	"path"                          # string offset=189
 .Linfo_string14:
-	.asciz	"long unsigned int"             # string offset=183
+	.asciz	"long unsigned int"             # string offset=194
 .Linfo_string15:
-	.asciz	"size_t"                        # string offset=201
+	.asciz	"size_t"                        # string offset=212
 .Linfo_string16:
-	.asciz	"j"                             # string offset=208
+	.asciz	"j"                             # string offset=219
 .Linfo_string17:
-	.asciz	"path_copy"                     # string offset=210
+	.asciz	"path_copy"                     # string offset=221
 .Linfo_string18:
-	.asciz	"path_splitted"                 # string offset=220
+	.asciz	"path_splitted"                 # string offset=231
 .Linfo_string19:
-	.asciz	"path_with_slash"               # string offset=234
+	.asciz	"path_with_slash"               # string offset=245
 .Linfo_string20:
-	.asciz	"env"                           # string offset=250
+	.asciz	"env"                           # string offset=261
 .Linfo_string21:
-	.asciz	"name"                          # string offset=254
+	.asciz	"name"                          # string offset=265
 .Linfo_string22:
-	.asciz	"value"                         # string offset=259
+	.asciz	"value"                         # string offset=270
 .Linfo_string23:
-	.asciz	"next"                          # string offset=265
+	.asciz	"next"                          # string offset=276
 .Linfo_string24:
-	.asciz	"s_env"                         # string offset=270
+	.asciz	"s_env"                         # string offset=281
 .Linfo_string25:
-	.asciz	"t_env"                         # string offset=276
+	.asciz	"t_env"                         # string offset=287
 .Linfo_string26:
-	.asciz	"index"                         # string offset=282
+	.asciz	"index"                         # string offset=293
 	.ident	"Ubuntu clang version 12.0.1-19ubuntu3"
 	.section	".note.GNU-stack","",@progbits
 	.addrsig

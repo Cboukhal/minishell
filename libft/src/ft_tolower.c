@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agadea <agadea@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jbocktor <jbocktor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/07 15:12:33 by agadea            #+#    #+#             */
-/*   Updated: 2023/05/23 09:47:18 by agadea           ###   ########.fr       */
+/*   Created: 2024/04/30 09:16:31 by jbocktor          #+#    #+#             */
+/*   Updated: 2024/04/30 09:16:39 by jbocktor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "../include/libft.h"
 

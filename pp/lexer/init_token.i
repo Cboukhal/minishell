@@ -1,19 +1,19 @@
-# 1 "src/error/error.c"
+# 1 "src/lexer/init_token.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 341 "<built-in>" 3
 # 1 "<command line>" 1
 # 1 "<built-in>" 2
-# 1 "src/error/error.c" 2
-# 13 "src/error/error.c"
-# 1 "src/error/../../include/minishell.h" 1
-# 16 "src/error/../../include/minishell.h"
-# 1 "src/error/../../include/../libft/include/libft.h" 1
-# 17 "src/error/../../include/../libft/include/libft.h"
-# 1 "src/error/../../include/../libft/include/ft_printf.h" 1
-# 16 "src/error/../../include/../libft/include/ft_printf.h"
-# 1 "src/error/../../include/../libft/include/libft.h" 1
-# 17 "src/error/../../include/../libft/include/ft_printf.h" 2
+# 1 "src/lexer/init_token.c" 2
+# 13 "src/lexer/init_token.c"
+# 1 "src/lexer/../../include/minishell.h" 1
+# 16 "src/lexer/../../include/minishell.h"
+# 1 "src/lexer/../../include/../libft/include/libft.h" 1
+# 17 "src/lexer/../../include/../libft/include/libft.h"
+# 1 "src/lexer/../../include/../libft/include/ft_printf.h" 1
+# 16 "src/lexer/../../include/../libft/include/ft_printf.h"
+# 1 "src/lexer/../../include/../libft/include/libft.h" 1
+# 17 "src/lexer/../../include/../libft/include/ft_printf.h" 2
 # 1 "/usr/include/stdio.h" 1 3 4
 # 27 "/usr/include/stdio.h" 3 4
 # 1 "/usr/include/x86_64-linux-gnu/bits/libc-header-start.h" 1 3 4
@@ -759,7 +759,7 @@ extern void funlockfile (FILE *__stream) __attribute__ ((__nothrow__ ));
 # 885 "/usr/include/stdio.h" 3 4
 extern int __uflow (FILE *);
 extern int __overflow (FILE *, int);
-# 18 "src/error/../../include/../libft/include/ft_printf.h" 2
+# 18 "src/lexer/../../include/../libft/include/ft_printf.h" 2
 # 1 "/usr/include/unistd.h" 1 3 4
 # 202 "/usr/include/unistd.h" 3 4
 # 1 "/usr/include/x86_64-linux-gnu/bits/posix_opt.h" 1 3 4
@@ -2004,7 +2004,7 @@ int getentropy (void *__buffer, size_t __length)
 # 1218 "/usr/include/unistd.h" 3 4
 # 1 "/usr/include/x86_64-linux-gnu/bits/unistd_ext.h" 1 3 4
 # 1219 "/usr/include/unistd.h" 2 3 4
-# 19 "src/error/../../include/../libft/include/ft_printf.h" 2
+# 19 "src/lexer/../../include/../libft/include/ft_printf.h" 2
 
 # 1 "/usr/include/stdlib.h" 1 3 4
 # 26 "/usr/include/stdlib.h" 3 4
@@ -3059,7 +3059,7 @@ extern int getloadavg (double __loadavg[], int __nelem)
 # 1023 "/usr/include/stdlib.h" 3 4
 # 1 "/usr/include/x86_64-linux-gnu/bits/stdlib-float.h" 1 3 4
 # 1024 "/usr/include/stdlib.h" 2 3 4
-# 21 "src/error/../../include/../libft/include/ft_printf.h" 2
+# 21 "src/lexer/../../include/../libft/include/ft_printf.h" 2
 # 1 "/usr/lib/llvm-12/lib/clang/12.0.1/include/limits.h" 1 3
 # 21 "/usr/lib/llvm-12/lib/clang/12.0.1/include/limits.h" 3
 # 1 "/usr/include/limits.h" 1 3 4
@@ -3090,7 +3090,7 @@ extern int getloadavg (double __loadavg[], int __nelem)
 # 1 "/usr/include/x86_64-linux-gnu/bits/posix2_lim.h" 1 3 4
 # 200 "/usr/include/limits.h" 2 3 4
 # 22 "/usr/lib/llvm-12/lib/clang/12.0.1/include/limits.h" 2 3
-# 22 "src/error/../../include/../libft/include/ft_printf.h" 2
+# 22 "src/lexer/../../include/../libft/include/ft_printf.h" 2
 
 enum e_error {no_error, error};
 
@@ -3138,11 +3138,11 @@ int putnbr_zero(int argument, int count);
 int putnbr_count(int argument, int count);
 int putchar_count(char argument, int count);
 int putstr_precision_count(char *argument, int precision);
-# 18 "src/error/../../include/../libft/include/libft.h" 2
-# 1 "src/error/../../include/../libft/include/get_next_line.h" 1
-# 17 "src/error/../../include/../libft/include/get_next_line.h"
-# 1 "src/error/../../include/../libft/include/libft.h" 1
-# 18 "src/error/../../include/../libft/include/get_next_line.h" 2
+# 18 "src/lexer/../../include/../libft/include/libft.h" 2
+# 1 "src/lexer/../../include/../libft/include/get_next_line.h" 1
+# 17 "src/lexer/../../include/../libft/include/get_next_line.h"
+# 1 "src/lexer/../../include/../libft/include/libft.h" 1
+# 18 "src/lexer/../../include/../libft/include/get_next_line.h" 2
 
 # 1 "/usr/include/fcntl.h" 1 3 4
 # 35 "/usr/include/fcntl.h" 3 4
@@ -3232,7 +3232,7 @@ extern int posix_fadvise (int __fd, off_t __offset, off_t __len,
      int __advise) __attribute__ ((__nothrow__ ));
 # 295 "/usr/include/fcntl.h" 3 4
 extern int posix_fallocate (int __fd, off_t __offset, off_t __len);
-# 20 "src/error/../../include/../libft/include/get_next_line.h" 2
+# 20 "src/lexer/../../include/../libft/include/get_next_line.h" 2
 
 
 
@@ -3245,7 +3245,7 @@ int check_for_new_line(const char *line);
 char *store_the_rest(const char *line);
 char *ft_strjoin_n_free(const char *s1, const char *s2);
 char *define_new_line(int fd, ssize_t index, char *buffer, char *cache);
-# 19 "src/error/../../include/../libft/include/libft.h" 2
+# 19 "src/lexer/../../include/../libft/include/libft.h" 2
 
 
 
@@ -3311,7 +3311,7 @@ typedef unsigned long int uintptr_t;
 typedef __intmax_t intmax_t;
 typedef __uintmax_t uintmax_t;
 # 53 "/usr/lib/llvm-12/lib/clang/12.0.1/include/stdint.h" 2 3
-# 23 "src/error/../../include/../libft/include/libft.h" 2
+# 23 "src/lexer/../../include/../libft/include/libft.h" 2
 
 
 size_t ft_strlcat(char *dst, const char *src, size_t size);
@@ -3373,7 +3373,7 @@ void ft_lstadd_front(t_list **lst, t_list *new);
 void ft_lstclear(t_list **lst, void (*del)(void *));
 void ft_lstdelone(t_list *lst, void (*del)(void *));
 t_list *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
-# 17 "src/error/../../include/minishell.h" 2
+# 17 "src/lexer/../../include/minishell.h" 2
 # 1 "/usr/include/readline/readline.h" 1 3 4
 # 36 "/usr/include/readline/readline.h" 3 4
 # 1 "/usr/include/readline/rlstdc.h" 1 3 4
@@ -4653,7 +4653,7 @@ struct readline_state {
 
 extern int rl_save_state (struct readline_state *);
 extern int rl_restore_state (struct readline_state *);
-# 18 "src/error/../../include/minishell.h" 2
+# 18 "src/lexer/../../include/minishell.h" 2
 # 1 "/usr/include/readline/history.h" 1 3 4
 # 29 "/usr/include/readline/history.h" 3 4
 # 1 "/usr/include/time.h" 1 3 4
@@ -5058,7 +5058,7 @@ extern int max_input_history;
 
 
 extern rl_linebuf_func_t *history_inhibit_expansion_function;
-# 19 "src/error/../../include/minishell.h" 2
+# 19 "src/lexer/../../include/minishell.h" 2
 
 # 1 "/usr/include/x86_64-linux-gnu/sys/stat.h" 1 3 4
 # 101 "/usr/include/x86_64-linux-gnu/sys/stat.h" 3 4
@@ -5159,7 +5159,7 @@ extern int utimensat (int __fd, const char *__path,
      __attribute__ ((__nothrow__ )) __attribute__ ((__nonnull__ (2)));
 # 452 "/usr/include/x86_64-linux-gnu/sys/stat.h" 3 4
 extern int futimens (int __fd, const struct timespec __times[2]) __attribute__ ((__nothrow__ ));
-# 21 "src/error/../../include/minishell.h" 2
+# 21 "src/lexer/../../include/minishell.h" 2
 # 1 "/usr/include/x86_64-linux-gnu/sys/wait.h" 1 3 4
 # 36 "/usr/include/x86_64-linux-gnu/sys/wait.h" 3 4
 # 1 "/usr/include/signal.h" 1 3 4
@@ -5952,9 +5952,9 @@ extern __pid_t wait3 (int *__stat_loc, int __options,
 # 164 "/usr/include/x86_64-linux-gnu/sys/wait.h" 3 4
 extern __pid_t wait4 (__pid_t __pid, int *__stat_loc, int __options,
         struct rusage *__usage) __attribute__ ((__nothrow__));
-# 22 "src/error/../../include/minishell.h" 2
+# 22 "src/lexer/../../include/minishell.h" 2
 # 1 "/usr/lib/llvm-12/lib/clang/12.0.1/include/stdbool.h" 1 3
-# 23 "src/error/../../include/minishell.h" 2
+# 23 "src/lexer/../../include/minishell.h" 2
 # 1 "/usr/include/termios.h" 1 3 4
 # 39 "/usr/include/termios.h" 3 4
 # 1 "/usr/include/x86_64-linux-gnu/bits/termios.h" 1 3 4
@@ -6068,7 +6068,7 @@ extern __pid_t tcgetsid (int __fd) __attribute__ ((__nothrow__ ));
 
 # 1 "/usr/include/x86_64-linux-gnu/sys/ttydefaults.h" 1 3 4
 # 105 "/usr/include/termios.h" 2 3 4
-# 24 "src/error/../../include/minishell.h" 2
+# 24 "src/lexer/../../include/minishell.h" 2
 
 
 
@@ -6182,11 +6182,11 @@ extern __ssize_t getdirentries (int __fd, char *__restrict __buf,
 # 404 "/usr/include/dirent.h" 3 4
 # 1 "/usr/include/x86_64-linux-gnu/bits/dirent_ext.h" 1 3 4
 # 405 "/usr/include/dirent.h" 2 3 4
-# 28 "src/error/../../include/minishell.h" 2
+# 28 "src/lexer/../../include/minishell.h" 2
 # 1 "/usr/lib/llvm-12/lib/clang/12.0.1/include/limits.h" 1 3
-# 29 "src/error/../../include/minishell.h" 2
-# 1 "src/error/../../include/colors.h" 1
-# 30 "src/error/../../include/minishell.h" 2
+# 29 "src/lexer/../../include/minishell.h" 2
+# 1 "src/lexer/../../include/colors.h" 1
+# 30 "src/lexer/../../include/minishell.h" 2
 
 # 1 "/usr/include/errno.h" 1 3 4
 # 28 "/usr/include/errno.h" 3 4
@@ -6214,7 +6214,7 @@ extern __ssize_t getdirentries (int __fd, char *__restrict __buf,
 
 
 extern int *__errno_location (void) __attribute__ ((__nothrow__ )) __attribute__ ((__const__));
-# 32 "src/error/../../include/minishell.h" 2
+# 32 "src/lexer/../../include/minishell.h" 2
 
 # 1 "/usr/include/term.h" 1 3 4
 # 48 "/usr/include/term.h" 3 4
@@ -6338,7 +6338,7 @@ extern int restartterm_sp (SCREEN*, const char *, int, int *);
 
 
 extern void exit_terminfo(int);
-# 34 "src/error/../../include/minishell.h" 2
+# 34 "src/lexer/../../include/minishell.h" 2
 
 
 
@@ -6548,6 +6548,7 @@ void init_minishell(t_minishell *minishell, char **envp);
 
 
 void cd(t_minishell *minishell, t_cmd *cmd);
+t_env *get_oldpwd(t_env **env, t_env *pwd);
 void pwd(t_minishell *minishell, t_cmd *cmd);
 void echo(t_minishell *minishell, t_cmd *cmd);
 void ft_exit(t_minishell *minishell, t_cmd *cmd);
@@ -6588,6 +6589,7 @@ void update_environment_state(t_minishell *minishell, t_cmd *cmd, int i);
 void lexical_analysis(t_minishell *minishell, char *input);
 
 int add_quote(char *input);
+void init_token_attr(t_token **token);
 int get_token_quote_nbr(char *input);
 int skip_quote(char *lexeme, char quote);
 t_expan *get_token_expansion(char *lexeme, int length);
@@ -6628,11 +6630,16 @@ void get_command_redir(t_minishell *minishell,
     t_token *token, t_redir **redir);
 void get_command_arg(t_minishell *minishell, t_token *token,
     t_arg **arg_table, t_env *env);
+char *expand_lexeme_variable(char *lexeme, char *name, char *value);
+char *get_expansion_value(t_env *env, char *name);
 void manage_expansion(t_minishell *minishell,
     t_token **token, t_env *env);
 t_ast_node *get_syntax_tree_node(t_minishell *minishell,
     t_token **token, int i);
 _Bool is_expansion_stored_in_env(char *value);
+void get_redir_heredoc(char *delimiter);
+_Bool is_file_accessible(t_minishell *minishell, char *filename);
+void add_infile_to_list(t_infile **infile, t_infile **new);
 
 
 void manage_parent_pipe(t_ast **ast);
@@ -6640,6 +6647,8 @@ void manage_child_pipe(t_pipe *pipe);
 void manage_builtin_pipe(t_pipe *pipe);
 void execution(t_minishell *minishell);
 void backup_in_out(t_backup *std_in_out);
+int open_command_infile(t_cmd *cmd);
+int open_command_outfile(t_cmd *cmd);
 void open_command_redirection(t_cmd *cmd);
 void close_redirection(t_backup *std_in_out, t_cmd *cmd);
 void interrupt_all_execution(t_minishell *minishell);
@@ -6673,10 +6682,14 @@ void print_syntax_tree(t_ast *root);
 void print_cmd_redir(t_redir *redir);
 void print_expansion(t_expan *expansion);
 void print_token_with_expansion(t_token *stream);
-# 14 "src/error/error.c" 2
+# 14 "src/lexer/init_token.c" 2
 
-void get_token_error(t_token *token, t_token *stream)
+void init_token_attr(t_token **token)
 {
- (void)token;
- (void)stream;
+ (*token)->quote_nbr = 0;
+ (*token)->length = 0;
+ (*token)->prev = ((void*)0);
+ (*token)->next = ((void*)0);
+ (*token)->lexeme = ((void*)0);
+ (*token)->expansion = ((void*)0);
 }

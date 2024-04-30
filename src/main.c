@@ -6,7 +6,7 @@
 /*   By: jbocktor <jbocktor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 00:28:19 by agadea            #+#    #+#             */
-/*   Updated: 2024/04/29 23:53:31 by jbocktor         ###   ########.fr       */
+/*   Updated: 2024/04/30 09:35:36 by jbocktor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -169,10 +169,8 @@ char	*parse_input(char *input, t_minishell *minishell)
 		if (split[i][0] == 39)
 			j++;
 		if ((split[i][0] == '$') && (j % 2 == 0))
-		{
-			split[i] = jspcmtappeler(split[i], minishell);
-			i++;
-		}
+			split[i] = jspcmtappeler(split[i], minishell);	
+		i++;
 	}
 	i = 0;
 	j = 0;

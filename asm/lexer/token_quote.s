@@ -1,12 +1,12 @@
 	.text
 	.file	"token_quote.c"
-	.file	1 "/mnt/nfs/homes/jbocktor/student/group_minishell/minigroup" "src/lexer/../../include/minishell.h"
+	.file	1 "/mnt/nfs/homes/jbocktor/student/group_minishell/more_hope/minigroups" "src/lexer/../../include/minishell.h"
 	.globl	add_quote                       # -- Begin function add_quote
 	.p2align	4, 0x90
 	.type	add_quote,@function
 add_quote:                              # @add_quote
 .Lfunc_begin0:
-	.file	2 "/mnt/nfs/homes/jbocktor/student/group_minishell/minigroup" "src/lexer/token_quote.c"
+	.file	2 "/mnt/nfs/homes/jbocktor/student/group_minishell/more_hope/minigroups" "src/lexer/token_quote.c"
 	.loc	2 16 0                          # src/lexer/token_quote.c:16:0
 	.cfi_startproc
 # %bb.0:
@@ -105,37 +105,59 @@ skip_quote:                             # @skip_quote
 	movq	%rsp, %rbp
 	.cfi_def_cfa_register %rbp
 	movb	%sil, %al
-	movq	%rdi, -8(%rbp)
-	movb	%al, -9(%rbp)
+	movq	%rdi, -16(%rbp)
+	movb	%al, -17(%rbp)
 .Ltmp7:
 	.loc	2 38 4 prologue_end             # src/lexer/token_quote.c:38:4
-	movl	$1, -16(%rbp)
+	movl	$1, -24(%rbp)
 .LBB1_1:                                # =>This Inner Loop Header: Depth=1
 	.loc	2 39 9                          # src/lexer/token_quote.c:39:9
-	movq	-8(%rbp), %rax
-	movslq	-16(%rbp), %rcx
+	movq	-16(%rbp), %rax
+	movslq	-24(%rbp), %rcx
 	movsbl	(%rax,%rcx), %eax
 	.loc	2 39 22 is_stmt 0               # src/lexer/token_quote.c:39:22
-	movsbl	-9(%rbp), %ecx
+	movsbl	-17(%rbp), %ecx
 	.loc	2 39 19                         # src/lexer/token_quote.c:39:19
 	cmpl	%ecx, %eax
 	.loc	2 39 2                          # src/lexer/token_quote.c:39:2
-	je	.LBB1_3
+	je	.LBB1_5
 # %bb.2:                                #   in Loop: Header=BB1_1 Depth=1
-	.loc	2 40 4 is_stmt 1                # src/lexer/token_quote.c:40:4
-	movl	-16(%rbp), %eax
+.Ltmp8:
+	.loc	2 41 8 is_stmt 1                # src/lexer/token_quote.c:41:8
+	movq	-16(%rbp), %rax
+	movslq	-24(%rbp), %rcx
+	cmpb	$0, (%rax,%rcx)
+.Ltmp9:
+	.loc	2 41 7 is_stmt 0                # src/lexer/token_quote.c:41:7
+	jne	.LBB1_4
+# %bb.3:
+.Ltmp10:
+	.loc	2 42 12 is_stmt 1               # src/lexer/token_quote.c:42:12
+	movl	-24(%rbp), %eax
+	.loc	2 42 4 is_stmt 0                # src/lexer/token_quote.c:42:4
+	movl	%eax, -4(%rbp)
+	jmp	.LBB1_6
+.Ltmp11:
+.LBB1_4:                                #   in Loop: Header=BB1_1 Depth=1
+	.loc	2 43 4 is_stmt 1                # src/lexer/token_quote.c:43:4
+	movl	-24(%rbp), %eax
 	addl	$1, %eax
-	movl	%eax, -16(%rbp)
+	movl	%eax, -24(%rbp)
+.Ltmp12:
 	.loc	2 39 2                          # src/lexer/token_quote.c:39:2
 	jmp	.LBB1_1
-.LBB1_3:
-	.loc	2 41 10                         # src/lexer/token_quote.c:41:10
-	movl	-16(%rbp), %eax
-	.loc	2 41 2 is_stmt 0                # src/lexer/token_quote.c:41:2
+.LBB1_5:
+	.loc	2 45 10                         # src/lexer/token_quote.c:45:10
+	movl	-24(%rbp), %eax
+	.loc	2 45 2 is_stmt 0                # src/lexer/token_quote.c:45:2
+	movl	%eax, -4(%rbp)
+.LBB1_6:
+	.loc	2 46 1 is_stmt 1                # src/lexer/token_quote.c:46:1
+	movl	-4(%rbp), %eax
 	popq	%rbp
 	.cfi_def_cfa %rsp, 8
 	retq
-.Ltmp8:
+.Ltmp13:
 .Lfunc_end1:
 	.size	skip_quote, .Lfunc_end1-skip_quote
 	.cfi_endproc
@@ -145,7 +167,7 @@ skip_quote:                             # @skip_quote
 	.type	get_token_quote_nbr,@function
 get_token_quote_nbr:                    # @get_token_quote_nbr
 .Lfunc_begin2:
-	.loc	2 45 0 is_stmt 1                # src/lexer/token_quote.c:45:0
+	.loc	2 49 0                          # src/lexer/token_quote.c:49:0
 	.cfi_startproc
 # %bb.0:
 	pushq	%rbp
@@ -155,13 +177,13 @@ get_token_quote_nbr:                    # @get_token_quote_nbr
 	.cfi_def_cfa_register %rbp
 	subq	$32, %rsp
 	movq	%rdi, -16(%rbp)
-.Ltmp9:
-	.loc	2 49 4 prologue_end             # src/lexer/token_quote.c:49:4
+.Ltmp14:
+	.loc	2 53 4 prologue_end             # src/lexer/token_quote.c:53:4
 	movl	$0, -20(%rbp)
-	.loc	2 50 8                          # src/lexer/token_quote.c:50:8
+	.loc	2 54 8                          # src/lexer/token_quote.c:54:8
 	movl	$0, -24(%rbp)
 .LBB2_1:                                # =>This Inner Loop Header: Depth=1
-	.loc	2 51 9                          # src/lexer/token_quote.c:51:9
+	.loc	2 55 9                          # src/lexer/token_quote.c:55:9
 	movq	-16(%rbp), %rax
 	movslq	-20(%rbp), %rcx
 	movsbl	(%rax,%rcx), %ecx
@@ -169,101 +191,101 @@ get_token_quote_nbr:                    # @get_token_quote_nbr
                                         # kill: def $al killed $al killed $eax
 	cmpl	$0, %ecx
 	movb	%al, -25(%rbp)                  # 1-byte Spill
-	.loc	2 51 18 is_stmt 0               # src/lexer/token_quote.c:51:18
+	.loc	2 55 18 is_stmt 0               # src/lexer/token_quote.c:55:18
 	je	.LBB2_4
 # %bb.2:                                #   in Loop: Header=BB2_1 Depth=1
-	.loc	2 51 21                         # src/lexer/token_quote.c:51:21
+	.loc	2 55 21                         # src/lexer/token_quote.c:55:21
 	callq	__errno_location
 	movq	%rax, %rcx
-	.loc	2 51 27                         # src/lexer/token_quote.c:51:27
+	.loc	2 55 27                         # src/lexer/token_quote.c:55:27
 	xorl	%eax, %eax
                                         # kill: def $al killed $al killed $eax
 	cmpl	$0, (%rcx)
 	movb	%al, -25(%rbp)                  # 1-byte Spill
-	.loc	2 52 3 is_stmt 1                # src/lexer/token_quote.c:52:3
+	.loc	2 56 3 is_stmt 1                # src/lexer/token_quote.c:56:3
 	jne	.LBB2_4
 # %bb.3:                                #   in Loop: Header=BB2_1 Depth=1
-	.loc	2 52 23 is_stmt 0               # src/lexer/token_quote.c:52:23
+	.loc	2 56 23 is_stmt 0               # src/lexer/token_quote.c:56:23
 	movq	-16(%rbp), %rax
 	movslq	-20(%rbp), %rcx
-	.loc	2 52 6                          # src/lexer/token_quote.c:52:6
+	.loc	2 56 6                          # src/lexer/token_quote.c:56:6
 	movsbl	(%rax,%rcx), %edi
 	callq	is_metacharacter
 	andb	$1, %al
 	movzbl	%al, %eax
-	.loc	2 52 33                         # src/lexer/token_quote.c:52:33
+	.loc	2 56 33                         # src/lexer/token_quote.c:56:33
 	cmpl	$0, %eax
 	sete	%al
 	movb	%al, -25(%rbp)                  # 1-byte Spill
 .LBB2_4:                                #   in Loop: Header=BB2_1 Depth=1
 	.loc	2 0 33                          # src/lexer/token_quote.c:0:33
 	movb	-25(%rbp), %al                  # 1-byte Reload
-	.loc	2 51 2 is_stmt 1                # src/lexer/token_quote.c:51:2
+	.loc	2 55 2 is_stmt 1                # src/lexer/token_quote.c:55:2
 	testb	$1, %al
 	jne	.LBB2_5
 	jmp	.LBB2_10
 .LBB2_5:                                #   in Loop: Header=BB2_1 Depth=1
-.Ltmp10:
-	.loc	2 54 16                         # src/lexer/token_quote.c:54:16
+.Ltmp15:
+	.loc	2 58 16                         # src/lexer/token_quote.c:58:16
 	movq	-16(%rbp), %rax
 	movslq	-20(%rbp), %rcx
-	.loc	2 54 7 is_stmt 0                # src/lexer/token_quote.c:54:7
+	.loc	2 58 7 is_stmt 0                # src/lexer/token_quote.c:58:7
 	movsbl	(%rax,%rcx), %edi
 	callq	is_quote
-.Ltmp11:
-	.loc	2 54 7                          # src/lexer/token_quote.c:54:7
+.Ltmp16:
+	.loc	2 58 7                          # src/lexer/token_quote.c:58:7
 	testb	$1, %al
 	jne	.LBB2_6
 	jmp	.LBB2_7
 .LBB2_6:                                #   in Loop: Header=BB2_1 Depth=1
-.Ltmp12:
-	.loc	2 56 20 is_stmt 1               # src/lexer/token_quote.c:56:20
+.Ltmp17:
+	.loc	2 60 20 is_stmt 1               # src/lexer/token_quote.c:60:20
 	movq	-16(%rbp), %rdi
 	movslq	-20(%rbp), %rax
 	addq	%rax, %rdi
-	.loc	2 56 9 is_stmt 0                # src/lexer/token_quote.c:56:9
+	.loc	2 60 9 is_stmt 0                # src/lexer/token_quote.c:60:9
 	callq	add_quote
-	.loc	2 56 6                          # src/lexer/token_quote.c:56:6
+	.loc	2 60 6                          # src/lexer/token_quote.c:60:6
 	addl	-20(%rbp), %eax
 	movl	%eax, -20(%rbp)
-	.loc	2 57 9 is_stmt 1                # src/lexer/token_quote.c:57:9
+	.loc	2 61 9 is_stmt 1                # src/lexer/token_quote.c:61:9
 	movl	-24(%rbp), %eax
 	addl	$1, %eax
 	movl	%eax, -24(%rbp)
-.Ltmp13:
+.Ltmp18:
 .LBB2_7:                                #   in Loop: Header=BB2_1 Depth=1
-	.loc	2 59 9                          # src/lexer/token_quote.c:59:9
+	.loc	2 63 9                          # src/lexer/token_quote.c:63:9
 	cmpl	$-1, -20(%rbp)
-.Ltmp14:
-	.loc	2 59 7 is_stmt 0                # src/lexer/token_quote.c:59:7
+.Ltmp19:
+	.loc	2 63 7 is_stmt 0                # src/lexer/token_quote.c:63:7
 	jne	.LBB2_9
 # %bb.8:
-.Ltmp15:
-	.loc	2 60 4 is_stmt 1                # src/lexer/token_quote.c:60:4
+.Ltmp20:
+	.loc	2 64 4 is_stmt 1                # src/lexer/token_quote.c:64:4
 	movl	$-1, -4(%rbp)
 	jmp	.LBB2_11
-.Ltmp16:
+.Ltmp21:
 .LBB2_9:                                #   in Loop: Header=BB2_1 Depth=1
-	.loc	2 61 4                          # src/lexer/token_quote.c:61:4
+	.loc	2 65 4                          # src/lexer/token_quote.c:65:4
 	movl	-20(%rbp), %eax
 	addl	$1, %eax
 	movl	%eax, -20(%rbp)
-.Ltmp17:
-	.loc	2 51 2                          # src/lexer/token_quote.c:51:2
+.Ltmp22:
+	.loc	2 55 2                          # src/lexer/token_quote.c:55:2
 	jmp	.LBB2_1
 .LBB2_10:
-	.loc	2 63 10                         # src/lexer/token_quote.c:63:10
+	.loc	2 67 10                         # src/lexer/token_quote.c:67:10
 	movl	-24(%rbp), %eax
-	.loc	2 63 2 is_stmt 0                # src/lexer/token_quote.c:63:2
+	.loc	2 67 2 is_stmt 0                # src/lexer/token_quote.c:67:2
 	movl	%eax, -4(%rbp)
 .LBB2_11:
-	.loc	2 64 1 is_stmt 1                # src/lexer/token_quote.c:64:1
+	.loc	2 68 1 is_stmt 1                # src/lexer/token_quote.c:68:1
 	movl	-4(%rbp), %eax
 	addq	$32, %rsp
 	popq	%rbp
 	.cfi_def_cfa %rsp, 8
 	retq
-.Ltmp18:
+.Ltmp23:
 .Lfunc_end2:
 	.size	get_token_quote_nbr, .Lfunc_end2-get_token_quote_nbr
 	.cfi_endproc
@@ -273,7 +295,7 @@ get_token_quote_nbr:                    # @get_token_quote_nbr
 	.type	remove_quote,@function
 remove_quote:                           # @remove_quote
 .Lfunc_begin3:
-	.loc	2 67 0                          # src/lexer/token_quote.c:67:0
+	.loc	2 71 0                          # src/lexer/token_quote.c:71:0
 	.cfi_startproc
 # %bb.0:
 	pushq	%rbp
@@ -285,77 +307,77 @@ remove_quote:                           # @remove_quote
 	movb	%al, -5(%rbp)
 	movq	%rsi, -16(%rbp)
 	movq	%rdx, -24(%rbp)
-.Ltmp19:
-	.loc	2 68 9 prologue_end             # src/lexer/token_quote.c:68:9
+.Ltmp24:
+	.loc	2 72 9 prologue_end             # src/lexer/token_quote.c:72:9
 	movq	-16(%rbp), %rax
-	.loc	2 68 7 is_stmt 0                # src/lexer/token_quote.c:68:7
+	.loc	2 72 7 is_stmt 0                # src/lexer/token_quote.c:72:7
 	cmpb	$0, (%rax)
-.Ltmp20:
-	.loc	2 68 6                          # src/lexer/token_quote.c:68:6
+.Ltmp25:
+	.loc	2 72 6                          # src/lexer/token_quote.c:72:6
 	jne	.LBB3_2
 # %bb.1:
-.Ltmp21:
-	.loc	2 69 12 is_stmt 1               # src/lexer/token_quote.c:69:12
+.Ltmp26:
+	.loc	2 73 12 is_stmt 1               # src/lexer/token_quote.c:73:12
 	movb	-5(%rbp), %cl
-	.loc	2 69 4 is_stmt 0                # src/lexer/token_quote.c:69:4
+	.loc	2 73 4 is_stmt 0                # src/lexer/token_quote.c:73:4
 	movq	-16(%rbp), %rax
-	.loc	2 69 10                         # src/lexer/token_quote.c:69:10
+	.loc	2 73 10                         # src/lexer/token_quote.c:73:10
 	movb	%cl, (%rax)
-.Ltmp22:
+.Ltmp27:
 .LBB3_2:
-	.loc	2 70 6 is_stmt 1                # src/lexer/token_quote.c:70:6
+	.loc	2 74 6 is_stmt 1                # src/lexer/token_quote.c:74:6
 	movsbl	-5(%rbp), %eax
-	.loc	2 70 17 is_stmt 0               # src/lexer/token_quote.c:70:17
+	.loc	2 74 17 is_stmt 0               # src/lexer/token_quote.c:74:17
 	movq	-16(%rbp), %rcx
-	.loc	2 70 16                         # src/lexer/token_quote.c:70:16
+	.loc	2 74 16                         # src/lexer/token_quote.c:74:16
 	movsbl	(%rcx), %ecx
-	.loc	2 70 13                         # src/lexer/token_quote.c:70:13
+	.loc	2 74 13                         # src/lexer/token_quote.c:74:13
 	cmpl	%ecx, %eax
-.Ltmp23:
-	.loc	2 70 6                          # src/lexer/token_quote.c:70:6
+.Ltmp28:
+	.loc	2 74 6                          # src/lexer/token_quote.c:74:6
 	jne	.LBB3_6
 # %bb.3:
-.Ltmp24:
-	.loc	2 72 4 is_stmt 1                # src/lexer/token_quote.c:72:4
+.Ltmp29:
+	.loc	2 76 4 is_stmt 1                # src/lexer/token_quote.c:76:4
 	movq	-24(%rbp), %rax
-	.loc	2 72 17 is_stmt 0               # src/lexer/token_quote.c:72:17
+	.loc	2 76 17 is_stmt 0               # src/lexer/token_quote.c:76:17
 	movl	(%rax), %ecx
 	addl	$1, %ecx
 	movl	%ecx, (%rax)
-.Ltmp25:
-	.loc	2 73 8 is_stmt 1                # src/lexer/token_quote.c:73:8
+.Ltmp30:
+	.loc	2 77 8 is_stmt 1                # src/lexer/token_quote.c:77:8
 	movq	-24(%rbp), %rax
-	.loc	2 73 21 is_stmt 0               # src/lexer/token_quote.c:73:21
+	.loc	2 77 21 is_stmt 0               # src/lexer/token_quote.c:77:21
 	cmpl	$2, (%rax)
-.Ltmp26:
-	.loc	2 73 7                          # src/lexer/token_quote.c:73:7
+.Ltmp31:
+	.loc	2 77 7                          # src/lexer/token_quote.c:77:7
 	jne	.LBB3_5
 # %bb.4:
-.Ltmp27:
-	.loc	2 75 5 is_stmt 1                # src/lexer/token_quote.c:75:5
+.Ltmp32:
+	.loc	2 79 5 is_stmt 1                # src/lexer/token_quote.c:79:5
 	movq	-16(%rbp), %rax
-	.loc	2 75 11 is_stmt 0               # src/lexer/token_quote.c:75:11
+	.loc	2 79 11 is_stmt 0               # src/lexer/token_quote.c:79:11
 	movb	$0, (%rax)
-	.loc	2 76 5 is_stmt 1                # src/lexer/token_quote.c:76:5
+	.loc	2 80 5 is_stmt 1                # src/lexer/token_quote.c:80:5
 	movq	-24(%rbp), %rax
-	.loc	2 76 18 is_stmt 0               # src/lexer/token_quote.c:76:18
+	.loc	2 80 18 is_stmt 0               # src/lexer/token_quote.c:80:18
 	movl	$0, (%rax)
-.Ltmp28:
+.Ltmp33:
 .LBB3_5:
-	.loc	2 78 3 is_stmt 1                # src/lexer/token_quote.c:78:3
+	.loc	2 82 3 is_stmt 1                # src/lexer/token_quote.c:82:3
 	movl	$1, -4(%rbp)
 	jmp	.LBB3_7
-.Ltmp29:
+.Ltmp34:
 .LBB3_6:
-	.loc	2 80 2                          # src/lexer/token_quote.c:80:2
+	.loc	2 84 2                          # src/lexer/token_quote.c:84:2
 	movl	$0, -4(%rbp)
 .LBB3_7:
-	.loc	2 81 1                          # src/lexer/token_quote.c:81:1
+	.loc	2 85 1                          # src/lexer/token_quote.c:85:1
 	movl	-4(%rbp), %eax
 	popq	%rbp
 	.cfi_def_cfa %rsp, 8
 	retq
-.Ltmp30:
+.Ltmp35:
 .Lfunc_end3:
 	.size	remove_quote, .Lfunc_end3-remove_quote
 	.cfi_endproc
@@ -576,7 +598,7 @@ remove_quote:                           # @remove_quote
 	.byte	6                               # Abbrev [6] 0xc1:0xe DW_TAG_formal_parameter
 	.byte	2                               # DW_AT_location
 	.byte	145
-	.byte	120
+	.byte	112
 	.long	.Linfo_string20                 # DW_AT_name
 	.byte	2                               # DW_AT_decl_file
 	.byte	34                              # DW_AT_decl_line
@@ -584,7 +606,7 @@ remove_quote:                           # @remove_quote
 	.byte	6                               # Abbrev [6] 0xcf:0xe DW_TAG_formal_parameter
 	.byte	2                               # DW_AT_location
 	.byte	145
-	.byte	119
+	.byte	111
 	.long	.Linfo_string19                 # DW_AT_name
 	.byte	2                               # DW_AT_decl_file
 	.byte	34                              # DW_AT_decl_line
@@ -592,7 +614,7 @@ remove_quote:                           # @remove_quote
 	.byte	7                               # Abbrev [7] 0xdd:0xe DW_TAG_variable
 	.byte	2                               # DW_AT_location
 	.byte	145
-	.byte	112
+	.byte	104
 	.long	.Linfo_string18                 # DW_AT_name
 	.byte	2                               # DW_AT_decl_file
 	.byte	36                              # DW_AT_decl_line
@@ -605,7 +627,7 @@ remove_quote:                           # @remove_quote
 	.byte	86
 	.long	.Linfo_string14                 # DW_AT_name
 	.byte	2                               # DW_AT_decl_file
-	.byte	44                              # DW_AT_decl_line
+	.byte	48                              # DW_AT_decl_line
                                         # DW_AT_prototyped
 	.long	372                             # DW_AT_type
                                         # DW_AT_external
@@ -615,7 +637,7 @@ remove_quote:                           # @remove_quote
 	.byte	112
 	.long	.Linfo_string16                 # DW_AT_name
 	.byte	2                               # DW_AT_decl_file
-	.byte	44                              # DW_AT_decl_line
+	.byte	48                              # DW_AT_decl_line
 	.long	379                             # DW_AT_type
 	.byte	7                               # Abbrev [7] 0x113:0xe DW_TAG_variable
 	.byte	2                               # DW_AT_location
@@ -623,7 +645,7 @@ remove_quote:                           # @remove_quote
 	.byte	108
 	.long	.Linfo_string18                 # DW_AT_name
 	.byte	2                               # DW_AT_decl_file
-	.byte	46                              # DW_AT_decl_line
+	.byte	50                              # DW_AT_decl_line
 	.long	372                             # DW_AT_type
 	.byte	7                               # Abbrev [7] 0x121:0xe DW_TAG_variable
 	.byte	2                               # DW_AT_location
@@ -631,7 +653,7 @@ remove_quote:                           # @remove_quote
 	.byte	104
 	.long	.Linfo_string19                 # DW_AT_name
 	.byte	2                               # DW_AT_decl_file
-	.byte	47                              # DW_AT_decl_line
+	.byte	51                              # DW_AT_decl_line
 	.long	372                             # DW_AT_type
 	.byte	0                               # End Of Children Mark
 	.byte	5                               # Abbrev [5] 0x130:0x44 DW_TAG_subprogram
@@ -641,7 +663,7 @@ remove_quote:                           # @remove_quote
 	.byte	86
 	.long	.Linfo_string15                 # DW_AT_name
 	.byte	2                               # DW_AT_decl_file
-	.byte	66                              # DW_AT_decl_line
+	.byte	70                              # DW_AT_decl_line
                                         # DW_AT_prototyped
 	.long	372                             # DW_AT_type
                                         # DW_AT_external
@@ -651,7 +673,7 @@ remove_quote:                           # @remove_quote
 	.byte	123
 	.long	.Linfo_string20                 # DW_AT_name
 	.byte	2                               # DW_AT_decl_file
-	.byte	66                              # DW_AT_decl_line
+	.byte	70                              # DW_AT_decl_line
 	.long	384                             # DW_AT_type
 	.byte	6                               # Abbrev [6] 0x157:0xe DW_TAG_formal_parameter
 	.byte	2                               # DW_AT_location
@@ -659,7 +681,7 @@ remove_quote:                           # @remove_quote
 	.byte	112
 	.long	.Linfo_string19                 # DW_AT_name
 	.byte	2                               # DW_AT_decl_file
-	.byte	66                              # DW_AT_decl_line
+	.byte	70                              # DW_AT_decl_line
 	.long	379                             # DW_AT_type
 	.byte	6                               # Abbrev [6] 0x165:0xe DW_TAG_formal_parameter
 	.byte	2                               # DW_AT_location
@@ -667,7 +689,7 @@ remove_quote:                           # @remove_quote
 	.byte	104
 	.long	.Linfo_string21                 # DW_AT_name
 	.byte	2                               # DW_AT_decl_file
-	.byte	66                              # DW_AT_decl_line
+	.byte	70                              # DW_AT_decl_line
 	.long	391                             # DW_AT_type
 	.byte	0                               # End Of Children Mark
 	.byte	4                               # Abbrev [4] 0x174:0x7 DW_TAG_base_type
@@ -690,45 +712,45 @@ remove_quote:                           # @remove_quote
 .Linfo_string1:
 	.asciz	"src/lexer/token_quote.c"       # string offset=38
 .Linfo_string2:
-	.asciz	"/mnt/nfs/homes/jbocktor/student/group_minishell/minigroup" # string offset=62
+	.asciz	"/mnt/nfs/homes/jbocktor/student/group_minishell/more_hope/minigroups" # string offset=62
 .Linfo_string3:
-	.asciz	"unsigned int"                  # string offset=120
+	.asciz	"unsigned int"                  # string offset=131
 .Linfo_string4:
-	.asciz	"error_syntax"                  # string offset=133
+	.asciz	"error_syntax"                  # string offset=144
 .Linfo_string5:
-	.asciz	"error_token"                   # string offset=146
+	.asciz	"error_token"                   # string offset=157
 .Linfo_string6:
-	.asciz	"error_and"                     # string offset=158
+	.asciz	"error_and"                     # string offset=169
 .Linfo_string7:
-	.asciz	"error_file"                    # string offset=168
+	.asciz	"error_file"                    # string offset=179
 .Linfo_string8:
-	.asciz	"error_builtin"                 # string offset=179
+	.asciz	"error_builtin"                 # string offset=190
 .Linfo_string9:
-	.asciz	"error_malloc"                  # string offset=193
+	.asciz	"error_malloc"                  # string offset=204
 .Linfo_string10:
-	.asciz	"error_command"                 # string offset=206
+	.asciz	"error_command"                 # string offset=217
 .Linfo_string11:
-	.asciz	"add_quote"                     # string offset=220
+	.asciz	"add_quote"                     # string offset=231
 .Linfo_string12:
-	.asciz	"int"                           # string offset=230
+	.asciz	"int"                           # string offset=241
 .Linfo_string13:
-	.asciz	"skip_quote"                    # string offset=234
+	.asciz	"skip_quote"                    # string offset=245
 .Linfo_string14:
-	.asciz	"get_token_quote_nbr"           # string offset=245
+	.asciz	"get_token_quote_nbr"           # string offset=256
 .Linfo_string15:
-	.asciz	"remove_quote"                  # string offset=265
+	.asciz	"remove_quote"                  # string offset=276
 .Linfo_string16:
-	.asciz	"input"                         # string offset=278
+	.asciz	"input"                         # string offset=289
 .Linfo_string17:
-	.asciz	"char"                          # string offset=284
+	.asciz	"char"                          # string offset=295
 .Linfo_string18:
-	.asciz	"i"                             # string offset=289
+	.asciz	"i"                             # string offset=300
 .Linfo_string19:
-	.asciz	"quote"                         # string offset=291
+	.asciz	"quote"                         # string offset=302
 .Linfo_string20:
-	.asciz	"lexeme"                        # string offset=297
+	.asciz	"lexeme"                        # string offset=308
 .Linfo_string21:
-	.asciz	"second_quote"                  # string offset=304
+	.asciz	"second_quote"                  # string offset=315
 	.ident	"Ubuntu clang version 12.0.1-19ubuntu3"
 	.section	".note.GNU-stack","",@progbits
 	.addrsig
