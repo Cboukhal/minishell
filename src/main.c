@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cboukhal <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jbocktor <jbocktor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 15:33:00 by cboukhal          #+#    #+#             */
-/*   Updated: 2024/04/30 15:33:02 by cboukhal         ###   ########.fr       */
+/*   Updated: 2024/05/01 18:16:03 by jbocktor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,126 +89,275 @@ void	test_mode(t_minishell *minishell, int argc, char *input)
 	exit(EXIT_FAILURE);
 }
 
-int	there_is_an_expenssion(char *input)
+int	where_is_that(char *s, char c)
 {
 	int	i;
 	int	j;
 
 	i = 0;
 	j = 0;
-	while (input[i])
+	while (s[i])
 	{
-		if (input[i] == '$')
+		if (s[i] == c)
 			j++;
 		i++;
 	}
 	return (j);
 }
 
-char *jspcmtappeler(char *value, t_minishell *minishell)
-{
-	char **split;
-	char *pls;
-	int 	i;
-	int 	j;
-	
-	i = 0;
-	split = ft_split(value, '$');
-	while(split[i])
-	{
-		pls = split[i];
-		if (ft_strcmp("?", split[i]) == 0)
-			split[i] = ft_itoa(minishell->exit_status);
-		else
-		{
-			split[i] = get_expansion_value(minishell->env, split[i]);
-			if (!split[i])
-				split[i] = ft_strdup(value);
-		}
-		free(pls);
-		i++;
-	}
-	i = 0;
-	j = 0;
-	while (split[j])
-		j++;
-	if (j != 0)
-	{
-		j--;
-		if (ft_strcmp(value, split[i]) != 0)
-			pls = ft_strdup(split[0]);
-		else
-			pls = NULL;
-		i++;
-		while (j > 0)
-		{
-			if (ft_strcmp(value, split[i]) != 0)
-				pls = ft_strjoin_n_free(pls, split[i]);
-			i++;
-			j--;
-		}
-	}
-	free_char_array(split);
-	free(value);
-	return (pls);
+// char	*get_expansion_value_patch(t_env *env, char *name)
+// {
+// 	char	*value;
+// 	char	*new_name;
+// 	int		is_quote;
 
+// 	value = NULL;
+// 	is_quote = where_is_that(name, 34);
+// 	if (is_quote != 0)
+// 	{
+// 		ft_strlcpy(new_name ,name, is_quote);
+		
+// 	}
+// 	while (env)
+// 	{
+// 		if (ft_strcmp(name, env->name) == 0)
+// 			value = ft_strdup(env->value);
+// 		env = env->next;
+// 	}
+// 	return (value);
+// }
+
+// char	*jspcmtappeler(char *value, t_minishell *minishell)
+// {
+// 	char	**split;
+// 	char	*pls;
+// 	int		i;
+// 	int		j;
+
+// 	i = 0;
+// 	split = ft_split(value, '$');
+// 	while (split[i])
+// 	{
+// 		pls = split[i];
+// 		if (ft_strcmp("?", split[i]) == 0)
+// 		{
+// 			split[i] = ft_itoa(minishell->exit_status);
+// 			free(pls);
+// 		}
+// 		else
+// 		{
+// 			if (where_is_that(pls, '$') != 0)
+// 			{
+// 				split[i] = get_expansion_value_patch(minishell->env, split[i]);
+// 				if (!split[i])
+// 					split[i] = ft_strdup(value);
+// 				free(pls);
+// 			}
+// 			else
+// 				split[i] = pls;
+// 		}
+// 		i++;
+// 	}
+// 	i = 0;
+// 	j = 0;
+// 	while (split[j])
+// 		j++;
+// 	if (j != 0)
+// 	{
+// 		j--;
+// 		if (ft_strcmp(value, split[i]) != 0)
+// 			pls = ft_strdup(split[0]);
+// 		else
+// 			pls = NULL;
+// 		i++;
+// 		while (j > 0)
+// 		{
+// 			if (ft_strcmp(value, split[i]) != 0)
+// 				pls = ft_strjoin_n_free(pls, split[i]);
+// 			i++;
+// 			j--;
+// 		}
+// 	}
+// 	free_char_array(split);
+// 	free(value);
+// 	return (pls);
+// }
+
+
+
+// char	*parse_input(char *input, t_minishell *minishell)
+// {
+// 	int		i;
+// 	size_t	j;
+// 	char	**split;
+// 	char	*pls;
+
+// 	split = ft_split(input, ' ');
+// 	i = 0;
+// 	j = 2;
+// 	while (split[i])
+// 	{
+// 		if (split[i][0] == 39)
+// 			j++;
+// 		if ((where_is_that(split[i], '$') != 0) && (j % 2 == 0))
+// 			split[i] = jspcmtappeler(split[i], minishell);
+// 		i++;
+// 	}
+// 	i = 0;
+// 	j = 0;
+// 	while (split[j])
+// 		j++;
+// 	if (j == 1)
+// 		pls = ft_strdup(split[0]);
+// 	else if (j != 0)
+// 	{
+// 		j = j - 2;
+// 		pls = ft_strjoin(split[0], " ");
+// 		pls = ft_strjoin_n_free(pls, split[1]);
+// 		i = i + 2;
+// 		while (j > 0)
+// 		{
+// 			pls = ft_strjoin_n_free(pls, " ");
+// 			pls = ft_strjoin_n_free(pls, split[i]);
+// 			i++;
+// 			j--;
+// 		}
+// 	}
+// 	j = 0;
+// 	while (split[j])
+// 		j++;
+// 	free_char_array(split);
+// 	if (j == 0)
+// 		return (input);
+// 	else
+// 	{
+// 		free(input);
+// 		return (pls);
+// 	}
+// }
+
+// char	*blipbloup(const char *input)
+// {
+// 	int		i;
+// 	int		j;
+// 	char	quote;
+// 	int		second_quote;
+// 	char	*lexeme;
+
+// 	i = 0;
+// 	j = 0;
+// 	quote = '\0';
+// 	second_quote = 0;
+// 	while (input[i])
+// 	{
+// 		if (input[i] == '\"')
+// 			j++;
+// 		i++;
+// 	}
+// 	lexeme = malloc(sizeof(char *) * j + 1);
+// 	i = 0;
+// 	j = 0;
+// 	while (input[i])
+// 	{
+// 		if (is_quote(input[i]))
+// 			i += remove_quote(input[i], &quote, &second_quote);
+// 		if (second_quote == 0 && is_quote(input[i]))
+// 		{
+// 			i++;
+// 			continue ;
+// 		}
+// 		else
+// 			lexeme[j++] = input[i++];
+// 	}
+// 	lexeme[j] = '\0';
+// 	return (lexeme);
+// }
+
+char *ft_strstr(char *str, char *to_find)
+{
+	int i;
+	int j;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		j = 0;
+		while (to_find[j] == str[i + j])
+		{
+			if (to_find[j + 1] == '\0')
+			{
+				return (str + i);
+			}
+			j++;
+		}
+		i++;
+	}
+	return (0);
 }
 
-char	*parse_input(char *input, t_minishell *minishell)
+void	replace_expenssion(char *chaine, char *expenssion, const char *new_name)
 {
-	int			i;
-	size_t		j;
-	char	**split;
-	char	*pls;
+	size_t	expenssion_len;
+	size_t	new_name_len;
+	size_t	remaining_len;
+	char	*ptr;
 	
-	split = ft_split(input, ' ');
-	i = 0;
-	j = 2;
-	while (split[i])
+	expenssion_len = ft_strlen(expenssion);
+	new_name_len = ft_strlen(new_name);
+	ptr = ft_strstr(chaine, expenssion);
+	while (ptr != NULL)
 	{
-		if (split[i][0] == 39)
-			j++;
-		if ((split[i][0] == '$') && (j % 2 == 0))
-			split[i] = jspcmtappeler(split[i], minishell);	
+		remaining_len = ft_strlen(ptr + expenssion_len);
+		ft_memmove(ptr + new_name_len, ptr + expenssion_len, remaining_len + 1);
+		ft_memcpy(ptr, new_name, new_name_len);
+		ptr = ft_strstr(ptr + new_name_len, expenssion);
+	}
+}
+
+char *find_expenssion(char *input)
+{
+	int i;
+	int j;
+	int y;
+	char *new;
+
+	i = 0;
+	j = 0;
+	while(input[i] != '$')
+		i++;
+	if (!input[i])
+		return(NULL);
+	y = i;
+	while(input[y] && input[y] != '\"' && input[y] != ' ')
+	{
+		if (y != i)
+			if (input[y] == '$')
+				break;
+		j++;
+		y++;
+
+	}
+	new = malloc(sizeof(char *) * j + 1);
+	y = i;
+	while(input[i] && input[i] != '\"' && input[i] != ' ')
+	{
+		if (y != i)
+			if (input[i] == '$')
+				break;
+		new[i] = input[i];
 		i++;
 	}
-	i = 0;
-	j = 0;
-	while (split[j])
-		j++;
-	if (j == 1)
-		pls = ft_strdup(split[0]);
-	else if (j != 0)
-	{
-		j = j - 2;
-		pls = ft_strjoin(split[0], " ");
-		pls = ft_strjoin_n_free(pls, split[1]);
-		i = i + 2;
-		while (j > 0)
-		{
-			pls = ft_strjoin_n_free(pls, " ");
-			pls = ft_strjoin_n_free(pls, split[i]);
-			i++;
-			j--;
-		}
-	}
-	j = 0;
-	while (split[j])
-		j++;
-	free_char_array(split);
-	if (j == 0)
-		return (input);
-	else
-	{
-		free(input);
-		return (pls);
-	}
+	new[i] = '\"';
+	return(new);
 }
 
 void	lexical_modification(t_minishell *minishell)
 {
-	if (there_is_an_expenssion(minishell->input) != 0)
-		minishell->input = parse_input(minishell->input, minishell);
+	char	*input;
+
+	input = find_expenssion(minishell->input);
+	replace_expenssion(minishell->input, input, "HELLO");
+	free(input);
 }
 
 int	main(int argc, char **argv, char **envp)
