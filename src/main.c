@@ -6,7 +6,7 @@
 /*   By: jbocktor <jbocktor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 15:33:00 by cboukhal          #+#    #+#             */
-/*   Updated: 2024/05/01 18:16:03 by jbocktor         ###   ########.fr       */
+/*   Updated: 2024/05/03 12:25:26 by jbocktor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,293 +71,147 @@ int	tcsetattr(int fd,
 int				tcgetattr(int fd, struct termios *termios_p);
 */
 
-void	test_mode(t_minishell *minishell, int argc, char *input)
+int	how_many(char *input)
 {
-	int	exit_status;
-
-	if (argc == 2)
-	{
-		lexical_analysis(minishell, input);
-		parsing(minishell);
-		execution(minishell);
-		exit_status = minishell->exit_status;
-		clean_program(minishell);
-		exit(exit_status);
-	}
-	ft_printf(BOLD WHITE "Test usage: ./minishell \"argument\"\n" DEFAULT);
-	clean_program(minishell);
-	exit(EXIT_FAILURE);
-}
-
-int	where_is_that(char *s, char c)
-{
-	int	i;
-	int	j;
+	int		i;
+	int		j;
+	char	*put;
 
 	i = 0;
 	j = 0;
-	while (s[i])
+	put = input;
+	while (put[i])
 	{
-		if (s[i] == c)
+		put = &put[i];
+		i = 0;
+		while (put[i] && put[i] != '$')
+			i++;
+		if (i > 0)
 			j++;
-		i++;
+		put = &put[i];
+		i = 0;
+		while (put[i] && put[i] != '\"' && put[i] != ' ')
+		{
+			i++;
+			if (put[i] == '$' || put[i] != '\"' || put[i] != ' ')
+				break ;
+		}
+		if (i > 0)
+			j++;
 	}
 	return (j);
 }
 
-// char	*get_expansion_value_patch(t_env *env, char *name)
-// {
-// 	char	*value;
-// 	char	*new_name;
-// 	int		is_quote;
-
-// 	value = NULL;
-// 	is_quote = where_is_that(name, 34);
-// 	if (is_quote != 0)
-// 	{
-// 		ft_strlcpy(new_name ,name, is_quote);
-		
-// 	}
-// 	while (env)
-// 	{
-// 		if (ft_strcmp(name, env->name) == 0)
-// 			value = ft_strdup(env->value);
-// 		env = env->next;
-// 	}
-// 	return (value);
-// }
-
-// char	*jspcmtappeler(char *value, t_minishell *minishell)
-// {
-// 	char	**split;
-// 	char	*pls;
-// 	int		i;
-// 	int		j;
-
-// 	i = 0;
-// 	split = ft_split(value, '$');
-// 	while (split[i])
-// 	{
-// 		pls = split[i];
-// 		if (ft_strcmp("?", split[i]) == 0)
-// 		{
-// 			split[i] = ft_itoa(minishell->exit_status);
-// 			free(pls);
-// 		}
-// 		else
-// 		{
-// 			if (where_is_that(pls, '$') != 0)
-// 			{
-// 				split[i] = get_expansion_value_patch(minishell->env, split[i]);
-// 				if (!split[i])
-// 					split[i] = ft_strdup(value);
-// 				free(pls);
-// 			}
-// 			else
-// 				split[i] = pls;
-// 		}
-// 		i++;
-// 	}
-// 	i = 0;
-// 	j = 0;
-// 	while (split[j])
-// 		j++;
-// 	if (j != 0)
-// 	{
-// 		j--;
-// 		if (ft_strcmp(value, split[i]) != 0)
-// 			pls = ft_strdup(split[0]);
-// 		else
-// 			pls = NULL;
-// 		i++;
-// 		while (j > 0)
-// 		{
-// 			if (ft_strcmp(value, split[i]) != 0)
-// 				pls = ft_strjoin_n_free(pls, split[i]);
-// 			i++;
-// 			j--;
-// 		}
-// 	}
-// 	free_char_array(split);
-// 	free(value);
-// 	return (pls);
-// }
-
-
-
-// char	*parse_input(char *input, t_minishell *minishell)
-// {
-// 	int		i;
-// 	size_t	j;
-// 	char	**split;
-// 	char	*pls;
-
-// 	split = ft_split(input, ' ');
-// 	i = 0;
-// 	j = 2;
-// 	while (split[i])
-// 	{
-// 		if (split[i][0] == 39)
-// 			j++;
-// 		if ((where_is_that(split[i], '$') != 0) && (j % 2 == 0))
-// 			split[i] = jspcmtappeler(split[i], minishell);
-// 		i++;
-// 	}
-// 	i = 0;
-// 	j = 0;
-// 	while (split[j])
-// 		j++;
-// 	if (j == 1)
-// 		pls = ft_strdup(split[0]);
-// 	else if (j != 0)
-// 	{
-// 		j = j - 2;
-// 		pls = ft_strjoin(split[0], " ");
-// 		pls = ft_strjoin_n_free(pls, split[1]);
-// 		i = i + 2;
-// 		while (j > 0)
-// 		{
-// 			pls = ft_strjoin_n_free(pls, " ");
-// 			pls = ft_strjoin_n_free(pls, split[i]);
-// 			i++;
-// 			j--;
-// 		}
-// 	}
-// 	j = 0;
-// 	while (split[j])
-// 		j++;
-// 	free_char_array(split);
-// 	if (j == 0)
-// 		return (input);
-// 	else
-// 	{
-// 		free(input);
-// 		return (pls);
-// 	}
-// }
-
-// char	*blipbloup(const char *input)
-// {
-// 	int		i;
-// 	int		j;
-// 	char	quote;
-// 	int		second_quote;
-// 	char	*lexeme;
-
-// 	i = 0;
-// 	j = 0;
-// 	quote = '\0';
-// 	second_quote = 0;
-// 	while (input[i])
-// 	{
-// 		if (input[i] == '\"')
-// 			j++;
-// 		i++;
-// 	}
-// 	lexeme = malloc(sizeof(char *) * j + 1);
-// 	i = 0;
-// 	j = 0;
-// 	while (input[i])
-// 	{
-// 		if (is_quote(input[i]))
-// 			i += remove_quote(input[i], &quote, &second_quote);
-// 		if (second_quote == 0 && is_quote(input[i]))
-// 		{
-// 			i++;
-// 			continue ;
-// 		}
-// 		else
-// 			lexeme[j++] = input[i++];
-// 	}
-// 	lexeme[j] = '\0';
-// 	return (lexeme);
-// }
-
-char *ft_strstr(char *str, char *to_find)
+char	**splinter(char *input)
 {
-	int i;
-	int j;
+	char	**split;
+	char	*put;
+	int		many;
+	int		i;
+	int		j;
 
+	j = 0;
 	i = 0;
-	while (str[i] != '\0')
+	many = how_many(input);
+	split = malloc(sizeof(char **) * many + 1);
+	put = input;
+	while (put[i])
 	{
-		j = 0;
-		while (to_find[j] == str[i + j])
+		put = &put[i];
+		i = 0;
+		while (put[i] && put[i] != '$')
+			i++;
+		if (i > 0)
 		{
-			if (to_find[j + 1] == '\0')
+			split[j] = malloc(sizeof(char *) * i + 1);
+			i = 0;
+			while (put[i] && put[i] != '$')
 			{
-				return (str + i);
+				split[j][i] = put[i];
+				i++;
 			}
+			split[j][i] = '\0';
 			j++;
+		}
+		put = &put[i];
+		i = 0;
+		while (put[i] && put[i] != '\"' && put[i] != ' ')
+		{
+			i++;
+			if (put[i] && put[i] == '$' && put[i] == '\"' && put[i] == ' ')
+				break ;
+		}
+		if (i > 0)
+		{
+			split[j] = malloc(sizeof(char *) * i + 1);
+			i = 0;
+			while (put[i] && put[i] != '\"' && put[i] != ' ')
+			{
+				split[j][i] = put[i];
+				i++;
+				if (put[i] == '$' || put[i] == '\"' || put[i] == ' ')
+					break ;
+			}
+			split[j][i] = '\0';
+			j++;
+		}
+	}
+	split[j] = 0;
+	return (split);
+}
+
+char	*parse_input(char *input, t_minishell *minishell)
+{
+	int		i;
+	size_t	j;
+	char	**split;
+	char	*pls;
+
+	split = splinter(input);
+	i = 0;
+	j = 2;
+	while (split[i])
+	{
+		if (split[i][0] == 39)
+			j++;
+		if (split[i][0] == '$' && j % 2 == 0)
+		{
+			pls = split[i];
+			if (ft_strcmp("$?", split[i]) == 0)
+			{
+				split[i] = ft_itoa(minishell->exit_status);
+				free(pls);
+			}
+			else
+			{
+				split[i] = get_expansion_value(minishell->env, &split[i][1]);
+				if (!split[i])
+					split[i] = pls;
+				else
+					free(pls);
+			}
 		}
 		i++;
 	}
-	return (0);
-}
-
-void	replace_expenssion(char *chaine, char *expenssion, const char *new_name)
-{
-	size_t	expenssion_len;
-	size_t	new_name_len;
-	size_t	remaining_len;
-	char	*ptr;
-	
-	expenssion_len = ft_strlen(expenssion);
-	new_name_len = ft_strlen(new_name);
-	ptr = ft_strstr(chaine, expenssion);
-	while (ptr != NULL)
-	{
-		remaining_len = ft_strlen(ptr + expenssion_len);
-		ft_memmove(ptr + new_name_len, ptr + expenssion_len, remaining_len + 1);
-		ft_memcpy(ptr, new_name, new_name_len);
-		ptr = ft_strstr(ptr + new_name_len, expenssion);
-	}
-}
-
-char *find_expenssion(char *input)
-{
-	int i;
-	int j;
-	int y;
-	char *new;
-
 	i = 0;
 	j = 0;
-	while(input[i] != '$')
-		i++;
-	if (!input[i])
-		return(NULL);
-	y = i;
-	while(input[y] && input[y] != '\"' && input[y] != ' ')
-	{
-		if (y != i)
-			if (input[y] == '$')
-				break;
+	while (split[j])
 		j++;
-		y++;
-
-	}
-	new = malloc(sizeof(char *) * j + 1);
-	y = i;
-	while(input[i] && input[i] != '\"' && input[i] != ' ')
+	if (j != 0)
 	{
-		if (y != i)
-			if (input[i] == '$')
-				break;
-		new[i] = input[i];
+		j--;
+		pls = ft_strdup(split[i]);
 		i++;
+		while (j > 0)
+		{
+			pls = ft_strjoin_n_free(pls, split[i]);
+			i++;
+			j--;
+		}
 	}
-	new[i] = '\"';
-	return(new);
-}
-
-void	lexical_modification(t_minishell *minishell)
-{
-	char	*input;
-
-	input = find_expenssion(minishell->input);
-	replace_expenssion(minishell->input, input, "HELLO");
+	free_char_array(split);
 	free(input);
+	return(pls);
 }
 
 int	main(int argc, char **argv, char **envp)
@@ -365,9 +219,9 @@ int	main(int argc, char **argv, char **envp)
 	t_minishell	minishell;
 	int			exit_status;
 
+	(void)argc;
+	(void)argv;
 	init_minishell(&minishell, envp);
-	if (argc > 1)
-		test_mode(&minishell, argc, argv[1]);
 	while (minishell.state == run && g_signal != SIGQUIT)
 	{
 		get_prompt(&minishell.prompt);
@@ -378,7 +232,7 @@ int	main(int argc, char **argv, char **envp)
 			break ;
 		}
 		add_history(minishell.input);
-		lexical_modification(&minishell);
+		minishell.input = parse_input(minishell.input, &minishell);
 		lexical_analysis(&minishell, minishell.input);
 		parsing(&minishell);
 		execution(&minishell);
