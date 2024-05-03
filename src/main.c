@@ -6,7 +6,7 @@
 /*   By: jbocktor <jbocktor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 15:33:00 by cboukhal          #+#    #+#             */
-/*   Updated: 2024/05/03 12:45:11 by jbocktor         ###   ########.fr       */
+/*   Updated: 2024/05/03 15:42:28 by jbocktor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,18 +84,32 @@ int	how_many(char *input)
 	{
 		put = &put[i];
 		i = 0;
-		if (put[i] == '$')
-			i++;
-		while (put[i] && put[i] != '\"' && put[i] != ' ')
+		while (put[i])
 		{
-			i++;
-			if (put[i] == '$' || put[i] != '\"' || put[i] != ' ')
+			if (put[i] == '\"' || put[i] == '\'' || put[i] == ' ')
 				break ;
+			i++;
 		}
-		if (i > 0)
+		if (put[i] == '\"' || put[i] == '\'' || put[i] == ' ' || put[i] == '\0')
 			j++;
+		if (put[0] == '\"' || put[0] == '\'' || put[0] == ' ' || put[0] == '\0')
+			i++;
 	}
 	return (j);
+}
+
+int	lotery(char *put)
+{
+	int	i;
+
+	i = 0;
+	while (put[i])
+	{
+		if (put[i] == '\"' || put[i] == '\'' || put[i] == ' ')
+			break ;
+		i++;
+	}
+	return(i);
 }
 
 char	**splinter(char *input)
@@ -109,35 +123,31 @@ char	**splinter(char *input)
 	j = 0;
 	i = 0;
 	many = how_many(input);
-	split = malloc(sizeof(char **) * many + 1);
+	split = malloc(sizeof(split) * (many + 1));
 	put = input;
 	while (put[i])
 	{
 		put = &put[i];
-		i = 0;
-		if (put[i] == '$')
-			i++;
-		while (put[i] && put[i] != '\"' && put[i] != ' ')
+		i = lotery(put);
+		if (put[i] == '\"' || put[i] == '\'' || put[i] == ' ' || put[i] == '\0')
 		{
-			i++;
-			if (put[i] && put[i] == '$' && put[i] == '\"' && put[i] == ' ')
-				break ;
-		}
-		if (i > 0)
-		{
-			split[j] = malloc(sizeof(char *) * i + 1);
+			if (put[0] == '\"' || put[0] == '\'' || put[0] == ' '
+				|| put[0] == '\0')
+				i++;
+			split[j] = malloc(sizeof(split[j]) * (i + 1));
 			i = 0;
-			if (put[i] == '$')
+			while (put[i])
 			{
-				split[j][i] = put[i];
-				i++;
-			}
-			while (put[i] && put[i] != '\"' && put[i] != ' ')
-			{
-				split[j][i] = put[i];
-				i++;
-				if (put[i] == '$' || put[i] == '\"' || put[i] == ' ')
+				if (put[0] == '\"' || put[0] == '\'' || put[0] == ' ')
+				{
+					split[j][i] = put[i];
+					i++;
 					break ;
+				}
+				if (put[i] == '\"' || put[i] == '\'' || put[i] == ' ')
+					break ;
+				split[j][i] = put[i];
+				i++;
 			}
 			split[j][i] = '\0';
 			j++;
@@ -147,14 +157,11 @@ char	**splinter(char *input)
 	return (split);
 }
 
-char	*parse_input(char *input, t_minishell *minishell)
+void	expenssed(char **split, char *pls, t_minishell *minishell)
 {
-	int		i;
-	size_t	j;
-	char	**split;
-	char	*pls;
+	int	i;
+	int	j;
 
-	split = splinter(input);
 	i = 0;
 	j = 2;
 	while (split[i])
@@ -165,21 +172,24 @@ char	*parse_input(char *input, t_minishell *minishell)
 		{
 			pls = split[i];
 			if (ft_strcmp("$?", split[i]) == 0)
-			{
 				split[i] = ft_itoa(minishell->exit_status);
-				free(pls);
-			}
 			else
 			{
 				split[i] = get_expansion_value(minishell->env, &split[i][1]);
 				if (!split[i])
-					split[i] = pls;
-				else
-					free(pls);
+					split[i] = ft_strdup(pls);
 			}
+			free(pls);
 		}
 		i++;
 	}
+}
+
+char	*join_all(char **split, char *pls)
+{
+	int	i;
+	int	j;
+
 	i = 0;
 	j = 0;
 	while (split[j])
@@ -196,9 +206,21 @@ char	*parse_input(char *input, t_minishell *minishell)
 			j--;
 		}
 	}
+	return (pls);
+}
+
+char	*parse_input(char *input, t_minishell *minishell)
+{
+	char	**split;
+	char	*pls;
+
+	pls = NULL;
+	split = splinter(input);
+	expenssed(split, pls, minishell);
+	pls = join_all(split, pls);
 	free_char_array(split);
 	free(input);
-	return(pls);
+	return (pls);
 }
 
 int	main(int argc, char **argv, char **envp)
