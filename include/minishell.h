@@ -6,7 +6,7 @@
 /*   By: jbocktor <jbocktor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 00:27:45 by agadea            #+#    #+#             */
-/*   Updated: 2024/04/30 09:26:39 by jbocktor         ###   ########.fr       */
+/*   Updated: 2024/05/03 16:09:40 by jbocktor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -305,6 +305,9 @@ int			get_operator_type(char *input);
 void		get_word_token(char *input, t_token **new);
 void		get_operator_token(char *input, t_token **new);
 void		get_redirection_token(char *input, t_token *new);
+
+char		**split_expenssion(char *input);
+char		*parse_input(char *input, t_minishell *minishell);
 
 /*		PARSING		*/
 void		parsing(t_minishell *minishell);
