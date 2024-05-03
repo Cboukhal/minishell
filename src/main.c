@@ -6,7 +6,7 @@
 /*   By: jbocktor <jbocktor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 15:33:00 by cboukhal          #+#    #+#             */
-/*   Updated: 2024/05/03 12:28:12 by jbocktor         ###   ########.fr       */
+/*   Updated: 2024/05/03 12:45:11 by jbocktor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,12 +84,8 @@ int	how_many(char *input)
 	{
 		put = &put[i];
 		i = 0;
-		while (put[i] && put[i] != '$')
+		if (put[i] == '$')
 			i++;
-		if (i > 0)
-			j++;
-		put = &put[i];
-		i = 0;
 		while (put[i] && put[i] != '\"' && put[i] != ' ')
 		{
 			i++;
@@ -119,22 +115,8 @@ char	**splinter(char *input)
 	{
 		put = &put[i];
 		i = 0;
-		while (put[i] && put[i] != '$')
+		if (put[i] == '$')
 			i++;
-		if (i > 0)
-		{
-			split[j] = malloc(sizeof(char *) * i + 1);
-			i = 0;
-			while (put[i] && put[i] != '$')
-			{
-				split[j][i] = put[i];
-				i++;
-			}
-			split[j][i] = '\0';
-			j++;
-		}
-		put = &put[i];
-		i = 0;
 		while (put[i] && put[i] != '\"' && put[i] != ' ')
 		{
 			i++;
@@ -145,6 +127,11 @@ char	**splinter(char *input)
 		{
 			split[j] = malloc(sizeof(char *) * i + 1);
 			i = 0;
+			if (put[i] == '$')
+			{
+				split[j][i] = put[i];
+				i++;
+			}
 			while (put[i] && put[i] != '\"' && put[i] != ' ')
 			{
 				split[j][i] = put[i];
