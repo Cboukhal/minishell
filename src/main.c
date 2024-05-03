@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbocktor <jbocktor@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cboukhal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 15:33:00 by cboukhal          #+#    #+#             */
-/*   Updated: 2024/05/01 18:16:03 by jbocktor         ###   ########.fr       */
+/*   Updated: 2024/05/02 11:36:45 by cboukhal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -335,7 +335,6 @@ char *find_expenssion(char *input)
 				break;
 		j++;
 		y++;
-
 	}
 	new = malloc(sizeof(char *) * j + 1);
 	y = i;
@@ -356,7 +355,7 @@ void	lexical_modification(t_minishell *minishell)
 	char	*input;
 
 	input = find_expenssion(minishell->input);
-	replace_expenssion(minishell->input, input, "HELLO");
+	replace_expenssion(minishell->input, "$USER", "HELLO");
 	free(input);
 }
 
@@ -378,7 +377,7 @@ int	main(int argc, char **argv, char **envp)
 			break ;
 		}
 		add_history(minishell.input);
-		lexical_modification(&minishell);
+		//lexical_modification(&minishell);
 		lexical_analysis(&minishell, minishell.input);
 		parsing(&minishell);
 		execution(&minishell);

@@ -6,7 +6,7 @@
 /*   By: cboukhal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 11:59:02 by cboukhal          #+#    #+#             */
-/*   Updated: 2024/04/26 12:08:32 by cboukhal         ###   ########.fr       */
+/*   Updated: 2024/05/03 10:38:54 by cboukhal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,14 @@ size_t	expand_variable_in_lexeme(char *lexeme, char **lexeme_expanded,
 	const char *name, const char *value)
 {
 	size_t	i;
+	int		j;
 
 	i = 0;
+	j = 0;
 	while (*lexeme)
 	{
 		if (*lexeme == '$' && ft_strncmp(name,
-				&(*lexeme) + 1, ft_strlen(name)) == 0)
+				&(*lexeme) + 1, ft_strlen(name)) == 0 && j == 0)
 		{
 			while (*value)
 			{
@@ -29,7 +31,10 @@ size_t	expand_variable_in_lexeme(char *lexeme, char **lexeme_expanded,
 				value++;
 				i++;
 			}
-			return (i);
+			lexeme = lexeme + ft_strlen(name) + 1;
+			j = 1;
+			if (*lexeme == '\0')
+				return (i);
 		}
 		(*lexeme_expanded)[i] = *lexeme;
 		lexeme++;

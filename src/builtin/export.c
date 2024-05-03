@@ -6,7 +6,7 @@
 /*   By: cboukhal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 15:02:53 by cboukhal          #+#    #+#             */
-/*   Updated: 2024/04/30 15:02:55 by cboukhal         ###   ########.fr       */
+/*   Updated: 2024/05/02 14:09:58 by cboukhal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,9 @@ void	print_export(t_env *env, int fd)
 	{
 		write(fd, "declare -x ", 11);
 		write(fd, env->name, ft_strlen(env->name));
+		write(fd, "=", 1);
 		write(fd, env->value, ft_strlen(env->value));
+		write(fd, " ", 1);
 		printf("\n");
 		env = env->next;
 	}
