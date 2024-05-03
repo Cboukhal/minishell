@@ -6,7 +6,7 @@
 /*   By: cboukhal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 15:16:43 by cboukhal          #+#    #+#             */
-/*   Updated: 2024/04/30 15:16:45 by cboukhal         ###   ########.fr       */
+/*   Updated: 2024/05/03 12:23:38 by cboukhal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ void	manage_expansion(t_minishell *minishell, t_token **token, t_env *env)
 			(*token)->lexeme = expand_lexeme_variable((*token)->lexeme,
 					expansion->name, NULL);
 		expansion = expansion->next;
+		free (value);
 	}
-	free (value);
+	//free (value);
 }
