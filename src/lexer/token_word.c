@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   token_word.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cboukhal <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jbocktor <jbocktor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 15:34:23 by cboukhal          #+#    #+#             */
-/*   Updated: 2024/04/30 15:34:24 by cboukhal         ###   ########.fr       */
+/*   Updated: 2024/05/03 17:25:23 by jbocktor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,7 @@ int	get_word_length(char *input)
 	return (i);
 }
 
-void	extract_lexeme_from_input(const char *input, char *lexeme,
-	int length, int quote_nbr)
+void	extract_lexeme_from_input(const char *input, char *lexeme, int length)
 {
 	int		i;
 	int		j;
@@ -41,7 +40,7 @@ void	extract_lexeme_from_input(const char *input, char *lexeme,
 	j = 0;
 	quote = '\0';
 	second_quote = 0;
-	while (i < length - quote_nbr)
+	while (i < length)
 	{
 		if (is_quote(input[i]))
 			i += remove_quote(input[i], &quote, &second_quote);
@@ -63,7 +62,7 @@ char	*get_word_lexeme(char *input, int length, int quote_nbr)
 	lexeme = malloc(length - quote_nbr + 1);
 	if (!lexeme)
 		return (perror("malloc"), NULL);
-	extract_lexeme_from_input(input, lexeme, length, quote_nbr);
+	extract_lexeme_from_input(input, lexeme, length);
 	return (lexeme);
 }
 
